@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Khalid Bin Nasban — PMP, MBA | Performance & Project Management</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* Elegant Gold & Charcoal Palette */
+      --bg-main:      #ffffff;      
+      --bg-alt:       #fafafa;      
+      --text-main:    #1a1a1a;      
+      --text-muted:   #666666;      
+      --accent:       #c8a45d;      /* Primary Gold */
+      --accent-lt:    #dcb974;      /* Lighter gold for hover states */
+      --accent-dim:   rgba(200, 164, 93, 0.12); /* Faded gold for tags/numbers */
+      --line:         #eaeaea;      /* Subtle borders */
+      
+      /* Card Styles */
+      --card-bg:      #ffffff;      
+      --card-hover:   #fdfaf5;      /* Very subtle gold-white hover */
+      --card-border:  rgba(200, 164, 93, 0.2); /* Soft gold border on cards */
+      
+      --radius:       6px;
+      --transition:   0.38s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: 'Jost', sans-serif;
+      font-weight: 400; 
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── Noise Texture Overlay (Very Subtle) ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+      background-size: 180px;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.2;
+    }
+
+    /* ── Navigation ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.4rem 5vw;
+      background: rgba(255, 255, 255, 0.85); 
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--text-main);
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      transition: color var(--transition);
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 10rem 5vw 6rem;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 10%;
+      left: -10%;
+      width: 70vw;
+      height: 70vw;
+      max-width: 900px;
+      max-height: 900px;
+      background: radial-gradient(circle at center, rgba(200, 164, 93, 0.04) 0%, transparent 65%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+    }
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero-eyebrow-line {
+      width: 42px;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    .hero-eyebrow-text {
+      font-size: 0.75rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.2rem, 8vw, 6.5rem);
+      font-weight: 500;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      margin-bottom: 1rem;
+      color: var(--text-main);
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      font-weight: 600;
+    }
+
+    .hero-divider {
+      width: 60px;
+      height: 2px;
+      background: var(--line);
+      margin-bottom: 2rem;
+    }
+
+    .hero-summary {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      line-height: 1.85;
+      font-weight: 400;
+    }
+
+    .hero-cta {
+      margin-top: 3rem;
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.85rem 2rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.05);
+      transform: translateX(-100%);
+      transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .btn:hover::before { transform: translateX(0); }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #ffffff; 
+      border-radius: var(--radius);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-lt);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(200, 164, 93, 0.25);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-main);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .btn-arrow {
+      display: inline-block;
+      transition: transform var(--transition);
+    }
+
+    .btn:hover .btn-arrow { transform: translateX(4px); }
+
+    /* ── Section Base ── */
+    section {
+      position: relative;
+      z-index: 1;
+      padding: 7rem 5vw;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      margin-bottom: 3rem;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .section-line {
+      flex: 1;
+      max-width: 80px;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      margin-bottom: 4rem;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+
+    /* ── Projects Section ── */
+    .projects { background: var(--bg-alt); }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 3rem 2.6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(26, 26, 26, 0.04);
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 3px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .project-card:hover {
+      background: var(--card-hover);
+      border-color: rgba(200, 164, 93, 0.4);
+      transform: translateY(-6px);
+      box-shadow: 0 16px 32px rgba(26, 26, 26, 0.08);
+    }
+
+    .project-card:hover::before { transform: scaleX(1); }
+
+    .project-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      font-weight: 500;
+      color: var(--accent-dim);
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .project-tag {
+      display: inline-block;
+      padding: 0.3rem 0.8rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-dim);
+      border-radius: 4px;
+      font-weight: 700;
+      width: fit-content;
+    }
+
+    .project-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem;
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--text-main);
+    }
+
+    .project-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      font-weight: 400;
+      flex: 1;
+    }
+
+    .project-footer {
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .project-status {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+
+    /* ── Core Competencies ── */
+    .competencies { background: var(--bg-main); }
+
+    .competencies-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .comp-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(26, 26, 26, 0.04);
+    }
+
+    .comp-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: 2px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.45s ease;
+    }
+
+    .comp-card:hover {
+      background: var(--card-hover);
+      border-color: rgba(200, 164, 93, 0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(26, 26, 26, 0.06);
+    }
+
+    .comp-card:hover::after { transform: scaleX(1); }
+
+    .comp-icon {
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .comp-card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .comp-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ── About Strip ── */
+    .about-strip {
+      background: var(--bg-alt);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .about-text p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 1.2rem;
+    }
+
+    .cert-list {
+      margin-top: 1.5rem;
+      list-style: none;
+    }
+    
+    .cert-list li {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .cert-list li strong {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+
+    .stat-item {
+      border-left: 2px solid var(--accent);
+      padding-left: 1.5rem;
+    }
+
+    .stat-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      font-weight: 500;
+      color: var(--text-main);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    /* ── Horizontal rule accent ── */
+    .accent-rule {
+      border: none;
+      border-top: 1px solid var(--line);
+      margin: 0;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: #ffffff; 
+      padding: 5rem 5vw 3rem;
+      border-top: 1px solid var(--line);
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 3rem;
+      margin-bottom: 4rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--text-main);
+    }
+
+    .footer-brand span { color: var(--accent); }
+
+    .footer-tagline {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      letter-spacing: 0.1em;
+      font-weight: 500;
+    }
+
+    .footer-contact h4 {
+      font-size: 0.75rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color var(--transition);
+    }
+
+    .contact-link:hover { color: var(--accent); }
+
+    .contact-icon {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color var(--transition), background var(--transition);
+      flex-shrink: 0;
+      color: var(--accent);
+    }
+
+    .contact-link:hover .contact-icon {
+      border-color: var(--accent);
+      background: var(--accent-dim);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 2rem;
+      border-top: 1px solid var(--line);
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-copy, .footer-made {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Scroll Reveal ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.22s; }
+    .reveal-delay-3 { transition-delay: 0.34s; }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      nav { padding: 1.1rem 5vw; }
+      .nav-links { gap: 1.5rem; }
+      .nav-links a { font-size: 0.72rem; letter-spacing: 0.1em; }
+      .hero { padding: 8rem 5vw 5rem; }
+      .projects-grid, .competencies-grid { grid-template-columns: 1fr; }
+      .about-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .footer-top { flex-direction: column; gap: 2rem; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .nav-links { display: none; }
+      .hero h1 { font-size: 2.8rem; }
+      .stats-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav>
+    <a href="#" class="nav-logo">KN<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <span class="hero-eyebrow-text">Available For Hire</span>
+      </div>
+      <h1>Khalid Bin<br /><em>Nasban</em></h1>
+      <p class="hero-subtitle">PMP & ECBA Certified &nbsp;·&nbsp; MBA Graduate</p>
+      <div class="hero-divider"></div>
+      <p class="hero-summary">
+        Translating operational complexity into structured, data-driven results. Bringing over 7 years of cross-functional leadership, KPI performance management, and proven project delivery to scale enterprise operations.
+      </p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">View Projects <span class="btn-arrow">↓</span></a>
+        <a href="https://www.linkedin.com/in/khalid-nasban" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn Profile</a>
+        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="accent-rule" />
+
+  <!-- ── Projects ── -->
+  <section class="projects" id="projects">
+    <div class="section-header reveal">
+      <div class="section-line"></div>
+      <span class="section-label">Selected Work</span>
+    </div>
+    <h2 class="section-title reveal">Featured <em>Projects</em></h2>
+
+    <div class="projects-grid">
+
+      <!-- Card 1: Hotelpluse -->
+      <div class="project-card reveal">
+        <div class="project-number">01</div>
+        <span class="project-tag">Operations · Project Management</span>
+        <h3 class="project-title">Hotelpulse</h3>
+        <p class="project-desc">
+          A modern hospitality performance management system that tracks KPIs in real time, and delivers consistent service performance at scale — applying core project management methodologies to hospitality infrastructure.
+        </p>
+        <div class="project-footer">
+          <span class="project-status">Live Project</span>
+          <a href="https://knasban-hotelpulse.hf.space" target="_blank" rel="noopener" class="btn btn-primary">
+            View Project <span class="btn-arrow">→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 2: MBA Executive Knowledge Hub -->
+      <div class="project-card reveal reveal-delay-1">
+        <div class="project-number">02</div>
+        <span class="project-tag">Strategy · Frameworks</span>
+        <h3 class="project-title">MBA Knowledge Hub</h3>
+        <p class="project-desc">
+          A structured digital wiki distilling core frameworks across 11 executive disciplines — from OKRs and balanced scorecards to risk management — built as a practitioner's reference for high-performance decision-making.
+        </p>
+        <div class="project-footer">
+          <span class="project-status">Reference Resource</span>
+          <a href="https://seu-mba2026.tiiny.site" target="_blank" rel="noopener" class="btn btn-primary">
+            View Hub <span class="btn-arrow">→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 3: Data Analytics Portfolio -->
+      <div class="project-card reveal reveal-delay-2">
+        <div class="project-number">03</div>
+        <span class="project-tag">Python & Power BI</span>
+        <h3 class="project-title">Data Analytics Portfolio</h3>
+        <p class="project-desc">
+          A growing collection of data visualization and business intelligence projects. Currently featuring the <strong>Ehsan Donor Behavior Analysis</strong>, with more interactive dashboards to come.
+        </p>
+        <div class="project-footer">
+          <span class="project-status">Data Analysis</span>
+          <a href="ehsan-dashboard.html" class="btn btn-primary">
+            View Ehsan Project <span class="btn-arrow">→</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="accent-rule" />
+
+  <!-- ── Core Competencies ── -->
+  <section class="competencies" id="skills">
+    <div class="section-header reveal">
+      <div class="section-line"></div>
+      <span class="section-label">Core Competencies</span>
+    </div>
+    <h2 class="section-title reveal">What I <em>Bring</em></h2>
+    <div class="competencies-grid reveal reveal-delay-1">
+
+      <div class="comp-card">
+        <div class="comp-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+        </div>
+        <h4>Performance & KPIs</h4>
+        <p>Designing custom KPI frameworks, balanced scorecards, and OKR systems (like the 6-KPI model built for Movenpick) to align team output with strategy.</p>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg>
+        </div>
+        <h4>Project Coordination</h4>
+        <p>Certified PMP expertise in end-to-end delivery: scope definition, risk tracking, and cross-functional coordination from pre-opening setups to launch.</p>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <h4>Reporting & Dashboards</h4>
+        <p>Utilizing Power BI and Advanced Excel to automate executive reporting, saving daily manual hours and surfacing the right data at the right time.</p>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h4>Team Leadership</h4>
+        <p>Extensive experience managing and supervising shift teams (15-18 members), including scheduling, onboarding, and conflict resolution.</p>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20M5 20V8l7-5 7 5v12"/><path d="M9 20v-5h6v5"/></svg>
+        </div>
+        <h4>Process Improvement</h4>
+        <p>Analyzing operational data to identify bottlenecks, write standard operating procedures (SOPs) from scratch, and scale operational capacity.</p>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h4>Business Analysis</h4>
+        <p>ECBA Certified. Applying analytical frameworks to diagnose business problems, manage budgets, and recommend data-backed decisions.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="accent-rule" />
+
+  <!-- ── About Strip ── -->
+  <section class="about-strip" id="about">
+    <div class="about-inner">
+      <div class="about-text">
+        <div class="section-header reveal" style="margin-bottom:2rem;">
+          <div class="section-line"></div>
+          <span class="section-label">Credentials</span>
+        </div>
+        <h2 class="section-title reveal" style="margin-bottom:2rem;">
+          Structured for<br /><em>Results</em>
+        </h2>
+        <div class="reveal reveal-delay-1">
+          <p>
+            An MBA graduate (Second Degree Honours) specializing in project delivery and performance tracking. I bring the analytical rigor of executive strategy and the practical instinct of an operator to every team I join.
+          </p>
+          <p>
+            I scope clearly, track relentlessly, and close projects on target.
+          </p>
+          
+          <ul class="cert-list">
+            <li><strong>PMP</strong> — Project Management Professional (PMI)</li>
+            <li><strong>ECBA</strong> — Entry Certificate in Business Analysis (IIBA)</li>
+            <li><strong>Generative AI for Project Managers</strong> — IBM</li>
+            <li><strong>OKR Certification</strong> — Leadership & Goal Setting</li>
+            <li><strong>HR for People Managers</strong> — University of Minnesota</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="stats-grid reveal reveal-delay-2">
+        <div class="stat-item">
+          <div class="stat-value">PMP®</div>
+          <div class="stat-label">Project Management Professional</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">MBA</div>
+          <div class="stat-label">Second Degree Honours, SEU</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">7+</div>
+          <div class="stat-label">Years of Direct Operations Experience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">ECBA</div>
+          <div class="stat-label">Certified Business Analyst (IIBA)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer id="contact">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand">Khalid Bin <span>Nasban</span></div>
+          <p class="footer-tagline">Project Management · Performance KPIs · Operations</p>
+          <p class="footer-tagline" style="margin-top: 0.2rem; color: var(--accent);">Riyadh, Saudi Arabia</p>
+        </div>
+        <div class="footer-contact">
+          <h4>Connect</h4>
+          <div class="contact-links">
+            <a href="mailto:KNasban@gmail.com" class="contact-link">
+              <div class="contact-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                </svg>
+              </div>
+              KNasban@gmail.com
+            </a>
+            <a href="https://www.linkedin.com/in/khalid-nasban" target="_blank" rel="noopener" class="contact-link">
+              <div class="contact-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+                </svg>
+              </div>
+              linkedin.com/in/khalid-nasban
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 Khalid Bin Nasban. All rights reserved.</p>
+        <p class="footer-made">Engineered with precision.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const revealEls = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealEls.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

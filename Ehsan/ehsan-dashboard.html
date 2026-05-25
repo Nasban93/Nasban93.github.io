@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ehsan Donor Behavior Analysis | Khalid Bin Nasban</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  :root {
+    --bg: #F5F3EF;
+    --white: #FFFFFF;
+    --black: #1A1A1A;
+    --gold: #B8962E;
+    --gold-light: #D4B96A;
+    --gold-pale: #FAF6EE;
+    --muted: #6B6557;
+    --border: #E0D8C8;
+    --card: #FAFAF7;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--black);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  /* ── NAV ── */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 60px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--black);
+    text-decoration: none;
+  }
+  .logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 70px 40px 60px;
+  }
+  .hero-inner { max-width: 960px; margin: 0 auto; }
+
+  .breadcrumb {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .breadcrumb span { color: var(--gold); }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    font-weight: 300;
+    line-height: 1.12;
+    color: var(--black);
+    margin-bottom: 20px;
+  }
+  .hero h1 em { font-style: italic; color: var(--gold); }
+
+  .hero-sub {
+    font-size: 14px;
+    color: var(--muted);
+    max-width: 600px;
+    line-height: 1.8;
+    margin-bottom: 28px;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 36px;
+  }
+  .tag {
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+  }
+  .tag.gold { border-color: var(--gold); color: var(--gold); }
+
+  /* ── INTERACTIVE FILTER ── */
+  .filter-wrap {
+    margin-bottom: 32px;
+  }
+  .filter-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .filter-group {
+    display: flex;
+    gap: 0;
+    width: fit-content;
+    border: 1px solid var(--border);
+  }
+  .filter-btn {
+    background: transparent;
+    color: var(--muted);
+    border: none;
+    border-right: 1px solid var(--border);
+    padding: 10px 22px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+  .filter-btn:last-child { border-right: none; }
+  .filter-btn:hover { background: var(--gold-pale); color: var(--black); }
+  .filter-btn.active {
+    background: var(--black);
+    color: var(--gold);
+    font-weight: 500;
+  }
+
+  /* ── KPI GRID ── */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid var(--black);
+    margin-bottom: 36px;
+  }
+  .kpi {
+    padding: 28px 22px;
+    border-right: 1px solid var(--black);
+    position: relative;
+  }
+  .kpi:last-child { border-right: none; }
+  .kpi::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gold);
+  }
+  .kpi-val {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--black);
+    line-height: 1;
+    margin-bottom: 6px;
+    transition: opacity 0.2s ease;
+  }
+  .kpi-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* ── BUTTONS ── */
+  .btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: 1px solid var(--black);
+    color: var(--black);
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+  .btn:hover { background: var(--black); color: var(--gold); }
+  .btn.primary { background: var(--black); color: var(--gold); border-color: var(--black); }
+  .btn.primary:hover { background: var(--gold); color: var(--black); border-color: var(--gold); }
+
+  /* ── CONTAINER ── */
+  .container { max-width: 960px; margin: 0 auto; padding: 0 40px; }
+
+  /* ── SECTIONS ── */
+  .section { padding: 64px 0; border-bottom: 1px solid var(--border); }
+  .section:last-child { border-bottom: none; }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 32px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 0.12em;
+  }
+  .section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--black);
+  }
+
+  .prose {
+    font-size: 14.5px;
+    color: #3a3530;
+    line-height: 1.85;
+    margin-bottom: 18px;
+  }
+  .prose strong { color: var(--black); font-weight: 500; }
+
+  /* ── CLEANING TABLE ── */
+  .clean-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 20px; }
+  .clean-table th {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 11px 14px;
+    text-align: left;
+  }
+  .clean-table td { padding: 12px 14px; border-bottom: 1px solid var(--border); color: #3a3530; vertical-align: top; }
+  .clean-table tr:hover td { background: var(--gold-pale); }
+  .badge { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 8px; }
+  .badge-ok { background: var(--black); color: white; }
+  .badge-flag { background: var(--gold); color: white; }
+  .badge-new { background: var(--border); color: var(--muted); }
+
+  /* ── CHARTS ── */
+  .chart-card { background: var(--white); border: 1px solid var(--border); padding: 24px; margin-bottom: 18px; }
+  .chart-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 18px;
+  }
+  .charts-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px; }
+
+  /* ── FINDINGS ── */
+  .finding {
+    display: grid;
+    grid-template-columns: 3px 1fr;
+    gap: 22px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 26px 26px 26px 0;
+    margin-bottom: 14px;
+  }
+  .finding-bar { background: var(--gold); }
+  .finding-bar.dark { background: var(--black); }
+  .finding-inner { padding-right: 6px; }
+  .finding-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .finding-tag.dark { color: var(--black); }
+  .finding h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--black);
+    margin-bottom: 10px;
+    line-height: 1.35;
+  }
+  .finding p { font-size: 14px; color: #3a3530; line-height: 1.8; }
+  .implication {
+    margin-top: 12px;
+    padding: 11px 14px;
+    background: var(--gold-pale);
+    border-left: 3px solid var(--gold);
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+  }
+  .implication.dark { background: #f2f2f0; border-color: var(--black); }
+
+  /* ── SEGMENT CARDS ── */
+  .seg-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-bottom: 18px; }
+  .seg-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 20px 16px;
+    text-align: center;
+    border-top: 3px solid var(--border);
+  }
+  .seg-card.champ { border-top-color: var(--gold); }
+  .seg-card.loyal { border-top-color: var(--black); }
+  .seg-icon { font-size: 26px; margin-bottom: 8px; }
+  .seg-name { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--black); margin-bottom: 10px; }
+  .seg-stat { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); margin-bottom: 3px; }
+  .seg-stat span { color: var(--black); font-size: 12px; }
+
+  /* ── LIMITS ── */
+  .limit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .limit-card { background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--border); padding: 20px; }
+  .limit-card.next { border-top-color: var(--gold); }
+  .limit-card h4 { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .limit-card.next h4 { color: var(--gold); }
+  .limit-card p { font-size: 13.5px; color: #3a3530; line-height: 1.7; }
+
+  /* ── PDF EMBED ── */
+  .pdf-header {
+    background: var(--black);
+    color: var(--gold);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 12px 20px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 36px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+  }
+  footer a { color: var(--gold); text-decoration: none; }
+
+  @media (max-width: 720px) {
+    nav { padding: 18px 20px; }
+    .nav-links { display: none; }
+    .hero { padding: 50px 20px 40px; }
+    .container { padding: 0 20px; }
+    .kpi-grid { grid-template-columns: 1fr 1fr; }
+    .charts-2col { grid-template-columns: 1fr; }
+    .seg-grid { grid-template-columns: 1fr 1fr; }
+    .limit-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 10px; padding: 28px 20px; text-align: center; }
+    .filter-group { flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://khalid-bin-nasban.tiiny.site/" class="logo">KN<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="https://khalid-bin-nasban.tiiny.site/#experience">Experience</a></li>
+    <li><a href="https://khalid-bin-nasban.tiiny.site/#projects">Projects</a></li>
+    <li><a href="https://khalid-bin-nasban.tiiny.site/#skills">Skills</a></li>
+    <li><a href="https://khalid-bin-nasban.tiiny.site/#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">Portfolio → Data Analysis → <span>Project 01</span></div>
+    <h1>Decoding <em>Donor Behavior</em><br>on Saudi Arabia's National<br>Charity Platform</h1>
+    <p class="hero-sub">
+      40,931 transactions. 1,371 donors. 22 initiatives. This analysis examines seasonal giving patterns,
+      donor segmentation, and initiative performance across Ehsan — the Kingdom's official charitable platform.
+    </p>
+    <div class="tags">
+      <span class="tag gold">Power BI</span>
+      <span class="tag gold">DAX</span>
+      <span class="tag">Ehsan Platform</span>
+      <span class="tag">40,931 Transactions</span>
+      <span class="tag">Dec 2020 – Jul 2023</span>
+      <span class="tag">Saudi Open Data Portal</span>
+    </div>
+
+    <!-- Interactive Filter -->
+    <div class="filter-wrap">
+      <div class="filter-label">Filter KPIs by Period</div>
+      <div class="filter-group">
+        <button class="filter-btn active" id="btn-all" onclick="updateKPIs('all')">All Data</button>
+        <button class="filter-btn" id="btn-ramadan" onclick="updateKPIs('ramadan')">🌙 Ramadan Months</button>
+        <button class="filter-btn" id="btn-regular" onclick="updateKPIs('regular')">Regular Months</button>
+      </div>
+    </div>
+
+    <!-- KPI Grid -->
+    <div class="kpi-grid">
+      <div class="kpi">
+        <div class="kpi-val" id="val-count">40,931</div>
+        <div class="kpi-label">Total Transactions</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-val" id="val-donors">1,371</div>
+        <div class="kpi-label">Unique Donors</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-val" id="val-amount">SAR 1.54M</div>
+        <div class="kpi-label">Total Donated</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-val" id="val-avg">37.57</div>
+        <div class="kpi-label">Avg Donation (SAR)</div>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="btn-row">
+      <a href="Ehsan.pdf" target="_blank" class="btn primary">↗ View Dashboard PDF</a>
+      <a href="Ehsan.pbix" download class="btn">↓ Download .PBIX File</a>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="container">
+
+  <!-- SECTION 1 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2>Problem Statement</h2>
+    </div>
+    <p class="prose">
+      <strong>Ehsan</strong> is the Kingdom of Saudi Arabia's official national charitable giving platform,
+      operated under the National Center for the Development of the Nonprofit Sector. It aggregates
+      donations across 22 humanitarian and social initiatives — from Zakat and orphan sponsorship to
+      emergency relief and mosque maintenance.
+    </p>
+    <p class="prose">
+      With over <strong>40,000 transactions</strong> recorded across a 32-month window, the platform generates
+      rich behavioral data that remains largely unexplored from a strategic standpoint. Campaign managers
+      and fundraising officers lack a clear picture of <em>when</em> donors give, <em>who</em> gives repeatedly,
+      and <em>which initiatives</em> punch above their weight in revenue per transaction.
+    </p>
+    <p class="prose">
+      This analysis addresses three core business questions: <strong>(1)</strong> How does Ramadan and seasonal
+      timing affect donation volume and average transaction size? <strong>(2)</strong> What donor segments exist
+      and what share of total revenue do they control? <strong>(3)</strong> Which payment channels and initiatives
+      should receive priority in campaign strategy?
+    </p>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2>Data Source &amp; Cleaning Log</h2>
+    </div>
+    <table class="clean-table">
+      <thead>
+        <tr><th>Action</th><th>Detail</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Source</strong></td>
+          <td>Saudi Open Data Portal (SDAIA / Ehsan Platform). Single Excel sheet, 6 columns.</td>
+          <td><span class="badge badge-ok">✓ Verified</span></td>
+        </tr>
+        <tr>
+          <td><strong>Raw Shape</strong></td>
+          <td>40,931 rows × 6 columns: UserID, CreationTime, Title, Amount, InitiativeName, PaymentMethod</td>
+          <td><span class="badge badge-ok">✓ Loaded</span></td>
+        </tr>
+        <tr>
+          <td><strong>Date Range</strong></td>
+          <td>December 14, 2020 → July 13, 2023 (32 months)</td>
+          <td><span class="badge badge-ok">✓ Valid</span></td>
+        </tr>
+        <tr>
+          <td><strong>Null Records</strong></td>
+          <td>1 null in Title column. Row retained — Title not used in primary analysis. Replaced with "Unknown".</td>
+          <td><span class="badge badge-flag">⚠ Flagged</span></td>
+        </tr>
+        <tr>
+          <td><strong>Zero-Amount Records</strong></td>
+          <td>1 transaction with Amount = 0. Flagged with IsValidAmount column. Retained, excluded from averages.</td>
+          <td><span class="badge badge-flag">⚠ Flagged</span></td>
+        </tr>
+        <tr>
+          <td><strong>Outlier Check</strong></td>
+          <td>Max donation SAR 20,000. Min (excl. zero) SAR 1. Right-skewed distribution (median SAR 10 vs mean SAR 37.6). No capping applied.</td>
+          <td><span class="badge badge-ok">✓ Accepted</span></td>
+        </tr>
+        <tr>
+          <td><strong>Derived Columns</strong></td>
+          <td>5 new fields created in Power Query: Year, Month, Month Name, Hour, Day of Week.</td>
+          <td><span class="badge badge-new">+ Created</span></td>
+        </tr>
+        <tr>
+          <td><strong>Date Table</strong></td>
+          <td>Continuous Date Table created via DAX CALENDAR() function (973 rows). Is Ramadan column added, marked as official date table, one-to-many relationship established.</td>
+          <td><span class="badge badge-new">+ Created</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2>Methodology</h2>
+    </div>
+    <p class="prose">
+      <strong>Temporal Analysis:</strong> Aggregated 40,931 transactions by month using a continuous Date Table
+      to identify volume and revenue trends. Ramadan periods were identified and isolated (Apr–May 2021,
+      Apr–May 2022, Mar–Apr 2023) using a DAX calculated column on the Date Table, enabling one-click
+      Ramadan vs Regular filtering across all dashboard pages simultaneously.
+    </p>
+    <p class="prose">
+      <strong>Donor Segmentation (RFM-Inspired):</strong> Grouped all 1,371 unique donors by frequency
+      (transaction count) and total donated amount using CALCULATE + ALLEXCEPT DAX — the critical function
+      that calculates per-donor metrics without losing filter context. Applied a 4-tier rule-based classification:
+      Champions (≥20 transactions AND ≥SAR 500), Loyal (≥10 transactions OR ≥SAR 200),
+      Regular (3–9 transactions), and One-time (1–2 transactions).
+    </p>
+    <p class="prose">
+      <strong>Initiative &amp; Channel Performance:</strong> Compared all 22 initiatives across transaction
+      volume, total revenue, and average donation size using a dual-axis combo chart — revealing which
+      initiatives attract mass participation versus high-value giving. Payment channel analysis identified
+      a volume-vs-value divergence between Apple Pay and Debit Card.
+    </p>
+  </div>
+
+  <!-- SECTION 4 — KEY FINDINGS -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2>Key Findings</h2>
+    </div>
+
+    <!-- Monthly Chart -->
+    <div class="chart-card">
+      <div class="chart-label">Monthly Donation Trend — Dec 2020 to Jul 2023</div>
+      <canvas id="monthlyChart" height="95"></canvas>
+    </div>
+
+    <!-- Finding 1 -->
+    <div class="finding">
+      <div class="finding-bar"></div>
+      <div class="finding-inner">
+        <div class="finding-tag">Finding 01 — Seasonality</div>
+        <h3>Ramadan drives 2.2× the donation volume of an average month — and average transaction size doubles simultaneously</h3>
+        <p>
+          Ramadan months averaged 2,372 donations versus a non-Ramadan baseline of 1,068.
+          April 2022 alone recorded <strong>3,691 transactions</strong> — the single highest month in the dataset.
+          Critically, the average donation in that month reached <strong>SAR 99</strong> — 2.6× the overall mean of SAR 37.6 —
+          meaning Ramadan attracts both more donors and higher-value giving simultaneously.
+        </p>
+        <div class="implication">
+          → Fundraising teams should front-load Zakat and Orphan Sponsorship campaigns in the first two weeks of Ramadan. Automated recurring giving nudges could extend this energy into post-Ramadan months.
+        </div>
+      </div>
+    </div>
+
+    <!-- 2 charts row -->
+    <div class="charts-2col">
+      <div class="chart-card">
+        <div class="chart-label">Donation Volume by Hour of Day</div>
+        <canvas id="hourChart" height="200"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-label">Donation Volume by Day of Week</div>
+        <canvas id="dowChart" height="200"></canvas>
+      </div>
+    </div>
+
+    <!-- Finding 2 -->
+    <div class="finding">
+      <div class="finding-bar dark"></div>
+      <div class="finding-inner">
+        <div class="finding-tag dark">Finding 02 — Timing Behavior</div>
+        <h3>Donors peak at 7 AM and between 2–5 AM, with Friday generating 40% more volume than any weekday</h3>
+        <p>
+          The 7 AM spike (2,605 transactions) and 2–5 AM cluster reflect post-Tahajjud and pre-Fajr giving —
+          deeply tied to Islamic prayer timing. Friday dominates the week with <strong>7,740 transactions</strong>,
+          40% above the nearest weekday.
+        </p>
+        <div class="implication dark">
+          → Schedule push notifications for 6:45 AM and Thursday evening. Avoid 11 AM–3 PM for time-sensitive campaigns — the platform's lowest-engagement window.
+        </div>
+      </div>
+    </div>
+
+    <!-- Segment Cards -->
+    <div class="seg-grid">
+      <div class="seg-card champ">
+        <div class="seg-icon">🏆</div>
+        <div class="seg-name">Champions</div>
+        <div class="seg-stat">Donors: <span>212 (15%)</span></div>
+        <div class="seg-stat">Revenue share: <span style="color:var(--gold)">75.8%</span></div>
+      </div>
+      <div class="seg-card loyal">
+        <div class="seg-icon">💎</div>
+        <div class="seg-name">Loyal</div>
+        <div class="seg-stat">Donors: <span>559 (41%)</span></div>
+        <div class="seg-stat">Revenue share: <span>22.0%</span></div>
+      </div>
+      <div class="seg-card">
+        <div class="seg-icon">🔄</div>
+        <div class="seg-name">Regular</div>
+        <div class="seg-stat">Donors: <span>309 (23%)</span></div>
+        <div class="seg-stat">Revenue share: <span>1.4%</span></div>
+      </div>
+      <div class="seg-card">
+        <div class="seg-icon">👋</div>
+        <div class="seg-name">One-time</div>
+        <div class="seg-stat">Donors: <span>291 (21%)</span></div>
+        <div class="seg-stat">Revenue share: <span>0.7%</span></div>
+      </div>
+    </div>
+
+    <!-- Finding 3 -->
+    <div class="finding">
+      <div class="finding-bar"></div>
+      <div class="finding-inner">
+        <div class="finding-tag">Finding 03 — Donor Segmentation</div>
+        <h3>15% of donors (212 Champions) generate 75.8% of all revenue — a critical Pareto concentration</h3>
+        <p>
+          212 Champion donors each completed 20+ transactions totaling SAR 500+ over the period,
+          collectively contributing <strong>SAR 1.17 million</strong>.
+          The average Champion gave <strong>SAR 71 per transaction</strong>,
+          compared to SAR 14 for Regular donors. Losing 20 Champions represents over
+          <strong>SAR 100,000</strong> in projected annual donations.
+        </p>
+        <div class="implication">
+          → Champions require a VIP retention strategy — personalized impact reports and exclusive campaign previews. One-time donors should receive a 3-step re-engagement sequence within 30 days of their first gift.
+        </div>
+      </div>
+    </div>
+
+    <!-- Initiative Chart -->
+    <div class="chart-card">
+      <div class="chart-label">Top 10 Initiatives — Transaction Count vs Average Donation (SAR)</div>
+      <canvas id="initChart" height="110"></canvas>
+    </div>
+
+    <!-- Finding 4 -->
+    <div class="finding">
+      <div class="finding-bar dark"></div>
+      <div class="finding-inner">
+        <div class="finding-tag dark">Finding 04 — Initiative Strategy</div>
+        <h3>Farjat Quick Donate generates SAR 74 per transaction — nearly double the platform average</h3>
+        <p>
+          The "مشروع" (Project) initiative dominates by volume with 15,091 transactions but averages
+          only <strong>SAR 40</strong>. "فرجت - تبرع سريع" (Farjat Quick Donate) records 991 transactions
+          but achieves <strong>SAR 74.35 average</strong> — nearly double. The Recurring Donation initiative
+          (11,274 transactions) averages only <strong>SAR 8.67</strong>, confirming micro-subscriptions
+          rather than meaningful gifts.
+        </p>
+        <div class="implication dark">
+          → Farjat campaigns deserve higher marketing investment per-dollar-goal. Recurring donation flows need amount-upgrade prompts to improve per-donor lifetime value.
+        </div>
+      </div>
+    </div>
+
+    <!-- Payment Chart -->
+    <div class="chart-card">
+      <div class="chart-label">Payment Method — Volume vs Revenue</div>
+      <canvas id="payChart" height="80"></canvas>
+    </div>
+
+    <!-- Finding 5 -->
+    <div class="finding">
+      <div class="finding-bar"></div>
+      <div class="finding-inner">
+        <div class="finding-tag">Finding 05 — Payment Channels</div>
+        <h3>Apple Pay leads in volume (55%) but Debit Card drives 56% of revenue — a value-vs-convenience split</h3>
+        <p>
+          Apple Pay processed <strong>22,658 transactions</strong> at an average of SAR 29.8.
+          Debit Card processed fewer (18,159) but at <strong>SAR 47.4 average</strong> — 59% higher per transaction.
+          Apple Pay attracts impulsive, lower-value giving; Debit Card users are deliberate and higher-value.
+        </p>
+        <div class="implication">
+          → For high-value campaign pages targeting Champions, Debit Card UX should be equally polished. Test larger suggested amounts (SAR 100, 250, 500) in the Apple Pay flow to lift average transaction value.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5 — PDF -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2>Power BI Dashboard</h2>
+    </div>
+    <p class="prose" style="margin-bottom:20px;">
+      The interactive 3-page Power BI dashboard was built with 10 DAX measures, a continuous Date Table,
+      Ramadan period flagging, and RFM-inspired donor segmentation using CALCULATE + ALLEXCEPT.
+      Download the .PBIX file to explore the full interactive version.
+    </p>
+    <div style="border:1px solid var(--border); overflow:hidden; margin-bottom:20px;">
+      <div class="pdf-header">Power BI Export — 3-Page Dashboard (PDF)</div>
+      <iframe src="Ehsan.pdf" width="100%" height="780px" style="border:none; display:block;"></iframe>
+    </div>
+    <div class="btn-row">
+      <a href="Ehsan.pdf" target="_blank" class="btn primary">↗ Open Full PDF</a>
+      <a href="Ehsan.pbix" download class="btn">↓ Download .PBIX</a>
+    </div>
+  </div>
+
+  <!-- SECTION 6 — LIMITATIONS -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2>Limitations &amp; Next Steps</h2>
+    </div>
+    <div class="limit-grid">
+      <div class="limit-card">
+        <h4>⚠ Limitation 1</h4>
+        <p>Data covers Dec 2020 – Jul 2023 and overlaps with COVID-19 recovery, which may have suppressed or inflated baseline giving behavior.</p>
+      </div>
+      <div class="limit-card">
+        <h4>⚠ Limitation 2</h4>
+        <p>UserIDs are fully anonymized. No demographic data (age, city, gender) is available — analysis is behavior-based only.</p>
+      </div>
+      <div class="limit-card">
+        <h4>⚠ Limitation 3</h4>
+        <p>No campaign metadata. Correlation between marketing activity and donation spikes cannot be established without spend data.</p>
+      </div>
+      <div class="limit-card">
+        <h4>⚠ Limitation 4</h4>
+        <p>Hijri calendar alignment was estimated. Exact Hijri-date mapping for all transactions was not performed.</p>
+      </div>
+      <div class="limit-card next">
+        <h4>→ Next Step 1</h4>
+        <p>With campaign spend data: build a cost-per-donation model by initiative — true ROI by channel.</p>
+      </div>
+      <div class="limit-card next">
+        <h4>→ Next Step 2</h4>
+        <p>Apply cohort retention curves: what % of first-time donors return within 30, 60, 90 days?</p>
+      </div>
+      <div class="limit-card next">
+        <h4>→ Next Step 3</h4>
+        <p>Build a predictive model (XGBoost) classifying which one-time donors are likely to become Loyal — enabling proactive targeting.</p>
+      </div>
+      <div class="limit-card next">
+        <h4>→ Next Step 4</h4>
+        <p>Integrate with Ehsan's API for a live dashboard tracking daily donation velocity and new vs returning donor ratio.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <span>Khalid Bin Nasban — PMP &amp; ECBA · MBA · <a href="https://khalid-bin-nasban.tiiny.site/">Portfolio</a></span>
+  <span>Data: Saudi Open Data Portal · Ehsan Platform · Analyzed in Power BI</span>
+</footer>
+
+<script>
+// ── KPI DATA ──
+const kpiData = {
+  all:     { count:"40,931", donors:"1,371", amount:"SAR 1.54M", avg:"37.57" },
+  ramadan: { count:"10,512", donors:"1,105", amount:"SAR 0.62M", avg:"58.81" },
+  regular: { count:"30,419", donors:"1,245", amount:"SAR 0.92M", avg:"30.24" }
+};
+
+function updateKPIs(period) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('btn-' + period).classList.add('active');
+  const vals = document.querySelectorAll('.kpi-val');
+  vals.forEach(v => v.style.opacity = '0');
+  setTimeout(() => {
+    document.getElementById('val-count').innerText  = kpiData[period].count;
+    document.getElementById('val-donors').innerText = kpiData[period].donors;
+    document.getElementById('val-amount').innerText = kpiData[period].amount;
+    document.getElementById('val-avg').innerText    = kpiData[period].avg;
+    vals.forEach(v => v.style.opacity = '1');
+  }, 220);
+}
+
+// ── CHART DEFAULTS ──
+Chart.defaults.font.family = 'Jost';
+Chart.defaults.color = '#6B6557';
+const gold  = '#B8962E';
+const black = '#1A1A1A';
+const goldL = '#D4B96A';
+const muted = '#6B6557';
+
+// ── MONTHLY ──
+const months = ['Dec\'20','Jan','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec\'21','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec\'22','Jan','Feb','Mar','Apr','May','Jun','Jul\'23'];
+const counts = [1,16,72,862,967,163,318,280,277,382,363,477,720,939,1254,3691,1700,1462,2124,1810,1755,1765,1777,2198,2252,1728,2745,4267,1689,2584,293];
+const ramIdx = [3,4,15,16,26,27];
+
+new Chart(document.getElementById('monthlyChart'), {
+  type: 'bar',
+  data: {
+    labels: months,
+    datasets: [{
+      data: counts,
+      backgroundColor: counts.map((_,i) => ramIdx.includes(i) ? 'rgba(184,150,46,0.85)' : 'rgba(26,26,26,0.15)'),
+      borderColor: counts.map((_,i) => ramIdx.includes(i) ? gold : 'rgba(26,26,26,0.3)'),
+      borderWidth: 1, borderRadius: 2
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { display: false }, tooltip: { callbacks: { afterLabel: ctx => ramIdx.includes(ctx.dataIndex) ? '🌙 Ramadan' : '' } } },
+    scales: {
+      x: { grid: { display: false }, ticks: { font: { size: 9 }, maxRotation: 45 } },
+      y: { grid: { color: 'rgba(0,0,0,0.04)' } }
+    }
+  }
+});
+
+// ── HOURLY ──
+new Chart(document.getElementById('hourChart'), {
+  type: 'line',
+  data: {
+    labels: Array.from({length:24},(_,i)=>`${i}:00`),
+    datasets: [{
+      data: [1262,1385,2296,2082,2123,2052,1899,2605,1704,1463,1392,1264,1909,1697,1439,1521,1747,2249,1973,1523,1334,1300,1392,1320],
+      borderColor: gold, backgroundColor: 'rgba(184,150,46,0.08)',
+      borderWidth: 2, pointRadius: 2, tension: 0.4, fill: true
+    }]
+  },
+  options: { responsive: true, plugins: { legend: { display: false } },
+    scales: { x: { grid: { display: false }, ticks: { font: { size: 9 } } }, y: { grid: { color: 'rgba(0,0,0,0.04)' } } }
+  }
+});
+
+// ── DOW ──
+new Chart(document.getElementById('dowChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],
+    datasets: [{
+      data: [5219,5663,6229,5484,5636,7740,4960],
+      backgroundColor: ['rgba(26,26,26,0.15)','rgba(26,26,26,0.15)','rgba(26,26,26,0.15)','rgba(26,26,26,0.15)','rgba(26,26,26,0.15)','rgba(184,150,46,0.85)','rgba(26,26,26,0.15)'],
+      borderColor: [black,black,black,black,black,gold,black],
+      borderWidth: 1, borderRadius: 2
+    }]
+  },
+  options: { responsive: true, plugins: { legend: { display: false } },
+    scales: { x: { grid: { display: false } }, y: { grid: { color: 'rgba(0,0,0,0.04)' } } }
+  }
+});
+
+// ── INITIATIVE ──
+new Chart(document.getElementById('initChart'), {
+  type: 'bar',
+  data: {
+    labels: ['مشروع','التبرع الدوري','فرصة عامة','إغاثة','الحملات المخصصة','فرجت','فرجت سريع','تيسرت سريع','المتجر','المساجد'],
+    datasets: [
+      { label:'Transactions', data:[15091,11274,3100,2370,2086,1598,991,801,713,541], backgroundColor:'rgba(184,150,46,0.4)', borderColor:gold, borderWidth:1, borderRadius:2, yAxisID:'y' },
+      { label:'Avg SAR', data:[40.37,8.67,17.49,41.37,48.14,68.88,74.35,17.81,63.81,21.47], type:'line', borderColor:black, backgroundColor:'transparent', borderWidth:2, pointRadius:4, pointBackgroundColor:black, yAxisID:'y2', tension:0.3 }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { labels: { font: { size: 10 }, boxWidth: 10 } } },
+    scales: {
+      x: { grid: { display: false }, ticks: { font: { size: 9 } } },
+      y: { position:'left', grid: { color:'rgba(0,0,0,0.04)' }, title: { display:true, text:'Transactions', color:muted, font:{size:9} } },
+      y2: { position:'right', grid: { display:false }, title: { display:true, text:'Avg SAR', color:black, font:{size:9} }, ticks:{color:black} }
+    }
+  }
+});
+
+// ── PAYMENT ──
+new Chart(document.getElementById('payChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Apple Pay (أبل باي)','Debit Card (بطاقة الدفع)','Qataf Points'],
+    datasets: [
+      { label:'Transactions', data:[22658,18159,114], backgroundColor:['rgba(184,150,46,0.5)','rgba(26,26,26,0.4)','rgba(180,180,180,0.3)'], borderColor:[gold,black,'#aaa'], borderWidth:1, borderRadius:2, yAxisID:'y' },
+      { label:'Revenue (SAR)', data:[674490,861096,1959], backgroundColor:['rgba(184,150,46,0.15)','rgba(26,26,26,0.15)','rgba(180,180,180,0.1)'], borderColor:[gold,black,'#aaa'], borderWidth:1, borderRadius:2, yAxisID:'y2' }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { labels: { font: { size: 10 }, boxWidth: 10 } } },
+    scales: {
+      x: { grid: { display: false } },
+      y: { position:'left', grid: { color:'rgba(0,0,0,0.04)' }, title: { display:true, text:'Transactions', color:muted, font:{size:9} } },
+      y2: { position:'right', grid: { display:false }, title: { display:true, text:'Revenue (SAR)', color:black, font:{size:9} } }
+    }
+  }
+});
+</script>
+</body>
+</html>
