@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MGT 672 Study Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#151210;--card:#1a1714;--card2:#1e1b16;--border:#2a2520;--border2:#3d352e;--gold:#c49b63;--gold2:#8b6914;--text:#c4b5a0;--text2:#e8d5b7;--text3:#7a7068;--text4:#5a5048;--gbg:#1e2e1e;--gbd:#4caf50;--rbg:#2e1e1e;--rbd:#e53935}
+.light{--bg:#faf7f2;--card:#fff;--card2:#f5f0eb;--border:#e8e0d5;--border2:#e0d5c8;--text:#333;--text2:#1a1a2e;--text3:#999;--text4:#aaa;--gbg:#e8f5e9;--rbg:#ffebee}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:'IBM Plex Sans Arabic','IBM Plex Sans',system-ui;background:var(--bg);color:var(--text);min-height:100vh;transition:.3s}
+.sf{font-family:'Playfair Display',serif}.gb{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;border:none;border-radius:10px;cursor:pointer;font-family:inherit;font-weight:700}
+#W{text-align:center;padding:48px 20px}#W h1{font-size:28px;margin-bottom:8px;color:var(--text2)}
+#M{display:none}.tb{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--bg);z-index:10}
+.tb a{color:var(--gold);font-size:14px;cursor:pointer;text-decoration:none}.ct{max-width:680px;margin:0 auto;padding:0 16px 24px}
+.cp{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.cb{padding:6px 14px;border-radius:8px;font-size:12px;cursor:pointer;border:1px solid var(--border);background:var(--card);color:var(--text3);font-family:inherit;transition:.2s}
+.cb.a{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;border-color:transparent;font-weight:700}
+.hd{background:var(--card);border-radius:12px;padding:14px 16px;margin-bottom:16px;border:1px solid var(--border)}
+.ts{display:flex;gap:4px;margin-bottom:20px;background:var(--card);border-radius:10px;padding:4px; overflow-x:auto; white-space:nowrap;}
+.t{flex:1;padding:10px 12px;border-radius:8px;font-size:12px;cursor:pointer;background:transparent;color:var(--text3);border:none;font-family:inherit;transition:.2s; white-space:nowrap;}
+.t.a{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;font-weight:700}
+.cc{background:var(--card);border-radius:16px;padding:20px;border:1px solid var(--border)}
+.lw{direction:ltr;text-align:left}.ls{margin-bottom:24px}
+.ls h3{font-size:16px;font-weight:700;color:var(--gold);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border);font-family:'Playfair Display',serif}
+.lb{margin-bottom:16px}.lb h4{font-size:14px;font-weight:700;color:var(--text2);margin-bottom:6px}
+.lb p,.lb li{font-size:13.5px;line-height:1.85;color:var(--text);font-family:'IBM Plex Sans',system-ui}
+.lb ul,.lb ol{padding-left:20px;margin:4px 0 8px}.lb li{margin-bottom:3px}
+.dt{color:var(--gold);font-weight:600}
+.fc{border:2px solid var(--border2);border-radius:16px;padding:32px;min-height:160px;cursor:pointer;transition:.3s;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center}
+.fc.fr{background:var(--card)}.fc.bk{background:var(--card2)}
+.mq{font-size:15px;font-weight:600;margin-bottom:16px;line-height:1.6;color:var(--text2);direction:ltr;text-align:left}
+.mo{padding:12px 16px;border-radius:10px;border:1.5px solid var(--border2);background:var(--card);text-align:left;cursor:pointer;font-size:14px;color:var(--text);font-family:inherit;direction:ltr;transition:.2s}
+.mo:disabled{cursor:default}.mo.c{background:var(--gbg);border-color:var(--gbd)}.mo.w{background:var(--rbg);border-color:var(--rbd)}
+.eq{font-size:15px;font-weight:600;line-height:1.6;margin-bottom:16px;color:var(--text2);direction:ltr;text-align:left}
+.ea{width:100%;min-height:150px;padding:14px;border-radius:10px;font-size:14px;line-height:1.6;border:1.5px solid var(--border2);background:var(--card);color:var(--text);resize:vertical;font-family:inherit;direction:ltr;text-align:left}
+.hb{margin-top:12px;padding:16px;border-radius:10px;background:var(--card2);border:1px solid var(--border2);font-size:13px;line-height:1.8;direction:ltr;text-align:left}
+.hb strong{color:var(--gold)}
+.ss{padding:8px 12px;border-radius:8px;font-size:13px;cursor:pointer;border:1px solid var(--border2);background:var(--card);color:var(--text);font-family:inherit}
+.ss.a{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;border-color:transparent}
+.et{padding:6px 16px;border-radius:8px;font-size:13px;cursor:pointer;font-family:inherit;border:1px solid var(--border2);background:var(--card);color:var(--text)}
+.et.a{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;border-color:transparent}
+.copyright-card {display: inline-block;padding: 14px 24px;background: var(--card2);border: 1px solid var(--border2);border-radius: 12px;margin-bottom: 28px;box-shadow: 0 4px 15px rgba(0,0,0,0.05);text-align: center;}
+.copyright-card a {color: var(--text3);text-decoration: none;transition: 0.2s;}
+.copyright-card a:hover {color: var(--gold);}
+</style>
+</head>
+<body class="light">
+<div id="W">
+<div style="font-size:48px;margin-bottom:16px">🌍</div>
+<h1 class="sf">MGT 672 Study Guide</h1>
+<p style="font-size:14px;color:var(--text3)">International Management: Culture, Strategy, and Behavior</p>
+<p style="font-size:12px;color:var(--text4);font-style:italic;margin-bottom:28px">Luthans &amp; Doh, 10th Ed.</p>
+
+<div class="copyright-card">
+    <div style="font-size:14px; font-weight:700; color:var(--gold); margin-bottom:6px;">✨ تم التلخيص والتطوير بواسطة: خالد النصبان</div>
+    <div style="font-size:12px; direction: ltr; display:flex; justify-content:center; gap:16px;">
+        <a href="mailto:KNasban@gmail.com">📧 KNasban@gmail.com</a>
+        <a href="http://linkedin.com/in/khalid-nasban" target="_blank">🔗 LinkedIn Profile</a>
+    </div>
+</div>
+
+<p style="font-size:15px;line-height:1.9;max-width:500px;margin:0 auto 28px">الميدتيرم: الشابترات 1-7 | الفاينال: 8-14</p>
+<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:32px">
+<div style="background:var(--card2);border-radius:12px;padding:14px 18px;width:110px;border:1px solid var(--border2)"><div style="font-size:24px;margin-bottom:6px">📖</div><div style="font-size:14px;font-weight:700;color:var(--text2)">افهم</div><div style="font-size:11px;color:var(--text3)">Learn</div></div>
+<div style="background:var(--card2);border-radius:12px;padding:14px 18px;width:110px;border:1px solid var(--border2)"><div style="font-size:24px;margin-bottom:6px">🔄</div><div style="font-size:14px;font-weight:700;color:var(--text2)">استرجع</div><div style="font-size:11px;color:var(--text3)">Recall</div></div>
+<div style="background:var(--card2);border-radius:12px;padding:14px 18px;width:110px;border:1px solid var(--border2)"><div style="font-size:24px;margin-bottom:6px">✅</div><div style="font-size:14px;font-weight:700;color:var(--text2)">اختبر</div><div style="font-size:11px;color:var(--text3)">Test</div></div>
+<div style="background:var(--card2);border-radius:12px;padding:14px 18px;width:110px;border:1px solid var(--border2)"><div style="font-size:24px;margin-bottom:6px">📝</div><div style="font-size:14px;font-weight:700;color:var(--text2)">مقالات</div><div style="font-size:11px;color:var(--text3)">Essays</div></div>
+<div style="background:var(--card2);border-radius:12px;padding:14px 18px;width:110px;border:1px solid var(--gold)"><div style="font-size:24px;margin-bottom:6px">🏆</div><div style="font-size:14px;font-weight:700;color:var(--gold)">تجميعات</div><div style="font-size:11px;color:var(--text3)">Past Papers</div></div>
+</div>
+<button class="gb" style="padding:14px 48px;font-size:16px" onclick="S()">ابدأ المذاكرة</button>
+</div>
+<div id="M">
+<div class="tb"><a onclick="H()">← الرئيسية</a><span id="TL">Ch 1</span><button onclick="TH()" style="background:none;border:none;font-size:18px;cursor:pointer" id="TB">🌙</button></div>
+<div class="ct">
+<div style="font-size:13px;font-weight:700;color:var(--gold);margin:16px 0 8px">📋 الميدتيرم (1-7)</div>
+<div class="cp" id="MP"></div>
+<button id="FT" onclick="TF()" style="font-size:13px;font-weight:700;color:var(--text3);background:none;border:none;cursor:pointer;margin-bottom:8px;font-family:inherit">▶️ الفاينال (8-14)</button>
+<div class="cp" id="FP" style="display:none"></div>
+<div class="hd" id="CH"></div>
+<div class="ts">
+<button class="t a" data-t="learn" onclick="ST('learn',this)">📖 افهم</button>
+<button class="t" data-t="recall" onclick="ST('recall',this)">🔄 استرجع</button>
+<button class="t" data-t="test" onclick="ST('test',this)">✅ اختبر</button>
+<button class="t" data-t="essay" onclick="ST('essay',this)">📝 مقالات</button>
+<button class="t" data-t="past" onclick="ST('past',this)" style="color:var(--gold); font-weight:bold;">🏆 تجميعات</button>
+</div>
+<div class="cc" id="CA"></div>
+
+<div style="text-align:center;margin-top:24px;padding-top:16px;border-top:1px solid var(--border);font-size:12px;color:var(--text3);line-height:1.7;direction:ltr;">
+    MGT 672 — International Management Study Guide<br>
+    Developed & Summarized by <strong style="color:var(--gold)">Khalid Al-Nasban</strong><br>
+    <a href="mailto:KNasban@gmail.com" style="color:var(--text3);text-decoration:none;">KNasban@gmail.com</a> | <a href="http://linkedin.com/in/khalid-nasban" target="_blank" style="color:var(--text3);text-decoration:none;">LinkedIn</a>
+</div>
+
+</div>
+</div>
+<script>
+let C=1,T='learn',D=false,SF=false,MS={},RS={},ES={},PS={};
+function sh(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
+const CH={1:{t:"Globalization and International Linkages",a:"العولمة والروابط الدولية"},2:{t:"The Political, Legal, and Technological Environment",a:"البيئة السياسية والقانونية والتكنولوجية"},3:{t:"Ethics, Social Responsibility, and Sustainability",a:"الأخلاقيات والمسؤولية الاجتماعية والاستدامة"},4:{t:"The Meanings and Dimensions of Culture",a:"معاني وأبعاد الثقافة"},5:{t:"Managing across Cultures",a:"الإدارة عبر الثقافات"},6:{t:"Organizational Cultures and Diversity",a:"الثقافات التنظيمية والتنوع"},7:{t:"Cross-Cultural Communication and Negotiation",a:"التواصل والتفاوض عبر الثقافات"},8:{t:"Strategy Formulation and Implementation",a:"صياغة وتنفيذ الاستراتيجية"},9:{t:"Entry Strategies and Organizational Structures",a:"استراتيجيات الدخول والهياكل التنظيمية"},10:{t:"Managing Political Risk, Government Relations, and Alliances",a:"إدارة المخاطر السياسية والتحالفات"},11:{t:"Management Decision and Control",a:"القرار الإداري والرقابة"},12:{t:"Motivation across Cultures",a:"التحفيز عبر الثقافات"},13:{t:"Leadership across Cultures",a:"القيادة عبر الثقافات"},14:{t:"Human Resource Selection and Development across Cultures",a:"اختيار وتطوير الموارد البشرية"}};
+
+const L={
+1:`<div class="lw"><div class="ls"><h3>Key Definitions</h3><div class="lb"><h4>Management &amp; International Management</h4><p><span class="dt">Management</span> is the process of completing activities with and through other people. <span class="dt">International management</span> is applying management concepts in a multinational environment and adapting practices to different economic, political, and cultural contexts.</p></div><div class="lb"><h4>Multinational Corporations (MNCs)</h4><p>Firms with operations in more than one country, international sales, and a mix of nationality among managers and owners. Increasingly coming from developing nations like China and India.</p></div><div class="lb"><h4>Globalization vs. Internationalization</h4><p><span class="dt">Globalization:</span> Process of social, political, economic, cultural, and technological integration among countries. Evidence: increased trade, capital flows, migration.</p><p><span class="dt">Internationalization:</span> Process of a business crossing national and cultural borders.</p></div></div><div class="ls"><h3>Factors Facilitating Globalization</h3><div class="lb"><ul><li>Technological advances in communications, transport, and travel</li><li><span class="dt">Offshoring:</span> Activities at offshore locations instead of home country</li><li><span class="dt">Outsourcing:</span> Subcontracting activities previously done internally</li></ul><h4>Benefits</h4><p>Wealth, better jobs, access to technology, lower prices, availability of goods.</p><h4>Criticisms</h4><ul><li>Offshoring service jobs — downward pressure on wages</li><li>Growing trade deficits, slow wage growth</li><li>Environmental and social concerns</li></ul></div></div><div class="ls"><h3>Global &amp; Regional Agreements</h3><div class="lb"><ul><li><span class="dt">GATT:</span> Dramatic reduction of tariff and nontariff barriers</li><li><span class="dt">WTO:</span> Oversees rules for international trade and investment</li><li><span class="dt">NAFTA:</span> U.S., Canada, Mexico — eliminated tariffs/quotas, opened procurement markets</li><li><span class="dt">EU, ASEAN, TPP</span> — other major regional agreements</li></ul></div></div><div class="ls"><h3>Shifting Economic Power</h3><div class="lb"><ul><li><span class="dt">BRIC:</span> Brazil, Russia, India, China</li><li><span class="dt">E7:</span> Brazil, China, India, Indonesia, Mexico, Russia, Turkey</li><li><span class="dt">N-11:</span> Bangladesh, Egypt, Indonesia, Iran, Mexico, Nigeria, Pakistan, Philippines, Turkey, S. Korea, Vietnam</li></ul><p><span class="dt">FDI:</span> Foreign Direct Investment — amount invested in property, plant, or equipment abroad.</p></div></div><div class="ls"><h3>Economic Systems</h3><div class="lb"><h4>Market Economy</h4><p>Private enterprises own property. Least restrictive. Allocation by demand. Competition encourages innovation, quality, efficiency.</p><h4>Command Economy</h4><p>Government controls price and supply. State-owned businesses. Little motivation.</p><h4>Mixed Economy</h4><p>Combination of market and command. Raises standard of living through regulations.</p></div></div><div class="ls"><h3>World Economies</h3><div class="lb"><h4>Established</h4><p><span class="dt">North America:</span> $19T+ purchasing power. <span class="dt">Japan:</span> Keiretsus (vertically integrated corps), MITI. <span class="dt">EU:</span> Euro, challenges absorbing east.</p><h4>Emerging &amp; Developing</h4><ul><li><span class="dt">Russia:</span> Privatized; crime/corruption challenges</li><li><span class="dt">China:</span> Savings glut, unemployment, "one country two systems"</li><li><span class="dt">Chaebols:</span> Large Korean family conglomerates</li><li><span class="dt">India:</span> English-speaking, educated workforce</li><li><span class="dt">Mexico:</span> Strongest Latin American economy, maquiladora system</li><li><span class="dt">Middle East:</span> Oil reserves, geopolitical instability</li><li><span class="dt">Africa:</span> Resources but poor; highest ROI on FDI globally</li></ul></div></div></div>`,
+2:`<div class="lw"><div class="ls"><h3>Political Environment</h3><div class="lb"><p>Ideology underlies government actions. Dimensions: citizen rights (democratic to totalitarian) and individualism vs. collectivism.</p><h4>Individualism</h4><p>Freedom to pursue economic/political endeavors. Connected to capitalism. Private property more productive. Competition stimulates motivation. (Hume, Adam Smith, Aristotle)</p><h4>Collectivism</h4><p>Society's needs more important than individual desires. (Plato: rights sacrificed, property commonly owned.) Reflects fascism attributes.</p><h4>Socialism</h4><p>Government ownership; profit not ultimate goal. <span class="dt">Democratic socialism:</span> moderate (UK Labour). <span class="dt">Communism:</span> extreme form.</p></div></div><div class="ls"><h3>Political Systems</h3><div class="lb"><h4>Democracy</h4><p>Citizens control government through elections. Two-party minimum. Accountability, term limits.</p><h4>Totalitarianism</h4><p>One party controls all. Media censorship, repression, denial of rights. Common: communist totalitarianism.</p><p><span class="dt">China:</span> Trade liberalization since WTO 2001. <span class="dt">Middle East:</span> Islamic principles; modern technology sought.</p></div></div><div class="ls"><h3>Legal Environment</h3><div class="lb"><h4>Foundations of Law</h4><ul><li><span class="dt">Islamic Law:</span> From Qur'an and Prophet Muhammad. Middle East, Central Asia</li><li><span class="dt">Socialist Law:</span> From Marxist system. Communist countries</li><li><span class="dt">Common Law:</span> English law. U.S., Canada, England, Australia</li><li><span class="dt">Civil/Code Law:</span> Roman law. France, Latin America</li></ul><h4>Jurisdictional Principles</h4><ul><li><span class="dt">Sovereignty:</span> Right to self-rule</li><li><span class="dt">Nationality:</span> Jurisdiction over citizens anywhere</li><li><span class="dt">Territoriality:</span> Jurisdiction within legal territory</li><li><span class="dt">Protective:</span> Jurisdiction over behavior affecting national security</li><li><span class="dt">Doctrine of Comity:</span> Mutual respect for other countries' laws (custom, not law)</li><li><span class="dt">Act of State:</span> Other governments' acts considered valid by U.S. courts</li></ul><h4>FCPA</h4><p>Foreign Corrupt Practices Act: illegal to influence foreign officials through payments. Goals: stop corruption, upgrade U.S. image.</p><p><span class="dt">Bureaucratization:</span> Restrictive bureaucracies — biggest problem in developing markets.</p></div></div><div class="ls"><h3>Technology Trends</h3><div class="lb"><ul><li>Multimedia convergence; open-source software</li><li><span class="dt">Biotechnology:</span> Products through living organisms</li><li><span class="dt">E-Business:</span> B2B, B2C, E-retailing, e-cash</li><li><span class="dt">Technological leapfrogging:</span> Global affordable cell access</li><li>Technology eliminated middle management; made work portable</li></ul></div></div></div>`,
+3:`<div class="lw"><div class="ls"><h3>Ethics &amp; Ethical Theories</h3><div class="lb"><p><span class="dt">Ethics:</span> Study of morality and standards of conduct. Subject to cultural relativism.</p><p><span class="dt">Cultural Relativism:</span> Ethical standards based on culture; moral concepts lack universal application.</p><p><span class="dt">CSR:</span> Actions benefiting society beyond law requirements. Voluntary.</p><h4>Theories</h4><ul><li><span class="dt">Kantian:</span> Core moral principles beyond self-interest. Rejects consequences. Universal law test</li><li><span class="dt">Aristotelian Virtue:</span> Character formation. Right desire. Social process</li><li><span class="dt">Utilitarianism:</span> Greatest good for greatest number. Maximize utility</li><li><span class="dt">Eastern Philosophy:</span> People intrinsic part of universe</li></ul></div></div><div class="ls"><h3>Human Rights, Labor &amp; Environment</h3><div class="lb"><p><span class="dt">Glass Ceiling:</span> Invisible barrier for women reaching upper management. Worldwide.</p><p><span class="dt">EKC:</span> Environmental Kuznets Curve — inverted U-shape between income and degradation.</p><p><span class="dt">ISCT:</span> Integrative Social Contracts Theory — between relativism and absolutism.</p></div></div><div class="ls"><h3>CSR, Sustainability &amp; Governance</h3><div class="lb"><p><span class="dt">NGOs:</span> Private not-for-profit organizations. Counterweights to capitalism.</p><p><span class="dt">Triple Bottom Line:</span> Social + environmental + economic sustainability.</p><p><span class="dt">Fair Trade:</span> Better conditions for developing-nation producers.</p><p><span class="dt">Corporate Governance:</span> System directing/controlling businesses. Outsider (UK/US: dispersed) vs. Insider (Europe: concentrated).</p><p><span class="dt">Crony Capitalism:</span> Weak governance + government interference = crises.</p><p>Anti-corruption: FCPA, OECD, TRACE standard.</p></div></div></div>`,
+4:`<div class="lw"><div class="ls"><h3>Culture: Definition &amp; Characteristics</h3><div class="lb"><p><span class="dt">Culture:</span> Acquired knowledge to interpret experience and generate social behavior. Forms values, creates attitudes, influences behavior.</p><p><span class="dt">Characteristics:</span> Learned, shared, transgenerational, symbolic, patterned, adaptive.</p><h4>Value Priorities</h4><p><span class="dt">U.S.:</span> Freedom, independence, self-reliance, equality, individualism, competition, efficiency, directness.</p><p><span class="dt">Japan:</span> Belonging, group harmony, collectiveness, seniority, consensus, cooperation, patience, indirectness.</p><p><span class="dt">Arab:</span> Family security/harmony, parental guidance, authority, devotion, patience, hospitality.</p></div></div><div class="ls"><h3>Hofstede's Six Dimensions</h3><div class="lb"><h4>1. Power Distance</h4><p>Acceptance of unequal power. <span class="dt">High:</span> Obey superiors, centralized (Mexico, Korea, India). <span class="dt">Low:</span> Flat, decentralized.</p><h4>2. Uncertainty Avoidance</h4><p><span class="dt">High:</span> Need security, written rules, less risk. <span class="dt">Low:</span> Fewer rules, more risk, higher turnover.</p><h4>3. Individualism vs. Collectivism</h4><p>Self/family vs. group loyalty exchange.</p><h4>4. Masculinity vs. Femininity</h4><p>Success/money vs. caring/quality of life.</p><h4>5. Time Orientation</h4><p>Long-term: future, save/invest. Short-term: quick results, absolutes.</p><h4>6. Indulgence vs. Restraint</h4><p>Instant gratification vs. social norms regulate behavior.</p></div></div><div class="ls"><h3>Trompenaars's Seven Dimensions</h3><div class="lb"><ol><li><span class="dt">Universalism vs. Particularism:</span> Apply everywhere (US/UK/Germany) vs. circumstances dictate (China)</li><li><span class="dt">Individualism vs. Communitarianism:</span> Personal vs. group responsibility</li><li><span class="dt">Neutral vs. Emotional:</span> Stoic vs. openly expressive</li><li><span class="dt">Specific vs. Diffuse:</span> Work-life separation vs. interlinked</li><li><span class="dt">Achievement vs. Ascription:</span> Status by performance vs. age/gender/connections</li><li><span class="dt">Time:</span> Sequential (strict) vs. Synchronous (flexible)</li><li><span class="dt">Environment:</span> Inner-directed (control) vs. Outer-directed (harmony)</li></ol></div></div><div class="ls"><h3>GLOBE Project</h3><div class="lb"><p>9 dimensions: uncertainty avoidance, power distance, societal collectivism, in-group collectivism, gender egalitarianism, assertiveness, future/performance/humane orientations.</p></div></div></div>`,
+5:`<div class="lw"><div class="ls"><h3>Strategic Predispositions</h3><div class="lb"><ul><li><span class="dt">Ethnocentric:</span> Parent company values guide decisions</li><li><span class="dt">Polycentric:</span> Tailored to local cultures</li><li><span class="dt">Regiocentric:</span> Blends interests regionally</li><li><span class="dt">Geocentric:</span> Global systems approach</li></ul></div></div><div class="ls"><h3>Barriers &amp; Business Practices</h3><div class="lb"><p><span class="dt">Parochialism:</span> Viewing world through own perspective only.</p><p><span class="dt">Simplification:</span> Same orientation toward different cultural groups.</p><h4>Country-Specific Practices</h4><p><span class="dt">China:</span> Technical competence, punctuality, patience, <span class="dt">guanxi</span> (good connections), reciprocity.</p><p><span class="dt">Russia:</span> Personal relationships, local consultants, gift-giving ethical.</p><p><span class="dt">France:</span> Class stereotypes, highly centralized, rigid, autocratic.</p><p><span class="dt">Arab Countries:</span> Fatalistic time, status/rank important, business talks may start 3rd/4th meeting.</p></div></div></div>`,
+6:`<div class="lw"><div class="ls"><h3>Organizational Culture</h3><div class="lb"><p><span class="dt">Organizational Culture:</span> Shared assumptions for solving external adaptation and internal integration problems. Taught to new members as the correct way.</p><p>Characteristics: behavioral regularities, norms, dominant values, philosophy, rules, climate.</p><p><span class="dt">DOCSA (Hofstede):</span> Diagnosing Organizational Culture for Strategic Application.</p></div></div><div class="ls"><h3>Four Culture Types (Trompenaars)</h3><div class="lb"><h4>1. Family</h4><p>Hierarchy + person. Caring parent figure. Traditions bind. Foreign to U.S. managers.</p><h4>2. Eiffel Tower</h4><p>Hierarchy + task. Well-defined jobs, formal, impersonal, efficient. <strong>Ill-equipped for change.</strong></p><h4>3. Guided Missile</h4><p>Equality + task. Teams/projects. Egalitarian. Loyalty to profession > organization. Intrinsic motivation.</p><h4>4. Incubator</h4><p>Equality + personal. Little structure. Self-expression. Leadership achieved, not assigned.</p></div></div><div class="ls"><h3>Diversity</h3><div class="lb"><p>Evolution: Domestic → International → Multinational → Global.</p><p>Groups: <span class="dt">Homogeneous</span> (similar), <span class="dt">Token</span> (all but one same), <span class="dt">Bicultural</span> (two cultures), <span class="dt">Multicultural</span> (3+).</p><p>Advantages: creativity, better decisions, prevents <span class="dt">groupthink</span>. Problems: stereotypes, bias, miscommunication.</p><p>Team stages: Entry (trust) → Work (analyze) → Action (decide/implement).</p></div></div></div>`,
+7:`<div class="lw"><div class="ls"><h3>Communication</h3><div class="lb"><p><span class="dt">High-context:</span> Messages coded, implicit (Japan, Arab). <span class="dt">Low-context:</span> Explicit, direct (U.S., Germany).</p><h4>Verbal Styles</h4><ul><li><span class="dt">Elaborate:</span> Detailed, repetitive. Arabic countries</li><li><span class="dt">Exacting:</span> Precise. England, Germany, Sweden</li><li><span class="dt">Succinct:</span> Few words, silence. Asia</li><li><span class="dt">Contextual:</span> Status focus. High-PD cultures</li><li><span class="dt">Personal:</span> First names, reduce barriers. Low-PD</li><li><span class="dt">Affective:</span> Nonverbal, intuition. Middle East, Latin America</li><li><span class="dt">Instrumental:</span> Goal-oriented. Switzerland, Denmark, U.S.</li></ul></div></div><div class="ls"><h3>Flows &amp; Barriers</h3><div class="lb"><p><span class="dt">Downward:</span> Manager→subordinate. Direct in Europe, less in Asia.</p><p><span class="dt">Upward:</span> Subordinate→superior. Not popular outside Asia.</p><p>Barriers: language, perception, culture.</p></div></div><div class="ls"><h3>Nonverbal Communication</h3><div class="lb"><ul><li><span class="dt">Kinesics:</span> Body movement/facial expression. Oculesics (eyes), haptics (touch)</li><li><span class="dt">Proxemics:</span> Physical space — intimate, personal, social, public</li><li><span class="dt">Chronemics:</span> <span class="dt">Monochronic</span> (linear) vs. <span class="dt">Polychronic</span> (multitask, relationships first)</li><li><span class="dt">Chromatics:</span> Color to communicate</li></ul></div></div><div class="ls"><h3>Negotiation</h3><div class="lb"><p><span class="dt">Distributive:</span> Opposing goals, set value (win-lose). <span class="dt">Integrative:</span> Cooperate, create value (win-win).</p><h4>5-Step Process</h4><ol><li>Planning (objectives, options, common ground)</li><li>Relationship building</li><li>Information exchange</li><li>Persuasion</li><li>Agreement (concessions)</li></ol><h4>Five Principles</h4><ol><li>Separate people from problem</li><li>Focus on interests over positions</li><li>Generate options before settling</li><li>Insist on objective criteria</li><li><span class="dt">Stand ground (BATNA):</span> Don't agree below your Best Alternative</li></ol></div></div></div>`,
+8:`<div class="lw"><div class="ls"><h3>Strategic Management</h3><div class="lb"><h4>Four Approaches</h4><ul><li><span class="dt">Economic Imperative:</span> Cost leadership, differentiation, segmentation. Upstream value</li><li><span class="dt">Political Imperative:</span> Country-responsive. Downstream value. Multi-domestic</li><li><span class="dt">Quality Imperative:</span> TQM — cross-training, reengineering, quality rewards</li><li><span class="dt">Administrative Coordination:</span> Case-by-case. Flexible. Least common</li></ul></div></div><div class="ls"><h3>Integration vs. Responsiveness</h3><div class="lb"><h4>Four Strategies</h4><ul><li><span class="dt">International:</span> Low integration + low responsiveness</li><li><span class="dt">Multi-domestic:</span> Local adaptation</li><li><span class="dt">Global:</span> Price competition</li><li><span class="dt">Transnational:</span> BOTH integration AND responsiveness</li></ul><p>Steps: Environmental scanning → Internal analysis → Goal setting → Implementation (location, 4Ps, production, finance).</p></div></div><div class="ls"><h3>Specialized Strategies</h3><div class="lb"><p><span class="dt">First-Mover:</span> First to enter — learning effects, scale economies, best partners.</p><p><span class="dt">BOP:</span> Low-income customers in developing countries. Affordable, available, aware.</p><p><span class="dt">Born-Global:</span> International activity shortly after establishment.</p></div></div></div>`,
+9:`<div class="lw"><div class="ls"><h3>Entry Strategies</h3><div class="lb"><ul><li><span class="dt">Export/Import:</span> Minimum investment/risk. Transitional</li><li><span class="dt">Wholly Owned Subsidiary:</span> Total control. High risk</li><li><span class="dt">M&amp;A:</span> Quick expansion. Barriers: cultural differences</li><li><span class="dt">Joint Ventures:</span> Shared risk, local knowledge</li><li><span class="dt">Licensing:</span> Technology/brand for royalties</li><li><span class="dt">Franchising:</span> Business model and brand name rights</li></ul></div></div><div class="ls"><h3>Organizational Characteristics</h3><div class="lb"><ul><li><span class="dt">Formalization:</span> Defined structures, rules, procedures</li><li><span class="dt">Specialization:</span> Specific well-defined tasks</li><li><span class="dt">Centralization:</span> Decisions at top levels</li></ul></div></div></div>`,
+10:`<div class="lw"><div class="ls"><h3>Political Risk</h3><div class="lb"><p><span class="dt">Political Risk:</span> Unanticipated constraints from host government policies.</p><ul><li><span class="dt">Macro:</span> Affects ALL enterprises in country</li><li><span class="dt">Micro:</span> Affects selected sectors/specific businesses</li></ul><h4>Expropriation</h4><p>Government seizure with little/no compensation. Greatest risk: extractive, agricultural, infrastructure industries.</p><p>Minimize: local partners, limit high-tech, dependent affiliates, crisis plans.</p></div></div></div>`,
+11:`<div class="lw"><div class="ls"><h3>Decision-Making</h3><div class="lb"><p>French: ample time evaluating. Danish: act first. <span class="dt">Codetermination:</span> Workers + managers discuss decisions (Germany, Scandinavia).</p><h4>Japanese</h4><ul><li><span class="dt">Ringisei:</span> Consensus decision making</li><li><span class="dt">Tatemae:</span> Doing right thing per norm</li><li><span class="dt">Honne:</span> What one really wants to do</li></ul></div></div></div>`,
+12:`<div class="lw"><div class="ls"><h3>Motivation</h3><div class="lb"><p><span class="dt">Intrinsic:</span> Fulfillment from activity. <span class="dt">Extrinsic:</span> External rewards.</p><p><span class="dt">Maslow:</span> Physiological → Safety → Social → Esteem → Self-actualization.</p><p><span class="dt">Herzberg:</span> Hygiene factors prevent dissatisfaction. Motivators create satisfaction.</p><p>Universal process, culture influences specific content and goals.</p></div></div></div>`,
+13:`<div class="lw"><div class="ls"><h3>Leadership</h3><div class="lb"><h4>Foundations</h4><ul><li><span class="dt">Theory X:</span> Workers dislike work, avoid responsibility, need coercion</li><li><span class="dt">Theory Y:</span> Work is natural, people seek responsibility when committed</li></ul><h4>Styles</h4><ul><li><span class="dt">Authoritarian:</span> Leader decides alone</li><li><span class="dt">Paternalistic:</span> Decides but explains rationale</li><li><span class="dt">Participative:</span> Involves subordinates</li></ul><p>Cultural fit: Japan → paternalistic; U.S. → participative; Middle East → authoritarian.</p></div></div></div>`,
+14:`<div class="lw"><div class="ls"><h3>HR Sources</h3><div class="lb"><ul><li><span class="dt">Expatriates (Home-Country):</span> From HQ country. Start operations, expertise, develop managers</li><li><span class="dt">Host-Country Nationals:</span> Local managers</li><li><span class="dt">Third-Country Nationals:</span> Neither home nor host</li><li><span class="dt">Inpatriates:</span> From foreign ops to HQ</li></ul></div></div><div class="ls"><h3>Training &amp; Repatriation</h3><div class="lb"><p><span class="dt">Cultural Assimilator:</span> Training tool with cross-cultural scenarios. Highly regarded.</p><p><span class="dt">Repatriation:</span> Return home. Challenges: reverse culture shock, career uncertainty.</p></div></div></div>`
+};
+
+const Q={
+1:{
+    c:[{t:"Globalization",d:"Social, political, economic, cultural, technological integration among countries."},{t:"Internationalization",d:"Business crossing national and cultural borders."},{t:"MNC",d:"Operations in 1+ countries, international sales, mixed nationality managers."},{t:"Offshoring",d:"Activities at offshore locations instead of home country."},{t:"Outsourcing",d:"Subcontracting previously internal activities."},{t:"GATT",d:"Reduced tariff and nontariff barriers."},{t:"WTO",d:"Oversees rules for international trade/investment."},{t:"FDI",d:"Foreign Direct Investment — property/plant/equipment abroad."},{t:"BRIC",d:"Brazil, Russia, India, China."},{t:"Market Economy",d:"Private ownership; demand-driven allocation."},{t:"Command Economy",d:"Government controls price/supply."},{t:"Mixed Economy",d:"Market + command combination."},{t:"Keiretsus",d:"Japanese vertically integrated corporations."},{t:"Chaebols",d:"Korean family conglomerates."}],
+    m:[{q:"Process of integration among countries?",o:["Internationalization","Globalization","Outsourcing","Offshoring"],a:1},{q:"Oversees international trade rules?",o:["GATT","NAFTA","WTO","IMF"],a:2},{q:"BRIC excludes:",o:["Brazil","Russia","Indonesia","China"],a:2},{q:"Command economy controlled by:",o:["Private sector","Consumers","Government","Foreign investors"],a:2},{q:"Keiretsus are:",o:["Korean conglomerates","Japanese integrated corps","Chinese enterprises","Indian firms"],a:1},{q:"FDI stands for:",o:["Federal Domestic Investment","Foreign Direct Investment","Financial Development Index","Free Distribution"],a:1},{q:"NOT a globalization benefit:",o:["Lower prices","Technology access","Wage pressure","Better jobs"],a:2},{q:"NAFTA members:",o:["US, Canada, UK","US, Canada, Mexico","US, Mexico, Brazil","US, UK, Australia"],a:1},{q:"Mixed economy combines:",o:["Market only","Command only","Market + Command","Traditional"],a:2},{q:"Chaebols are from:",o:["Japan","China","South Korea","India"],a:2}],
+    e:[{q:"Discuss benefits and criticisms of globalization. How has it affected different regions?",h:"Benefits (wealth, jobs, tech, prices); criticisms (offshoring, wages, environment); BRIC/E7; GATT/WTO/NAFTA."},{q:"Compare market, command, and mixed economic systems and their impact on MNCs.",h:"Characteristics; examples; FDI impact; government role; advantages/disadvantages."}],
+    pm:[
+        {q:"To qualify as an MNC, a firm must meet all the following criteria EXCEPT:",o:["Operations in more than one country","Mix of nationalities among managers","International sales","Sales of at least two million dollars per year"],a:3},
+        {q:"A term used to indicate the amount invested in property, plants, equipment in another country is called:",o:["Exporting","Foreign direct investment (FDI)","Importing","Trade imperfection"],a:1},
+        {q:"The ultimate objective of the European Union is to:",o:["Create a single army","Eliminate all trade barriers among member countries","Adopt the English language","Merge into one country"],a:1},
+        {q:"Which of the following is a characteristic of a command economy?",o:["Demand drives production","The government has explicit control over the price and supply","Private ownership","High market competition"],a:1},
+        {q:"Looking at changing global demographics, which is an example of a change in developed nations?",o:["Explosive birth rates","In Japan, nonworkers will nearly equal workers by 2050","Youth population doubling","Elimination of immigration"],a:1},
+        {q:"_____ is a method that adjusts GDP to account for different prices in countries.",o:["FDI","PPP (Purchasing Power Parity)","GNI","ROI"],a:1},
+        {q:"The contracting out of activities by a company to external organizations overseas is called:",o:["FDI","Offshore outsourcing","Licensing","Franchising"],a:1}
+    ],
+    pe:[
+        {q:"Often, offshoring and outsourcing combine to form offshore outsourcing. Define this and provide an example.",h:"<b>Offshoring:</b> Activities at offshore locations instead of home country.<br><b>Outsourcing:</b> Contracting out to external organizations.<br><b>Example:</b> Apple designs in US, outsources manufacturing to Foxconn in China (offshore)."},
+        {q:"List at least 5 of the 10 factors/guidelines that successful global firms employ as global competitors.",h:"1. See themselves as multinational/world-ready leaders.<br>2. Develop integrated and innovative strategies.<br>3. Aggressively implement worldwide strategy with large investments.<br>4. Tap innovation from abroad.<br>5. Operate as if the world were one large market."}
+    ]
+},
+2:{
+    c:[{t:"Individualism",d:"Freedom to pursue economic/political endeavors; capitalism."},{t:"Collectivism",d:"Society's needs more important than individual."},{t:"Democracy",d:"Citizens control government; two-party minimum."},{t:"Totalitarianism",d:"One party controls all; suppression."},{t:"Islamic Law",d:"From Qur'an; Middle East/Central Asia."},{t:"Common Law",d:"English law; US, Canada, UK, Australia."},{t:"Civil Law",d:"Roman law; France, Latin America."},{t:"Sovereignty",d:"Right to self-rule."},{t:"FCPA",d:"Illegal to influence foreign officials through payments."}],
+    m:[{q:"Society's goals > individual?",o:["Individualism","Collectivism","Democracy","Socialism"],a:1},{q:"Common law derives from:",o:["Roman","Islamic","English","Marxist"],a:2},{q:"FCPA makes illegal:",o:["Exporting tech","Influencing officials via payments","Hiring foreigners","Avoiding taxes"],a:1},{q:"Jurisdiction over citizens anywhere:",o:["Territoriality","Nationality","Protective","Sovereignty"],a:1},{q:"Civil law from:",o:["English","Islamic","Roman","Chinese"],a:2},{q:"Extreme socialism:",o:["Democracy","Communism","Social democracy","Fascism"],a:1},{q:"Comity involves:",o:["Military agreements","Mutual respect for laws","Tax treaties","Trade agreements"],a:1},{q:"Totalitarianism characterized by:",o:["Multiple parties","One party controlling all","Free elections","Free press"],a:1}],
+    e:[{q:"Compare democracy and totalitarianism for MNC environments.",h:"Characteristics; individualism/collectivism; business freedom; corruption; examples."},{q:"Explain foundations of global law and jurisdictional principles.",h:"Islamic/socialist/common/civil law; sovereignty/nationality/territoriality; comity; FCPA."}],
+    pm:[
+        {q:"Traces of totalitarianism in government are still found in which of the following?",o:["France, UK","Vietnam, Cuba, and North Korea","Japan, South Korea","Canada, USA"],a:1},
+        {q:"Under the act of state doctrine, all acts of other governments are considered to be valid by U.S. courts, even if such acts are:",o:["Beneficial in the U.S.","Inappropriate in the U.S.","Supported by the UN","Identical to U.S. laws"],a:1},
+        {q:"In the context of the treatment rights of aliens, countries have the legal right to refuse admission and impose restrictions on all EXCEPT:",o:["Right of travel","Owning property","Voting","Running for office"],a:0},
+        {q:"Adopters of _____ adhere to the philosophy that people should be free to pursue economic and political interests.",o:["Collectivism","Socialism","Individualism","Totalitarianism"],a:2},
+        {q:"As a basic principle of international law, this doctrine indicates there must be mutual government recognition of jurisdiction:",o:["Doctrine of comity","Act of state doctrine","Principle of sovereignty","Territoriality principle"],a:0},
+        {q:"An act that makes it illegal to influence foreign officials through personal payment is:",o:["Doctrine of comity","Foreign Corrupt Practices Act (FCPA)","Bureaucratization","Sovereignty"],a:1},
+        {q:"According to Erik Qualman, which of the following has transformed the way we live and do business?",o:["Radio","Social media","Television","Print media"],a:1},
+        {q:"Which of the following statements is true about Bitcoin?",o:["Controlled by US","Physically backed by gold","Bitcoin must have the faith of its users for its system to work","No transaction records"],a:2},
+        {q:"Which of the following is NOT an example of privatization?",o:["Selling state airlines","Ireland buying up all the shares of stock in a company it previously owned half of","Deregulation of telecom","Selling government assets"],a:1},
+        {q:"Which one of the following is NOT a philosopher who founded the groundwork ideology of industrialism?",o:["David Hume","Adam Smith","Aristotle","John Locke"],a:2}
+    ],
+    pe:[
+        {q:"Explain the political system of totalitarianism and identify its features.",h:"<b>Totalitarianism:</b> One representative party exhibits control over every facet of life.<br><b>Features:</b> Suppression of opposition, media censorship, political repression, denial of civil rights."},
+        {q:"List the four foundations on which laws are based around the world, and briefly explain each.",h:"<b>1. Islamic law:</b> Derived from Qur'an (Middle East).<br><b>2. Socialist law:</b> From Marxist system (China, Vietnam).<br><b>3. Common law:</b> From English law, custom/precedent (US, UK).<br><b>4. Civil/code law:</b> Derived from Roman law, written codes (France)."},
+        {q:"What are the four major technologies expected to transform business in the next decade?",h:"1. The Internet of Things (IoT).<br>2. Blockchain technology.<br>3. AI and Machine Learning.<br>4. Robotics paired with any of these."}
+    ]
+},
+3:{
+    c:[{t:"Ethics",d:"Study of morality; subject to cultural relativism."},{t:"CSR",d:"Actions beyond law benefiting society; voluntary."},{t:"Triple Bottom Line",d:"Social + environmental + economic sustainability."},{t:"Utilitarianism",d:"Greatest good for greatest number."},{t:"Kantian Ethics",d:"Moral principles beyond self-interest; rejects consequences."},{t:"ISCT",d:"Between relativism and absolutism."},{t:"NGO",d:"Private not-for-profit; social/political/economic issues."},{t:"EKC",d:"Inverted U: income vs. environmental degradation."},{t:"Corporate Governance",d:"System directing/controlling businesses."},{t:"Crony Capitalism",d:"Weak governance + government interference = crises."}],
+    m:[{q:"Triple Bottom Line considers:",o:["Profit/revenue/expenses","Social/environmental/economic","Past/present/future","Local/national/global"],a:1},{q:"Greatest good for greatest number:",o:["Kantian","Virtue","Utilitarianism","Eastern"],a:2},{q:"Cultural relativism:",o:["Ethics universal","Standards depend on culture","Law determines ethics","Religion defines morality"],a:1},{q:"EKC shape:",o:["Linear","U-shape","Inverted U","Exponential"],a:2},{q:"CSR is more:",o:["Legally required","Voluntary","Profit-focused","Mandated"],a:1},{q:"NGOs are:",o:["Government agencies","Private not-for-profit","MNC subsidiaries","Trade unions"],a:1},{q:"Crony capitalism from:",o:["Strong governance","Weak governance","High competition","Free markets"],a:1},{q:"Kantian rejects:",o:["Intentions","Consequences","Character","Rules"],a:1}],
+    e:[{q:"Compare Kantian, utilitarian, and virtue ethics for offshoring decisions.",h:"Key principles; duty vs. outcomes vs. character; ISCT framework."},{q:"Explain CSR and Triple Bottom Line. Genuine responsibility or good business?",h:"CSR vs. ethics; NGOs; sustainability; governance; fair trade."}],
+    pm:[
+        {q:"The definition of ethics is:",o:["Study of profitability","The study of morality and the standards of conduct","Following laws","Maximizing wealth"],a:1},
+        {q:"Certain adages have certain meanings such as 'When in Rome, do as the Romans'. This is derived from:",o:["Cultural relativism","Ethnocentrism","Parochialism","Simplification"],a:0},
+        {q:"In which area have U.S. MNCs always assumed that bribes were required to ensure contracts?",o:["Western Europe","The Middle East","North America","Scandinavia"],a:1},
+        {q:"Eastern perspectives, unlike Western perspectives, hold that:",o:["Individuals are supreme","People are an intrinsic and inseparable part of the universe","Consequences justify means","Rules must be followed"],a:1},
+        {q:"Which of the following is NOT an example of an NGO?",o:["Amnesty International","Red Cross","OECD (Organization for Economic Co-operation and Development)","World Wildlife Fund"],a:2},
+        {q:"Development that meets humanity's needs without harming future generations is known as:",o:["CSR","Sustainability","Ethics","Globalization"],a:1},
+        {q:"Which of the following statements is NOT true about corporate governance?",o:["System by which businesses are directed","Specifies how rights are divided","It eliminates the need for a structure to set corporate objectives","Spells out rules for decisions"],a:2},
+        {q:"In the context of human rights, which of the following best reflects a glass ceiling effect?",o:["Child labor","Unequal managerial opportunities for women","Unsafe working conditions","Minimum wage violations"],a:1},
+        {q:"What does TRACE stand for?",o:["Trade Rules","Transparent Agents Against Contracting Entities","Treaty for Regional Agreements","Tax Revenue"],a:1}
+    ],
+    pe:[
+        {q:"Provide the definition of ethics and explain why ethical behavior of business has become a major issue.",h:"<b>Definition:</b> Study of morality and standards of conduct.<br><b>Why important:</b> Builds trust, ensures legal compliance (FCPA), promotes sustainability, creates consistent global standards."}
+    ]
+},
+4:{
+    c:[{t:"Culture",d:"Acquired knowledge for interpreting experience. Learned, shared, transgenerational."},{t:"Power Distance",d:"Acceptance of unequal power distribution."},{t:"Uncertainty Avoidance",d:"Threat from ambiguity."},{t:"Individualism vs Collectivism",d:"Self vs. group loyalty."},{t:"Universalism vs Particularism",d:"Apply everywhere vs. circumstances dictate."},{t:"Specific vs Diffuse",d:"Work-life separation vs. interlinked."},{t:"Achievement vs Ascription",d:"Status by performance vs. by who you are."},{t:"GLOBE",d:"9 cultural dimensions; middle managers; many countries."}],
+    m:[{q:"NOT a culture characteristic:",o:["Learned","Innate","Shared","Adaptive"],a:1},{q:"High power distance:",o:["Equality valued","Accept unequal power","Avoid authority","Flat structures"],a:1},{q:"Masculinity emphasizes:",o:["Quality of life","Success and money","Caring","Gender equality"],a:1},{q:"Universalism:",o:["By circumstances","Applied everywhere","Limited to one culture","Changed often"],a:1},{q:"Achievement status based on:",o:["Age/gender","Social connections","Performance","Family"],a:2},{q:"High UA countries have:",o:["More risk","More written rules","Higher turnover","Less structure"],a:1},{q:"Long-term societies:",o:["Quick results","Stability","Save and invest","Absolutes"],a:2},{q:"Particularism modifies:",o:["Tax laws","Contracts as relationships develop","Political systems","Currencies"],a:1}],
+    e:[{q:"Explain Hofstede's six dimensions with examples.",h:"All 6 with country examples; management implications."},{q:"Compare Hofstede and Trompenaars. How does GLOBE extend?",h:"6 vs. 7 dimensions; overlaps; GLOBE's 9; methodology."}],
+    pm:[
+        {q:"Which of the following is a characteristic of culture?",o:["Learned","Transgenerational","Shared","All of the above"],a:3},
+        {q:"According to Hofstede, individuals in countries that tend to be independent decision-makers define achievement under:",o:["Power distance","Individualism","Uncertainty avoidance","Masculinity"],a:1},
+        {q:"According to Hofstede's research, which dimension looked at the relationship between gender roles?",o:["Power distance","Uncertainty avoidance","Masculinity versus Femininity","Individualism versus Collectivism"],a:2},
+        {q:"When people are accorded status based on their achievements, they are associated with a/an:",o:["Ascription culture","Performance / Achievement culture","Diffuse culture","Family culture"],a:1},
+        {q:"In Trompenaars' research, when people from specific cultures do business in diffuse cultures, they should:",o:["Demand quick answers","Not get impatient when people are being indirect or circuitous","Ignore personal relationships","Use strict contracts"],a:1},
+        {q:"What does the term GLOBE stand for?",o:["Global Leadership and Organizational Behavior Effectiveness","Global Logistics","General Laws","Global Learning"],a:0}
+    ],
+    pe:[
+        {q:"After Hofstede identified the four original dimensions of culture, he later identified two additional dimensions. List and explain them.",h:"<b>1. Time Orientation:</b> Long-term (future, saving) vs. Short-term (quick results).<br><b>2. Indulgence vs. Restraint:</b> Indulgent (free gratification of drives) vs. Restrained (suppress gratification through social norms)."}
+    ]
+},
+5:{
+    c:[{t:"Ethnocentric",d:"Parent company values guide all decisions."},{t:"Polycentric",d:"Tailored to local cultures."},{t:"Regiocentric",d:"Regional interest blending."},{t:"Geocentric",d:"Global systems approach."},{t:"Parochialism",d:"Own-perspective viewing only."},{t:"Simplification",d:"Same orientation for different groups."},{t:"Guanxi",d:"Chinese 'good connections'."}],
+    m:[{q:"Parent values guide all:",o:["Polycentric","Geocentric","Ethnocentric","Regiocentric"],a:2},{q:"Polycentric =",o:["HQ decisions","Local cultures","Regional","Global"],a:1},{q:"Parochialism:",o:["Adapting","Own perspective","Simplifying","Respecting all"],a:1},{q:"Guanxi:",o:["Japanese loyalty","Chinese connections","Korean hierarchy","Indian spirituality"],a:1},{q:"French organizations:",o:["Decentralized","Centralized/rigid","Flat","Team-based"],a:1},{q:"Arab business may start:",o:["1st meeting","2nd meeting","3rd/4th meeting","After contract"],a:2}],
+    e:[{q:"Compare four predispositions. Best for EU manufacturing firm?",h:"Characteristics; advantages/disadvantages; EU context."},{q:"How do parochialism/simplification act as barriers? Examples for China, France, Arab.",h:"Definitions; guanxi; French centralization; Arab time approach."}],
+    pm:[
+        {q:"A company that allows the values and interests of the parent company to guide strategic decisions follows which predisposition?",o:["Polycentric","Ethnocentric","Regiocentric","Geocentric"],a:1},
+        {q:"An MNC with a cultural strategic disposition that tries to blend its own interests with those of its subsidiaries on a regional basis has a:",o:["Polycentric","Regiocentric","Geocentric","Ethnocentric"],a:1},
+        {q:"Which characteristic of MNC management is NOT part of a polycentric orientation?",o:["Local adaptation","Social Media","Decentralized control","Host-country nationals"],a:1},
+        {q:"Which of the following viewpoints reflects an approach when managers look at the business environment based on their own perspective only?",o:["Simplification","Ethnocentrism","Parochialism","Cultural relativism"],a:2},
+        {q:"Which refers to the process of exhibiting the same orientation toward different cultural groups?",o:["Parochialism","Simplification","Ethnocentrism","Stereotyping"],a:1},
+        {q:"Which of the following cultures is known for business people having a relaxed work ethic, often respecting those who inherit wealth?",o:["USA","Japan","Germany","France"],a:3},
+        {q:"Social classes are important structures in society, including the bourgeoisie. Which country is most historically associated with this?",o:["USA","UK","France","Japan"],a:2}
+    ],
+    pe:[]
+},
+6:{
+    c:[{t:"Organizational Culture",d:"Shared assumptions for external adaptation/internal integration."},{t:"Family Culture",d:"Hierarchy + person; caring parent."},{t:"Eiffel Tower",d:"Hierarchy + task; formal; ill-equipped for change."},{t:"Guided Missile",d:"Equality + task; teams; loyalty to profession."},{t:"Incubator",d:"Equality + personal; leadership achieved."},{t:"Groupthink",d:"Conformity pressure; diversity prevents it."}],
+    m:[{q:"Caring parent figure:",o:["Eiffel Tower","Guided Missile","Family","Incubator"],a:2},{q:"Guided Missile is:",o:["Hierarchical","Egalitarian/task-driven","Personal expression","Rigid"],a:1},{q:"Prevents groupthink:",o:["Homogeneous teams","Hierarchy","Diversity","Centralization"],a:2},{q:"Eiffel Tower ill-equipped for:",o:["Routine","Changes","Procedures","Descriptions"],a:1},{q:"Incubator leadership:",o:["By position","Achieved/creativity","Inherited","Seniority"],a:1},{q:"Token groups:",o:["All same","All but one same","Two cultures","Three+ cultures"],a:1},{q:"Loyalty to profession:",o:["Family","Eiffel Tower","Guided Missile","Incubator"],a:2},{q:"Phase IV:",o:["Domestic","International","Multinational","Global"],a:3}],
+    e:[{q:"Compare four org cultures. Where do Americans fit? Japanese?",h:"Characteristics; Americans→Guided Missile; Japanese→Family; implications."},{q:"Diversity advantages/problems. Guidelines for effective teams?",h:"Creativity, groupthink prevention; stereotypes; team stages."}],
+    pm:[
+        {q:"What type of organizational culture is power-oriented, headed by a leader who is regarded as a caring parent?",o:["Eiffel Tower","Guided Missile","Family","Incubator"],a:2},
+        {q:"What type of organizational culture is project-oriented?",o:["Family","Eiffel Tower","Guided Missile","Incubator"],a:2},
+        {q:"To unite a diverse set of employees, AstraZeneca's Global Steering Group focused on three universal cultural pillars. Which is NOT one of those pillars?",o:["Insight exchange","Commitment","Openness","Flexibility"],a:0},
+        {q:"Which of the following is NOT accurate about organizational culture?",o:["It has behavioral regularities","It involves shared values","Organizational culture tends to erase the impact of national culture","It creates a specific climate"],a:2},
+        {q:"What does DOCSA stand for?",o:["Diagnosing Organizational Culture for Strategic Application","Direct Operational Control","Data Orientation","Dynamic Organizational Culture"],a:0}
+    ],
+    pe:[
+        {q:"Name one of the four types of corporate cultures and discuss two characteristics associated with it.",h:"<b>Example: Family Culture.</b><br>1. Leader is regarded as a caring parent.<br>2. Strong hierarchy and close personal relationships. It is difficult for outsiders to become members."},
+        {q:"Discuss Hofstede's findings about the relationship between national and organizational culture.",h:"Hofstede found that <b>national cultural values of employees have a significant impact on their organizational performance.</b> The cultural values employees bring are deep-rooted and are NOT erased or easily changed by the organization's culture."}
+    ]
+},
+7:{
+    c:[{t:"High-context",d:"Coded, implicit messages (Japan, Arab)."},{t:"Low-context",d:"Explicit, direct (U.S., Germany)."},{t:"Elaborate",d:"Detailed, repetitive; Arabic countries."},{t:"Succinct",d:"Few words, silence; Asia."},{t:"Kinesics",d:"Body movement/facial expression."},{t:"Proxemics",d:"Physical space usage."},{t:"Chronemics",d:"Time: monochronic (linear) vs. polychronic (multitask)."},{t:"Distributive",d:"Win-lose; competing over set value."},{t:"Integrative",d:"Win-win; cooperate to create value."},{t:"BATNA",d:"Best Alternative to a Negotiated Agreement."}],
+    m:[{q:"High-context:",o:["Explicit","Implicit/indirect","Written only","Formal only"],a:1},{q:"Elaborate style:",o:["Germany","Japan","Arabic countries","US"],a:2},{q:"Proxemics:",o:["Body language","Physical space","Time","Color"],a:1},{q:"Monochronic:",o:["Multitask","Linear","Time unimportant","Flexible"],a:1},{q:"BATNA:",o:["Trade agreement","Best Alternative to Negotiated Agreement","Business alliance","Bilateral agreement"],a:1},{q:"Integrative negotiation:",o:["Win-lose","Cooperate/create value","Fixed resources","Opposing only"],a:1},{q:"Kinesics:",o:["Space","Time","Body movement/expression","Color"],a:2},{q:"Succinct common in:",o:["Middle East","Latin America","Asia","US"],a:2}],
+    e:[{q:"Explain high/low-context and verbal styles. Implications?",h:"Definitions; elaborate/exacting/succinct; contextual/personal; affective/instrumental."},{q:"International negotiation process and cultural impact on tactics.",h:"5 steps; distributive/integrative; BATNA; five principles; country examples."}],
+    pm:[
+        {q:"Which communication style is most common in Asia, where people tend to say few words and allow pauses and silence?",o:["Elaborate","Exacting","Succinct","Affective"],a:2},
+        {q:"Which of the following styles of communication focuses on precision and the use of the right amount of words?",o:["Elaborate","Exacting","Succinct","Affective"],a:1},
+        {q:"Messages are implicit and often highly coded in:",o:["Low context cultures","High context cultures","Exacting cultures","Instrumental cultures"],a:1},
+        {q:"Each culture has unique gestures (e.g., Canadians shake hands, Japanese bow). These are examples of:",o:["Proxemics","Kinesics / Haptics","Chronemics","Chromatics"],a:1},
+        {q:"There are many areas to consider when planning a negotiation. Which of the following is most important?",o:["Determining the location","Focusing on common ground between the parties","Setting strict limits","Avoiding all concessions"],a:1}
+    ],
+    pe:[
+        {q:"Define the term communication and describe the difference between downward and upward communication flows.",h:"<b>Communication:</b> The process of transferring meanings from sender to receiver.<br><b>Downward:</b> Transmission of info from manager to subordinate (convey orders/instructions).<br><b>Upward:</b> Transfer of info from subordinate to superior (provide feedback/ask questions)."},
+        {q:"What is negotiation? Discuss its two main types.",h:"<b>Negotiation:</b> Process of bargaining to arrive at an acceptable solution.<br><b>1. Distributive:</b> Two parties with opposing goals compete over a set value (Win-Lose).<br><b>2. Integrative:</b> Cooperation to integrate interests and create value (Win-Win)."},
+        {q:"Define communication and describe the three degrees of communication quantity.",h:"<b>1. Elaborate:</b> Great deal of talking, much detail, repetition (Arabic countries).<br><b>2. Exacting:</b> Focuses on precision and using exactly the right amount of words (England/Germany).<br><b>3. Succinct:</b> Saying few words, allowing understatements and silence (Asia)."}
+    ]
+},
+8:{
+    c:[{t:"Economic Imperative",d:"Cost leadership, differentiation, segmentation."},{t:"Transnational",d:"Both global integration AND local responsiveness."},{t:"First-Mover",d:"First to enter; learning/scale/partners."},{t:"BOP",d:"Low-income customers in developing countries."},{t:"Born-Global",d:"International shortly after establishment."}],
+    m:[{q:"Transnational emphasizes:",o:["Integration only","Responsiveness only","Both","Neither"],a:2},{q:"BOP targets:",o:["High-income","Low-income developing","Government","Luxury"],a:1},{q:"Born-global:",o:["Decades domestic","Internationalize early","Export only","Avoid emerging"],a:1},{q:"Multi-domestic:",o:["Standardization","Local adaptation","Price competition","Flexibility"],a:1}],
+    e:[{q:"Global integration vs. national responsiveness. Compare four strategies.",h:"Definitions; characteristics; cost vs. adaptation."},{q:"Emerging market strategies: first-mover and BOP.",h:"Volatility; first-mover advantages; BOP requirements; born-global."}],
+    pm:[
+        {q:"Today, many MNCs remain committed to a belief that one worldwide approach to doing business is the key to both efficiency and effectiveness. Which imperative does this reflect?",o:["Quality imperative","Economic imperative","Political imperative","Globalization imperative"],a:3},
+        {q:"In the context of the smartphone industry, which of the following helps Apple differentiate itself from its competitors?",o:["Lowest price","Product innovation","Free accessories","Local manufacturing"],a:1},
+        {q:"In China, Starbucks is facing strong domestic competition, including which brand?",o:["Dunkin","Tim Hortons","Luckin Coffee","Costa Coffee"],a:2}
+    ],
+    pe:[]
+},
+9:{
+    c:[{t:"Export/Import",d:"Minimum investment; transitional."},{t:"Wholly Owned Subsidiary",d:"Full control; high risk."},{t:"M&A",d:"Quick expansion; cultural barriers."},{t:"Joint Ventures",d:"Shared risk; local knowledge."},{t:"Licensing",d:"Technology/brand for royalties."},{t:"Franchising",d:"Business model/brand rights."}],
+    m:[{q:"Minimum investment entry:",o:["JV","Wholly owned","Export/import","Acquisition"],a:2},{q:"M&A biggest barrier:",o:["Legal","Cultural differences","Tech","Distance"],a:1},{q:"Licensing:",o:["Full ownership","Technology for royalties","Government partner","Buying firms"],a:1},{q:"Wholly owned provides:",o:["Shared risk","Full control/high risk","Minimum investment","Gov backing"],a:1}],
+    e:[{q:"Compare entry strategies. What factors matter?",h:"Characteristics; risk/control/resources; legal restrictions."},{q:"How do formalization/specialization/centralization affect structure?",h:"Definitions; coordination; cultural impact; efficiency vs. flexibility."}],
+    pm:[], pe:[]
+},
+10:{
+    c:[{t:"Political Risk",d:"Unanticipated constraints from host government."},{t:"Macro Risk",d:"Affects all enterprises."},{t:"Micro Risk",d:"Affects specific sectors/businesses."},{t:"Expropriation",d:"Seizure with little/no compensation."}],
+    m:[{q:"Political risk:",o:["Expected losses","Unanticipated government constraints","Natural disaster","Currency"],a:1},{q:"Macro risk affects:",o:["One firm","All enterprises","Foreign only","Domestic only"],a:1},{q:"Expropriation:",o:["Voluntary sale","Government seizure","Joint partnership","Withdrawal"],a:1},{q:"Minimize expropriation:",o:["Invest more","Local partners","Ignore laws","Only expatriates"],a:1}],
+    e:[{q:"Macro vs. micro political risk. MNC strategies?",h:"Definitions; expropriation; local partners; technology; crisis plans."},{q:"Challenges of international alliances.",h:"Types; cultural compatibility; trust; governance."}],
+    pm:[], pe:[]
+},
+11:{
+    c:[{t:"Ringisei",d:"Japanese consensus decision making."},{t:"Codetermination",d:"Workers+managers discuss decisions (Germany)."},{t:"Tatemae",d:"Right thing per norm (Japanese)."},{t:"Honne",d:"What one really wants (Japanese)."}],
+    m:[{q:"Ringisei:",o:["Top-down","Consensus","Individual","Reporting"],a:1},{q:"Codetermination:",o:["Workers+managers discuss","Government approval","Managers only","Auditing"],a:0},{q:"Tatemae:",o:["Personal desires","Right thing per norm","Consensus","Profit"],a:1},{q:"French managers:",o:["Quick decisions","Evaluate carefully","Delegate all","Avoid decisions"],a:1}],
+    e:[{q:"Compare decision-making: Japan, Germany, France, Scandinavia.",h:"Ringisei/Tatemae/Honne; codetermination; French centralized."},{q:"Direct vs. indirect controls in MNCs.",h:"Control types; performance; cultural impact."}],
+    pm:[], pe:[]
+},
+12:{
+    c:[{t:"Maslow's Hierarchy",d:"Physiological→Safety→Social→Esteem→Self-actualization."},{t:"Herzberg",d:"Hygiene prevents dissatisfaction; motivators create satisfaction."},{t:"Intrinsic",d:"Fulfillment from activity itself."},{t:"Extrinsic",d:"External rewards/compensation."}],
+    m:[{q:"Maslow starts with:",o:["Esteem","Safety","Physiological","Social"],a:2},{q:"Intrinsic from:",o:["External rewards","Internal fulfillment","Compensation","Government"],a:1},{q:"Content theories:",o:["How redirected","What arouses behavior","External only","Leadership"],a:1},{q:"Hygiene factors:",o:["Create satisfaction","Prevent dissatisfaction","Motivate","Replace salary"],a:1}],
+    e:[{q:"Maslow across cultures. Collectivist vs. individualist?",h:"Five levels; cultural variations; cross-cultural research."},{q:"Intrinsic/extrinsic across cultures. Reward systems?",h:"Definitions; cultural preferences; Herzberg; compensation strategies."}],
+    pm:[], pe:[]
+},
+13:{
+    c:[{t:"Theory X",d:"Workers dislike work, need coercion."},{t:"Theory Y",d:"Work natural; seek responsibility."},{t:"Authoritarian",d:"Leader decides alone."},{t:"Participative",d:"Involves subordinates."}],
+    m:[{q:"Theory X:",o:["Love work","Dislike/avoid responsibility","Seek responsibility","Self-directed"],a:1},{q:"Participative:",o:["Top-down","Involves subordinates","Avoids decisions","Military"],a:1},{q:"Theory Y:",o:["Need coercion","Natural/seek responsibility","Money only","No ambition"],a:1},{q:"Paternalistic:",o:["Ignores","Decides/explains","Delegates all","Punishes only"],a:1}],
+    e:[{q:"Compare X, Y, and leadership styles across cultures.",h:"Assumptions; three styles; cultural fit; GLOBE."},{q:"GLOBE culture clusters and leadership.",h:"Dimensions; clusters; charismatic/team/autonomous."}],
+    pm:[
+        {q:"Which of the following did Americans adopt from the Japanese?",o:["Authoritarian leadership","Participative management / autonomous work teams","Short-term orientation","High turnover rates"],a:1}
+    ],
+    pe:[]
+},
+14:{
+    c:[{t:"Expatriates",d:"Home-country nationals sent abroad."},{t:"Host-Country Nationals",d:"Local managers."},{t:"Third-Country Nationals",d:"Neither home nor host."},{t:"Inpatriates",d:"Foreign ops to HQ."},{t:"Cultural Assimilator",d:"Cross-cultural scenario training."},{t:"Repatriation",d:"Return home; reverse culture shock."}],
+    m:[{q:"Expatriates:",o:["Local hires","Home-country abroad","Third-country","Inpatriates"],a:1},{q:"Cultural assimilator:",o:["Style","Training tool","Legal doc","Metric"],a:1},{q:"Inpatriates:",o:["HQ to abroad","Foreign ops to HQ","Local","Contracted"],a:1},{q:"Repatriation challenge:",o:["Higher salary","Smooth transition","Readjustment","Guaranteed promotion"],a:2}],
+    e:[{q:"Compare home/host/third-country nationals.",h:"Expatriates (control/costly); HCNs (local/cheap); TCNs (broader)."},{q:"Expatriate cycle: selection, training, assignment, repatriation.",h:"Criteria; assimilator; support; reverse shock; retention."}],
+    pm:[
+        {q:"What does the term HRM stand for?",o:["Human Resource Management","Human Relations Management","Human Rights Movement","Human Resource Metrics"],a:0},
+        {q:"Although labor policies vary widely around the world, which is a policy an MNC generally DOES NOT encounter?",o:["Minimum age of workers","Wages and compensation","Expected work hours","Office location"],a:3},
+        {q:"Which of the following is true of Japanese firms in the context of human resource management practices?",o:["Individual bonuses only","Use group performance appraisal","High employee turnover","Short-term employment"],a:1}
+    ],
+    pe:[
+        {q:"In the contingency matrix for international HR, compare compensation systems using Japan as an example.",h:"In Japan, compensation systems focus on:<br>1. Seniority-based pay (rewarded based on tenure/loyalty).<br>2. Lifetime employment culture.<br>3. Group performance emphasis (bonuses based on team success, promoting harmony)."}
+    ]
+}
+};
+
+function S(){document.getElementById('W').style.display='none';document.getElementById('M').style.display='block';BP();RC();}
+function H(){document.getElementById('W').style.display='block';document.getElementById('M').style.display='none';}
+function TH(){D=!D;document.body.classList.toggle('light',!D);document.getElementById('TB').textContent=D?'☀️':'🌙';}
+
+function BP(){
+    const m=document.getElementById('MP'),f=document.getElementById('FP');
+    m.innerHTML='';f.innerHTML='';
+    for(let i=1;i<=7;i++){
+        const b=document.createElement('button');
+        b.className='cb'+(C===i?' a':'');
+        b.textContent=i;
+        b.onclick=()=>{C=i;T='learn';RC();};
+        m.appendChild(b);
+    }
+    for(let i=8;i<=14;i++){
+        const b=document.createElement('button');
+        b.className='cb'+(C===i?' a':'');
+        b.textContent=i;
+        b.onclick=()=>{C=i;T='learn';RC();};
+        f.appendChild(b);
+    }
+}
+
+function TF(){SF=!SF;document.getElementById('FP').style.display=SF?'flex':'none';document.getElementById('FT').innerHTML=(SF?'🔽':'▶️')+' الفاينال (8-14)';}
+
+function ST(t,el){
+    T=t;
+    document.querySelectorAll('.t').forEach(x=>x.classList.remove('a'));
+    el.classList.add('a');
+    RN();
+}
+
+function RC(){
+    BP();
+    document.getElementById('TL').textContent='Ch '+C;
+    document.getElementById('CH').innerHTML=`<div style="font-size:12px;color:var(--text3)">Chapter ${C}</div><div class="sf" style="font-size:16px;font-weight:700;color:var(--text2)">${CH[C].t}</div><div style="font-size:13px;color:var(--text4)">${CH[C].a}</div>`;
+    
+    document.querySelectorAll('.t').forEach(x=>{
+        x.classList.remove('a');
+        if(x.dataset.t===T) x.classList.add('a');
+    });
+
+    if(C>=8 && !SF){
+        SF=true;
+        document.getElementById('FP').style.display='flex';
+        document.getElementById('FT').innerHTML='🔽 الفاينال (8-14)';
+    }
+    RN();
+}
+
+function RN(){
+    const a=document.getElementById('CA'),d=Q[C];
+    if(T==='learn') a.innerHTML=L[C];
+    else if(T==='recall') RR(a,d);
+    else if(T==='test') RM(a,d);
+    else if(T==='essay') RE(a,d);
+    else RP(a,d); // Past papers tab
+}
+
+function RR(a,d){
+    if(!d.c || d.c.length===0) { a.innerHTML='<div style="text-align:center;color:var(--text3);padding:20px;">لا يوجد بطاقات استرجاع هنا.</div>'; return; }
+    if(!RS[C])RS[C]={c:sh(d.c),i:0,f:false};
+    const s=RS[C],c=s.c[s.i];
+    a.innerHTML=`<div style="font-size:13px;color:var(--text3);text-align:center;margin-bottom:12px">${s.i+1}/${s.c.length} <button onclick="RS[${C}]={c:sh(Q[${C}].c),i:0,f:false};RN()" style="margin-right:12px;background:none;border:none;color:var(--gold);cursor:pointer;font-size:12px">🔀 خلط</button></div><div class="fc ${s.f?'bk':'fr'}" onclick="RS[${C}].f=!RS[${C}].f;RN()">${s.f?`<div style="font-size:15px;line-height:1.7;direction:ltr">${c.d}</div>`:`<div class="sf" style="font-size:18px;font-weight:700;color:var(--text2)">${c.t}</div><div style="font-size:12px;color:var(--text4);margin-top:12px">اضغط لعرض التعريف</div>`}</div><div style="display:flex;gap:12px;justify-content:center;margin-top:16px"><button onclick="RS[${C}].i--;RS[${C}].f=false;RN()" ${s.i===0?'disabled':''} style="padding:8px 24px;border-radius:8px;border:1px solid var(--border2);background:var(--card);color:var(--text);cursor:pointer;font-family:inherit;opacity:${s.i===0?.4:1}">← السابق</button><button class="gb" onclick="RS[${C}].i++;RS[${C}].f=false;RN()" style="padding:8px 24px;border-radius:8px;font-size:13px;opacity:${s.i===s.c.length-1?.4:1}" ${s.i===s.c.length-1?'disabled':''}>التالي →</button></div>`;
+}
+
+function RM(a,d){
+    if(!d.m || d.m.length===0) { a.innerHTML='<div style="text-align:center;color:var(--text3);padding:20px;">لا يوجد أسئلة خيارات متعددة هنا.</div>'; return; }
+    if(!MS[C])MS[C]={q:sh(d.m),i:0,s:null,sc:0,dn:false};
+    const s=MS[C];
+    if(s.dn){
+        const p=Math.round(s.sc/s.q.length*100);
+        a.innerHTML=`<div style="text-align:center;padding:20px"><div style="font-size:48px;margin-bottom:12px">${p>=80?'🎉':p>=50?'💪':'📚'}</div><div style="font-size:22px;font-weight:700;color:var(--text2);margin-bottom:8px">${s.sc}/${s.q.length}</div><div style="color:var(--text3);margin-bottom:20px">${p}%</div><button class="gb" style="padding:10px 32px;font-size:14px" onclick="MS[${C}]=null;RN()">أعد المحاولة</button></div>`;
+        return;
+    }
+    const q=s.q[s.i];
+    let o=q.o.map((x,i)=>{
+        let cl='mo';
+        if(s.s!==null){
+            if(i===q.a) cl+=' c';
+            else if(i===s.s) cl+=' w';
+        }
+        return`<button class="${cl}" ${s.s!==null?'disabled':''} onclick="MS[${C}].s=${i};if(${i}===${q.a})MS[${C}].sc++;RN()">${x}</button>`;
+    }).join('');
+    a.innerHTML=`<div style="font-size:13px;color:var(--text3);text-align:center;margin-bottom:12px">${s.i+1}/${s.q.length}</div><div class="mq">${q.q}</div><div style="display:flex;flex-direction:column;gap:8px">${o}</div>${s.s!==null?`<div style="text-align:center;margin-top:16px"><button class="gb" style="padding:10px 32px;font-size:14px" onclick="if(MS[${C}].i<MS[${C}].q.length-1){MS[${C}].i++;MS[${C}].s=null}else MS[${C}].dn=true;RN()">${s.i<s.q.length-1?'التالي ←':'عرض النتيجة'}</button></div>`:''}`;
+}
+
+function RE(a,d){
+    if(!d.e || d.e.length===0) { a.innerHTML='<div style="text-align:center;color:var(--text3);padding:20px;">لا يوجد أسئلة مقالية هنا.</div>'; return; }
+    if(!ES[C])ES[C]={a:0,t:{},h:{},s:{}};
+    const s=ES[C],e=d.e[s.a];
+    let tb=d.e.map((_,i)=>`<button class="et${i===s.a?' a':''}" onclick="ES[${C}].a=${i};RN()">Essay ${i+1}</button>`).join('');
+    let sc=[1,2,3,4,5].map(n=>`<button class="ss${s.s[s.a]===n?' a':''}" onclick="ES[${C}].s[ES[${C}].a]=${n};RN()">${n}★</button>`).join('');
+    a.innerHTML=`<div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap">${tb}</div><div class="eq">${e.q}</div><textarea class="ea" placeholder="Write your answer here..." oninput="ES[${C}].t[ES[${C}].a]=this.value">${s.t[s.a]||''}</textarea><div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap"><button style="padding:8px 20px;font-size:13px; border-radius:8px; border:1px solid var(--border2); background:transparent; color:var(--text); cursor:pointer; font-family:inherit;" onclick="ES[${C}].h[ES[${C}].a]=!ES[${C}].h[ES[${C}].a];RN()">${s.h[s.a]?'إخفاء النقاط':'💡 عرض نقاط الإجابة'}</button>${sc}</div>${s.h[s.a]?`<div class="hb"><strong>Key Points:</strong><br>${e.h}</div>`:''}`;
+}
+
+function RP(a, d) {
+    if (!PS[C]) PS[C] = { m: {}, e: {}, t: {} };
+    const s = PS[C];
+    let h = '';
+    
+    if ((!d.pm || d.pm.length === 0) && (!d.pe || d.pe.length === 0)) {
+        a.innerHTML = '<div style="text-align:center;color:var(--text3);padding:40px 20px;line-height:1.7;">لا توجد أسئلة تجميعات مسربة لهذا الشابتر حتى الآن.<br>استمر في مراجعة الأقسام الأخرى! 📚</div>';
+        return;
+    }
+
+    if (d.pm && d.pm.length > 0) {
+        h += '<div class="ls"><h3 style="margin-bottom:16px;">أسئلة الخيارات (MCQs)</h3>';
+        d.pm.forEach((q, i) => {
+            let opts = q.o.map((x, j) => {
+                let cl = 'mo';
+                let isSelected = s.m[i] === j;
+                let isCorrect = j === q.a;
+                let showResult = s.m[i] !== undefined;
+
+                if (showResult) {
+                    if (isCorrect) cl += ' c';
+                    else if (isSelected) cl += ' w';
+                }
+
+                return `<button class="${cl}" ${showResult ? 'disabled' : ''} onclick="PS[${C}].m[${i}]=${j};RN()" style="margin:6px 0; width:100%;">${x}</button>`;
+            }).join('');
+            
+            let exp = (s.m[i] !== undefined && s.m[i] !== q.a) ? `<div style="color:var(--rbd);font-size:13px;margin-top:12px;text-align:left;direction:ltr;">❌ <span style="color:var(--text3)">The correct answer is:</span> <b>${q.o[q.a]}</b></div>` : '';
+
+            h += `<div class="lb" style="margin-bottom:24px; padding:16px; border:1px solid var(--border2); border-radius:12px; background:var(--card);"><div class="mq" style="margin-bottom:14px; font-size:14px; color:var(--text2); direction:ltr; text-align:left;"><b>Q${i+1}:</b> ${q.q}</div>${opts}${exp}</div>`;
+        });
+        h += '</div>';
+    }
+
+    if (d.pe && d.pe.length > 0) {
+        h += `<div class="ls" style="margin-top:32px;"><h3 style="margin-bottom:16px;">الأسئلة المقالية (Essays)</h3>`;
+        d.pe.forEach((q, i) => {
+            h += `<div class="lb" style="margin-bottom:24px; padding:16px; border:1px solid var(--border2); border-radius:12px; background:var(--card);">
+                <div class="mq" style="margin-bottom:14px; font-size:14px; color:var(--gold); direction:ltr; text-align:left;"><b>Q${i+1}:</b> ${q.q}</div>
+                <textarea class="ea" placeholder="اكتب إجابتك هنا للتدرب..." oninput="PS[${C}].t[${i}]=this.value">${s.t[i]||''}</textarea>
+                <button style="margin-top:12px; padding:8px 20px;font-size:13px; border-radius:8px; border:1px solid var(--border2); background:transparent; color:var(--text); cursor:pointer; font-family:inherit;" onclick="PS[${C}].e[${i}]=!PS[${C}].e[${i}];RN()">
+                    ${s.e[i] ? 'إخفاء الإجابة النموذجية' : '💡 تحقق من الإجابة النموذجية'}
+                </button>
+                ${s.e[i] ? `<div style="font-size:13.5px; margin-top:12px; line-height:1.8; color:var(--text2); direction:ltr; text-align:left; background:var(--card2); padding:12px; border-radius:8px; border-left:3px solid var(--gold);">${q.h}</div>` : ''}
+            </div>`;
+        });
+        h += '</div>';
+    }
+    
+    a.innerHTML = h;
+}
+</script>
+</body>
+</html>
