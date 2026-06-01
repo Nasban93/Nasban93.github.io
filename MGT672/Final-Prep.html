@@ -569,12 +569,82 @@
   ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
   ::-webkit-scrollbar-thumb:hover { background: var(--text3); }
 
-  /* ── RESPONSIVE ── */
-  @media (max-width: 700px) {
-    .header { padding: 20px 18px 0; }
-    .content { padding: 20px 16px; }
-    .compare-grid { grid-template-columns: 1fr; }
+/* ── RESPONSIVE (MOBILE FIX) ── */
+  @media (max-width: 768px) {
+    .header { padding: 20px 16px 0; }
+    
+    /* 1. Stack the header items */
+    .header-top { 
+      flex-direction: column; 
+      align-items: flex-start; 
+      gap: 14px; 
+    }
+    .header-actions { 
+      width: 100%;
+      flex-wrap: wrap; 
+      gap: 10px; 
+    }
     .header-title { font-size: 22px; }
+    
+    /* 2. Allow the top tabs to scroll horizontally */
+    .tab-bar { 
+      overflow-x: auto; 
+      white-space: nowrap; 
+      padding-bottom: 4px; 
+    }
+    .tab-bar::-webkit-scrollbar { display: none; }
+    
+    /* 3. Stack the main layout (sidebar on top of content) */
+    .main { 
+      flex-direction: column; 
+      min-height: auto; 
+    }
+    
+    /* 4. Convert the vertical sidebar into a horizontal scrolling pill menu */
+    .sidebar {
+      width: 100%;
+      min-width: 100%;
+      height: auto;
+      border-right: none;
+      border-bottom: 1px solid var(--border);
+      padding: 12px 16px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--bg);
+    }
+    .sidebar.visible {
+      display: flex;
+      flex-direction: row;
+      overflow-x: auto;
+    }
+    .sidebar::-webkit-scrollbar { display: none; }
+    .sidebar-label { display: none; } /* Hide the word "CHAPTERS" to save space */
+    
+    .sidebar-btn {
+      width: auto;
+      white-space: nowrap;
+      border-left: none;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 6px 14px;
+      margin-right: 8px;
+      background: var(--card2); 
+    }
+    .sidebar-btn.active {
+      border-color: var(--gold);
+      background: #1f1800; /* Dark gold tint */
+      color: var(--gold);
+    }
+    
+    /* 5. Adjust content padding */
+    .content { 
+      padding: 20px 16px; 
+      max-height: none; /* Let the whole page scroll naturally */
+      overflow-y: visible;
+    }
+    
+    .compare-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
