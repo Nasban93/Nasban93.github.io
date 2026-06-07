@@ -148,7 +148,6 @@ textarea.es-ta:focus { outline: none; border-color: var(--primary); }
 
 <div class="tab-bar">
   <div class="tab active" onclick="switchTab(0)">📋 Musaad - Previous Exams</div>
-  <div class="tab" onclick="switchTab(1)"> Last Year Exam</div>
   
   <!-- 🚀 [FUTURE ESSAY TAB PLACEHOLDER]
   <div class="tab" onclick="switchTab(2)">✍️ Essay Guide</div>
@@ -177,12 +176,7 @@ textarea.es-ta:focus { outline: none; border-color: var(--primary); }
 </div>
 
 <!-- PANEL 1: QUESTION BANK -->
-<div class="panel" id="panel-1">
-  <div class="section">
-    <div class="section-title">Deduplicated Question Bank · 35 Questions</div>
-    <div id="qbank-mcq"></div>
-  </div>
-</div>
+
 
 <!-- 🚀 [FUTURE ESSAY PANEL PLACEHOLDER]
 <div class="panel" id="panel-2">
@@ -319,51 +313,12 @@ const REVEAL_QS = [
 ["In mobile computing, employees can interact with customers, vendors, suppliers, and each other via the Internet to create beneficial relationships. This is called:","Social Engagement"]
 ];
 
-const QBANK = [
-["Which statement best differentiates E-commerce 2.0 from Social Commerce?",["Social commerce uses only Web 1.0 static pages for buying and selling","E-commerce 2.0 happens only inside social networking apps and feeds","Both terms mean the same thing: online shopping without user participation","E-commerce 2.0 applies Web 2.0 features to e-commerce; social commerce embeds commerce activities within social media platforms"],3],
-["Which set represents the three major categories of unintentional cyber threats?",["Malware, phishing, ransomware","Human error, environmental hazards, system failures","Hacktivism, cyberwarfare, cyberterrorism","Insider abuse, espionage, fraud"],1],
-["Which best describes a black hat hacker?",["A security professional who tests systems with permission","A person who attempts to find security vulnerabilities and exploit them","A user who accidentally spreads malware without intent","A vendor who sells security software to enterprises"],1],
-["An attack where criminals insert themselves between two parties to steal or alter data is called:",["Man-in-the-Middle (MitM) attack","Denial-of-Service (DoS) attack","SQL injection","Spoofing only"],0],
-["Which best describes a router?",["A device that connects devices within the same network segment (switch)","A device that converts analog signals to digital signals (modem)","A device that forwards data packets between different networks","A device used mainly for long-term file storage (NAS)"],2],
-["A system that collects, monitors, stores, processes, and distributes data from ongoing transactions is a:",["Transaction Processing System (TPS)","Management Information System (MIS)","Decision Support System (DSS)","Executive Support System (ESS)"],0],
-["The process of transferring data from physical objects/surfaces into digital format is called:",["Virtualization","Digitization","Encryption","Data mining"],1],
-["A key NoSQL advantage where the system can increase in size to handle data growth is:",["Scalability","Normalization","Schema rigidity","Vertical locking"],0],
-["A single store of structured and unstructured records at scale without a fixed schema is a:",["Data mart","Relational database","Data warehouse","Data lake"],3],
-["A person knowledgeable about information systems and IT is called a(n):",["Informed user","Chief Information Officer (CIO)","Systems analyst","Database administrator (DBA)"],0],
-["An element necessary to ensure success (e.g., adequate financial resources) is a:",["Benchmark","Key Performance Indicator (KPI)","Critical Success Factor (CSF)","Service Level Agreement (SLA)"],2],
-["Strategies using technology platforms to influence purchasing and build relationships with customers describe:",["Traditional retailing","E-commerce 1.0","Supply chain only","Social commerce"],3],
-["A business model where customers pay for continued access to products or services is the:",["Subscription model","Affiliate model","Advertising model","Brokerage model"],0],
-["A process that transforms activity/information into digital format for storage, search, and analysis is:",["Crowdsourcing","Digitization","Outsourcing","Benchmarking"],1],
-["Mobile apps used for paying or check-in to hotels often rely on __ technology.",["GPS","Bluetooth only","RFID only","NFC"],3],
-["The ____ of cyber threats and their impacts makes firms focus on information security.",["Novelty","Entertainment value","Simplicity","Costs"],3],
-["Which best describes a white hat?",["A security specialist who breaks into systems (with permission) to test security","A hacker who exploits vulnerabilities for personal gain","A person who writes only phishing emails","A user who unknowingly spreads malware"],0],
-["When a department's data is not accessible by other information systems outside that department, this is:",["Data governance","Data virtualization","Data integration","Data silos"],3],
-["Which best summarizes the benefits of a centralized DBMS?",["More redundancy and more inconsistency across departments","Less redundancy/inconsistency, better sharing, stronger control/security, easier backup and integration","No need for backups, access controls, or standards","Each department manages its own isolated database independently"],1],
-["Which list best represents major IT management issues for organizations?",["Only hardware purchasing and basic programming","Only social media posting and ad design","Business-IT alignment, security/risk, governance/compliance, project/resource management, change management, architecture/vendor decisions","Only accounting and payroll processing"],2],
-["A combination of IT and people's activities to support processes, operations, management, and decision-making is a(n):",["Information system","CPU","Spreadsheet only","Operating system"],0],
-["An information system that collects and processes specific types of data from ongoing transactions is a:",["Transaction Processing System (TPS)","Knowledge Management System (KMS)","Expert system","Customer Relationship Management (CRM) only"],0],
-["Communication on the Internet where users create and share information, ideas, messages, and other content is:",["Social media","Firewall","Data warehouse","VPN"],0],
-["A general term for infrastructure that uses the Internet and/or private networks to access, share, and deliver resources is:",["Data digitization","Cloud computing","Virtual memory","Wired LAN only"],1],
-["Which is NOT related to an Executive Information System (EIS/ESS)?",["Provides easy access to high-level information","Supports top executives with dashboards and reports","Predicts the future with certainty","Supports strategic decision making"],2],
-["A service that allows safe and private network access by routing traffic through a server and hiding activities is a:",["Virtual Private Network (VPN)","Public DNS server","Cookie policy","Web crawler"],0],
-["A collaborative application that allows multiple people to create, edit, and review online content is:",["Antivirus","Firewall","Wikis","Spreadsheet macro"],2],
-["Which option best explains how communication, training, and modern infrastructure help address IT management challenges?",["Communication/training improve adoption and reduce resistance; modern infrastructure improves reliability, performance, scalability, and security","Communication replaces the need for security; training replaces the need for infrastructure","Infrastructure matters only for marketing; training matters only for finance","They do not impact IT outcomes"],0],
-["Which are the four elements of a DBMS environment?",["Data, hardware, software, users","CPU, RAM, SSD, GPU","Marketing, finance, HR, operations","LAN, WAN, MAN, PAN"],0],
-["Malware designed to block access to files/systems until a sum of money is paid is:",["Spyware","Worm","Trojan","Ransomware"],3],
-["An actual attempt to expose, damage, disable, or gain unauthorized access to a system/network/device is a:",["Cyberattack","Patch","Backup","Audit"],0],
-["A series of steps to coordinate and organize tasks to get work done is a:",["Business process","Database index","Operating system","Router configuration"],0],
-["A company's core strategy for making a profit is its:",["Mission statement","Business model","Network topology","IT budget"],1],
-["A software system for creating, organizing, storing, and retrieving electronic documents is:",["Electronic document management system (EDMS)","Customer relationship management (CRM)","Enterprise resource planning (ERP)","Network attached storage (NAS) only"],0],
-["Data warehouses that integrate many databases across an entire enterprise are called:",["Personal data stores","Data marts","Spreadsheets","Enterprise data warehouses"],3]
-];
-
 // 🚀 [FUTURE ESSAY DATA PLACEHOLDER]
 // const ESSAYS = [ ... ];
 
 // ──────────────── STATE ────────────────
 const tabs = [
   { answered: new Set(), correct: 0, total: 0 }, // Tab 0: Previous Exams
-  { answered: new Set(), correct: 0, total: 0 }, // Tab 1: Question Bank
   // 🚀 [FUTURE ESSAY STATE PLACEHOLDER]
   // { answered: new Set(), correct: 0, total: 0 }, 
 ];
@@ -487,10 +442,6 @@ function resetTab() {
     document.querySelectorAll('#midterm-mcq .q-card, #final-mcq .q-card').forEach(c => { c.className = 'q-card'; });
     document.querySelectorAll('#reveal-qs .rv-answer').forEach(a => { a.classList.remove('show'); });
     document.querySelectorAll('#reveal-qs .rv-btn').forEach(b => { b.textContent = 'Reveal ▸'; });
-  } else if (currentTab === 1) {
-    document.querySelectorAll('#qbank-mcq .opt').forEach(b => { b.disabled = false; b.className = 'opt'; });
-    document.querySelectorAll('#qbank-mcq .q-card').forEach(c => { c.className = 'q-card'; });
-  } 
   
   // 🚀 [FUTURE ESSAY RESET LOGIC PLACEHOLDER]
   /* else if (currentTab === 2) {
@@ -510,10 +461,6 @@ function resetTab() {
   document.getElementById('sec0count').textContent = MIDTERM_MCQ.length + ' questions';
   document.getElementById('sec1count').textContent = FINAL_MCQ.length + ' questions';
   document.getElementById('sec2count').textContent = REVEAL_QS.length + ' questions';
-
-  // Panel 1
-  buildMCQ(QBANK, 'qbank-mcq', 1, 0);
-  tabs[1].total = QBANK.length;
 
   // 🚀 [FUTURE ESSAY INIT PLACEHOLDER]
   // buildEssays(ESSAYS, 'essay-qs');
