@@ -707,8 +707,13 @@ function fch(a){if(!ch)return a;if(ch===-1)return a.filter(x=>x.c<=6);if(ch===-2
 const fc=fch(concepts);const ff=fch(flashcards);const fq=fch(quiz);const fe=fch(essays);
 
 let h=`<button class="theme-btn" onclick="toggleTheme()" title="Light/Dark">${document.body.classList.contains('light')?'🌙':'☀️'}</button>
-<div class="hdr"><h1 style="cursor:pointer" onclick="ss(-1)">ECOM 500 — Complete Study Guide</h1><p>Pollard, Turban & Wood · 11th Ed. · Chapters 1–14</p><div class="sub">⚡ ${fc.length} concepts · ${ff.length} flashcards · ${fq.length} questions · ${fe.length} essays</div></div>`;
-
+<div class="hdr">
+  <h1 style="cursor:pointer" onclick="ss(-1)">ECOM 500 — Complete Study Guide</h1>
+  <p>Pollard, Turban & Wood · 11th Ed. · Chapters 1–14</p>
+  <div class="sub" style="margin-bottom:12px">⚡ ${fc.length} concepts · ${ff.length} flashcards · ${fq.length} questions · ${fe.length} essays</div>
+  <br>
+  <a href="Test.html" style="background:var(--bl); color:#fff; padding:6px 14px; text-decoration:none; border-radius:8px; font-size:0.8rem; font-weight:700;">📝 Previous Exams</a>
+</div>`;
 // Progress
 h+=`<div class="prog">${steps.map((s,i)=>`<div class="prog-step ${S.step===i?'active':S.step>i?'done':''}" onclick="ss(${i})"><span class="num">${i+1}</span>${s}</div>`).join('')}</div>`;
 
