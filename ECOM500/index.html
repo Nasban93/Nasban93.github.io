@@ -173,7 +173,7 @@ button{cursor:pointer;font-family:inherit}
 .abbr-row .fu{color:var(--td)}
 </style>
 </head>
-<body>
+<body class="light">
 <div class="app" id="app"></div>
 <script>
 // ========== DATA ==========
@@ -520,21 +520,8 @@ const quiz=[
 ];
 
 const essays=[
-{c:1,t:'Q1. Discuss the seven disruptive digital business models and provide examples for each. (Ch1)',
-model:`Disruptive business models use digital technology to change how companies make money. There are seven models:
-
-1. Subscription — recurring payment for continued access (Netflix, Apple Music).
-2. Freemium — basic version free, pay to upgrade (LinkedIn, Dropbox).
-3. Free — customer is the product; revenue from ads/data (Google, Facebook).
-4. Access-over-Ownership — pay to use temporarily, not own (Airbnb, Zipcar).
-5. Experience — premium price for a unique experience (Tesla, Apple).
-6. On-Demand — instant service when needed (Uber, TaskRabbit).
-7. Ecosystem — connected products that increase in value together (Apple ecosystem, Google).`,
-check:['Named all 7 models','Defined each model clearly','Gave 2 examples per model','Explained how each makes money']},
-
-{c:1,t:'Q2. List and explain the ten major IT management issues facing organizations today. (Ch1)',
-model:`The ten major IT management issues facing organizations today are:
-
+{c:1,t:'Q1. List and explain the major IT management issues facing organizations today. (Ch1)',
+model:`The major IT management issues facing organizations today are:
 1. Security, Cybersecurity & Privacy — protecting data and systems from threats.
 2. Technology Alignment with Business — ensuring IT supports business goals.
 3. Data Analytics — using data to gain insights for better decisions.
@@ -544,354 +531,103 @@ model:`The ten major IT management issues facing organizations today are:
 7. Innovation — leveraging new tech for competitive advantage.
 8. Digital Transformation — changing business processes through digital technology.
 9. Business Agility & Flexibility — responding quickly to market changes.
-10. IT Agility & Flexibility — adapting IT systems to new requirements rapidly.
-
-These issues reflect that IT is now a core business driver, not just a support function.`,
-check:['Listed all 10 issues','Briefly explained each one','Mentioned IT as core business driver']},
-
-{c:2,t:'Q3. Define Transaction Processing Systems (TPS). Explain internal vs external transactions and compare real-time vs batch processing with examples. (Ch2)',
-model:`A TPS is an information system that collects, monitors, stores, processes, and distributes specific types of data input from ongoing transactions.
-
-Two types of transactions:
-- Internal: within the organization (payroll, budget transfers).
-- External: from outside (customer purchases, supplier deliveries).
-
-Two processing methods:
-- Real-time (OLTP): processes each transaction immediately, e.g., airline seat booking. Current data but more expensive.
-- Batch: collects transactions and processes them later (e.g., weekly payroll). Cheaper but data may be temporarily outdated.
-
-TPS is critical — missing transactions cause lost sales, wrong financials, unhappy customers, and duplicate payments. TPS feeds data into higher systems: TPS → MIS → DSS → EIS.`,
-check:['Defined TPS accurately','Explained internal vs external with examples','Compared OLTP vs batch with examples','Mentioned consequences of TPS failure','Mentioned TPS → MIS → DSS → EIS flow']},
-
-{c:3,t:'Q4. Define a centralized database. Discuss its benefits and disadvantages. (Ch3)',
-model:`A centralized database stores all data as a unified body in a single central computer (mainframe or server) in one physical location.
-
-Benefits: 1) Better control of data quality 2) Ease of use 3) Better IT security 4) Better data integrity.
-
-Disadvantages: 1) Transmission delay for distant users 2) Security risk — single point of failure 3) Reliability — if center fails, all fails 4) Difficult scalability as organization grows.
-
-In contrast, a distributed database stores data on multiple computers via a network, offering better speed, reliability, and scalability, but at higher cost and network dependency.`,
-check:['Defined centralized DB accurately','Listed all 4 benefits','Listed all 4 disadvantages','Mentioned single point of failure','Compared with distributed DB']},
-
-{c:3,t:'Q5. What is effective data management? List and explain its six goals. (Ch3)',
-model:`Effective data management oversees the end-to-end lifecycle of data from creation and initial storage to deletion when obsolete.
-
-The six goals are:
-1. Mitigating risks and costs of complying with regulations.
-2. Ensuring legal requirements are met.
-3. Safeguarding data security.
-4. Maintaining accuracy of data and availability.
-5. Certifying consistency in data from one or multiple locations.
-6. Ensuring data conform to best practices for access, storage, backup, and disposal.
-
-Benefits include: greater compliance, higher security, less legal liability, better sales/marketing strategy, improved product classification, and better governance with lower risk.`,
-check:['Defined data management (lifecycle)','Listed all 6 goals','Explained each goal','Mentioned benefits']},
-
-{c:4,t:'Q6. Define LAN and describe its three main configurations (Star, Ring, Bus). (Ch4)',
-model:`A LAN is a group of computers and devices that share a communication line or wireless link within a limited geographic area (office, school, home).
-
-Three configurations:
-1. Star — each device links directly to a central hub. Most common. If hub fails, network fails; if one device fails, others work.
-2. Ring — each computer connects to two neighbors forming a closed loop. If one fails, it can disrupt the whole ring.
-3. Bus — one main channel with branches connected. Simple and cheap, but if the main cable fails, network stops.
-
-LAN covers a limited area (one owner), while WAN covers large distances connecting multiple networks (e.g., the Internet).`,
-check:['Defined LAN','Described Star clearly','Described Ring clearly','Described Bus clearly','Mentioned failure behavior','Compared LAN vs WAN']},
-
-{c:5,t:'Q7. Define and give examples of intentional threats and unintentional threats to information systems. (Ch5)',
-model:`INTENTIONAL THREATS — deliberate attacks:
-- Hacking: unauthorized access. White hat (ethical), black hat (malicious), gray hat (mixed), hacktivist (cause-driven).
-- Social Engineering: manipulating people via trust, curiosity, urgency, or fear.
-- Phishing: fake emails to steal info. Spear phishing targets a specific group.
-- Malware: virus (attaches to files), worm (self-replicates), trojan (disguised), ransomware (locks data for payment).
-- DoS attacks: DDoS (distributed from multiple sources), TDoS (floods phone systems), PDoS (permanently damages hardware).
-- Other: botnets, SQL injection, MitM (intercepting communications), insider threats, data tampering (false data — serious because may go undetected).
-
-UNINTENTIONAL THREATS — three categories:
-1. Human error: design mistakes, wrong data entry, default passwords, falling for phishing.
-2. Environmental hazards: floods, fires, earthquakes, power failures, HVAC failures.
-3. Computer system failures: poor manufacturing, defective materials, bad maintenance.`,
-check:['Separated intentional from unintentional','Listed hacker types','Defined phishing/spear phishing','Listed malware types','Explained DDoS vs TDoS vs PDoS','Mentioned data tampering','Listed 3 unintentional categories with examples']},
-
-{c:6,t:'Q8. Describe the four major descriptive data analytics tools and explain the business value of data mining. (Ch6)',
-model:`Descriptive analytics create a summary of historical data to yield useful information. Four major tools:
-
-1. Data Mining — using software to analyze data from various perspectives and derive correlations or patterns. Three value categories: a) more informed decisions, b) discovering unknown patterns, c) automating processes. Affinity analysis finds co-occurrence (e.g., Amazon: "customers who bought X also bought Y").
-
-2. Data Visualization — presenting data graphically to help decision-makers grasp concepts and identify patterns. Heat maps use colors to show data intensity.
-
-3. Digital Dashboards — static or interactive interface consolidating data across an organization. Shows real-time KPIs. Must be: easy to read, drillable, and interactive.
-
-4. Mashups — combine data and applications from two or more sources into one view. Types: customer, logistics, HR mashups. Help nonexperts build complex queries.`,
-check:['Defined descriptive analytics','Named all 4 tools','Defined data mining + 3 value categories','Mentioned affinity analysis with example','Defined visualization + heat maps','Defined dashboards + KPIs','Defined mashups with types']},
-,
-// CH7
-{c:7,t:'Q5. Discuss the business use of social media tools and applications. (Ch7)',
-model:`Businesses use social media tools and applications to improve communication, marketing, and customer engagement. Social media allows organizations to reach large audiences quickly and at low cost.
-
-1. Information Retrieval and Knowledge Sharing:
-Using discussion groups (e.g., LinkedIn) and Q&A websites (e.g., Quora) to ask questions and get expert answers. This helps employees stay updated and solve problems faster.
-
-2. Social Search:
-Utilizing search engines on social networks (Facebook, YouTube, Twitter) to find information, multimedia content, and trending topics relevant to the business.
-
-3. Content Creation and Sharing:
-Collaborative tools like Dropbox, Box, and Wikis allow teams to create, share, and manage documents — enabling efficient collaboration across departments and locations.
-
-Business Use of SNS (Social Networking Sites):
-- Building customer relationships and brand loyalty through regular engagement
-- Social Commerce channel for sales (e.g., Dell selling equipment via Twitter)
-- Social search within networks to find specific information
-- Advertising and promotion to precisely targeted customer groups
-- Collecting feedback to understand customer behavior and preferences
-- Knowledge sharing via discussion groups
-
-In conclusion, social media applications support communication, customer understanding, and business growth while enabling new revenue channels through social commerce.`,
-check:['Defined social media accurately','Mentioned information retrieval/knowledge sharing with example','Mentioned social search','Described content creation/sharing tools','Listed 3+ business purposes of SNS','Mentioned social commerce example','Wrote a conclusion']},
-{c:7,t:'Q6. Discuss the use of social networking sites for business purposes. (Ch7)',
-model:`Social networking sites (SNS) are online platforms where businesses can connect with customers, partners, and employees. Organizations increasingly rely on SNS for strategic business goals.
-
-1. Building Customer Relationships:
-Businesses communicate with customers directly, answer questions, respond to complaints, and build trust and long-term loyalty.
-
-2. Advertising and Promotion:
-Companies use targeted advertisements on social networks to reach specific customer segments effectively and at lower cost than traditional media channels.
-
-3. Business Networking:
-Organizations connect with partners, suppliers, industry professionals, and potential investors to create strategic opportunities and collaborate.
-
-4. Customer Feedback and Market Research:
-Businesses collect customer feedback, monitor brand mentions, and analyze customer behavior and preferences through conversations, comments, and social listening tools.
-
-5. Social Commerce and Sales:
-Companies sell goods and services directly through social networks (e.g., Facebook Shops, Instagram Shopping). Dell is a classic example — selling equipment via Twitter.
-
-6. Recruitment:
-HR departments use LinkedIn and other SNS to identify, attract, and vet qualified candidates, reducing recruitment costs.
-
-In conclusion, social networking sites are powerful business tools that support marketing, communication, relationship management, and new revenue generation, helping businesses remain competitive in the digital age.`,
-check:['Defined SNS accurately','Mentioned customer relationship building','Mentioned advertising/promotion','Mentioned business networking','Mentioned feedback/market research','Mentioned social commerce/sales with example','Mentioned recruitment (bonus)','Wrote a conclusion']},
-// CH8
-{c:8,t:'Q7. Discuss the types of subscription-based retailing. (Ch8)',
-model:`Subscription-based retailing is a business model where customers pay a recurring fee to receive products or services on a regular basis. This provides convenience for customers and predictable revenue for businesses.
-
-Three main types of subscription-based retailing:
-
-1. Replenishment Subscription:
-Delivers essential, frequently-used products that customers regularly consume, such as groceries, personal care items, or pet food. This saves customers time and ensures they never run out of essentials.
-Example: Dollar Shave Club (razors), Amazon Subscribe & Save (household goods).
-
-2. Curation Subscription:
-Products are selected and personalized based on the customer's preferences, style, or interests. Customers receive a curated "box" of items they may not have discovered on their own.
-Example: Stitch Fix (clothing), Birchbox (beauty products), HelloFresh (meal kits).
-
-3. Access Subscription:
-Customers pay for access to services, exclusive benefits, or special pricing rather than a physical product. This may include free delivery, members-only discounts, or premium content.
-Example: Amazon Prime (free delivery + streaming), Netflix (content access), Costco (store membership).
-
-Related concepts:
-- Omni-channel retailing: providing customers with a seamless, integrated experience across multiple retail channels (online, mobile, in-store).
-- Channel hopping: consumers purchase through various means — traditional, online, and mobile.
-
-In conclusion, subscription-based retailing improves customer experience, creates predictable revenue streams, and builds long-term customer relationships that are difficult for competitors to disrupt.`,
-check:['Defined subscription-based retailing accurately','Described replenishment subscription with example','Described curation subscription with example','Described access subscription with example','Mentioned omni-channel or channel hopping','Wrote a conclusion']},
-// CH9
-{c:9,t:'Q8. Discuss sales and marketing support systems. (Ch9)',
-model:`Sales and marketing support systems help organizations manage customer relationships, improve sales performance, and support decision-making using technology and data.
-
-1. Customer Relationship Management (CRM):
-CRM is the process of choosing the most suitable approach to making and maintaining interactions with customers and clients. CRM systems store comprehensive customer information, track all customer interactions across channels, and improve satisfaction and loyalty. Organizations use CRM to understand customer behavior and personalize service.
-
-2. Decision Support Systems (DSS):
-DSS helps managers analyze sales and marketing data to make better decisions — such as which market segments to target, which products to promote, or how to price competitively.
-
-3. Business Intelligence (BI) Systems:
-BI analyzes large amounts of data from multiple sources to identify patterns, trends, and opportunities in customer behavior and market conditions. BI dashboards give real-time visibility into sales performance.
-
-4. Data Analytics Tools:
-Predictive analytics models forecast future customer behavior and demand. Descriptive analytics summarizes historical data. Prescriptive analytics recommends specific marketing actions.
-
-5. Sales Force Automation (SFA):
-Automates routine sales tasks such as order processing, contact management, and pipeline tracking, freeing sales representatives to focus on building relationships.
-
-In conclusion, sales and marketing support systems strengthen decision-making, improve customer targeting, and drive revenue growth by giving organizations a data-driven understanding of their customers.`,
-check:['Defined the topic accurately','Described CRM with its definition','Described DSS','Described BI systems','Mentioned data analytics (predictive/descriptive)','Mentioned SFA or similar system','Wrote a conclusion']},
-// CH10
-{c:10,t:'Q9. Discuss the main reasons for replacing legacy systems. (Ch10)',
-model:`Legacy systems are older information systems that organizations continue to use because they fulfill critical operational needs. However, over time these systems become increasingly difficult and costly to maintain, driving organizations to replace them.
-
-Five main reasons for replacing legacy systems:
-
-1. High Maintenance Costs:
-Older systems require specialized, increasingly rare technical skills to maintain. Hardware components may no longer be manufactured, and maintenance contracts can become extremely expensive.
-
-2. Integration Obstacles:
-Legacy systems often have hardwired, predefined process flows that prevent them from integrating with modern systems, cloud services, mobile applications, or partner systems. This creates barriers to digital transformation.
-
-3. Lack of Qualified Staff:
-As technology evolves, finding IT professionals trained in older programming languages and architectures becomes increasingly difficult. Knowledge is often concentrated in a few aging specialists.
-
-4. Cloud-Based Alternatives Are Lower in Cost:
-Modern cloud-based enterprise systems offer lower total cost of ownership, greater scalability, automatic updates, and reduced infrastructure investment compared to on-premise legacy systems.
-
-5. No Longer Support Modern Business Requirements:
-Legacy systems often cannot support new business models, mobile access, real-time analytics, or the volume of transactions required by today's organizations.
-
-Note: Organizations do not replace all legacy systems at once because the risk of disruption is too high and critical functions may still depend on them.
-
-In conclusion, organizations replace legacy systems to reduce costs, improve performance, increase security, and enable the digital transformation needed to remain competitive.`,
-check:['Defined legacy systems accurately','Listed and explained all 5 main reasons','Mentioned high maintenance costs','Mentioned integration obstacles','Mentioned cloud-based alternatives','Mentioned qualified staff shortage','Noted why not all systems are replaced at once','Wrote a conclusion']},
-{c:10,t:'Q10. Discuss common supply chain management mistakes. (Ch10)',
-model:`Supply chain management (SCM) involves the efficient management of the flows of material, data, and financial resources from suppliers to customers. Many organizations make costly mistakes in managing their supply chains.
-
-Common supply chain management mistakes:
-
-1. Poor Communication and Coordination:
-Failure to share accurate, timely information among suppliers, manufacturers, distributors, and retailers causes delays, errors, and increased costs. Effective SCM requires all parties to be aligned.
-
-2. Lack of Accurate Data and Poor Forecasting:
-Inaccurate demand forecasting leads to either excessive inventory (high holding costs) or stockouts (lost sales and dissatisfied customers). Poor data quality undermines all SCM decisions.
-
-3. Single-Supplier Dependency:
-Relying on too few suppliers creates significant risk. If a key supplier fails due to natural disaster, financial problems, or geopolitical issues, production can stop entirely.
-
-4. Ignoring Technology:
-Organizations that fail to adopt SCM software, analytics tools, IoT sensors, or automation lose visibility and control over their supply chains, making it impossible to respond quickly to disruptions.
-
-5. Over-Focusing on Cost Reduction:
-Prioritizing only cost savings while neglecting product quality, supplier relationships, and customer satisfaction leads to poor long-term outcomes and reputational damage.
-
-6. Poor Inventory Management:
-Carrying too much inventory wastes capital and increases storage costs; too little causes stockouts. JIT and lean manufacturing strategies help organizations strike the right balance.
-
-In conclusion, avoiding these mistakes improves efficiency, reduces operational risk, and increases customer satisfaction — key competitive advantages in today's global marketplace.`,
-check:['Defined SCM accurately','Identified at least 4 distinct mistakes','Explained consequences of each mistake','Mentioned poor communication','Mentioned technology or analytics','Mentioned inventory management / JIT','Wrote a conclusion']},
-// CH11
-{c:11,t:'Q11. Define Artificial Intelligence (AI) and discuss its stages. (Ch11)',
-model:`Artificial Intelligence (AI) refers to the theory and development of computer systems that can perform tasks that normally require human intelligence, such as visual perception, speech recognition, decision-making, language translation, and problem-solving.
-
-Stages of AI Systems:
-
-Stage 1 — Rule-based Systems:
-The earliest and most basic form of AI. These systems follow predefined rules created by human programmers. They do not learn from experience and cannot handle situations not covered by their specific rules. Example: early expert systems with decision trees.
-
-Stage 2 — Machine Learning (ML):
-Systems that learn from data and improve their performance over time without being explicitly programmed for every situation. ML algorithms identify patterns in large datasets to make predictions or decisions. Example: spam filters, product recommendation engines.
-
-Stage 3 — Deep Learning (DL):
-Uses artificial neural networks with multiple layers to process vast amounts of data. Deep learning is believed to approximate human learning processes and achieves high accuracy in complex tasks like image recognition, speech recognition, and natural language processing.
-
-Stage 4 — Intelligent/Cognitive Systems:
-The most advanced stage, where AI systems can adapt, learn, and make decisions independently across multiple domains. These systems aim to replicate human-level reasoning (Artificial General Intelligence — AGI).
-
-Business Applications of AI: Work automation · Sentiment analysis · Fraud detection · Recommendation engines · Medical diagnosis · Chatbots and virtual assistants.
-
-In conclusion, AI develops progressively from simple rule-following to sophisticated systems that can learn, adapt, and drive significant business innovation and efficiency improvements.`,
-check:['Defined AI accurately','Described Stage 1 (rule-based) clearly','Described Stage 2 (machine learning) with example','Described Stage 3 (deep learning with neural networks)','Described Stage 4 (intelligent/cognitive systems)','Mentioned 2+ business applications','Wrote a conclusion']},
-// CH12
-{c:12,t:'Q12. Discuss competitive strategy and how organizations gain a competitive edge. (Ch12)',
-model:`Competitive strategy is a plan that organizations use to outperform competitors and create a strong, sustainable market position. It focuses on how a company attracts customers and creates lasting value.
-
-Porter's Three Competitive Strategies:
-
-1. Cost Leadership:
-The organization aims to offer products or services at the lowest cost in the market. This requires highly efficient operations, economies of scale, and tight cost control throughout the business.
-Example: Walmart, Amazon (everyday low pricing), Ryanair (budget airline).
-
-2. Differentiation:
-The company offers unique products, superior quality, innovative features, or exceptional customer service that justifies a premium price and distinguishes it from competitors.
-Example: Apple (premium design and ecosystem), Tesla (innovation), luxury brands.
-
-3. Focus Strategy:
-The organization targets a specific market segment — geographic, demographic, or product niche — and serves it better than broader competitors. Can combine with cost leadership or differentiation within the niche.
-Example: Rolls-Royce (ultra-luxury), specialty food brands (organic/vegan markets).
-
-Key Components of Competitive Advantage:
-- Agility: ability to respond quickly to new market opportunities before competitors
-- Responsiveness: IT capacity that can scale up or down as needed (enabled by cloud computing)
-- Flexibility: ability to rapidly integrate new business functions or reconfigure software applications
-
-IT plays a critical role in supporting all three strategies — reducing costs through automation, enabling differentiation through data analytics and personalization, and supporting focus strategies through targeted digital marketing.
-
-In conclusion, choosing the right competitive strategy and leveraging IT capabilities effectively enables organizations to gain a sustainable competitive edge and achieve long-term success.`,
-check:['Defined competitive strategy accurately','Described cost leadership with example','Described differentiation with example','Described focus strategy with example','Mentioned agility, responsiveness, and flexibility','Mentioned IT\'s role in competitive strategy','Wrote a conclusion']},
-{c:12,t:'Q13. Discuss IT outsourcing and its benefits and risks. (Ch12)',
-model:`IT outsourcing is the practice of hiring external service providers to perform information technology functions instead of managing them with internal staff. It is a strategic approach that organizations use to improve efficiency and reduce costs.
-
-Benefits of IT Outsourcing:
-
-1. Cost Reduction:
-Reduces expenses related to hiring, training, managing, and retaining in-house IT staff. Organizations pay for services only when needed, converting fixed costs to variable costs.
-
-2. Access to Expertise:
-External providers have specialized skills, certifications, and advanced technologies that may not be available or affordable in-house. Organizations benefit from world-class IT capabilities without building them internally.
-
-3. Focus on Core Business Activities:
-By outsourcing IT functions, organizations free internal resources and management attention to concentrate on their primary business strategy and competitive activities.
-
-4. Flexibility and Scalability:
-IT services can be quickly adjusted based on changing business needs — scaled up during growth or down during slow periods without the difficulty of hiring or laying off staff.
-
-5. Access to Emerging Technologies:
-Outsourcing providers invest continuously in the latest technologies, giving client organizations access to innovations without capital investment.
-
-Risks of IT Outsourcing:
-- Data security issues: sharing sensitive data with external providers increases security risks
-- Loss of control: dependence on external providers can reduce operational control and responsiveness
-- Vendor lock-in: organizations may become overly dependent on one supplier
-- Quality and communication challenges: especially with offshore providers
-
-In conclusion, IT outsourcing helps organizations reduce costs, access expertise, and improve agility when properly managed, but requires careful vendor selection, clear contracts, and strong governance to mitigate risks.`,
-check:['Defined IT outsourcing accurately','Listed at least 4 benefits with explanation','Mentioned cost reduction','Mentioned expertise access','Mentioned focus on core business','Listed at least 2 risks','Mentioned offshore outsourcing (bonus)','Wrote a conclusion']},
-{c:12,t:'Q14. Discuss the skills a CIO needs for successful business-IT alignment. (Ch12)',
-model:`The Chief Information Officer (CIO) is the senior executive responsible for aligning information technology strategy with overall business strategy. Business-IT alignment means applying IT in an appropriate and timely way that is consistent with the organization's strategies, goals, and needs.
-
-Key CIO Skills for Achieving Business-IT Alignment:
-
-1. Business Understanding:
-The CIO must deeply understand business processes, strategy, goals, competitive environment, and market dynamics — not just IT. Without this foundation, IT investments cannot be properly aligned with business priorities.
-
-2. Communication Skills:
-The CIO must explain complex technical issues in simple business terms that executives and board members can understand. Conversely, the CIO must translate business requirements into technical specifications for IT teams. Bridging these two worlds is essential.
-
-3. Strategic Thinking:
-The CIO must plan long-term IT initiatives that support business growth, innovation, and sustainability. This includes evaluating emerging technologies (AI, cloud, IoT) for their potential competitive advantage.
-
-4. Leadership and Change Management:
-Leading digital transformation requires managing resistance to change, inspiring teams, and guiding the entire organization through IT-driven process changes. The CIO must be a change agent, not just a technology manager.
-
-5. Relationship Building:
-The CIO must build strong partnerships with the CEO, CFO, COO, and other business leaders to ensure IT is a strategic partner — not just a support function — in business planning and decision-making.
-
-In conclusion, a CIO with strong business acumen, communication skills, strategic vision, and leadership abilities can ensure that IT investments create measurable value and drive the organization's competitive success.`,
-check:['Defined CIO role and business-IT alignment accurately','Described business understanding skill','Described communication skill','Described strategic thinking skill','Described leadership/change management','Mentioned relationship building with other executives','Wrote a conclusion']},
-// CH13
-{c:13,t:'Q15. Discuss project management and the role of the project manager. (Ch13)',
-model:`Project management is the process of planning, organizing, and controlling resources to achieve specific goals within a defined time and budget. A project is a temporary endeavor with a clear start and end, aimed at producing a unique outcome or deliverable.
-
-The project manager is the individual responsible for leading the project team and ensuring successful project delivery.
-
-Key Responsibilities of the Project Manager:
-
-1. Planning:
-Defining the complete project scope, breaking work into tasks (Work Breakdown Structure), setting milestones and schedules, and establishing budgets. The Planning stage of the SDLC produces the Project Plan as its key deliverable.
-
-2. Coordinating the Team:
-Assigning tasks and responsibilities to team members based on skills, managing resources, and ensuring all team members understand their roles and deadlines. Coordination prevents duplication of effort and ensures timely completion.
-
-3. Communication with Stakeholders:
-Regularly reporting project status, milestones achieved, risks encountered, and budget usage to management, clients, and other stakeholders. Clear communication prevents surprises and maintains trust.
-
-4. Risk Management:
-Proactively identifying potential risks (technical, resource, schedule) and developing contingency plans to address problems before they derail the project. Risk management is ongoing throughout the project lifecycle.
-
-5. Monitoring and Controlling Performance:
-Continuously tracking actual progress against the project plan, measuring key performance indicators, identifying deviations, and taking corrective actions to bring the project back on track.
-
-The Project Triangle: Changes to project scope, time, or cost will inevitably affect the other two dimensions. The project manager must carefully balance all three constraints throughout the project.
-
-In conclusion, effective project management and a skilled project manager are critical to ensuring that IT projects are completed on time, within budget, to the required quality, and with acceptance by the users.`,
-check:['Defined project management and project accurately','Described planning responsibility with deliverable','Described coordinating the team','Described communication with stakeholders','Described risk management','Described monitoring and controlling','Mentioned project triangle (bonus)','Wrote a conclusion']}
+10. IT Agility & Flexibility — adapting IT systems to new requirements rapidly.`,
+check:['Listed IT management issues','Explained each briefly','Mentioned security and privacy','Mentioned business alignment']},
+
+{c:3,t:'Q2. Discuss Dirty Data and the characteristics of dirty data. (Ch3)',
+model:`Dirty data refers to data of poor quality that contains errors, which can lead to flawed business decisions. It is estimated that it costs 10 times more to fix dirty data than to prevent it.
+
+Characteristics of dirty data include:
+1. Inaccurate: The data is simply wrong or misspelled.
+2. Incomplete: Missing crucial fields or information.
+3. Inconsistent: Data formats do not match across different systems (e.g., date formats).
+4. Duplicated: The same record appears multiple times, skewing analytics.
+5. Outdated: Information that is no longer valid or relevant.
+6. Non-compliant: Data that violates business rules or regulatory constraints.`,
+check:['Defined dirty data','Mentioned cost of fixing vs preventing','Listed inaccurate/incorrect','Listed incomplete','Listed duplicated','Listed inconsistent/outdated']},
+
+{c:4,t:'Q3. Discuss the five main business functions. (Ch4)',
+model:`Organizations rely on five main business functions to operate efficiently:
+1. Human Resources (HR): Responsible for recruiting, hiring, training, evaluating, and managing employees.
+2. Finance and Accounting: Manages budgeting, financial planning, auditing, and compliance.
+3. Sales and Marketing: Focuses on understanding customer needs, promoting products, brand awareness, and generating revenue.
+4. Production and Operations: Manages the actual creation of goods and the efficient delivery of services.
+5. Information Technology (IT): Supports systems, manages data and networks, and drives digital processes across the organization.`,
+check:['Listed Human Resources','Listed Finance and Accounting','Listed Sales and Marketing','Listed Production and Operations','Listed Information Technology']},
+
+{c:7,t:'Q4. Explain how Crawler Search Engines work. (Ch7)',
+model:`Crawler Search Engines (like Google or Bing) operate in four main steps to provide search results:
+1. Crawling (Spiders/Bots): Automated programs browse the web by following hyperlinks from one page to another, downloading the content of the pages they visit.
+2. Indexing: The downloaded pages are analyzed, and their text, metadata, and tags are extracted and stored in a massive, highly organized database (the index).
+3. Ranking: When a user enters a query, a ranking module uses algorithms to search the index and order the results based on relevance, page authority, and other factors.
+4. Query Interface: The visual frontend where the user enters search terms and receives the sorted list of results.`,
+check:['Described Crawling (spiders/bots)','Described Indexing into a database','Described Ranking algorithms','Described the Query Interface']},
+
+{c:8,t:'Q5. Discuss resolving channel conflict in E-commerce. (Ch8)',
+model:`Channel conflict occurs when a company's online sales channels compete directly with its physical retail stores or third-party distributors, causing friction.
+
+Ways to resolve channel conflict include:
+1. Product Differentiation: Offering exclusive products, sizes, or bundles online that are not available in physical stores (and vice versa).
+2. BOPIS (Buy Online, Pick Up In Store): Encouraging online shoppers to visit physical stores for fulfillment, driving foot traffic.
+3. Revenue Sharing: Crediting online sales to the physical store located in the buyer's geographic region to keep store managers motivated.
+4. Price Matching: Ensuring pricing is consistent across all channels so they do not undercut one another.`,
+check:['Defined channel conflict','Mentioned product differentiation','Mentioned BOPIS','Mentioned revenue sharing','Mentioned price matching']},
+
+{c:9,t:'Q6. Discuss various sales and marketing support systems. (Ch9)',
+model:`Sales and marketing support systems help organizations manage relationships and improve sales performance using data:
+1. Customer Relationship Management (CRM): Stores comprehensive customer information and tracks interactions to improve satisfaction and loyalty.
+2. Decision Support Systems (DSS): Helps managers analyze sales data to make better decisions regarding target segments and pricing.
+3. Business Intelligence (BI) Systems: Analyzes large datasets to identify market trends and opportunities via real-time dashboards.
+4. Data Analytics Tools: Uses predictive models to forecast customer demand and prescriptive models to recommend marketing actions.
+5. Sales Force Automation (SFA): Automates routine tasks like order processing and pipeline tracking for sales representatives.`,
+check:['Described CRM','Described DSS','Described BI Systems','Described Data Analytics','Described SFA']},
+
+{c:10,t:'Q7. Discuss the main reasons for replacing legacy systems. (Ch10)',
+model:`Legacy systems are older information systems that become difficult to maintain over time. Reasons for replacing them include:
+1. High Maintenance Costs: Older systems require specialized, rare skills and expensive hardware to maintain.
+2. Integration Obstacles: Hardwired processes prevent integration with modern cloud services and mobile apps.
+3. Lack of Qualified Staff: IT professionals trained in old programming languages are increasingly scarce.
+4. Cloud Alternatives: Modern SaaS enterprise systems offer lower costs and better scalability.
+5. Modern Business Needs: Legacy systems cannot support real-time analytics or the high transaction volumes required today.`,
+check:['Mentioned high maintenance costs','Mentioned integration obstacles','Mentioned lack of qualified staff','Mentioned cloud-based alternatives','Mentioned modern business requirements']},
+
+{c:12,t:'Q8. Discuss the skills a CIO needs for successful business-IT alignment. (Ch12)',
+model:`The Chief Information Officer (CIO) must align IT strategy with overall business strategy using several key skills:
+1. Business Understanding: Deep knowledge of business processes, strategy, goals, and market dynamics to ensure IT investments address real business priorities.
+2. Communication Skills: The ability to explain complex technical issues in simple business terms to executives, and translate business needs to IT teams.
+3. Strategic Thinking: Planning long-term IT initiatives that support innovation and evaluate emerging tech for competitive advantage.
+4. Leadership and Change Management: Guiding the organization through digital transformation and managing resistance to process changes.
+5. Relationship Building: Partnering with the CEO, CFO, and other leaders to make IT a strategic partner.`,
+check:['Described business understanding','Described communication skills','Described strategic thinking','Described leadership/change management','Described relationship building']},
+
+{c:13,t:'Q9. Discuss project management and the characteristics of project and program managers. (Ch13)',
+model:`Project management is the process of planning, organizing, and controlling resources to achieve specific goals within a defined time and budget.
+
+Characteristics of a Project Manager:
+- Focuses on a single, specific, temporary endeavor.
+- Manages the "Project Triangle" constraints: scope, time, and cost.
+- Responsibilities include defining tasks, assigning team roles, risk management, and monitoring daily progress to deliver the exact required output.
+
+Characteristics of a Program Manager:
+- Focuses on higher-level strategy by overseeing multiple, related projects.
+- Manages cross-project dependencies and resources.
+- Focuses on achieving broad organizational benefits and strategic goals rather than just individual project deliverables.
+- Interacts more heavily with executive stakeholders to align the program with business strategy.`,
+check:['Defined project management','Listed characteristics of a Project Manager','Mentioned scope/time/cost constraints','Listed characteristics of a Program Manager','Contrasted individual project vs multiple strategic projects']},
+
+{c:14,t:'Q10. Discuss discrimination in Social Media Recruiting. (Ch14)',
+model:`Employers increasingly use social media platforms (like Facebook, Twitter, and LinkedIn) to screen job applicants, which introduces significant risks of discrimination.
+
+Key issues include:
+1. Exposure of Protected Characteristics: Social media profiles often reveal details about an applicant's race, religion, age, sexual orientation, disability, or pregnancy status—information that is legally protected and normally excluded from traditional hiring processes.
+2. Unconscious Bias: Hiring managers may make subjective, biased decisions based on lifestyle choices, political views, or hobbies seen online.
+3. Lack of Standardization: Social media screening is often informal and inconsistent across different candidates.
+
+Solutions:
+- Use "blind hiring" techniques where HR removes identifying info before passing profiles to hiring managers.
+- Create strict, standardized policies on what can and cannot be reviewed online.
+- Ensure the person conducting the social media background check is different from the person making the final hiring decision.`,
+check:['Mentioned exposure of protected characteristics (age/religion/etc)','Mentioned unconscious bias','Mentioned lack of standardization','Suggested a solution (blind hiring or standardized policies)']}
 ];
 
 // ========== STATE ==========
@@ -975,10 +711,6 @@ let h=`<button class="theme-btn" onclick="toggleTheme()" title="Light/Dark">${do
 
 // Progress
 h+=`<div class="prog">${steps.map((s,i)=>`<div class="prog-step ${S.step===i?'active':S.step>i?'done':''}" onclick="ss(${i})"><span class="num">${i+1}</span>${s}</div>`).join('')}</div>`;
-
-// Method box
-h+=`<div class="method"><h2>🧠 Step ${S.step+1}: ${steps[S.step]}</h2><p>${stepDesc[S.step]}</p>
-<div class="method-steps">${steps.map((s,i)=>`<div class="method-s ${S.step===i?'cur':''}"><div class="ico">${['📖','🔄','✅','📝'][i]}</div><div class="lab">${s}</div></div>`).join('')}</div></div>`;
 
 // Chapter filter
 h+=`<div class="chtabs"><button class="chtab ${!ch?'a':''}" onclick="sch(0)">All</button><button class="chtab ${ch===-1?'a':''}" onclick="sch(-1)" style="color:var(--bl)">Midterm</button><button class="chtab ${ch===-2?'a':''}" onclick="sch(-2)" style="color:var(--p)">Final</button>${[1,2,3,4,5,6,7,8,9,10,11,12,13,14].map(i=>`<button class="chtab ${ch===i?'a':''}" onclick="sch(${i})">Ch${i}</button>`).join('')}</div>`;
