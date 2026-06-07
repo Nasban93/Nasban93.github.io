@@ -137,7 +137,7 @@ textarea.es-ta:focus { outline: none; border-color: var(--primary); }
   <div>
     <div style="display:flex;align-items:center;gap:10px">
       <h1>ECOM 500 — Exam Prep</h1>
-      <span class="subtitle">Previous Exams</span>
+      <span class="subtitle"> MCQ </span>
     </div>
   </div>
   <div class="topbar-right">
@@ -150,7 +150,7 @@ textarea.es-ta:focus { outline: none; border-color: var(--primary); }
   <div class="tab active" onclick="switchTab(0)">📋 Musaad - Previous Exams</div>
   
   <!-- 🚀 [FUTURE ESSAY TAB PLACEHOLDER]
-  <div class="tab" onclick="switchTab(2)">✍️ Essay Guide</div>
+  <div class="tab" onclick="switchTab(1)">✍️ Essay Guide</div>
   -->
 </div>
 
@@ -175,11 +175,8 @@ textarea.es-ta:focus { outline: none; border-color: var(--primary); }
   </div>
 </div>
 
-<!-- PANEL 1: QUESTION BANK -->
-
-
 <!-- 🚀 [FUTURE ESSAY PANEL PLACEHOLDER]
-<div class="panel" id="panel-2">
+<div class="panel" id="panel-1">
   <div class="section">
     <div class="section-title">Essay Questions · Type your answer, then reveal</div>
     <div id="essay-qs"></div>
@@ -318,7 +315,7 @@ const REVEAL_QS = [
 
 // ──────────────── STATE ────────────────
 const tabs = [
-  { answered: new Set(), correct: 0, total: 0 }, // Tab 0: Previous Exams
+  { answered: new Set(), correct: 0, total: 0 } // Tab 0: Previous Exams
   // 🚀 [FUTURE ESSAY STATE PLACEHOLDER]
   // { answered: new Set(), correct: 0, total: 0 }, 
 ];
@@ -442,9 +439,10 @@ function resetTab() {
     document.querySelectorAll('#midterm-mcq .q-card, #final-mcq .q-card').forEach(c => { c.className = 'q-card'; });
     document.querySelectorAll('#reveal-qs .rv-answer').forEach(a => { a.classList.remove('show'); });
     document.querySelectorAll('#reveal-qs .rv-btn').forEach(b => { b.textContent = 'Reveal ▸'; });
+  }
   
   // 🚀 [FUTURE ESSAY RESET LOGIC PLACEHOLDER]
-  /* else if (currentTab === 2) {
+  /* else if (currentTab === 1) {
     // Reset logic for essays
   } */
   
@@ -464,7 +462,7 @@ function resetTab() {
 
   // 🚀 [FUTURE ESSAY INIT PLACEHOLDER]
   // buildEssays(ESSAYS, 'essay-qs');
-  // tabs[2].total = ESSAYS.length;
+  // tabs[1].total = ESSAYS.length;
 
   updateScore();
 })();
