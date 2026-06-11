@@ -712,7 +712,7 @@ let h=`<button class="theme-btn" onclick="toggleTheme()" title="Light/Dark">${do
   <p>Pollard, Turban & Wood · 11th Ed. · Chapters 1–14</p>
   <div class="sub" style="margin-bottom:12px">⚡ ${fc.length} concepts · ${ff.length} flashcards · ${fq.length} questions · ${fe.length} essays</div>
   <br>
-  <a href="Test.html" style="background:var(--bl); color:#fff; padding:6px 14px; text-decoration:none; border-radius:8px; font-size:0.8rem; font-weight:700;">📝 Previous Exams</a>
+  <a href="test.html" style="background:var(--bl); color:#fff; padding:6px 14px; text-decoration:none; border-radius:8px; font-size:0.8rem; font-weight:700;">📝 Previous Exams</a>
 </div>`;
 // Progress
 h+=`<div class="prog">${steps.map((s,i)=>`<div class="prog-step ${S.step===i?'active':S.step>i?'done':''}" onclick="ss(${i})"><span class="num">${i+1}</span>${s}</div>`).join('')}</div>`;
