@@ -16,12 +16,11 @@
   --t2: #495057;
   --primary: #339af0;
   --primary-hover: #228be6;
-  --g: #40c057; 
-  --r: #fa5252; 
+  --g: #40c057;
+  --r: #fa5252;
   --rad: 8px;
 }
 
-/* Dark Mode Overrides */
 body.dark {
   --bg: #212529;
   --s: #343a40;
@@ -82,9 +81,9 @@ body { background: var(--bg); color: var(--t); font-family: 'Inter', sans-serif;
 .q-opts { padding: 0 16px 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 @media(max-width: 700px) { .q-opts { grid-template-columns: 1fr; } }
 
-.opt { background: var(--bg); border: 1px solid var(--br); border-radius: 6px; padding: 12px; cursor: pointer; font-size: 0.9rem; font-weight: 500; color: var(--t); display: flex; align-items: center; gap: 10px; transition: all 0.15s; text-align: left; }
+.opt { background: var(--bg); border: 1px solid var(--br); border-radius: 6px; padding: 12px; cursor: pointer; font-size: 0.9rem; font-weight: 500; color: var(--t); display: flex; align-items: center; gap: 10px; transition: all 0.15s; text-align: left; width: 100%; }
 .opt:hover:not([disabled]) { border-color: var(--primary); background: var(--s); box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-.opt .ol { font-weight: 700; font-size: 0.85rem; color: var(--t2); min-width: 20px; background: var(--s2); padding: 2px 6px; border-radius: 4px; text-align: center; }
+.opt .ol { font-weight: 700; font-size: 0.85rem; color: var(--t2); min-width: 20px; background: var(--s2); padding: 2px 6px; border-radius: 4px; text-align: center; flex-shrink: 0; }
 .opt.correct-ans { background: rgba(64, 192, 87, 0.1); border-color: var(--g); color: var(--g); }
 .opt.wrong-ans { background: rgba(250, 82, 82, 0.1); border-color: var(--r); color: var(--r); }
 .opt.show-correct { background: rgba(64, 192, 87, 0.05); border-color: var(--g); }
@@ -111,24 +110,262 @@ body { background: var(--bg); color: var(--t); font-family: 'Inter', sans-serif;
 ::-webkit-scrollbar-thumb { background: var(--br); border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--t2); }
 
-/* ── [FUTURE ESSAY STYLES] (Retained for easy re-integration) ── */
-.es-card { background: var(--s); border: 1px solid var(--br); border-radius: var(--rad); margin-bottom: 16px; overflow: hidden; }
-.es-head { padding: 16px; display: flex; align-items: center; gap: 12px; cursor: pointer; transition: background 0.15s; }
+/* ── ESSAY STYLES ── */
+.es-card {
+  background: var(--s);
+  border: 1px solid var(--br);
+  border-radius: var(--rad);
+  margin-bottom: 14px;
+  overflow: hidden;
+  position: relative;
+  transition: border-color 0.25s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.es-card.done { border-color: var(--g); }
+
+/* Watermark chapter number behind header */
+.es-bg-num {
+  position: absolute;
+  top: -8px;
+  right: 12px;
+  font-size: 5.5rem;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--primary);
+  opacity: 0.055;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  letter-spacing: -3px;
+}
+
+.es-head {
+  padding: 15px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: background 0.15s;
+  position: relative;
+  z-index: 1;
+}
 .es-head:hover { background: var(--s2); }
-.es-ch { font-size: 0.75rem; padding: 4px 8px; border-radius: 4px; font-weight: 700; background: var(--s2); color: var(--t2); border: 1px solid var(--br); white-space: nowrap; }
-.es-title { flex: 1; font-size: 0.95rem; font-weight: 600; color: var(--t); }
-.es-arrow { color: var(--t2); transition: transform 0.2s; font-size: 1rem; }
-.es-body { display: none; padding: 0 16px 16px; }
-.es-body.open { display: block; }
-.es-note { font-size: 0.85rem; color: var(--t2); margin-bottom: 12px; }
-textarea.es-ta { width: 100%; background: var(--bg); border: 1px solid var(--br); border-radius: 6px; color: var(--t); padding: 12px; font-family: inherit; font-size: 0.9rem; line-height: 1.5; resize: vertical; min-height: 100px; transition: border-color 0.2s; }
-textarea.es-ta:focus { outline: none; border-color: var(--primary); }
-.es-show-btn { margin-top: 12px; background: var(--s2); border: 1px solid var(--br); color: var(--t); padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 600; transition: all 0.15s; }
+
+.es-ch {
+  font-size: 0.72rem;
+  padding: 3px 9px;
+  border-radius: 5px;
+  font-weight: 700;
+  background: rgba(51, 154, 240, 0.1);
+  color: var(--primary);
+  border: 1px solid rgba(51, 154, 240, 0.22);
+  white-space: nowrap;
+  letter-spacing: 0.03em;
+  flex-shrink: 0;
+}
+body.dark .es-ch {
+  background: rgba(77, 171, 247, 0.13);
+  border-color: rgba(77, 171, 247, 0.28);
+}
+
+.es-title {
+  flex: 1;
+  font-size: 0.93rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--t);
+}
+
+.es-done-badge {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--g);
+  flex-shrink: 0;
+  display: none;
+}
+.es-card.done .es-done-badge { display: inline; }
+
+.es-arrow {
+  color: var(--t2);
+  transition: transform 0.22s ease;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+.es-head[aria-expanded="true"] .es-arrow { transform: rotate(180deg); }
+
+.es-body { padding: 0 16px 16px; display: none; }
+.es-body.open { display: block; animation: fadeIn 0.22s ease; }
+
+/* Exam tip callout */
+.es-tip {
+  margin-bottom: 14px;
+  padding: 10px 13px;
+  border-radius: 6px;
+  background: rgba(250, 176, 5, 0.08);
+  border: 1px solid rgba(250, 176, 5, 0.28);
+  font-size: 0.84rem;
+  color: var(--t2);
+  line-height: 1.55;
+}
+.es-tip-label {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #a16a00;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 4px;
+}
+body.dark .es-tip-label { color: #ffd43b; }
+
+/* Practice area */
+.es-ta-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--t2);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+  margin-top: 14px;
+}
+
+textarea.es-ta {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--br);
+  border-radius: 6px;
+  color: var(--t);
+  padding: 12px;
+  font-family: inherit;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  resize: vertical;
+  min-height: 90px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+textarea.es-ta:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(51, 154, 240, 0.1);
+}
+
+.es-actions { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+
+.es-show-btn {
+  background: var(--s2);
+  border: 1px solid var(--br);
+  color: var(--t);
+  padding: 7px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.83rem;
+  font-weight: 600;
+  transition: all 0.15s;
+  font-family: inherit;
+}
 .es-show-btn:hover { border-color: var(--primary); color: var(--primary); }
-.es-model { display: none; margin-top: 12px; background: var(--bg); border: 1px solid var(--br); border-radius: 6px; padding: 16px; font-size: 0.9rem; line-height: 1.6; white-space: pre-line; color: var(--t); }
-.es-model.open { display: block; }
-.es-done { display: flex; align-items: center; gap: 8px; margin-top: 16px; cursor: pointer; font-size: 0.9rem; color: var(--t2); font-weight: 500; }
-.es-done input { accent-color: var(--g); width: 16px; height: 16px; }
+.es-show-btn.active {
+  border-color: var(--g);
+  color: var(--g);
+  background: rgba(64, 192, 87, 0.07);
+}
+
+.es-model {
+  display: none;
+  margin-top: 12px;
+  background: var(--bg);
+  border-left: 3px solid var(--g);
+  border-top: 1px solid var(--br);
+  border-right: 1px solid var(--br);
+  border-bottom: 1px solid var(--br);
+  border-radius: 0 6px 6px 0;
+  padding: 14px 16px;
+  font-size: 0.87rem;
+  line-height: 1.8;
+  white-space: pre-line;
+  color: var(--t);
+}
+.es-model.open { display: block; animation: fadeIn 0.25s ease; }
+
+.es-model-hdr {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--g);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.es-model-hdr::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--g);
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.es-done {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--br);
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: var(--t2);
+  font-weight: 500;
+}
+.es-done input { accent-color: var(--g); width: 16px; height: 16px; cursor: pointer; }
+.es-done:hover { color: var(--t); }
+
+/* Essay overview bar */
+.es-overview-box {
+  background: var(--s);
+  border: 1px solid var(--br);
+  border-radius: var(--rad);
+  padding: 14px 18px;
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.es-ov-stat { display: flex; flex-direction: column; gap: 3px; }
+.es-ov-stat-label { font-size: 0.72rem; font-weight: 700; color: var(--t2); text-transform: uppercase; letter-spacing: 0.05em; }
+.es-ov-stat-val { font-size: 1.25rem; font-weight: 700; color: var(--t); line-height: 1; }
+
+.es-ov-blocks { display: flex; gap: 4px; flex-wrap: wrap; margin-left: auto; }
+
+.es-ov-block {
+  width: 28px;
+  height: 28px;
+  border-radius: 5px;
+  border: 1px solid var(--br);
+  background: var(--s2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.69rem;
+  font-weight: 700;
+  color: var(--t2);
+  cursor: pointer;
+  transition: all 0.22s;
+  user-select: none;
+}
+.es-ov-block:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-1px); }
+.es-ov-block.reviewed { background: rgba(51, 154, 240, 0.12); border-color: var(--primary); color: var(--primary); }
+.es-ov-block.done { background: var(--g); border-color: var(--g); color: #fff; }
+
+@media(max-width:600px) {
+  .es-ov-blocks { margin-left: 0; }
+  .es-overview-box { gap: 14px; }
+}
 </style>
 </head>
 <body>
@@ -137,7 +374,7 @@ textarea.es-ta:focus { outline: none; border-color: var(--primary); }
   <div>
     <div style="display:flex;align-items:center;gap:10px">
       <h1>ECOM 500 — Exam Prep</h1>
-      <span class="subtitle"> MCQ </span>
+      <span class="subtitle" id="tabSubtitle">MCQ</span>
     </div>
   </div>
   <div class="topbar-right">
@@ -148,15 +385,12 @@ textarea.es-ta:focus { outline: none; border-color: var(--primary); }
 
 <div class="tab-bar">
   <div class="tab active" onclick="switchTab(0)">📋 Musaad - Previous Exams</div>
-  
-  <!-- 🚀 [FUTURE ESSAY TAB PLACEHOLDER]
   <div class="tab" onclick="switchTab(1)">✍️ Essay Guide</div>
-  -->
 </div>
 
 <!-- SCORE BAR -->
 <div class="score-bar" id="scoreBar">
-  <span class="score-label">Score</span>
+  <span class="score-label" id="scoreLabel">Score</span>
   <span class="score-val" id="scoreVal">0 / 0</span>
   <span class="score-pct" id="scorePct">—</span>
   <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
@@ -175,17 +409,17 @@ textarea.es-ta:focus { outline: none; border-color: var(--primary); }
   </div>
 </div>
 
-<!-- 🚀 [FUTURE ESSAY PANEL PLACEHOLDER]
+<!-- PANEL 1: ESSAY GUIDE -->
 <div class="panel" id="panel-1">
   <div class="section">
-    <div class="section-title">Essay Questions · Type your answer, then reveal</div>
-    <div id="essay-qs"></div>
+    <div class="section-title">Essay Questions · <span id="sec3count"></span></div>
+    <div id="essayOverview"></div>
+    <div id="essay-qs" style="margin-top:14px"></div>
   </div>
 </div>
--->
 
 <script>
-// ──────────────── DATA ────────────────
+// ──────────────── DATA: MCQ ────────────────
 const MIDTERM_MCQ = [
 ["Which business model refers to customers paying a monthly payment for continued access to a product or service?",["Subscription model","Sales Model","Eco system","Free Model"],0],
 ["Which process transforms any kind of activity or information into a Digital format that can be collected, stored, searched, and analyzed electronically?",["Internet of Things","Digitization","Artificial intelligence","Internet of Everything"],1],
@@ -234,7 +468,7 @@ const MIDTERM_MCQ = [
 ["__________ is the disconnect between how important people say their online privacy is versus how they behave in real life.",["Privacy Standards","Privacy Regularity","Privacy paradox","Privacy certainty"],2],
 ["__________ is a network's ability to achieve maximum bandwidth, optimize performance elements and manage network resources by setting priorities for specific types of data.",["Net neutrality","Internet","Quality of service","Internet of things"],2],
 ["Select the correct option: Applies understanding, experience, and expertise to current problem & applies a moral code and prior experiences to form a judgement.",["Knowledge & Wisdom","Data & Wisdom","Information & Knowledge","Information & Wisdom"],0],
-["Which best describes a router?",["A device that connects devices within the same network segment (switch)","A device that converts analog signals to digital signals (modem)","A device that forwards data packets between different networks","A device used mainly for long-term file storage (NAS)"],2],
+["Which best describes a router?",["A device that connects devices within the same network segment","A device that converts analog signals to digital signals","A device that forwards data packets between different networks","A device used mainly for long-term file storage"],2],
 ["Which are the four elements of a DBMS environment?",["Data, hardware, software, users","CPU, RAM, SSD, GPU","Marketing, finance, HR, operations","LAN, WAN, MAN, PAN"],0],
 ["Which of the following is the process of collecting, storing, managing, and maintaining data that is accurate, timely, reliable, valid, available, unique, and relevant?",["Information System","Information Technology","Information Management","Business and Information"],2],
 ["Which device works as a router to forward data between network devices and serves as both a wireless access point and a router?",["Wireless Router","Router","Server","Client"],0],
@@ -310,14 +544,241 @@ const REVEAL_QS = [
 ["In mobile computing, employees can interact with customers, vendors, suppliers, and each other via the Internet to create beneficial relationships. This is called:","Social Engagement"]
 ];
 
-// 🚀 [FUTURE ESSAY DATA PLACEHOLDER]
-// const ESSAYS = [ ... ];
+// ──────────────── DATA: ESSAYS ────────────────
+const ESSAYS = [
+  {
+    ch: "Ch 1",
+    question: "List and explain the ten major IT management issues facing organizations today.",
+    tip: "Memorize all 10 with their explanations. You may be asked to list them, explain them, or prioritize them.",
+    answer: `IT is now a core business driver, not just a support function. The ten major issues are:
+
+1. Security, Cybersecurity & Privacy
+Protecting data and systems from both internal and external threats; includes data privacy compliance (e.g., GDPR).
+
+2. IT-Business Alignment
+Ensuring every IT initiative directly supports and advances organizational goals and creates measurable value.
+
+3. Data Analytics
+Converting raw data into actionable business insights for faster, better decisions across all functions.
+
+4. Compliance & Regulations
+Meeting legal, industry, and governmental standards. Non-compliance risks fines and reputational damage.
+
+5. IT Cost Reduction
+Managing technology spending strategically without sacrificing capability or quality of service.
+
+6. Business Cost Reduction
+Using technology to lower broader operational costs through automation, efficiency tools, and cloud optimization.
+
+7. Innovation
+Leveraging emerging technologies (AI, IoT, blockchain) to create competitive advantages and new revenue streams.
+
+8. Digital Transformation
+Fundamentally overhauling business processes, culture, and models using digital technology.
+
+9. Business Agility
+Building organizational capacity to respond quickly to market disruptions, opportunities, and threats.
+
+10. IT Agility
+Rapidly adapting IT systems and infrastructure to meet new and evolving business requirements.`
+  },
+  {
+    ch: "Ch 3",
+    question: "Discuss \"Dirty Data\" and the characteristics of dirty data.",
+    tip: "The 10x Rule is a guaranteed exam point. Always mention MDM as the solution.",
+    answer: `Dirty data is data that is incomplete, outdated, incorrect, or duplicated — data that cannot be trusted for decision-making.
+
+CHARACTERISTICS:
+• Incomplete — Missing fields, empty values, or partial records that can't serve their purpose.
+• Outdated (Stale) — Data that was once accurate but no longer reflects current reality.
+• Incorrect/Inaccurate — Wrong values that misrepresent facts (e.g., wrong customer address).
+• Duplicated — The same record entered multiple times, inflating counts and distorting analysis.
+• Lacks Context — Data without supporting metadata, making it uninterpretable.
+
+IMPACT:
+Dirty data causes flawed analytics, poor business decisions, regulatory non-compliance, and direct revenue loss.
+
+THE 10x RULE ★ KEY EXAM POINT:
+It costs exactly 10x more to fix dirty data AFTER it enters the system than to prevent it from entering in the first place. Prevention is always the priority.
+
+SOLUTION — MDM (Master Data Management):
+Creates one single, trusted, authoritative version of core organizational data (customers, products, suppliers), breaking down data silos and ensuring consistency across all systems.`
+  },
+  {
+    ch: "Ch 4",
+    question: "Discuss the five core business functional units.",
+    tip: "Five clear points with explanation. Link each unit to its IS tools for bonus depth.",
+    answer: `Most organizations are structured around five core functional units, each supported by specialized IT systems:
+
+1. Human Resources
+Responsible for hiring, onboarding, training, performance evaluation, and managing all employees. HRIS systems automate payroll, benefits administration, and performance tracking.
+
+2. Finance & Accounting
+Manages budgeting, financial planning, auditing, and regulatory compliance. Uses XBRL Tagging (mandated by the SEC) for machine-readable financial reporting that simplifies regulatory submissions.
+
+3. Sales & Marketing
+Identifies customer needs, develops promotions, drives revenue, and builds brand awareness. Supported by CRM systems, Decision Support Systems (DSS), and Sales Force Automation (SFA).
+
+4. Production & Operations
+Plans and controls the manufacture of goods and delivery of services efficiently. Uses Production and Operations Management (POM) systems, Just-in-Time (JIT) inventory, and Lean Manufacturing principles.
+
+5. Information Technology
+Manages systems, networks, data, digital processes, and cybersecurity across the entire organization. Serves as the enabling infrastructure for all other functional units.`
+  },
+  {
+    ch: "Ch 7",
+    question: "Discuss how Crawler Search Engines work.",
+    tip: "The four steps are sequential — know them in order. Always end with the SEO connection.",
+    answer: `Crawler-based search engines use automated software agents to discover, index, and rank web content. The four sequential steps are:
+
+1. Spider / Crawling
+A software agent (spider/bot) navigates the web by following hyperlinks from page to page, downloading page content to a central server. It starts from seed URLs and continuously discovers new pages.
+
+2. Indexer / Processing
+Downloaded pages are analyzed and catalogued into a massive, searchable index. The index maps keywords to every page that contains them, along with metadata (titles, descriptions, etc.).
+
+3. Ranking Module / Scoring
+When a user submits a query, this module evaluates every relevant indexed page and scores them for relevance — factoring in keyword density, page authority, backlinks, and user behavior signals.
+
+4. Query Interface / Display
+The front-end where users enter search terms and receive the ranked list of results. Includes features like auto-complete and spell correction.
+
+SEO CONNECTION — Always include this:
+SEO (Search Engine Optimization) is the practice of designing and structuring web pages to score well in the Ranking Module, achieving organic, unpaid visibility in search results.`
+  },
+  {
+    ch: "Ch 8",
+    question: "Discuss resolving channel conflict in E-commerce.",
+    tip: "Define channel conflict first, then give three structured solutions. BOPIS is always the headline answer.",
+    answer: `Channel conflict occurs when a company's online (e-commerce) sales directly compete with and cannibalize its physical retail locations, creating internal tension over pricing, inventory, and customer ownership.
+
+DEFINITION IS MANDATORY: Always define channel conflict before giving solutions.
+
+RESOLUTION STRATEGIES:
+
+1. BOPIS — Buy Online, Pick Up In Store ★ HEADLINE ANSWER
+The most powerful resolution. BOPIS drives digitally-engaged shoppers back into physical locations, where they often make additional impulse purchases. It removes pure price competition by adding the value of immediacy and in-store service that online-only channels cannot match.
+
+2. Unified Pricing Strategy
+Maintaining identical pricing across all channels removes the primary driver of "Showrooming" behavior, where customers browse in-store then purchase online at a lower price. Price parity eliminates the incentive to channel-switch.
+
+3. Logistical & Inventory Alignment
+Integrating digital and physical channel infrastructure so both channels share inventory, fulfillment, and customer data. Channels collaborate rather than compete, with clearly defined and complementary roles in the customer journey.`
+  },
+  {
+    ch: "Ch 9",
+    question: "Discuss sales and marketing support systems.",
+    tip: "Five distinct systems — name each one and explain its specific role. CRM is always the anchor.",
+    answer: `Sales and marketing support systems are IT applications that help organizations manage customer relationships, drive revenue, and execute marketing strategy. Five key systems:
+
+1. CRM — Customer Relationship Management ★ THE ANCHOR SYSTEM
+Manages all customer interactions, tracks purchase history and behavior, and analyzes data to improve loyalty and lifetime value. CRM is the central pillar of all sales and marketing technology.
+
+2. DSS — Decision Support System
+Analytical models that help sales and marketing managers make informed decisions on pricing, targeting, and campaign investment using both structured and unstructured data.
+
+3. BI — Business Intelligence Systems
+Analyze large historical datasets to identify broad market patterns, trends, and emerging opportunities that inform strategic planning and long-term positioning.
+
+4. Data Analytics
+Predictive analytics forecast future customer demand and behavior. Prescriptive analytics recommend specific actions (promotions, discounts, product recommendations) to maximize revenue.
+
+5. SFA — Sales Force Automation
+Automates routine, repetitive sales tasks: order processing, contact management, and pipeline tracking. Frees the sales team to focus on building relationships and closing deals rather than administrative work.`
+  },
+  {
+    ch: "Ch 10",
+    question: "Discuss the main reasons for replacing legacy systems.",
+    tip: "Five clear reasons — always lead with maintenance costs and integration. Mention SaaS cloud alternatives as the modern solution.",
+    answer: `A legacy system is an outdated computer system or software still in use despite the availability of modern alternatives. Five main reasons organizations replace them:
+
+1. High Maintenance Costs
+Older systems require specialized, increasingly rare skills and expensive hardware. The ongoing cost of maintaining legacy systems frequently exceeds the total cost of migrating to a modern replacement.
+
+2. Integration Obstacles
+Hardwired, monolithic architectures cannot connect with modern cloud services, APIs, mobile apps, or microservices — creating costly data silos that prevent adoption of new platforms.
+
+3. Lack of Qualified Staff
+IT professionals trained in legacy languages (COBOL, FORTRAN) are a rapidly shrinking talent pool. Knowledge gaps grow into serious operational risk and increasingly expensive contractor costs.
+
+4. Cloud Alternatives Available
+Modern SaaS enterprise systems offer lower total cost of ownership and superior scalability. Cloud platforms eliminate on-premise hardware overhead, provide continuous automatic updates, and scale on demand.
+
+5. Modern Business Needs Unmet
+Legacy systems cannot support real-time analytics, high transaction volumes, mobile access, or big data processing. Businesses need agile platforms to adapt rapidly to changing markets and customer expectations.`
+  },
+  {
+    ch: "Ch 12",
+    question: "Discuss the skills required of a CIO for Business-IT Alignment.",
+    tip: "Five skills — tie each one back to the core theme of aligning IT with business strategy.",
+    answer: `Business-IT Alignment means that every IT strategy, investment, and initiative directly supports the organization's business goals. The CIO is central to achieving this. Five critical CIO skills:
+
+1. Business Understanding
+Deep knowledge of business processes, strategic goals, competitive dynamics, and industry-specific challenges. The CIO must understand what creates value for the business before deciding where IT can deliver it.
+
+2. Communication
+The ability to translate complex technical concepts into clear business language for executives and board members — and to translate business needs into actionable technical requirements for the IT team. Bridging this language gap is the CIO's defining skill.
+
+3. Strategic Thinking
+Planning long-term IT roadmaps that anticipate future business needs and drive sustainable growth — rather than merely reacting to short-term problems. The CIO must think 3–5 years ahead.
+
+4. Leadership & Change Management
+Guiding the organization through IT-driven transformation, managing resistance to change, and ensuring people across the business successfully adopt new systems and processes.
+
+5. Relationship Building
+Cultivating strong partnerships with the CEO, CFO, COO, and other business unit leaders to establish IT as a strategic partner rather than a cost center or back-office function.`
+  },
+  {
+    ch: "Ch 13",
+    question: "Discuss the project manager and characteristics of project/program managers.",
+    tip: "Five characteristics + the Project Triangle. Always conclude with the triangle — it ties everything together.",
+    answer: `A project manager plans, executes, monitors, and closes projects to achieve specific goals within defined constraints. Five core characteristics and responsibilities:
+
+1. Planning
+Defines project scope, identifies milestones and deliverables, allocates budget and resources, and creates the formal Project Plan governing the entire engagement.
+
+2. Coordinating
+Assigns tasks to team members and manages human, financial, and technical resources across the full project lifecycle to ensure timely delivery of all deliverables.
+
+3. Communication
+Reports status, milestones, risks, and issues to all stakeholders consistently and clearly. A PM who communicates poorly will lose stakeholder confidence regardless of technical progress.
+
+4. Risk Management
+Continuously identifies threats (scope creep, resource shortages, technical failures, vendor delays) and implements mitigation and contingency plans before problems escalate.
+
+5. Monitoring & Controlling
+Tracks actual progress against the project plan and takes corrective actions whenever the project drifts off schedule, over budget, or out of scope.
+
+THE PROJECT TRIANGLE ★ ALWAYS CONCLUDE WITH THIS:
+Scope · Time · Cost — these three constraints are permanently and inescapably linked. Expand scope, you must extend time or increase cost (or both). Every PM decision is ultimately a trade-off within this triangle.`
+  },
+  {
+    ch: "Ch 14",
+    question: "Discuss Discrimination in Social Media Recruiting.",
+    tip: "Three focused points. Emphasize AI Bias as the technical cause and Code of Ethics + governance as the solution.",
+    answer: `Social media recruiting uses platforms like LinkedIn and Facebook to find and screen candidates. While powerful, it introduces serious risks of illegal discrimination.
+
+1. AI Bias and Discriminatory Algorithms
+Machine learning models used for resume screening and candidate ranking inherit the biases embedded in their historical training data. If past hiring disproportionately favored certain demographic groups, the algorithm learns to replicate those exact patterns — systematically disadvantaging protected groups at scale, often invisibly.
+
+2. Privacy Violations and Ethical Concerns
+Harvesting candidates' social media profiles without explicit consent violates both digital ethics and civil rights law. Social profiles often reveal protected characteristics (religion, family status, health conditions, political views) that would be illegal to ask about in a formal interview — creating a discriminatory digital backdoor.
+
+3. Governance and Code of Ethics ★ THE SOLUTION
+Organizations must implement a rigorous Code of Ethics covering AI use in recruiting. This includes:
+• Regular algorithmic audits to detect and correct bias
+• Clear accountability structures for all hiring decisions
+• Transparent disclosure to candidates about how their data is used
+• Training for HR staff on unconscious bias and legal boundaries
+
+Governance transforms intent into consistent, defensible, and legally compliant practice.`
+  }
+];
 
 // ──────────────── STATE ────────────────
 const tabs = [
-  { answered: new Set(), correct: 0, total: 0 } // Tab 0: Previous Exams
-  // 🚀 [FUTURE ESSAY STATE PLACEHOLDER]
-  // { answered: new Set(), correct: 0, total: 0 }, 
+  { answered: new Set(), correct: 0, total: 0 },   // Tab 0: Previous Exams
+  { answered: new Set(), correct: 0, total: 0 }    // Tab 1: Essay Guide
 ];
 let currentTab = 0;
 
@@ -333,6 +794,8 @@ function switchTab(idx) {
   document.querySelectorAll('.tab').forEach((t, i) => t.classList.toggle('active', i === idx));
   document.querySelectorAll('.panel').forEach((p, i) => p.classList.toggle('active', i === idx));
   currentTab = idx;
+  const el = document.getElementById('tabSubtitle');
+  if (el) el.textContent = idx === 0 ? 'MCQ' : 'Essays';
   updateScore();
 }
 
@@ -342,9 +805,26 @@ function updateScore() {
   const sv = document.getElementById('scoreVal');
   const sp = document.getElementById('scorePct');
   const pf = document.getElementById('progressFill');
-  sv.textContent = `${t.correct} / ${t.answered.size}`;
-  if (t.answered.size === 0) { sp.textContent = '—'; sp.className = 'score-pct'; pf.style.width = '0%'; return; }
-  const pct = Math.round(t.correct / t.answered.size * 100);
+  const sl = document.getElementById('scoreLabel');
+
+  if (currentTab === 1) {
+    if (sl) sl.textContent = 'Done';
+    sv.textContent = t.correct + ' / ' + t.total;
+    const pct = t.total > 0 ? Math.round((t.correct / t.total) * 100) : 0;
+    sp.textContent = pct > 0 ? pct + '%' : '—';
+    sp.className = 'score-pct' + (pct > 0 && pct < 50 ? ' bad' : '');
+    pf.style.width = (t.total > 0 ? (t.correct / t.total) * 100 : 0) + '%';
+    const ovDone = document.getElementById('esOvDone');
+    if (ovDone) ovDone.textContent = t.correct + ' / ' + t.total;
+    return;
+  }
+
+  if (sl) sl.textContent = 'Score';
+  sv.textContent = t.correct + ' / ' + t.answered.size;
+  if (t.answered.size === 0) {
+    sp.textContent = '—'; sp.className = 'score-pct'; pf.style.width = '0%'; return;
+  }
+  const pct = Math.round((t.correct / t.answered.size) * 100);
   sp.textContent = pct + '%';
   sp.className = 'score-pct' + (pct < 50 ? ' bad' : '');
   pf.style.width = pct + '%';
@@ -352,25 +832,24 @@ function updateScore() {
 
 // ──────────────── MCQ BUILDER ────────────────
 const LABELS = ['A', 'B', 'C', 'D'];
+
 function buildMCQ(questions, containerId, tabIdx, globalOffset) {
   const el = document.getElementById(containerId);
   questions.forEach((q, i) => {
     const gi = globalOffset + i;
     const card = document.createElement('div');
-    card.className = 'q-card'; card.id = `qcard-${tabIdx}-${gi}`;
+    card.className = 'q-card'; card.id = 'qcard-' + tabIdx + '-' + gi;
     const head = document.createElement('div'); head.className = 'q-head';
-    head.innerHTML = `<span class="q-num">${gi + 1}</span><span class="q-text">${q[0]}</span>`;
+    head.innerHTML = '<span class="q-num">' + (gi + 1) + '</span><span class="q-text">' + q[0] + '</span>';
     const opts = document.createElement('div'); opts.className = 'q-opts';
-    
     q[1].forEach((opt, oi) => {
       const btn = document.createElement('button');
       btn.className = 'opt';
-      btn.innerHTML = `<span class="ol">${LABELS[oi]}</span>${opt}`;
+      btn.innerHTML = '<span class="ol">' + LABELS[oi] + '</span>' + opt;
       btn.onclick = () => answerMCQ(tabIdx, gi, oi, q[2], card, opts.querySelectorAll('.opt'));
       opts.appendChild(btn);
     });
-    card.appendChild(head); card.appendChild(opts);
-    el.appendChild(card);
+    card.appendChild(head); card.appendChild(opts); el.appendChild(card);
   });
 }
 
@@ -379,7 +858,6 @@ function answerMCQ(tabIdx, gi, chosen, correct, card, btns) {
   tabs[tabIdx].answered.add(gi);
   const isRight = chosen === correct;
   if (isRight) tabs[tabIdx].correct++;
-  
   btns.forEach((b, i) => {
     b.disabled = true;
     if (i === chosen && isRight) b.classList.add('correct-ans');
@@ -397,36 +875,188 @@ function buildReveal(questions, containerId, tabIdx, globalOffset) {
     const gi = globalOffset + i;
     const card = document.createElement('div'); card.className = 'rv-card';
     const head = document.createElement('div'); head.className = 'rv-head';
-    head.innerHTML = `<span class="q-num">${gi + 1}</span><span class="rv-q">${q[0]}</span>`;
-    
+    head.innerHTML = '<span class="q-num">' + (gi + 1) + '</span><span class="rv-q">' + q[0] + '</span>';
     const btn = document.createElement('button'); btn.className = 'rv-btn'; btn.textContent = 'Reveal ▸';
     const ansDiv = document.createElement('div'); ansDiv.className = 'rv-answer';
-    ansDiv.innerHTML = `<div class="rv-ans-box">✓ ${q[1]}</div>`;
-    
+    ansDiv.innerHTML = '<div class="rv-ans-box">✓ ' + q[1] + '</div>';
     btn.onclick = () => {
       if (!ansDiv.classList.contains('show')) {
-        ansDiv.classList.add('show');
-        btn.textContent = 'Hide ▴';
+        ansDiv.classList.add('show'); btn.textContent = 'Hide ▴';
         if (!tabs[tabIdx].answered.has(gi)) {
-          tabs[tabIdx].answered.add(gi);
-          tabs[tabIdx].correct++;
+          tabs[tabIdx].answered.add(gi); tabs[tabIdx].correct++;
           if (currentTab === tabIdx) updateScore();
         }
-      } else {
-        ansDiv.classList.remove('show');
-        btn.textContent = 'Reveal ▸';
-      }
+      } else { ansDiv.classList.remove('show'); btn.textContent = 'Reveal ▸'; }
     };
-    head.appendChild(btn);
-    card.appendChild(head); card.appendChild(ansDiv);
+    head.appendChild(btn); card.appendChild(head); card.appendChild(ansDiv); el.appendChild(card);
+  });
+}
+
+// ──────────────── ESSAY BUILDER ────────────────
+function buildEssays(essays, containerId) {
+  const el = document.getElementById(containerId);
+  const overviewEl = document.getElementById('essayOverview');
+
+  // Overview bar
+  const ovBox = document.createElement('div');
+  ovBox.className = 'es-overview-box';
+  const blocksHtml = essays.map((e, i) =>
+    '<div class="es-ov-block" id="esBlock-' + i + '" onclick="scrollToEssay(' + i + ')" title="' + e.ch + '">' + (i + 1) + '</div>'
+  ).join('');
+  ovBox.innerHTML =
+    '<div class="es-ov-stat"><div class="es-ov-stat-label">Marked Done</div><div class="es-ov-stat-val" id="esOvDone">0 / ' + essays.length + '</div></div>' +
+    '<div class="es-ov-stat"><div class="es-ov-stat-label">Answers Reviewed</div><div class="es-ov-stat-val" id="esOvReviewed">0 / ' + essays.length + '</div></div>' +
+    '<div class="es-ov-blocks">' + blocksHtml + '</div>';
+  overviewEl.appendChild(ovBox);
+
+  essays.forEach((e, i) => {
+    const card = document.createElement('div');
+    card.className = 'es-card';
+    card.id = 'essay-' + i;
+
+    // Watermark
+    const bgNum = document.createElement('div');
+    bgNum.className = 'es-bg-num';
+    bgNum.textContent = i + 1;
+    card.appendChild(bgNum);
+
+    // Header
+    const head = document.createElement('div');
+    head.className = 'es-head';
+    head.id = 'essay-head-' + i;
+    head.setAttribute('aria-expanded', 'false');
+    head.onclick = () => toggleEssay(i);
+    head.innerHTML =
+      '<span class="es-ch">' + e.ch + '</span>' +
+      '<span class="es-title">' + e.question + '</span>' +
+      '<span class="es-done-badge">✓ Done</span>' +
+      '<span class="es-arrow">▾</span>';
+    card.appendChild(head);
+
+    // Body
+    const body = document.createElement('div');
+    body.className = 'es-body';
+    body.id = 'essay-body-' + i;
+
+    // Tip
+    const tip = document.createElement('div');
+    tip.className = 'es-tip';
+    const tipLabel = document.createElement('span');
+    tipLabel.className = 'es-tip-label';
+    tipLabel.textContent = '⚠️ Exam Tip';
+    tip.appendChild(tipLabel);
+    tip.appendChild(document.createTextNode(' ' + e.tip));
+    body.appendChild(tip);
+
+    // Practice label + textarea
+    const taLabel = document.createElement('div');
+    taLabel.className = 'es-ta-label';
+    taLabel.textContent = '✏️ Your Practice Answer';
+    body.appendChild(taLabel);
+
+    const ta = document.createElement('textarea');
+    ta.className = 'es-ta';
+    ta.placeholder = 'Write your answer here before revealing the model answer…';
+    ta.rows = 4;
+    body.appendChild(ta);
+
+    // Actions
+    const actions = document.createElement('div');
+    actions.className = 'es-actions';
+    const showBtn = document.createElement('button');
+    showBtn.className = 'es-show-btn';
+    showBtn.id = 'esBtn-' + i;
+    showBtn.textContent = '🔍 Show Model Answer';
+    showBtn.onclick = () => toggleModel(i);
+    actions.appendChild(showBtn);
+    body.appendChild(actions);
+
+    // Model answer
+    const model = document.createElement('div');
+    model.className = 'es-model';
+    model.id = 'esModel-' + i;
+    const modelHdr = document.createElement('div');
+    modelHdr.className = 'es-model-hdr';
+    modelHdr.textContent = 'Model Answer';
+    const modelText = document.createElement('div');
+    modelText.textContent = e.answer;
+    model.appendChild(modelHdr);
+    model.appendChild(modelText);
+    body.appendChild(model);
+
+    // Done checkbox
+    const doneLabel = document.createElement('label');
+    doneLabel.className = 'es-done';
+    const cb = document.createElement('input');
+    cb.type = 'checkbox';
+    cb.id = 'esDone-' + i;
+    cb.onchange = () => markEssay(cb, i);
+    doneLabel.appendChild(cb);
+    doneLabel.appendChild(document.createTextNode(' Mark as Done — I can confidently answer this essay'));
+    body.appendChild(doneLabel);
+
+    card.appendChild(body);
     el.appendChild(card);
   });
 }
 
-// 🚀 [FUTURE ESSAY BUILDER FUNCTIONS PLACEHOLDER]
-// function buildEssays(essays, containerId) { ... }
-// function toggleModel(btn) { ... }
-// function markEssay(cb, idx) { ... }
+function scrollToEssay(idx) {
+  const card = document.getElementById('essay-' + idx);
+  if (!card) return;
+  card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const body = document.getElementById('essay-body-' + idx);
+  if (body && !body.classList.contains('open')) toggleEssay(idx);
+}
+
+function toggleEssay(idx) {
+  const body = document.getElementById('essay-body-' + idx);
+  const head = document.getElementById('essay-head-' + idx);
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  head.setAttribute('aria-expanded', String(!isOpen));
+}
+
+function toggleModel(idx) {
+  const model = document.getElementById('esModel-' + idx);
+  const btn = document.getElementById('esBtn-' + idx);
+  const isOpen = model.classList.contains('open');
+
+  if (!isOpen) {
+    model.classList.add('open');
+    btn.textContent = '✕ Hide Model Answer';
+    btn.classList.add('active');
+    if (!tabs[1].answered.has(idx)) {
+      tabs[1].answered.add(idx);
+      const block = document.getElementById('esBlock-' + idx);
+      if (block && !block.classList.contains('done')) block.classList.add('reviewed');
+      const revEl = document.getElementById('esOvReviewed');
+      if (revEl) revEl.textContent = tabs[1].answered.size + ' / ' + ESSAYS.length;
+    }
+  } else {
+    model.classList.remove('open');
+    btn.textContent = '🔍 Show Model Answer';
+    btn.classList.remove('active');
+  }
+  if (currentTab === 1) updateScore();
+}
+
+function markEssay(cb, idx) {
+  const card = document.getElementById('essay-' + idx);
+  const block = document.getElementById('esBlock-' + idx);
+  if (cb.checked) {
+    tabs[1].correct++;
+    card && card.classList.add('done');
+    if (block) { block.classList.add('done'); block.classList.remove('reviewed'); }
+  } else {
+    tabs[1].correct = Math.max(0, tabs[1].correct - 1);
+    card && card.classList.remove('done');
+    if (block) {
+      block.classList.remove('done');
+      if (tabs[1].answered.has(idx)) block.classList.add('reviewed');
+    }
+  }
+  if (currentTab === 1) updateScore();
+}
 
 // ──────────────── RESET ────────────────
 function resetTab() {
@@ -439,19 +1069,34 @@ function resetTab() {
     document.querySelectorAll('#midterm-mcq .q-card, #final-mcq .q-card').forEach(c => { c.className = 'q-card'; });
     document.querySelectorAll('#reveal-qs .rv-answer').forEach(a => { a.classList.remove('show'); });
     document.querySelectorAll('#reveal-qs .rv-btn').forEach(b => { b.textContent = 'Reveal ▸'; });
+  } else if (currentTab === 1) {
+    ESSAYS.forEach((_, i) => {
+      document.getElementById('essay-' + i)?.classList.remove('done');
+      const body = document.getElementById('essay-body-' + i);
+      const head = document.getElementById('essay-head-' + i);
+      if (body) {
+        body.classList.remove('open');
+        const ta = body.querySelector('textarea');
+        if (ta) ta.value = '';
+      }
+      if (head) head.setAttribute('aria-expanded', 'false');
+      const model = document.getElementById('esModel-' + i);
+      if (model) model.classList.remove('open');
+      const btn = document.getElementById('esBtn-' + i);
+      if (btn) { btn.textContent = '🔍 Show Model Answer'; btn.classList.remove('active'); }
+      const cb = document.getElementById('esDone-' + i);
+      if (cb) cb.checked = false;
+      const block = document.getElementById('esBlock-' + i);
+      if (block) block.classList.remove('done', 'reviewed');
+    });
+    const revEl = document.getElementById('esOvReviewed');
+    if (revEl) revEl.textContent = '0 / ' + ESSAYS.length;
   }
-  
-  // 🚀 [FUTURE ESSAY RESET LOGIC PLACEHOLDER]
-  /* else if (currentTab === 1) {
-    // Reset logic for essays
-  } */
-  
   updateScore();
 }
 
 // ──────────────── INIT ────────────────
 (function init() {
-  // Panel 0
   buildMCQ(MIDTERM_MCQ, 'midterm-mcq', 0, 0);
   buildMCQ(FINAL_MCQ, 'final-mcq', 0, MIDTERM_MCQ.length);
   buildReveal(REVEAL_QS, 'reveal-qs', 0, MIDTERM_MCQ.length + FINAL_MCQ.length);
@@ -460,9 +1105,9 @@ function resetTab() {
   document.getElementById('sec1count').textContent = FINAL_MCQ.length + ' questions';
   document.getElementById('sec2count').textContent = REVEAL_QS.length + ' questions';
 
-  // 🚀 [FUTURE ESSAY INIT PLACEHOLDER]
-  // buildEssays(ESSAYS, 'essay-qs');
-  // tabs[1].total = ESSAYS.length;
+  buildEssays(ESSAYS, 'essay-qs');
+  tabs[1].total = ESSAYS.length;
+  document.getElementById('sec3count').textContent = ESSAYS.length + ' questions';
 
   updateScore();
 })();
