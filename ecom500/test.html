@@ -362,9 +362,26 @@ textarea.es-ta:focus {
 .es-ov-block.reviewed { background: rgba(51, 154, 240, 0.12); border-color: var(--primary); color: var(--primary); }
 .es-ov-block.done { background: var(--g); border-color: var(--g); color: #fff; }
 
-@media(max-width:600px) {
-  .es-ov-blocks { margin-left: 0; }
-  .es-overview-box { gap: 14px; }
+@media (max-width: 600px) {
+  /* 1. Stack the top bar vertically on small screens */
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  /* 2. Allow the title to wrap if it needs to */
+  .topbar h1 {
+    white-space: normal; 
+  }
+  
+  /* 3. Align the top bar buttons nicely under the title */
+  .topbar-right {
+    margin-left: 0;
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
 }
 </style>
 </head>
