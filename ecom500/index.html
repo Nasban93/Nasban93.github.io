@@ -171,6 +171,49 @@ button{cursor:pointer;font-family:inherit}
 .abbr-row{display:flex;gap:8px;padding:4px 0;font-size:.78rem;border-bottom:1px solid #2a2f3d22}
 .abbr-row .ab{color:var(--c);font-weight:700;font-family:'JetBrains Mono',monospace;min-width:65px;flex-shrink:0}
 .abbr-row .fu{color:var(--td)}
+  /* Navigation Buttons Container */
+.nav-group {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 16px 0 24px 0;
+}
+
+/* Base style for navigation links/buttons */
+.nav-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 20px;
+    border: 1px solid var(--b);
+    background: var(--s);
+    color: var(--td);
+    font-size: .85rem;
+    font-weight: 600;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all .2s ease;
+}
+
+.nav-link-btn:hover {
+    background: var(--s2);
+    color: var(--t);
+    border-color: var(--bl);
+    transform: translateY(-1px);
+}
+
+/* Highlighted/Active style specifically for Visual Essays */
+.nav-link-btn.highlighted {
+    background: linear-gradient(135deg, var(--bl), var(--p));
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 4px 12px rgba(96, 165, 250, 0.2);
+}
+
+.nav-link-btn.highlighted:hover {
+    opacity: 0.95;
+    color: #ffffff;
+}
 </style>
 </head>
 <body class="light">
@@ -713,7 +756,16 @@ let h=`<button class="theme-btn" onclick="toggleTheme()" title="Light/Dark">${do
   <div class="sub" style="margin-bottom:12px">⚡ ${fc.length} concepts · ${ff.length} flashcards · ${fq.length} questions · ${fe.length} essays</div>
   <br>
   <a href="test.html" style="background:var(--bl); color:#fff; padding:6px 14px; text-decoration:none; border-radius:8px; font-size:0.8rem; font-weight:700;">📝 Previous Exams</a>
-</div>`;
+</div>`
+  <div class="nav-group">
+    <a href="#exams" class="nav-link-btn">
+        <span>📝</span> Previous Exams
+    </a>
+
+    <a href="http://binnasban.com/ecom500/essay" target="_blank" class="nav-link-btn highlighted">
+        <span>✨</span> Visual Essays
+    </a>
+</div>;
 // Progress
 h+=`<div class="prog">${steps.map((s,i)=>`<div class="prog-step ${S.step===i?'active':S.step>i?'done':''}" onclick="ss(${i})"><span class="num">${i+1}</span>${s}</div>`).join('')}</div>`;
 
