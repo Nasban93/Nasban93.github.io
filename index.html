@@ -261,7 +261,7 @@
     section {
       position: relative;
       z-index: 1;
-      padding: 7rem 5vw;
+      padding: 4.5rem 5vw;
       scroll-margin-top: 90px;
     }
 
@@ -269,7 +269,7 @@
       display: flex;
       align-items: center;
       gap: 1.2rem;
-      margin-bottom: 3rem;
+      margin-bottom: 1.75rem;
     }
 
     .section-label {
@@ -293,7 +293,7 @@
       font-weight: 500;
       line-height: 1.2;
       letter-spacing: -0.01em;
-      margin-bottom: 4rem;
+      margin-bottom: 2rem;
     }
 
     .section-title em {
@@ -315,10 +315,10 @@
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: var(--radius);
-      padding: 3rem 2.6rem;
+      padding: 2.2rem 2.2rem;
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 1rem;
       transition: all var(--transition);
       position: relative;
       overflow: hidden;
@@ -347,7 +347,7 @@
 
     .project-number {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 3.5rem;
+      font-size: 2.2rem;
       font-weight: 500;
       color: var(--accent-dim);
       line-height: 1;
@@ -369,7 +369,7 @@
 
     .project-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.9rem;
+      font-size: 1.7rem;
       font-weight: 600;
       line-height: 1.2;
       color: var(--text-main);
@@ -378,13 +378,17 @@
     .project-desc {
       font-size: 0.95rem;
       color: var(--text-muted);
-      line-height: 1.7;
+      line-height: 1.6;
       font-weight: 400;
       flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
 
     .project-footer {
-      padding-top: 1.5rem;
+      padding-top: 1rem;
       border-top: 1px solid var(--line);
       display: flex;
       align-items: center;
@@ -739,7 +743,7 @@
         </p>
         <div class="project-footer">
           <span class="project-status">Data Analysis</span>
-          <a href="/ehsan" class="btn btn-primary">
+          <a href="ehsan-dashboard.html" class="btn btn-primary">
             View Ehsan Project <span class="btn-arrow">→</span>
           </a>
         </div>
