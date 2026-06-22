@@ -6,12 +6,12 @@
 <title>MBA Executive Knowledge Hub</title>
 
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-W3Z4R46CQT"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-991LP5M6MF"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-W3Z4R46CQT');
+  gtag('config', 'G-991LP5M6MF');
 </script>
 
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -435,11 +435,17 @@ window.onload = () => {
     });
   }
 
+  function estimateReadTime(html) {
+    const text = (html || '').replace(/<[^>]+>/g, ' ');
+    const words = text.trim().split(/\s+/).filter(Boolean).length;
+    return Math.max(1, Math.round(words / 200));
+  }
+
   function footerHTML() {
     return `
       <div class="site-footer">
         <div>
-          <div class="footer-name">Khalid Bin Nasban</div>
+          <div class="footer-name">Khalid Nasban</div>
           <div class="footer-sub">MBA Review Hub</div>
         </div>
         <div class="footer-links">
@@ -451,18 +457,12 @@ window.onload = () => {
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/><path d="M10 9v12M10 13a4 4 0 0 1 8 0v8"/></svg>
             LinkedIn
           </a>
-          <a href="https://BinNasban.com" target="_blank" rel="noopener">
+          <a href="https://binnasban.com" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
-            BinNasban.com
+            binnasban.com
           </a>
         </div>
       </div>`;
-  }
-
-  function estimateReadTime(html) {
-    const text = (html || '').replace(/<[^>]+>/g, ' ');
-    const words = text.trim().split(/\s+/).filter(Boolean).length;
-    return Math.max(1, Math.round(words / 200));
   }
 
   function toggleMobileMenu(forceOpen) {
