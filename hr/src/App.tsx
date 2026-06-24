@@ -1,13 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route, Navigate, useNavigate, useLocation } from "react-router-dom";
 import { LangContext, type Lang, type Theme } from "./context/LangContext";
 import { useT } from "./i18n/useT";
-import { Executive } from "./dashboards/Executive";
-import { HrManager } from "./dashboards/HrManager";
-import { DepartmentHead } from "./dashboards/DepartmentHead";
-import { EmployeeSelf } from "./dashboards/EmployeeSelf";
+import { WelcomeTour } from "./components/WelcomeTour";
 import seedData from "./data/seed.json";
 import type { SeedData } from "./domain/types";
+
+const Executive = lazy(() => import("./dashboards/Executive").then((m) => ({ default: m.Executive })));
+const HrManager = lazy(() => import("./dashboards/HrManager").then((m) => ({ default: m.HrManager })));
+const DepartmentHead = lazy(() => import("./dashboards/DepartmentHead").then((m) => ({ default: m.DepartmentHead })));
+const EmployeeSelf = lazy(() => import("./dashboards/EmployeeSelf").then((m) => ({ default: m.EmployeeSelf })));
 
 const data = seedData as SeedData;
 
@@ -44,9 +46,10 @@ function MoonIcon() {
   );
 }
 
-function NavBar({ lang, setLang, theme, setTheme }: {
+function NavBar({ lang, setLang, theme, setTheme, onHelp }: {
   lang: Lang; setLang: (l: Lang) => void;
   theme: Theme; setTheme: (t: Theme) => void;
+  onHelp: () => void;
 }) {
   const t = useT();
   const navigate = useNavigate();
@@ -144,6 +147,14 @@ function NavBar({ lang, setLang, theme, setTheme }: {
             {theme === "light" ? <MoonIcon /> : <SunIcon />}
             <span className="text-xs font-medium">{theme === "light" ? "Dark" : "Light"}</span>
           </button>
+
+          {/* Help / tour */}
+          <button
+            onClick={onHelp}
+            className="ctrl flex items-center justify-center font-bold text-sm"
+            style={{ color: "var(--gold)", border: "1px solid var(--gold)", borderRadius: 6, width: 28, height: 28 }}
+            title="How it works"
+          >?</button>
         </div>
       </div>
     </header>
@@ -153,11 +164,19 @@ function NavBar({ lang, setLang, theme, setTheme }: {
 function AppInner() {
   const [lang, setLang] = useState<Lang>("en");
   const [theme, setTheme] = useState<Theme>("light");
+  const [showTour, setShowTour] = useState(
+    () => localStorage.getItem("hp-tour-seen") !== "1"
+  );
 
   // Apply theme to document root
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
+
+  const closeTour = () => {
+    localStorage.setItem("hp-tour-seen", "1");
+    setShowTour(false);
+  };
 
   const fontFamily = lang === "ar"
     ? "'Noto Kufi Arabic', sans-serif"
@@ -170,16 +189,19 @@ function AppInner() {
         dir={lang === "ar" ? "rtl" : "ltr"}
         style={{ backgroundColor: "var(--bg)", color: "var(--text)", fontFamily }}
       >
-        <NavBar lang={lang} setLang={setLang} theme={theme} setTheme={setTheme} />
+        <NavBar lang={lang} setLang={setLang} theme={theme} setTheme={setTheme} onHelp={() => setShowTour(true)} />
         <main className="max-w-screen-xl mx-auto px-4 py-6">
-          <Routes>
-            <Route path="/" element={<Navigate to="/executive" replace />} />
-            <Route path="/executive" element={<Executive data={data} />} />
-            <Route path="/hr-manager" element={<HrManager data={data} />} />
-            <Route path="/dept-head"  element={<DepartmentHead data={data} />} />
-            <Route path="/employee"   element={<EmployeeSelf data={data} />} />
-          </Routes>
+          <Suspense fallback={<div style={{ padding: 40, textAlign: "center", color: "var(--text-muted)" }}>Loading…</div>}>
+            <Routes>
+              <Route path="/" element={<Navigate to="/executive" replace />} />
+              <Route path="/executive" element={<Executive data={data} />} />
+              <Route path="/hr-manager" element={<HrManager data={data} />} />
+              <Route path="/dept-head"  element={<DepartmentHead data={data} />} />
+              <Route path="/employee"   element={<EmployeeSelf data={data} />} />
+            </Routes>
+          </Suspense>
         </main>
+        {showTour && <WelcomeTour onClose={closeTour} />}
       </div>
     </LangContext.Provider>
   );

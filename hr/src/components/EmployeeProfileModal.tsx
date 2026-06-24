@@ -136,8 +136,8 @@ export function EmployeeProfileModal({ employeeId, data, onClose }: Props) {
               {[
                 [isAr ? "القسم" : "Department",     isAr ? dept?.nameAr : dept?.name],
                 [isAr ? "المسمى الوظيفي" : "Position", isAr ? emp.positionAr : emp.position],
-                [isAr ? "الدرجة الوظيفية" : "Job Level", jobLevel ? `${jobLevel.id} — ${jobLevel.name}` : emp.jobLevelId],
-                [isAr ? "نطاق الراتب" : "Grade Band", jobLevel ? `${jobLevel.salaryBandMin.toLocaleString()} – ${jobLevel.salaryBandMax.toLocaleString()} SAR` : "—"],
+                [isAr ? "الدرجة الوظيفية" : "Job Level", jobLevel ? `${jobLevel.id} — ${isAr ? jobLevel.nameAr : jobLevel.name}` : emp.jobLevelId],
+                [isAr ? "التقييم" : "Grade", latestResult?.grade ?? "—"],
                 [isAr ? "الراتب الشهري" : "Monthly Salary", (() => {
                   const filtered = snapshots.filter((s): s is NonNullable<typeof s> => s != null);
                   const sal = (filtered[filtered.length - 1] ?? filtered[0])?.monthlySalary;
