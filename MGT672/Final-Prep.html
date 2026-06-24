@@ -1,0 +1,1696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MGT 672 — International Management Study Tool</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+  --bg: #151210;
+  --card: #1a1714;
+  --card2: #1e1b16;
+  --border: #2a2520;
+  --border2: #3d352e;
+  --gold: #c49b63;
+  --gold2: #8b6914;
+  --text: #c4b5a0;
+  --text2: #e8d5b7;
+  --text3: #7a7068;
+  --text4: #5a5048;
+  --gbg: #1e2e1e;
+  --gbd: #4caf50;
+  --rbg: #2e1e1e;
+  --rbd: #e53935;
+}
+
+.light {
+  --bg: #faf7f2;
+  --card: #fff;
+  --card2: #f5f0eb;
+  --border: #e8e0d5;
+  --border2: #e0d5c8;
+  --text: #333;
+  --text2: #1a1a2e;
+  --text3: #999;
+  --text4: #aaa;
+  --gbg: #e8f5e9;
+  --rbg: #ffebee;
+}
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    font-size: 14px;
+    line-height: 1.6;
+    transition: 0.3s;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    padding: 28px 40px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .header-top {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .header-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--gold2);
+    letter-spacing: -0.5px;
+  }
+  .header-sub {
+    font-size: 12px;
+    color: var(--text3);
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .nav-btn {
+    display: inline-flex;
+    align-items: center;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text2);
+    text-decoration: none;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 6px 14px;
+    transition: all 0.15s;
+  }
+  .nav-btn:hover {
+    border-color: var(--border2);
+    color: var(--gold);
+  }
+  
+  .theme-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  .header-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--gold-dim);
+    border: 1px solid var(--gold-dim);
+    border-radius: 4px;
+    padding: 4px 10px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── TABS ── */
+  .tab-bar {
+    display: flex;
+    gap: 0;
+    margin-top: 0;
+  }
+  .tab-btn {
+    padding: 12px 22px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--text3);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    transition: color 0.2s, border-color 0.2s;
+    white-space: nowrap;
+  }
+  .tab-btn:hover { color: var(--text2); }
+  .tab-btn.active {
+    color: var(--gold2);
+    border-bottom: 2px solid var(--gold);
+  }
+  .tab-icon { margin-right: 6px; opacity: 0.7; }
+
+  /* ── MAIN LAYOUT ── */
+  .main {
+    display: flex;
+    min-height: calc(100vh - 115px);
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    width: 220px;
+    min-width: 220px;
+    border-right: 1px solid var(--border);
+    padding: 20px 0;
+    background: var(--bg2);
+    position: sticky;
+    top: 0;
+    height: calc(100vh - 115px);
+    overflow-y: auto;
+    display: none;
+  }
+  .sidebar.visible { display: block; }
+  .sidebar-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text3);
+    padding: 0 18px 8px;
+  }
+  .sidebar-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 8px 18px;
+    background: none;
+    border: none;
+    border-left: 2px solid transparent;
+    color: var(--text2);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.15s;
+    line-height: 1.4;
+  }
+  .sidebar-btn:hover { color: var(--text); background: var(--bg3); }
+  .sidebar-btn.active {
+    color: var(--gold2);
+    border-left-color: var(--gold);
+    background: var(--bg3);
+    font-weight: 500;
+  }
+
+  /* ── CONTENT ── */
+  .content {
+    flex: 1;
+    padding: 28px 36px;
+    overflow-y: auto;
+    max-height: calc(100vh - 115px);
+  }
+  .tab-pane { display: none; }
+  .tab-pane.active { display: block; }
+
+  /* ── ACCORDION (Summary) ── */
+  .chapter-block { margin-bottom: 10px; }
+  .chapter-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 13px 18px;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+    user-select: none;
+  }
+  .chapter-header:hover { background: var(--bg4); border-color: var(--border2); }
+  .chapter-header.open {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-color: var(--gold-dim);
+  }
+  .chapter-header-left { display: flex; align-items: center; gap: 12px; }
+  .ch-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--gold-dim);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    min-width: 36px;
+  }
+  .ch-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+  }
+  .ch-arrow {
+    color: var(--text3);
+    font-size: 11px;
+    transition: transform 0.25s;
+  }
+  .chapter-header.open .ch-arrow { transform: rotate(180deg); }
+
+  .chapter-body {
+    display: none;
+    border: 1px solid var(--gold-dim);
+    border-top: none;
+    border-bottom-left-radius: var(--radius);
+    border-bottom-right-radius: var(--radius);
+    background: var(--bg2);
+    overflow: hidden;
+  }
+  .chapter-body.open { display: block; }
+
+  .section-tab-bar {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+    background: var(--bg3);
+  }
+  .section-tab {
+    padding: 10px 16px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--text3);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .section-tab:hover { color: var(--text2); }
+  .section-tab.active { color: var(--gold2); border-bottom-color: var(--gold); }
+
+  .section-pane { display: none; padding: 20px 22px; }
+  .section-pane.active { display: block; }
+
+  .section-pane h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gold2);
+    margin: 18px 0 8px;
+  }
+  .section-pane h3:first-child { margin-top: 0; }
+  .section-pane p { color: var(--text2); font-size: 13px; margin-bottom: 10px; line-height: 1.75; }
+  .section-pane ul { padding-left: 18px; color: var(--text2); font-size: 13px; }
+  .section-pane li { margin-bottom: 5px; line-height: 1.7; }
+  .section-pane b { color: var(--text); font-weight: 500; }
+  .section-pane i { color: var(--text3); font-style: italic; }
+
+  .imp-badge {
+    display: inline-block;
+    background: #1f1800;
+    border: 1px solid var(--gold-dim);
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-right: 6px;
+    margin-bottom: 6px;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 10px 0;
+  }
+  .compare-cell {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 12px;
+    color: var(--text2);
+  }
+  .compare-cell .cell-head {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--gold-dim);
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .strat-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    margin: 10px 0;
+  }
+  .strat-table th {
+    background: var(--bg4);
+    color: var(--gold-dim);
+    font-weight: 600;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 8px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border2);
+  }
+  .strat-table td {
+    padding: 8px 12px;
+    color: var(--text2);
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .strat-table tr:last-child td { border-bottom: none; }
+  .strat-table tr:hover td { background: var(--bg3); }
+
+  /* ── QUIZ ── */
+  .quiz-toolbar {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  .filter-btn {
+    padding: 6px 14px;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    color: var(--text2);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .filter-btn:hover { border-color: var(--border2); color: var(--text); }
+  .filter-btn.active {
+    background: #1f1800;
+    border-color: var(--gold-dim);
+    color: var(--gold2);
+  }
+
+  .score-strip {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 10px 16px;
+    margin-bottom: 20px;
+  }
+  .score-label { font-size: 11px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.07em; }
+  .score-val { font-family: 'DM Mono', monospace; font-size: 18px; font-weight: 500; color: var(--gold2); min-width: 60px; }
+  .score-pct { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--text3); }
+  .prog-track { flex: 1; height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+  .prog-fill { height: 100%; background: linear-gradient(90deg, var(--gold-dim), var(--gold)); border-radius: 2px; transition: width 0.4s ease; width: 0%; }
+  .reset-btn {
+    padding: 5px 12px;
+    background: none;
+    border: 1px solid var(--border2);
+    border-radius: 6px;
+    color: var(--text3);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .reset-btn:hover { border-color: var(--red); color: var(--red-text); }
+
+  .quiz-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    margin-bottom: 12px;
+    transition: border-color 0.2s;
+  }
+  .quiz-card.answered-right { border-color: var(--green); }
+  .quiz-card.answered-wrong { border-color: var(--red); }
+  .quiz-card.answered-right .q-num-tag { background: var(--green-bg); color: var(--green-text); }
+  .quiz-card.answered-wrong .q-num-tag { background: var(--red-bg); color: var(--red-text); }
+
+  .q-num-tag {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    background: var(--bg4);
+    color: var(--text3);
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    letter-spacing: 0.05em;
+  }
+  .q-text {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+  .opt-list { display: flex; flex-direction: column; gap: 6px; }
+  .opt-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 10px 14px;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    color: var(--text2);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+    cursor: pointer;
+    transition: all 0.12s;
+  }
+  .opt-btn:hover:not(:disabled) { background: var(--bg4); border-color: var(--border2); color: var(--text); }
+  .opt-btn:disabled { cursor: default; }
+  .opt-btn.correct {
+    background: var(--green-bg);
+    border-color: var(--green);
+    color: var(--green-text);
+  }
+  .opt-btn.wrong {
+    background: var(--red-bg);
+    border-color: var(--red);
+    color: var(--red-text);
+  }
+  .opt-letter {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    margin-right: 8px;
+    opacity: 0.6;
+  }
+
+  .feedback-strip {
+    margin-top: 10px;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    line-height: 1.6;
+    display: none;
+  }
+  .feedback-strip.correct-fb { background: var(--green-bg); color: var(--green-text); border: 1px solid var(--green); }
+  .feedback-strip.wrong-fb { background: var(--red-bg); color: var(--red-text); border: 1px solid var(--red); }
+  .fb-icon { font-weight: 600; margin-right: 4px; }
+
+  /* ── ESSAY ── */
+  .essay-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 22px 24px;
+    margin-bottom: 14px;
+  }
+  .essay-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--gold-dim);
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
+  }
+  .essay-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--gold2);
+    margin-bottom: 14px;
+    line-height: 1.4;
+  }
+  .essay-section-head {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text3);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 14px 0 6px;
+  }
+  .essay-section-head:first-child { margin-top: 0; }
+  .essay-body { font-size: 13px; color: var(--text2); line-height: 1.8; }
+  .essay-body b { color: var(--text); font-weight: 500; }
+  .essay-body .point {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .essay-body .point-dot {
+    color: var(--gold-dim);
+    font-size: 16px;
+    line-height: 1.5;
+    flex-shrink: 0;
+  }
+  .example-box {
+    background: var(--bg4);
+    border-left: 3px solid var(--gold-dim);
+    border-radius: 0 6px 6px 0;
+    padding: 10px 14px;
+    margin-top: 12px;
+    font-size: 12px;
+    color: var(--text3);
+  }
+  .example-box .ex-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--gold-dim);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    font-family: 'DM Mono', monospace;
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg2); }
+  ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--text3); }
+
+/* ── RESPONSIVE (MOBILE FIX) ── */
+  @media (max-width: 768px) {
+    .header { padding: 20px 16px 0; }
+    
+    /* 1. Stack the header items */
+    .header-top { 
+      flex-direction: column; 
+      align-items: flex-start; 
+      gap: 14px; 
+    }
+    .header-actions { 
+      width: 100%;
+      flex-wrap: wrap; 
+      gap: 10px; 
+    }
+    .header-title { font-size: 22px; }
+    
+    /* 2. Allow the top tabs to scroll horizontally */
+    .tab-bar { 
+      overflow-x: auto; 
+      white-space: nowrap; 
+      padding-bottom: 4px; 
+    }
+    .tab-bar::-webkit-scrollbar { display: none; }
+    
+    /* 3. Stack the main layout (sidebar on top of content) */
+    .main { 
+      flex-direction: column; 
+      min-height: auto; 
+    }
+    
+    /* 4. Convert the vertical sidebar into a horizontal scrolling pill menu */
+    .sidebar {
+      width: 100%;
+      min-width: 100%;
+      height: auto;
+      border-right: none;
+      border-bottom: 1px solid var(--border);
+      padding: 12px 16px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--bg);
+    }
+    .sidebar.visible {
+      display: flex;
+      flex-direction: row;
+      overflow-x: auto;
+    }
+    .sidebar::-webkit-scrollbar { display: none; }
+    .sidebar-label { display: none; } /* Hide the word "CHAPTERS" to save space */
+    
+    .sidebar-btn {
+      width: auto;
+      white-space: nowrap;
+      border-left: none;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 6px 14px;
+      margin-right: 8px;
+      background: var(--card2); 
+    }
+    .sidebar-btn.active {
+      border-color: var(--gold);
+      background: #1f1800; /* Dark gold tint */
+      color: var(--gold);
+    }
+    
+    /* 5. Adjust content padding */
+    .content { 
+      padding: 20px 16px; 
+      max-height: none; /* Let the whole page scroll naturally */
+      overflow-y: visible;
+    }
+    
+    .compare-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body class="light">
+
+<div class="header">
+  <div class="header-top">
+    <div>
+      <div class="header-sub">FINAL EXAM</div>
+      <div class="header-title">MGT 672 — International Management</div>
+    </div>
+    <div class="header-actions">
+      <div class="header-badge">FINAL EXAM PREP</div>
+      <a href="index.html" class="nav-btn">🏠 Main </a>
+      <button onclick="toggleTheme()" class="theme-btn" id="themeBtn">☀️</button>
+    </div>
+  </div>
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('summary')"><span class="tab-icon">📖</span>Wael's Summary</button>
+    <button class="tab-btn" onclick="switchTab('prevmcq')"><span class="tab-icon">📋</span>Musaad - Previous Midterm Exams</button>
+    <button class="tab-btn" onclick="switchTab('chmcq')"><span class="tab-icon">🧠</span>MCQs Ch 8–14</button>
+    <button class="tab-btn" onclick="switchTab('essay')"><span class="tab-icon">✍️</span>Essay Guide</button>
+  </div>
+</div>
+
+<div class="main">
+  <div class="sidebar" id="sidebar"></div>
+  <div class="content">
+
+    <div class="tab-pane active" id="pane-summary">
+      <div id="summary-root"></div>
+    </div>
+
+    <div class="tab-pane" id="pane-prevmcq">
+      <div class="score-strip">
+        <div><div class="score-label">Score</div><div class="score-val" id="p-score">0 / 0</div></div>
+        <div class="score-pct" id="p-pct">—</div>
+        <div class="prog-track"><div class="prog-fill" id="p-prog"></div></div>
+        <button class="reset-btn" onclick="resetQuiz('p')">↺ Reset</button>
+      </div>
+      <div id="prev-quiz-root"></div>
+    </div>
+
+    <div class="tab-pane" id="pane-chmcq">
+      <div class="quiz-toolbar" id="ch-filter-bar"></div>
+      <div class="score-strip">
+        <div><div class="score-label">Score</div><div class="score-val" id="c-score">0 / 0</div></div>
+        <div class="score-pct" id="c-pct">—</div>
+        <div class="prog-track"><div class="prog-fill" id="c-prog"></div></div>
+        <button class="reset-btn" onclick="resetQuiz('c')">↺ Reset</button>
+      </div>
+      <div id="ch-quiz-root"></div>
+    </div>
+
+    <div class="tab-pane" id="pane-essay">
+      <div id="essay-root"></div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// ══════════════════════════════════════
+// THEME TOGGLE
+// ══════════════════════════════════════
+let isLightMode = false;
+function toggleTheme() {
+  isLightMode = !isLightMode;
+  document.body.classList.toggle('light', isLightMode);
+  document.getElementById('themeBtn').textContent = isLightMode ? '🌙' : '☀️';
+}
+
+// ══════════════════════════════════════
+// DATA — SUMMARY
+// ══════════════════════════════════════
+const SUMMARY = [
+  {
+    num: 'CH 08', title: 'Strategy Formulation and Implementation',
+    sections: [
+      {
+        name: 'Overview',
+        content: `<p><b>Strategic management</b> = determining an organization's basic mission + long-term objectives + implementing a plan of action. MNCs must balance <b>Global Integration</b> (homogenous product/quality worldwide) vs <b>National Responsiveness</b> (adapting to local tastes, standards, and regulations).</p>`
+      },
+      {
+        name: 'Four Imperatives',
+        content: `<p><span class="imp-badge">★ HIGH IMPORTANCE</span></p>
+        <table class="strat-table">
+          <tr><th>Imperative</th><th>Core Logic</th><th>When Used</th></tr>
+          <tr><td><b>Economic</b></td><td>Cost leadership, differentiation, segmentation worldwide</td><td>Generic products; value added upstream (R&amp;D, manufacturing)</td></tr>
+          <tr><td><b>Political</b></td><td>Country-responsive; protects local market niches</td><td>Value added downstream (marketing, sales, service); multi-domestic strategy</td></tr>
+          <tr><td><b>Quality</b></td><td>TQM — cross-training, process reengineering, reward systems</td><td>Quality formulated at top management, diffused throughout org</td></tr>
+          <tr><td><b>Admin. Coord.</b></td><td>Decisions based on individual situation merits</td><td>Rapid, flexible decision making needed — <b>LEAST COMMON</b></td></tr>
+        </table>`
+      },
+      {
+        name: 'Four Strategies',
+        content: `<p><span class="imp-badge">★ MEMORIZE</span> Based on the Integration–Responsiveness (I-R) Grid:</p>
+        <table class="strat-table">
+          <tr><th>Strategy</th><th>Integration</th><th>Responsiveness</th><th>Key Feature</th></tr>
+          <tr><td><b>International</b></td><td>Low</td><td>Low</td><td>Mixed approach; increased standardization</td></tr>
+          <tr><td><b>Multi-domestic</b></td><td>Low</td><td>High</td><td>Local adaptation; niche-focused</td></tr>
+          <tr><td><b>Global</b></td><td>High</td><td>Low</td><td>Price competition; economies of scale</td></tr>
+          <tr><td><b>Transnational</b></td><td>High</td><td>High</td><td>Both integration AND responsiveness</td></tr>
+        </table>`
+      },
+      {
+        name: 'Strategy Steps',
+        content: `<p>Three steps in formulating strategy:</p>
+        <ul>
+          <li>1. <b>Scan external environment</b> for opportunities and threats — effective only when done consistently</li>
+          <li>2. <b>Internal resource analysis</b> — evaluates managerial, technical, material, and financial resources; identifies Key Success Factors (KSF)</li>
+          <li>3. <b>Goal formulation</b> — profitability and marketing goals tend to top MNC plans</li>
+        </ul>
+        <p><i>Note: Goal setting actually precedes the other two steps conceptually.</i></p>`
+      },
+      {
+        name: 'Specialized Strategies',
+        content: `<p><b>First-Mover Advantages:</b> learning effects, scale economies, best local partners, privatization advantage over later entrants.</p>
+        <p><b>Base of the Pyramid (BOP):</b> Targets the 4–5 billion low-income customers. Ideal for leapfrog/disruptive technologies. Business models forged at BOP can travel to higher-income markets.</p>
+        <p><b>Born-Global Firms:</b> Engage in significant international activity <i>shortly after establishment</i>. Leverage global tech competence, unique products, quality focus, and foreign distributor competencies.</p>`
+      },
+      {
+        name: 'Exam Points',
+        content: `<ul>
+          <li>Administrative Coordination = <b>least common</b> approach</li>
+          <li>Global strategy = <b>price competition</b>; Transnational = <b>BOTH</b> integration and responsiveness</li>
+          <li>Goal setting actually <b>precedes</b> environmental scanning and internal analysis</li>
+          <li>Profitability and <b>marketing goals</b> top MNC plans</li>
+          <li>Born-global firms internationalize <b>shortly after</b> establishment</li>
+          <li>First movers benefit from learning effects, scale economies, best local partners</li>
+        </ul>`
+      }
+    ]
+  },
+  {
+    num: 'CH 09', title: 'Entry Strategies and Organizational Structures',
+    sections: [
+      {
+        name: 'Six Entry Modes',
+        content: `<p><span class="imp-badge">★ HIGH IMPORTANCE</span></p>
+        <table class="strat-table">
+          <tr><th>Mode</th><th>Key Feature</th><th>Best For</th></tr>
+          <tr><td><b>Export/Import</b></td><td>Minimum investment; transitional</td><td>Small/new firms; initial international entry</td></tr>
+          <tr><td><b>Wholly Owned Subsidiary</b></td><td>Total control; high risk; high investment</td><td>Where managerial efficiency requires no outside partners</td></tr>
+          <tr><td><b>M&amp;A</b></td><td>Quick expansion; cultural barriers are major challenge</td><td>Rapidly entering a new market with resources</td></tr>
+          <tr><td><b>Alliances / JVs</b></td><td>Shared risk; knowledge access; political mitigation</td><td>Emerging markets; regulated industries</td></tr>
+          <tr><td><b>Licensing</b></td><td>IP use for fee; licensor lacks resources</td><td>Mature-stage products; small licensors</td></tr>
+          <tr><td><b>Franchising</b></td><td>Brand + methods for fee</td><td>Rapid expansion with limited capital</td></tr>
+        </table>`
+      },
+      {
+        name: 'Structure Progression',
+        content: `<p>As MNCs grow, their structures evolve:</p>
+        <p style="text-align:center; padding: 12px 0; color: var(--gold2); font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.05em;">Initial Division → International Division → Global Structures → Mixed/Matrix → Transnational Network</p>
+        <div class="compare-grid">
+          <div class="compare-cell"><div class="cell-head">International Division</div>Handles all international ops from a single division. Used in developmental stages. Advantage: unified approach. Disadvantage: separates domestic and international managers.</div>
+          <div class="compare-cell"><div class="cell-head">Transnational Network</div>Combines function, product, geography via network. NODES coordinate product, functional, and geographic details. Dispersed subunits + Specialized operations + Interdependent relationships.</div>
+        </div>`
+      },
+      {
+        name: 'Global Structures',
+        content: `<table class="strat-table">
+          <tr><th>Structure</th><th>Organized By</th><th>Advantage</th><th>Disadvantage</th></tr>
+          <tr><td><b>Global Product</b></td><td>Worldwide product groups</td><td>Profit centers; direct customer-R&D link</td><td>Duplication of facilities; geographic blind spots</td></tr>
+          <tr><td><b>Global Area</b></td><td>Geographic regions</td><td>Local adaptation; fast environmental response</td><td>R&D neglected; product-geography conflict</td></tr>
+          <tr><td><b>Global Functional</b></td><td>Function first, product second</td><td>Functional expertise; tight central control</td><td>Cross-function coordination difficult; only CEO accountable for profit</td></tr>
+        </table>`
+      },
+      {
+        name: 'Org Characteristics',
+        content: `<p><b>Formalization:</b> Use of defined structures and systems in decision making, communicating, and controlling.</p>
+        <p><b>Specialization:</b></p>
+        <ul>
+          <li><b>Horizontal:</b> Individuals given a particular function; stay within that area (customer service, sales, recruiting)</li>
+          <li><b>Vertical:</b> Distinct status differences between hierarchy levels; work assigned to groups; creates tall structures</li>
+        </ul>
+        <p><b>Centralization:</b> Important decisions at top management. <b>Decentralization:</b> Pushes decisions down; promotes creativity and entrepreneurship.</p>`
+      },
+      {
+        name: 'Exam Points',
+        content: `<ul>
+          <li>Export/import is <b>transitional</b> — best for small/new firms</li>
+          <li>Licensing = mature products + licensor lacks resources OR foreign countries require large FDI</li>
+          <li>In Transnational Networks, <b>NODES</b> = central coordinating units</li>
+          <li>Global Functional Division = only <b>CEO accountable</b> for profits</li>
+          <li>Horizontal specialization = within one function; Vertical = group/department-level, status hierarchy</li>
+          <li>IJV = International Joint Venture (partners from different countries)</li>
+        </ul>`
+      }
+    ]
+  },
+  {
+    num: 'CH 10', title: 'Managing Political Risk, Government Relations, and Alliances',
+    sections: [
+      {
+        name: 'Political Risk',
+        content: `<p><b>Political Risk:</b> Unanticipated likelihood that a foreign investment will be constrained by host government policies.</p>
+        <div class="compare-grid">
+          <div class="compare-cell"><div class="cell-head">Macro Political Risk</div>Reviews major political decisions likely to affect <b>ALL enterprises</b> in a country. Examples: currency restrictions, economy-wide policy shifts.</div>
+          <div class="compare-cell"><div class="cell-head">Micro Political Risk</div>Directed toward government policies affecting <b>selected sectors or specific firms</b>. Examples: industry regulations, firm-specific taxes.</div>
+        </div>`
+      },
+      {
+        name: 'Three Categories',
+        content: `<p><span class="imp-badge">★ MEMORIZE ALL THREE</span></p>
+        <table class="strat-table">
+          <tr><th>Category</th><th>Definition</th><th>Examples</th></tr>
+          <tr><td><b>Transfer Risks</b></td><td>Limits on movement of capital, payments, people, technology</td><td>Dividend remittance restrictions, capital repatriation, tariffs on exports/imports</td></tr>
+          <tr><td><b>Operational Risks</b></td><td>Policies constraining management and performance of local operations</td><td>Price controls, financing restrictions, export commitments, taxes, local-sourcing requirements</td></tr>
+          <tr><td><b>Ownership-Control Risks</b></td><td>Policies inhibiting ownership or control of local operations</td><td>Foreign-ownership limits, expropriation, confiscation, abrogation of proprietary rights</td></tr>
+        </table>`
+      },
+      {
+        name: 'FDI Risk Types',
+        content: `<p><b>Expropriation:</b> Seizure of businesses with little/no compensation. Greatest risk in extractive, agricultural, and infrastructural industries.</p>
+        <p><b>Nature of Investment Risk:</b></p>
+        <table class="strat-table">
+          <tr><th>Type</th><th>Description</th><th>Risk Level</th></tr>
+          <tr><td><b>Conglomerate</b></td><td>Goods/services different from those produced at home</td><td>HIGH — government sees fewer country benefits</td></tr>
+          <tr><td><b>Vertical</b></td><td>Raw materials or intermediate goods for processing</td><td>HIGH — export-oriented; gov likes FX generation</td></tr>
+          <tr><td><b>Horizontal</b></td><td>Same goods/services as produced at home</td><td>LOW — satisfies host country market demands</td></tr>
+        </table>
+        <p><b>FDI Sectors:</b> Primary (agriculture, mining) > Service > Industrial. Type I = HIGHEST risk; Type V = LOWEST risk. Wholly owned subsidiaries have HIGHER risk than partially owned.</p>`
+      },
+      {
+        name: 'Response Strategies',
+        content: `<div class="compare-grid">
+          <div class="compare-cell"><div class="cell-head">Integrative Techniques</div>Embed MNC in host infrastructure: local JVs, hire locals, local R&D, develop government relations, produce locally. <b>Objective:</b> be perceived as "less foreign."</div>
+          <div class="compare-cell"><div class="cell-head">Protective / Defensive</div>Limit local exposure: do as little local manufacturing as possible, conduct R&D outside the country, raise capital from local banks, diversify production globally.</div>
+        </div>
+        <p style="margin-top:10px"><b>Proactive Political Strategies:</b> Leverage bilateral/multilateral trade agreements; formal lobbying; campaign financing; embassy/consulate advocacy; public relations campaigns.</p>
+        <p><b>Relative Bargaining Power:</b> MNC works to maintain a stronger position than the host country — depends on host's perception of MNC's size, experience, and legitimacy.</p>`
+      },
+      {
+        name: 'Alliances',
+        content: `<p><b>Alliance as Arena:</b> Both value-claiming and value-creating activities take place.</p>
+        <ul>
+          <li><b>Value-claiming:</b> Competitive, distributive negotiation</li>
+          <li><b>Value-creating:</b> Collaborative, integrative negotiation</li>
+        </ul>
+        <p>Success factors: partner selection, cooperation agreement, management structure, acculturation process, knowledge management. <b>Always prepare for termination.</b></p>
+        <p>Termination legal issues: conditions of termination, asset/liability disposition, dispute resolution, distributorship arrangements, protection of proprietary rights.</p>`
+      },
+      {
+        name: 'Exam Points',
+        content: `<ul>
+          <li>Macro = <b>all enterprises</b>; Micro = <b>selected sectors or specific firms</b></li>
+          <li>Type I FDI = <b>HIGHEST risk</b>; Type V = <b>LOWEST risk</b></li>
+          <li>Wholly owned = <b>HIGHER</b> FDI risk than partially owned</li>
+          <li>Value-claiming = distributive (competitive); Value-creating = integrative (collaborative)</li>
+          <li>Expropriation strategies: local partners, limit high technology, acquire dependent affiliate</li>
+          <li>Primary sector (agriculture/mining) > Service > Industrial in FDI risk</li>
+        </ul>`
+      }
+    ]
+  },
+  {
+    num: 'CH 11', title: 'Management Decision and Control',
+    sections: [
+      {
+        name: 'Cultural Decision Making',
+        content: `<p><span class="imp-badge">★ JAPANESE TERMS — TEST FAVORITE</span></p>
+        <table class="strat-table">
+          <tr><th>Term</th><th>Meaning</th></tr>
+          <tr><td><b>Ringisei</b></td><td>Decision making by consensus</td></tr>
+          <tr><td><b>Tatemae</b></td><td>Doing the right thing according to the norm</td></tr>
+          <tr><td><b>Honne</b></td><td>What one really wants to do (personal desire)</td></tr>
+        </table>
+        <p><b>Codetermination</b> (Germany & Scandinavia): Legal system requiring workers and managers to discuss major decisions before implementation.</p>
+        <p>Swedish teams: flatter hierarchies, open-minded, informal. German teams: expert-driven, faster decisions, clearer responsibilities.</p>`
+      },
+      {
+        name: 'TQM & Quality',
+        content: `<p><b>TQM</b> = organizational strategy for high-quality delivery. Techniques: Employee Empowerment, Rewards & Recognition, Ongoing Training.</p>
+        <p><b>Kaizen</b> = continuous improvement (Japanese). Philosophy: "Anything worth doing in quality is worth overdoing."</p>
+        <p><b>ISO 9000:</b> Examines — design, process control, purchasing, service, inspection & testing, training. Prerequisite for EU business; screening criterion globally. <i>Note: Does NOT include environmental management standards.</i></p>
+        <p><b>Quality Control Circle (QCC):</b> Group of workers meeting regularly to discuss ways of improving the quality of work.</p>
+        <p><b>Training Overkill (Japanese):</b> Train workers for ALL jobs on the line, even if assigned to only one workstation.</p>`
+      },
+      {
+        name: 'Control Types',
+        content: `<div class="compare-grid">
+          <div class="compare-cell"><div class="cell-head">Direct Controls</div>Face-to-face or personal meetings to monitor operations. Example: top executive visits to overseas affiliates. Used semiannually or annually.</div>
+          <div class="compare-cell"><div class="cell-head">Indirect Controls</div>Reports and written forms of communication. Example: monthly operating reports sent to home office. Used to monitor performance on a monthly basis.</div>
+        </div>
+        <div class="compare-grid" style="margin-top:10px">
+          <div class="compare-cell"><div class="cell-head">Internal Control</div>Focuses on what the MNC does best internally. Uncomfortable when environment seems out of control.</div>
+          <div class="compare-cell"><div class="cell-head">External Control</div>Ensures there is a market for goods/services. Flexible attitude; willing to compromise.</div>
+        </div>
+        <p style="margin-top:10px">Three financial statements required from subsidiaries: (1) host country standards, (2) home country accounting principles, (3) home country consolidation requirements.</p>`
+      },
+      {
+        name: 'Country Approaches',
+        content: `<table class="strat-table">
+          <tr><th>Country</th><th>Control Approach</th></tr>
+          <tr><td><b>UK</b></td><td>Sophisticated financial records; guidance not surveillance; large marketing autonomy</td></tr>
+          <tr><td><b>Germany</b></td><td>Very detailed; attention to all variances; heavy control on production; operational efficiency focus</td></tr>
+          <tr><td><b>France</b></td><td>Closer to Germany; surveillance-based; centrally administered; less sophisticated</td></tr>
+        </table>
+        <div class="compare-grid" style="margin-top:10px">
+          <div class="compare-cell"><div class="cell-head">U.S. Control</div>Output control (quantitative/objective); large central staffs; less decentralization; long vertical spans between parent and subsidiary</div>
+          <div class="compare-cell"><div class="cell-head">European Control</div>Behavioral control (qualitative); capable expatriate managers abroad; more decentralization; short vertical spans</div>
+        </div>`
+      },
+      {
+        name: 'Performance Measures',
+        content: `<p><b>Three performance measures:</b> Financial, Quality, and Personnel.</p>
+        <p><b>Financial:</b> Profit & loss + ROI. Currency effects: <b>Devaluation → export sales INCREASE</b> (goods cheaper for foreign buyers). <b>Revaluation → export sales DECREASE</b>.</p>
+        <p><b>Quality:</b> QCCs — regular group meetings to improve quality. Japan's quality edge: minimal error, effective QCCs, early warning systems, training overkill, cutting-edge technology.</p>
+        <p><b>Personnel:</b> Periodic appraisals. Assessment Centers identify high-potential individuals through simulation exercises: in-basket exercises, committee exercises, business decision exercises, business plan preparation, letter writing.</p>`
+      },
+      {
+        name: 'Exam Points',
+        content: `<ul>
+          <li>Ringisei = <b>consensus</b>; Tatemae = <b>norm</b>; Honne = <b>personal desire</b></li>
+          <li>Codetermination = <b>Germany and Scandinavia</b></li>
+          <li>Kaizen = <b>continuous improvement</b></li>
+          <li>ISO 9000 examines: design, process control, purchasing, service, inspection/testing, training — <b>NOT environmental standards</b></li>
+          <li>Direct = face-to-face; Indirect = written reports</li>
+          <li>U.S. = <b>output (quantitative)</b> control; Europe = <b>behavioral (qualitative)</b> control</li>
+          <li>Devaluation <b>INCREASES</b> export sales; Revaluation <b>DECREASES</b> them</li>
+        </ul>`
+      }
+    ]
+  },
+  {
+    num: 'CH 12', title: 'Motivation across Cultures',
+    sections: [
+      {
+        name: 'Content vs Process',
+        content: `<div class="compare-grid">
+          <div class="compare-cell"><div class="cell-head">Content Theories — "WHAT"</div>Explain what arouses, energizes, or initiates employee behavior. Subject of most international HRM research.<br><br><b>Examples:</b> Maslow's Hierarchy, Herzberg's Two-Factor, McClelland's Achievement</div>
+          <div class="compare-cell"><div class="cell-head">Process Theories — "HOW"</div>Explain how behavior is initiated, redirected, and halted. More sophisticated; focus on individual behavior in specific settings.<br><br><b>Examples:</b> Equity Theory, Goal-Setting Theory, Expectancy Theory</div>
+        </div>`
+      },
+      {
+        name: "Maslow's Hierarchy",
+        content: `<p><b>Five needs (ascending):</b> Physiological → Safety → Social → Esteem → Self-actualization</p>
+        <p><b>Key assumptions:</b> lower needs must be satisfied first; a satisfied need no longer motivates; more ways to satisfy higher-level needs.</p>
+        <p><b>Nevis's Collectivist Variant (China):</b> <span class="imp-badge">★ TEST FAVORITE</span></p>
+        <p style="text-align:center; font-family: 'DM Mono', monospace; font-size: 12px; color: var(--gold); padding: 8px 0;">Belonging (Social) → Physiological → Safety → Self-actualization in service of society</p>
+        <p><b>Work Centrality by Country:</b> Japan (highest) → Israel → U.S./Belgium → Netherlands/Germany → Britain (lowest)</p>`
+      },
+      {
+        name: "Herzberg's Two-Factor",
+        content: `<p><span class="imp-badge">★ KEY DISTINCTION</span></p>
+        <div class="compare-grid">
+          <div class="compare-cell"><div class="cell-head">Motivators (Job Content)</div>Ensure SATISFACTION<br><br>Achievement, recognition, responsibility, advancement, the work itself</div>
+          <div class="compare-cell"><div class="cell-head">Hygiene Factors (Job Context)</div>Prevent DISSATISFACTION (absence causes dissatisfaction; presence does NOT ensure satisfaction)<br><br>Salary, interpersonal relations, supervision, working conditions, company policies</div>
+        </div>
+        <p style="margin-top:10px"><b>Key criticism:</b> classifying money as a hygiene factor (not a motivator). Applied country-by-country, not universally.</p>`
+      },
+      {
+        name: "McClelland's Achievement",
+        content: `<p>The need for achievement is <b>LEARNED</b>. Measured solely by the <b>TAT (Thematic Apperception Test)</b>.</p>
+        <p><b>Characteristics of High Achievers:</b></p>
+        <ul>
+          <li>Take personal responsibility for finding solutions</li>
+          <li><b>MODERATE risk takers</b> (not high or low)</li>
+          <li>Want concrete, specific feedback on performance</li>
+          <li>Tend to be <b>loners</b> — not team players</li>
+        </ul>
+        <p>Best applied in Anglo cultures and entrepreneurial-rewarding cultures.</p>`
+      },
+      {
+        name: 'Process Theories',
+        content: `<p><b>Equity Theory:</b> Perceived unfair treatment → dissatisfaction → negative job performance. Supported in West. Asian/Middle Eastern employees accept inequity to preserve group harmony. Israeli kibbutz: managers less satisfied than workers under equal treatment.</p>
+        <p><b>Goal-Setting Theory:</b> Specific, challenging goals drive performance. U.S.: participation in goal-setting is motivational. U.K./Norway: prefer union representatives to work with management on goals.</p>
+        <p><b>Expectancy Theory:</b> Effort → Performance → Specific outcomes → Value to individual. Culture-bound — works best where there is a <b>strong internal locus of control</b>.</p>`
+      },
+      {
+        name: 'Exam Points',
+        content: `<ul>
+          <li>Money = <b>HYGIENE factor</b> (not a motivator) — major Herzberg criticism</li>
+          <li>High achievers = <b>MODERATE risk takers</b>, prefer personal responsibility, want concrete feedback, tend to be loners</li>
+          <li>Achievement need is <b>LEARNED</b>; measured only by TAT</li>
+          <li>Nevis hierarchy starts with <b>BELONGING (Social)</b> — not physiological</li>
+          <li>Japan = <b>highest</b> work centrality; Britain = <b>lowest</b></li>
+          <li>Expectancy theory = culture-bound; best with strong <b>internal locus of control</b></li>
+          <li>Equity theory = accepted in West; Asian/Middle East employees accept inequity for group harmony</li>
+        </ul>`
+      }
+    ]
+  },
+  {
+    num: 'CH 13', title: 'Leadership across Cultures',
+    sections: [
+      {
+        name: 'Theory X / Y / Z',
+        content: `<table class="strat-table">
+          <tr><th>Theory</th><th>Core Assumption</th><th>Management Approach</th></tr>
+          <tr><td><b>Theory X</b></td><td>Workers dislike work; avoid responsibility; need job security above all</td><td>Coercion, control, threats of punishment</td></tr>
+          <tr><td><b>Theory Y</b></td><td>Work is natural; people self-direct; creativity is widespread</td><td>Rewards tied to objectives; tap unused human potential</td></tr>
+          <tr><td><b>Theory Z</b></td><td>Motivated by commitment to a greater whole; seek responsibility</td><td>Build loyalty; lifetime/long-term employment; team-based</td></tr>
+        </table>`
+      },
+      {
+        name: 'Three Leadership Types',
+        content: `<table class="strat-table">
+          <tr><th>Style</th><th>Core Feature</th><th>Best Context</th></tr>
+          <tr><td><b>Authoritarian</b></td><td>Work-centered; one-way communication; task accomplishment. Used by Theory X managers.</td><td>Crisis; low-skill teams</td></tr>
+          <tr><td><b>Paternalistic</b></td><td>"Work hard and the company will take care of you." Guarantees employment and security benefits. Japanese style.</td><td>High power-distance cultures; collectivist cultures</td></tr>
+          <tr><td><b>Participative</b></td><td>Decentralized authority; involves team in decisions; promotes creativity. Widely used in U.S., UK, Scandinavia.</td><td>Skilled teams; low power-distance cultures</td></tr>
+        </table>`
+      },
+      {
+        name: 'Japan vs U.S.',
+        content: `<p><span class="imp-badge">★ COMMON EXAM ITEM</span></p>
+        <div class="compare-grid">
+          <div class="compare-cell"><div class="cell-head">Japan — Variety Amplification</div>Creation of uncertainty and analysis of <b>many alternatives</b> regarding future action. Ambiguous goals. Paternalistic. Strong belief in subordinate capacity. Above average on participation.</div>
+          <div class="compare-cell"><div class="cell-head">U.S. — Variety Reduction</div>Limiting of uncertainty and focusing action on a <b>limited number of alternatives</b>. Clear, specific goals. More individual-driven decision making.</div>
+        </div>
+        <p style="margin-top:10px"><b>Theory Z (Ouchi):</b> Combines Japanese (group-oriented, paternalistic, holistic concern) and U.S. approaches. Emphasizes: lifetime employment, consensus, trust, implicit informal controls.</p>`
+      },
+      {
+        name: 'Transformational & 4 I\'s',
+        content: `<p><span class="imp-badge">★ MEMORIZE THE 4 I'S</span></p>
+        <p>Bass found the most effective managers were <b>transformational leaders</b>, characterized by:</p>
+        <ul>
+          <li><b>Idealized influence</b> — role models who inspire trust and respect</li>
+          <li><b>Inspirational motivation</b> — articulate a compelling vision</li>
+          <li><b>Intellectual stimulation</b> — encourage followers to question old paradigms, accept new ways</li>
+          <li><b>Individualized consideration</b> — treat each follower as an individual; mentor/coach</li>
+        </ul>
+        <p><b>Transactional leaders:</b> Exchange rewards for effort — "something for something" basis.</p>
+        <p><b>Charismatic leaders:</b> Inspire through personal charismatic traits and abilities.</p>`
+      },
+      {
+        name: 'GLOBE & Modern Leadership',
+        content: `<p><span class="imp-badge">★ SIX GLOBE BEHAVIORS</span> Charismatic/Value-Based, Team-Oriented, Participative, Humane-Oriented, Autonomous, Self-Protective.</p>
+        <div class="compare-grid">
+          <div class="compare-cell"><div class="cell-head">Authentic Leadership</div>Internally driven — values, integrity, personal beliefs. Does not fake actions. Focuses on the INTERNAL aspects of the leader. Primary concern = own values/morals.</div>
+          <div class="compare-cell"><div class="cell-head">Servant Leadership</div>Serves team first. Qualities: listening, empathy, healing, awareness, persuasion, conceptualization, foresight, stewardship, growth, building community.</div>
+        </div>`
+      },
+      {
+        name: 'Exam Points',
+        content: `<ul>
+          <li>Variety Amplification = <b>Japan</b>; Variety Reduction = <b>U.S.</b></li>
+          <li>4 I's: Idealized influence, Inspirational motivation, Intellectual stimulation, Individualized consideration</li>
+          <li>GLOBE = <b>SIX</b> leadership behaviors (Paternalistic is NOT one of them)</li>
+          <li>Theory Z = <b>lifetime employment</b> + commitment to a greater whole</li>
+          <li>Authentic = <b>internally driven</b> (values); Transformational = <b>motivating others</b></li>
+          <li>Servant leadership: 10 qualities — listening through building community</li>
+          <li>French/German managers: <b>authoritarian</b>; European managers generally: <b>participative</b></li>
+        </ul>`
+      }
+    ]
+  },
+  {
+    num: 'CH 14', title: 'Human Resource Selection and Development across Cultures',
+    sections: [
+      {
+        name: 'Four HR Sources',
+        content: `<p><span class="imp-badge">★ HIGH IMPORTANCE</span></p>
+        <table class="strat-table">
+          <tr><th>Source</th><th>Definition</th><th>Key Advantage</th></tr>
+          <tr><td><b>Home-Country Nationals (Expats)</b></td><td>Citizens of MNC's home country working abroad</td><td>Technical expertise; startup; coordination/control</td></tr>
+          <tr><td><b>Host-Country Nationals</b></td><td>Local managers hired in the foreign country</td><td>Cut transfer costs; expected by local countries</td></tr>
+          <tr><td><b>Third-Country Nationals (TCNs)</b></td><td>Citizens of a third country — neither home nor host</td><td>Lower cost; good regional knowledge; global image in JVs</td></tr>
+          <tr><td><b>Inpatriates (Inpats)</b></td><td>From host or third country, working IN the MNC's HOME country</td><td>Develop global core competencies; diverse perspectives at HQ</td></tr>
+        </table>
+        <p>Also: Subcontracting and Offshore Outsourcing as additional HR sources.</p>`
+      },
+      {
+        name: 'Selection & Adjustment',
+        content: `<p><b>Selection Criteria:</b> Adaptability to cultural change, physical/emotional health, age/experience/education, language training, motivation for assignment, spouse/family adaptability, leadership ability.</p>
+        <p><b>Adjustment Model:</b></p>
+        <div class="compare-grid">
+          <div class="compare-cell"><div class="cell-head">Anticipatory Adjustments</div>BEFORE departure. Pre-departure training, previous country experience, understanding of organizational culture. Organizational input is most directly related to the <b>selection process</b>.</div>
+          <div class="compare-cell"><div class="cell-head">In-Country Adjustments</div>AFTER arrival on site. Ability to maintain positive outlook, the job itself (role clarity, authority, newness), nonwork matters, effective socialization tactics.</div>
+        </div>`
+      },
+      {
+        name: 'Six Compensation Approaches',
+        content: `<p><span class="imp-badge">★ ALL SIX FREQUENTLY TESTED</span></p>
+        <table class="strat-table">
+          <tr><th>Approach</th><th>Definition</th></tr>
+          <tr><td><b>Balance-Sheet</b></td><td>Ensures expat does NOT lose money by taking the assignment. <b>Most common approach.</b></td></tr>
+          <tr><td><b>Negotiation</b></td><td>Special, ad hoc arrangement acceptable to both company and expat.</td></tr>
+          <tr><td><b>Localization</b></td><td>Pays expat a salary comparable to local nationals. Common for early-career long-term assignments.</td></tr>
+          <tr><td><b>Lump-Sum</b></td><td>Predetermined amount given to expat; individual decides how to spend it.</td></tr>
+          <tr><td><b>Cafeteria</b></td><td>Series of options provided; expat chooses how to allocate funds.</td></tr>
+          <tr><td><b>Regional System</b></td><td>Compensation set for all expats in a particular geographic region.</td></tr>
+        </table>
+        <p><b>Tax equalization:</b> Any taxes exceeding home-country level are paid by the MNC.</p>`
+      },
+      {
+        name: 'Repatriation',
+        content: `<p>Return to one's home country from an overseas assignment. Common problems:</p>
+        <ul>
+          <li>Demotion of permanent position</li>
+          <li>Lack of opportunities to use foreign experience</li>
+          <li>Loss of salary and fringe benefits</li>
+          <li>Difficulty adjusting to lower standard of living</li>
+          <li>Less significance placed on international experience</li>
+        </ul>
+        <p><b>Transition Strategies:</b> Repatriation agreements (promise of mutually acceptable job on return), welcome events, repatriation counseling, spouse job counseling, educational counseling for children, postassignment interview.</p>`
+      },
+      {
+        name: 'Four Training Philosophies',
+        content: `<p><span class="imp-badge">★ FREQUENTLY TESTED</span></p>
+        <table class="strat-table">
+          <tr><th>MNC Type</th><th>Staffing Approach</th><th>Training</th></tr>
+          <tr><td><b>Ethnocentric</b></td><td>Home-office people in charge of key positions</td><td>All training at HQ. <b>Least likely to provide international training.</b></td></tr>
+          <tr><td><b>Polycentric</b></td><td>Local nationals in key positions; manage their own people</td><td>Local managers handle training responsibility.</td></tr>
+          <tr><td><b>Regiocentric</b></td><td>Regional managers handle operations in/around their area</td><td>Regional approach to training and development.</td></tr>
+          <tr><td><b>Geocentric</b></td><td>Global integrated approach; assignments based on qualifications</td><td><b>Most likely to provide international management training.</b></td></tr>
+        </table>
+        <p><b>Cultural Assimilators:</b> Programmed learning technique exposing members of one culture to concepts, attitudes, role perceptions, customs, and values of another. Uses critical incidents with validated alternative responses.</p>`
+      },
+      {
+        name: 'Exam Points',
+        content: `<ul>
+          <li>Inpatriates = from host or third country, working IN <b>MNC's home country</b></li>
+          <li>Balance-sheet = <b>most common</b>; ensures expat does NOT lose money</li>
+          <li>Cafeteria = choice of options; Lump-sum = single amount, expat decides spending</li>
+          <li>Geocentric = <b>most likely</b> to train internationally; Ethnocentric = <b>least likely</b></li>
+          <li>Cultural assimilators use <b>critical incidents</b> with validated alternative responses</li>
+          <li>Ethnocentrism = belief that one's way of doing things is <b>superior to others</b></li>
+          <li>Two most common selection procedures: <b>tests and interviews</b></li>
+        </ul>`
+      }
+    ]
+  }
+];
+
+// ══════════════════════════════════════
+// DATA — PREVIOUS EXAM MCQs
+// ══════════════════════════════════════
+const PREV_MCQ = [
+  {q:'There are many areas to consider when planning a negotiation. Which of the following is NOT one of them?',opts:['Determining the location in which to discuss the various issues','Setting limits on single-point objectives','Dividing issues into short- and long-term considerations','Focusing on common ground between the parties'],ans:1,fb:'Focusing on common ground is actually the most important aspect of negotiation planning — it IS something to consider.'},
+  {q:'The Civil or code law is derived from which law?',opts:['Roman Law','Islamic Law','English Law','None of the above'],ans:0,fb:'Civil/code law is derived from Roman Law.'},
+  {q:'According to Hofstede\'s research, which dimension looked at the relationship between genders\' work roles?',opts:['Power distance','Uncertainty avoidance','Masculinity versus Femininity','Individualism versus Collectivism'],ans:2,fb:'The Masculinity vs Femininity dimension examined gender-based work role differences.'},
+  {q:'The type of organizational culture characterized by a strong emphasis on hierarchy and orientation to the person is known as _____ culture.',opts:['Guided missile','Eiffel Tower','Family','Incubator'],ans:2,fb:'The Family culture is power-oriented with a hierarchical, person-centered leader regarded as a caring parent.'},
+  {q:'A characteristic of the guided missile culture is:',opts:['Individual expertise','A formal hierarchy','Personal orientation','A paternal relationship with management'],ans:0,fb:'Guided missile culture is project-oriented and emphasizes individual expertise.'},
+  {q:'A company that allows the values and interests of the parent company to guide strategic decisions follows which predisposition?',opts:['Polycentric','Geocentric','Ethnocentric','Egocentric'],ans:2,fb:'Ethnocentric predisposition: the parent company\'s values guide all strategic decisions.'},
+  {q:'What are the three main economic systems that have emerged from the evolution of global commerce?',opts:['Market Economy, Centralized Economy, Mixed Economy','Market Economy, Command Economy, Mixed Economy','Global Economy, Centralized Economy, Mixed Economy','Market Economy, Command Economy, Monopoly Economy'],ans:1,fb:'The three main economic systems are Market Economy, Command Economy, and Mixed Economy.'},
+  {q:'The term _____ refers to development that meets humanity\'s needs without harming future generations.',opts:['Doctrine of Comity','Sustainability','Nationality Principle','Protective Principle'],ans:1,fb:'Sustainability = meeting present needs without compromising future generations.'},
+  {q:'The process of social, political, economic, cultural and technological integration among countries is:',opts:['Franchising','Internationalization','Globalization','Outsourcing'],ans:2,fb:'Globalization = broad integration among countries across multiple dimensions.'},
+  {q:'What does GLOBE stand for?',opts:['Global Leadership and Organizational Behavior Effectiveness','Globalized Leaders and Organizational Behavior Effectiveness','Global Leaders and Organizational Behavior Efficiency','Global Leadership and Organization Behavior Effects'],ans:0,fb:'GLOBE = Global Leadership and Organizational Behavior Effectiveness.'},
+  {q:'A belief that one worldwide approach to doing business is the key to both efficiency and effectiveness is called:',opts:['International complacency','Globalization imperative','Worldwide indifference','Cross-cultural contentment'],ans:1,fb:'The globalization imperative = belief that a single worldwide approach ensures efficiency and effectiveness.'},
+  {q:'What type of organizational culture is power-oriented, headed by a leader regarded as a caring parent?',opts:['Family','Eiffel Tower','Incubator','Guided missile'],ans:0,fb:'The Family culture has a power-oriented leader seen as a caring parent.'},
+  {q:'What act makes it illegal to influence foreign officials through personal payment or political contributions?',opts:['The Foreign Corrupt Practices Act','Bureaucratization','The doctrine of comity','The principle of sovereignty'],ans:0,fb:'The FCPA (Foreign Corrupt Practices Act) prohibits bribing foreign officials.'},
+  {q:'An MNC that tries to blend its own interests with those of its subsidiaries on a regional basis has which predisposition?',opts:['Polycentric','Regiocentric','Geocentric','Ethnocentric'],ans:1,fb:'Regiocentric predisposition = blending interests at the regional level.'},
+  {q:'The _____ is the global organization of countries that oversees rules and regulations for international trade and investment.',opts:['WTO','NAFTA','WIPO','ITO'],ans:0,fb:'WTO (World Trade Organization) oversees international trade rules.'},
+  {q:'Which of the following is the identity dimension of corporate culture?',opts:['To put the demands of the job before the needs of the individual','To put the needs of the individual before the needs of the job','To identify with and uphold the expectations of the employing organizations','To strive for accuracy and attention to detail'],ans:2,fb:'The identity dimension = identifying with and upholding the expectations of the employing organization.'},
+  {q:'Which ideology views the needs and goals of society at large as more important than individual desires?',opts:['Individualism','Collectivism','Socialism','Democracy'],ans:1,fb:'Collectivism prioritizes societal needs and goals over individual desires.'},
+  {q:'Which of the following is NOT an example of an NGO?',opts:['Amnesty International','Greenpeace','OECD','Médecins Sans Frontières'],ans:2,fb:'The OECD is an intergovernmental organization, not an NGO.'},
+  {q:'Which of the following are the three degrees of communication quantity?',opts:['Formal, informal, and neutral','Direct, indirect, and mixed','Elaborate, exacting, and succinct','Verbal, non-verbal, and written'],ans:2,fb:'Three degrees of communication quantity: elaborate, exacting, and succinct.'},
+  {q:'Which approach is reflected when an MNC makes strategic decisions based on the merits of the individual situation rather than a predetermined strategy?',opts:['Economic imperative','Political imperative','Quality imperative','Administrative coordination strategy'],ans:3,fb:'Administrative coordination = decisions based on individual situation merits, not predetermined strategy.'},
+  {q:'What does DOCSA stand for?',opts:['Diagnosing Organizational Culture for Strategic Application','Determining Organizational Culture for Systematic Assessment','Defining Organizational Criteria for Strategic Alignment','Documenting Organizational Culture for Systematic Analysis'],ans:0,fb:'DOCSA = Diagnosing Organizational Culture for Strategic Application.'},
+  {q:'In the context of human rights, which best reflects a glass ceiling effect?',opts:['Unequal managerial opportunities','Lower wages for same work','Restricted geographic mobility','Limited educational access'],ans:0,fb:'Glass ceiling = unequal managerial opportunities for certain groups.'},
+  {q:'Which of the following is NOT a philosopher who founded the groundwork for individualism?',opts:['Aristotle','David Hume','Karl Marx','Adam Smith'],ans:2,fb:'Karl Marx is associated with collectivism/communism, not individualism.'},
+  {q:'A method that adjusts GDP to account for different prices in countries is called:',opts:['Cumulative distribution function','Nominal GDP','Current currency exchange rate','Purchasing power parity'],ans:3,fb:'Purchasing power parity (PPP) adjusts GDP to account for price differences across countries.'},
+  {q:'Which of the following is NOT accurate about organizational culture?',opts:['Organizational culture tends to erase the impact of national culture','Organizational culture tends to be affected by national culture','Organizational culture cannot easily change the cultural values employees bring to the workplace','Organizational culture is different in different subsidiaries'],ans:0,fb:'Organizational culture does NOT erase national culture — it is itself affected by national culture.'},
+  {q:'What is the definition of ethics?',opts:['The study of cultural phenomena','The study of government intervention','The study of morality and the standards of conduct','The study of management'],ans:2,fb:'Ethics = the study of morality and the standards of conduct.'}
+];
+
+// ══════════════════════════════════════
+// DATA — CHAPTER MCQs
+// ══════════════════════════════════════
+const CH_MCQ = {
+  'Ch 8': [
+    {q:'The process of determining an organization\'s basic mission and long-term objectives and implementing a plan of action is called:',opts:['Strategic management','Tactical management','Contingency management','Functional management'],ans:0,fb:'Strategic management = determining mission + long-term objectives + implementing a plan of action.'},
+    {q:'A(n) _____ strategy is used when a product is regarded as a generic good and does not have to be sold based on name brand.',opts:['Economic imperative','Political imperative','Quality imperative','Administrative coordination'],ans:0,fb:'Economic imperative = generic goods; cost leadership, differentiation, segmentation worldwide.'},
+    {q:'MNCs using the _____ approach are country-responsive; their approach is designed to protect local market niches.',opts:['Administrative coordination','Economic imperative','Quality imperative','Political imperative'],ans:3,fb:'Political imperative = country-responsive; protects local market niches; value added downstream.'},
+    {q:'The quality strategy is formulated at the _____ management level and is diffused throughout the _____.',opts:['Top; middle-level management','Top; organization','Lowest; organization','Middle; low-level management'],ans:1,fb:'Quality strategy = formulated at top management, diffused throughout the entire organization.'},
+    {q:'An administrative coordination approach is one in which an MNC makes strategic decisions based on:',opts:['Economic imperatives only','Political requirements of each country','The merits of the individual situation','A predetermined global strategy'],ans:2,fb:'Administrative coordination = decisions based on individual situation merits, not predetermined strategy.'},
+    {q:'The production and distribution of products and services of a homogeneous type and quality on a worldwide basis is called:',opts:['Global integration','Administrative coordination','Horizontal specialization','Market standardization'],ans:0,fb:'Global integration = homogenous product/quality worldwide.'},
+    {q:'Which strategy is appropriate when national responsiveness is LOW and global integration is HIGH?',opts:['International strategy','Multi-domestic strategy','Global strategy','Transnational strategy'],ans:2,fb:'Global strategy = high integration + low responsiveness = price competition.'},
+    {q:'When national responsiveness is HIGH AND global integration is also HIGH, the most appropriate strategy is:',opts:['Transnational','Global','International','Multi-domestic'],ans:0,fb:'Transnational strategy = both high integration AND high responsiveness.'},
+    {q:'When national responsiveness is LOW AND global integration is also LOW, which strategy is appropriate?',opts:['Globalization strategy','Transnational strategy','International strategy','Multi-domestic strategy'],ans:2,fb:'International strategy = low responsiveness + low integration = mixed approach.'},
+    {q:'Which is NOT one of the steps in strategic planning?',opts:['Transferring a successful process from a developed country to an emerging economy','Scanning the external environment for opportunities and threats','Conducting an internal resource analysis of company strengths and weaknesses','Formulating goals in light of external scanning and internal analysis'],ans:0,fb:'The three steps are: external scanning, internal analysis, and goal formulation. Transferring processes is not a step.'},
+    {q:'Environmental scanning is only effective if it is done:',opts:['By top management only','Consistently','Annually','In developed markets only'],ans:1,fb:'Environmental scanning is only effective when done consistently.'},
+    {q:'The "base of the pyramid" refers to:',opts:['Front-line employees at the bottom of an org chart','Young people at the bottom of the population pyramid','Emerging middle-class markets and wealthiest consumers','The 4–5 billion low-income people at the bottom of the economic pyramid'],ans:3,fb:'Base of the pyramid = the vast low-income majority of the world\'s population — potential customers ignored by most MNCs.'},
+    {q:'The most effective strategic approach for the base of the pyramid (BOP) is:',opts:['Incremental adaptation of existing technologies','Establishing partnerships with central governments','Leapfrog technologies, including disruptive technologies','Large-scale strategies'],ans:2,fb:'BOP is ideal for incubating leapfrog and disruptive technologies that reduce environmental impacts.'},
+    {q:'_____ are firms that engage in significant international activity shortly after being established.',opts:['Greenfield ventures','Born globals','Sole proprietorships','Matrix organizations'],ans:1,fb:'Born-global firms = significant international activity a short time after establishment.'},
+    {q:'The "four Ps" of marketing are:',opts:['Place of origin, price, productive life, and product','Product, price, promotion, and place','Promotion, price, production method, and productive life','Place of origin, production method, price, and people'],ans:1,fb:'The four Ps = Product, Price, Promotion, Place.'}
+  ],
+  'Ch 9': [
+    {q:'An important feature of wholly owned subsidiaries is that they offer:',opts:['Low risk with large investments','Higher profits, clearer communications, and shared visions','Reduced risk for MNCs','They are always permitted in developing countries'],ans:1,fb:'Wholly owned subsidiaries offer higher profits and clearer communications due to sole ownership.'},
+    {q:'A _____ is a business arrangement under which one party allows another to operate an enterprise using its trademark, logo, product line, and methods in return for a fee.',opts:['License','Franchise','Certificate of proprietary usage','Joint venture'],ans:1,fb:'A franchise allows another party to operate under the franchisor\'s brand for a fee.'},
+    {q:'Licensing is best used when:',opts:['The product is in the growth stage with high profit','The licensor is a large firm with excess resources','The product is mature AND licensor lacks resources OR foreign countries require large direct investment','Only when the product is generic'],ans:2,fb:'Licensing = mature products + licensor lacks resources, OR when countries require large direct investment.'},
+    {q:'A structural arrangement that handles all international operations out of a dedicated division is called:',opts:['Worldwide organizational structure','Global matrix structure','International division structure','Overseas network structure'],ans:2,fb:'International division structure = handles all international ops from one dedicated division.'},
+    {q:'In a global product division, domestic divisions are given:',opts:['Geographic area responsibility','Worldwide product group responsibility','Functional responsibility only','Country-specific responsibility'],ans:1,fb:'Global product division = domestic divisions get worldwide responsibility for their product groups.'},
+    {q:'Global structures come in three common types:',opts:['Vertical, horizontal, and flat','Product, area, and functional','Mixed, transnational, and nontraditional','Authoritarian, democratic, and socialist'],ans:1,fb:'Three global structure types: product, area, and functional.'},
+    {q:'At the center of a transnational network structure are _____, which coordinate product, functional, and geographic information.',opts:['Cross-cultural matrix units','Divisional hubs','Nodes','Specialized subunits'],ans:2,fb:'Nodes are the central coordinating units in a transnational network structure.'},
+    {q:'Subsidiaries located anywhere in the world where they can benefit the organization are called:',opts:['Chaebols','Keiretsus','Specialized subunits','Dispersed subunits'],ans:3,fb:'Dispersed subunits = subsidiaries located wherever they can benefit the organization.'},
+    {q:'_____ is the use of defined structures and systems in decision making, communicating, and controlling.',opts:['Localization','Acclimatization','Formalization','Indigenization'],ans:2,fb:'Formalization = use of defined structures and systems in decision making, communicating, and controlling.'},
+    {q:'As an organizational characteristic, _____ is the assigning of individuals to specific, well-defined tasks.',opts:['Interpretation','Concentration','Formalization','Specialization'],ans:3,fb:'Specialization = assigning individuals to specific, well-defined tasks.'},
+    {q:'Horizontal specialization assigns jobs so that individuals:',opts:['Have collective group responsibility','Move frequently between departments','Are given a particular function and tend to stay within it','Are ranked hierarchically by status'],ans:2,fb:'Horizontal specialization = individuals stay within their particular functional area.'},
+    {q:'Vertical specialization is characterized by:',opts:['Individuals staying within one functional area','Distinct differences between hierarchy levels; those higher up have much more status','Work assigned to individuals, not groups','Equal status across all hierarchy levels'],ans:1,fb:'Vertical specialization = distinct status differences between hierarchy levels; creates tall organizational structures.'},
+    {q:'Pushing decision making down the line to get lower-level personnel involved is called:',opts:['Centralization','Decentralization','Horizontal specialization','Vertical specialization'],ans:1,fb:'Decentralization = pushing decisions down the line to lower-level personnel.'},
+    {q:'Which structure provides the most benefit when the need for product specification or differentiation is high?',opts:['International division','Global product division','Global area division','Global functional division'],ans:1,fb:'Global product division is best when product differentiation/specification needs are high.'},
+    {q:'A feature of global area division structures is that they:',opts:['Often ignore R&D because they sell mature-stage goods','Focus on the latest technologically superior goods','Have strong centralized management','Duplicate facilities within each geographic area'],ans:0,fb:'Global area divisions often ignore R&D — they focus on selling proven, mature-stage goods.'}
+  ],
+  'Ch 10': [
+    {q:'_____ reviews major political decisions likely to affect ALL business conducted in a particular country.',opts:['Macro political risk analysis','Micro political risk analysis','Standard political risk analysis','Multidimensional political risk analysis'],ans:0,fb:'Macro political risk analysis = decisions affecting ALL enterprises in a country.'},
+    {q:'_____ risk issues often take the form of industry regulation and taxes that treat some MNCs differently.',opts:['Macro','Standard','Direct','Micro'],ans:3,fb:'Micro risk = industry-specific regulations and laws that treat some MNCs differently from others.'},
+    {q:'The seizure of businesses by a host country with little or no compensation is:',opts:['Nationalization','Expropriation','Dispossession','Removal'],ans:1,fb:'Expropriation = seizure of businesses with little or no compensation to owners.'},
+    {q:'MNCs can minimize expropriation risk by:',opts:['Investing in poor, unstable non-Western countries','Acquiring an affiliate that depends on the parent for key operations','Encouraging use of high technology','Restricting local partners'],ans:1,fb:'Minimize expropriation by: local partners, limiting technology transfer, acquiring dependent affiliates.'},
+    {q:'Political risks can be broken down into three basic categories:',opts:['Transfer risks, ownership risks, and labor risks','Ownership, operational, and economic risks','Operational, bureaucratic, and transfer risks','Transfer risks, operational risks, and ownership-control risks'],ans:3,fb:'Three categories: Transfer, Operational, and Ownership-Control risks.'},
+    {q:'_____ risks stem from government policies that limit the transfer of capital, payments, people, and technology.',opts:['Operational','Bureaucratic','Transfer','Expropriation'],ans:2,fb:'Transfer risks = limits on movement of capital, payments, production, people, and technology.'},
+    {q:'Price controls, financing restrictions, export commitments, taxes, and local-sourcing requirements are examples of:',opts:['Ownership-control risks','Operational risks','Transfer risks','Functional risks'],ans:1,fb:'Operational risks = policies constraining management and performance of local operations.'},
+    {q:'Foreign ownership limitations, expropriation, confiscation, and abrogation of property rights are examples of:',opts:['Transfer risks','Functional risks','Ownership-control risks','Tactical risks'],ans:2,fb:'Ownership-control risks = policies inhibiting ownership or control of local operations.'},
+    {q:'A conglomerate investment is:',opts:['Low-risk because goods are similar to those produced at home','An investment where goods are the same as those produced at home','A high-risk investment where goods/services are DIFFERENT from those produced at home','Investment in raw materials for processing'],ans:2,fb:'Conglomerate investment = goods/services NOT similar to those at home = HIGH risk (government sees fewer country benefits).'},
+    {q:'Horizontal investments are:',opts:['Export-oriented and risk being taken over','High-risk investments in dissimilar goods','Unlikely to be takeover targets because they satisfy host country market demands','Production of raw/intermediate goods'],ans:2,fb:'Horizontal investments = same goods as home = satisfy host country demands = NOT likely takeover targets.'},
+    {q:'Which sector has the highest FDI risk?',opts:['Industrial (manufacturing)','Service (finance, insurance)','Primary (agriculture, mining)','Technology sector'],ans:2,fb:'Primary sector (agriculture, forestry, mineral extraction) = highest FDI risk.'},
+    {q:'_____ techniques are designed to help the overseas operation become part of the host country\'s infrastructure.',opts:['Protective','Defensive','Integrative','Statutory'],ans:2,fb:'Integrative techniques = embed MNC in host country infrastructure (local JVs, hiring locals, local R&D).'},
+    {q:'Which is an example of an INTEGRATIVE technique for responding to political risk?',opts:['Diversifying production among many countries','Creating joint ventures and hiring local people','Conducting R&D outside the country','Limiting local manufacturing'],ans:1,fb:'Creating JVs and hiring locals = integrative technique (embeds MNC in local infrastructure).'},
+    {q:'Which is an example of a PROTECTIVE/DEFENSIVE technique for responding to political risk?',opts:['Creating joint ventures and hiring local people','Producing as much locally as possible','Developing relations with host government','Doing as little local manufacturing as possible; conducting R&D outside the country'],ans:3,fb:'Protective/defensive = minimize local ties; conduct R&D elsewhere; do as little local manufacturing as possible.'},
+    {q:'Value-claiming in alliance management refers to:',opts:['Collaborative, integrative negotiation','Competitive, distributive negotiation','Creating value through synergy','Sharing resources equitably'],ans:1,fb:'Value-claiming = competitive, distributive negotiation. Value-creating = collaborative, integrative negotiation.'}
+  ],
+  'Ch 11': [
+    {q:'In Japan, what should be done is called _____, while what one really feels is called _____.',opts:['Tatemae; honne','Honne; ringisei','Honne; tatemae','Ringisei; tatemae'],ans:0,fb:'Tatemae = what should be done (the norm). Honne = what one really feels/wants.'},
+    {q:'Kaizen is a Japanese term that means:',opts:['Employee empowerment','Continuous improvement','Quality comes first','Teamwork'],ans:1,fb:'Kaizen = continuous improvement.'},
+    {q:'_____ refers to decision making by consensus in Japan.',opts:['Tatemae','Ringisei','Honne','Kaizen'],ans:1,fb:'Ringisei = decision making by consensus.'},
+    {q:'Areas examined by ISO 9000 include all of the following EXCEPT:',opts:['Design (product or service specifications)','Process control','Purchasing service','Environmental management standards'],ans:3,fb:'ISO 9000 examines: design, process control, purchasing, service, inspection/testing, training — NOT environmental standards.'},
+    {q:'Visits by top executives to overseas affiliates or subsidiaries is a common form of:',opts:['Indirect control','External control','Cultural control','Direct control'],ans:3,fb:'Top executive visits = direct control (face-to-face, personal meetings).'},
+    {q:'The use of monthly operating reports sent to the home office is a common example of:',opts:['Direct control','Indirect control','External control','Cultural control'],ans:1,fb:'Monthly reports = indirect control (written communication).'},
+    {q:'Three financial statements are required from subsidiaries. They do NOT include statements prepared:',opts:['To meet host country national accounting standards','To comply with home country accounting principles','In response to SEC investigations','To meet home country financial consolidation requirements'],ans:2,fb:'Three required: host country standards, home country principles, home country consolidation — NOT SEC investigations.'},
+    {q:'In comparing control mechanisms, U.S. firms make greater use of _____ control, while European firms rely more on _____ control.',opts:['Output; behavioral','Bureaucratic; participative','Behavioral; output','Participative; bureaucratic'],ans:0,fb:'U.S. = output control (quantitative/objective); Europe = behavioral control (qualitative).'},
+    {q:'A Quality Control Circle (QCC) is:',opts:['A top management committee for quality standards','A group of workers who meet regularly to discuss ways of improving the quality of work','An ISO certification team','A supplier quality audit process'],ans:1,fb:'QCC = group of workers meeting regularly to improve the quality of work.'},
+    {q:'If a country devalues its currency, what happens to subsidiary export sales?',opts:['Export sales decrease','Export sales increase','No change','Export prices rise for foreign buyers'],ans:1,fb:'Devaluation → goods become cheaper for foreign buyers → export sales INCREASE. Revaluation → the opposite.'},
+    {q:'An assessment center is used to:',opts:['Evaluate financial performance of subsidiaries','Identify individuals with potential to be selected or promoted to higher-level positions','Conduct ISO 9000 certification','Train employees in cultural assimilation'],ans:1,fb:'Assessment centers = identify high-potential individuals for selection or promotion to higher-level positions.'},
+    {q:'According to Horovitz, a common characteristic of British control is:',opts:['Very detailed control with attention to all variances','Control used for surveillance rather than guidance','Large marketing autonomy in operating units','Heavy control on production efficiency'],ans:2,fb:'British control: sophisticated financial records; focus on major problem areas; guidance not surveillance; large marketing autonomy.'},
+    {q:'The process of evaluating results in relation to plans and deciding what action to take is:',opts:['Directing','Decision making','Supervising','Controlling'],ans:3,fb:'Controlling = evaluating results relative to plans/objectives and deciding what action to take.'},
+    {q:'TQM cutting-edge HRM techniques include:',opts:['Market share and profitability','Customer service and quality control','Self-managing teams and empowerment','Imports and exports'],ans:2,fb:'TQM cutting-edge techniques: self-managing teams and empowerment.'},
+    {q:'The process of giving individuals and teams the resources, information, and authority to develop ideas and implement them is:',opts:['Total quality management','Reengineering','Empowerment','Kaizen'],ans:2,fb:'Empowerment = giving individuals/teams resources, information, and authority to develop and implement ideas.'}
+  ],
+  'Ch 12': [
+    {q:'Motivation is a psychological process through which unsatisfied wants lead to drives aimed at:',opts:['Satisfaction only','Avoiding punishment','Goals or incentives','Higher salary'],ans:2,fb:'Motivation = psychological process where unsatisfied needs lead to drives aimed at goals or incentives.'},
+    {q:'Work-motivation theories fall into two general categories:',opts:['Method and outcome','Internal and external','Implicit and explicit','Content and process'],ans:3,fb:'Content theories (WHAT motivates) and process theories (HOW behavior is directed).'},
+    {q:'Maslow\'s hierarchy in ascending order from most basic to highest is:',opts:['Physiological, Safety, Social, Esteem, Self-actualization','Social, Safety, Physiological, Self-actualization, Esteem','Safety, Physiological, Esteem, Self-actualization, Social','Esteem, Social, Physiological, Safety, Self-actualization'],ans:0,fb:'Maslow\'s ascending: Physiological → Safety → Social → Esteem → Self-actualization.'},
+    {q:'Nevis\'s collectivist Chinese hierarchy from lowest to highest is:',opts:['Self-actualization in service of society, Safety, Social, Esteem','Belonging, Physiological, Safety, Self-actualization in service of society','Social, Esteem, Physiological, Safety','Safety, Physiological, Esteem, Belonging'],ans:1,fb:'Nevis: Belonging (Social) → Physiological → Safety → Self-actualization in service of society.'},
+    {q:'Which factor is a MOTIVATOR (not hygiene) in Herzberg\'s two-factor theory?',opts:['Interpersonal relations','Working conditions','Career advancement','Company policies'],ans:2,fb:'Motivators: achievement, recognition, responsibility, advancement, the work itself. Hygiene: salary, conditions, policies.'},
+    {q:'The key criticism of Herzberg\'s two-factor theory is that it:',opts:['Classifies money as a hygiene factor','Is too complex for managers','Lacks validity across occupational levels','Does not hold for managerial jobs'],ans:0,fb:'Key criticism: classifying money (salary) as a hygiene factor rather than a motivator.'},
+    {q:'Achievement motivation theory holds that the need for achievement is:',opts:['Innate and genetic','Culturally determined at birth','Learned','Based on physiological drives'],ans:2,fb:'McClelland: the need for achievement is LEARNED (not innate).'},
+    {q:'A quality of high achievers is:',opts:['High achievers are high risk takers','High achievers form warm close relationships with coworkers','High achievers want concrete feedback on performance','High achievers avoid personal responsibility'],ans:2,fb:'High achievers want concrete feedback. They are MODERATE risk takers, prefer personal responsibility, and tend to be loners.'},
+    {q:'According to equity theory, if people believe they are not being treated fairly:',opts:['They will be more motivated to perform','They will be satisfied but less productive','They will be dissatisfied and this will negatively affect job performance','They will seek higher compensation only'],ans:2,fb:'Perceived inequity → dissatisfaction → negative job performance effects.'},
+    {q:'Expectancy theory postulates that motivation depends on the belief that:',opts:['Effort → Performance → Specific outcomes → Value to individual','Only rewards create motivation','Group membership is the primary motivator','Cultural context overrides individual expectations'],ans:0,fb:'Expectancy theory: Effort → Performance → Specific Outcomes → Value to individual.'},
+    {q:'Work centrality is HIGHEST in which country?',opts:['United States','Britain','Israel','Japan'],ans:3,fb:'Japan = highest work centrality. Britain = lowest among countries studied.'},
+    {q:'The importance of work in an individual\'s life relative to other areas of interest is called:',opts:['Work prominence','Work centrality','Work salience','Work objectivity'],ans:1,fb:'Work centrality = importance of work relative to other life areas (family, church, leisure).'},
+    {q:'Expectancy theory works best in cultures where there is a:',opts:['Strong external locus of control','Strong internal locus of control','High uncertainty avoidance','High power distance'],ans:1,fb:'Expectancy theory = culture-bound; works best where individuals believe their effort leads to outcomes = strong internal locus of control.'},
+    {q:'Sociotechnical designs are job designs that:',opts:['Focus only on technical processes','Blend personnel and technology','Prioritize social interaction over productivity','Use quality circles exclusively'],ans:1,fb:'Sociotechnical designs blend personnel and technology to integrate new tech into the workplace.'},
+    {q:'Employees who accept inequitable treatment to preserve group harmony are found in:',opts:['Western cultures','Scandinavian cultures','Asian and Middle Eastern cultures','Anglo cultures'],ans:2,fb:'Asian and Middle Eastern employees tend to accept inequitable treatment to preserve group harmony.'}
+  ],
+  'Ch 13': [
+    {q:'Which manager assumes that employees are basically lazy and need coercion? Primary need = job security.',opts:['A Theory Y manager','A Theory X manager','A Theory Z manager','A Theory A manager'],ans:1,fb:'Theory X = people are lazy, avoid work, need coercion. Primary employee need = job security.'},
+    {q:'A specific assumption of Theory Y managers is:',opts:['Workers have little ambition and avoid responsibility','Coercion and threats are necessary to get people to attain objectives','The expenditure of physical and mental effort at work is as natural as resting or playing','People are primarily motivated by job security'],ans:2,fb:'Theory Y: work is natural; people are self-directing when committed; creativity is widely distributed.'},
+    {q:'A specific assumption of Theory Z managers is:',opts:['Workers are motivated by financial rewards, not job security','External control and threats are the only ways to get people to work','Employees who learn different aspects of the business contribute better to broader organizational goals','Workers have little ambition and avoid responsibility'],ans:2,fb:'Theory Z: employees who learn different business aspects can better contribute to broader organizational goals.'},
+    {q:'This leadership style uses work-centered behavior for task accomplishment; one-way communication; focus on work progress and procedures.',opts:['Participative','Authoritarian','Paternalistic','Laissez-faire'],ans:1,fb:'Authoritarian leadership = work-centered, task accomplishment, one-way communication. Used by Theory X managers.'},
+    {q:'This leadership style is best summarized by "Work hard and the company will take care of you."',opts:['Autocratic','Authoritarian','Participative','Paternalistic'],ans:3,fb:'Paternalistic leadership = work hard → company guarantees employment and security benefits.'},
+    {q:'Japanese executives use _____, which is the creation of uncertainty and analysis of many alternatives.',opts:['Variety reduction','Variety amplification','Variety augmentation','Variety expansion'],ans:1,fb:'Variety amplification (Japan) = creation of uncertainty + analysis of many alternatives.'},
+    {q:'U.S. executives use _____, which is the limiting of uncertainty and focusing on a limited number of alternatives.',opts:['Variety amplification','Variety reduction','Variety augmentation','Variety expansion'],ans:1,fb:'Variety reduction (U.S.) = limiting uncertainty + focusing on a limited number of alternatives.'},
+    {q:'Bass found that the most effective managers were _____ leaders.',opts:['Transactional','Paternalistic','Transformational','Charismatic'],ans:2,fb:'Bass found the most effective managers were transformational leaders, characterized by the 4 I\'s.'},
+    {q:'The four interrelated factors of the most effective leaders (4 I\'s) are:',opts:['Idealized influence, inspirational motivation, intellectual stimulation, and individualized consideration','Nurturing personality, creative mindset, willingness to give recognition, and intellectual stimulation','High self-esteem, outgoing personality, inspirational motivation, and recognition','Internal locus of control, outgoing personality, individualized consideration, and nurturing personality'],ans:0,fb:'4 I\'s: Idealized influence, Inspirational motivation, Intellectual stimulation, Individualized consideration.'},
+    {q:'These leaders are visionary agents who motivate followers to accept new goals and new ways of doing things.',opts:['Transactional','Negotiable','Transformational','Formational'],ans:2,fb:'Transformational leaders = visionary agents motivating followers to accept new goals and new approaches.'},
+    {q:'These leaders exchange rewards for effort and performance on a "something for something" basis.',opts:['Variable','Functional','Transactional','Transformational'],ans:2,fb:'Transactional leaders exchange rewards for effort and performance.'},
+    {q:'Positive organizational scholarship (POS) focuses on:',opts:['Positive outcomes, processes, and attributes of organizations and their members','Avoiding responsibility for follower actions','Monitoring performance and taking corrective action','Intervening only when standards are not met'],ans:0,fb:'POS = focuses on positive outcomes, processes, and attributes of organizations and their members.'},
+    {q:'Servant leadership requires all of the following EXCEPT:',opts:['Listening','Empathy','Predictability','Foresight'],ans:2,fb:'Servant leadership qualities: listening, empathy, healing, awareness, persuasion, conceptualization, foresight, stewardship, growth, building community — NOT predictability.'},
+    {q:'Authentic leadership is distinguished from transformational leadership in that:',opts:['Authentic leadership focuses on the internal aspects of the leader — values and integrity','Transformational leadership focuses on the leader\'s personal values','Authentic leadership focuses on motivating others externally','Both are identical in focus'],ans:0,fb:'Authentic = internally driven (values, integrity). Transformational = focused on motivating others.'},
+    {q:'Which of the following is NOT one of GLOBE\'s six leadership behaviors?',opts:['Charismatic/Value-Based','Team-Oriented','Paternalistic','Autonomous'],ans:2,fb:'GLOBE\'s six: Charismatic/Value-Based, Team-Oriented, Participative, Humane-Oriented, Autonomous, Self-Protective. Paternalistic is NOT one of the six.'}
+  ],
+  'Ch 14': [
+    {q:'The four basic HR sources for MNCs are:',opts:['Home-country nationals, Host-country nationals, United Nations placements, Inpatriates','Home-country nationals, Host-country nationals, Third-country nationals, Inpatriates','Home-country nationals, Host-country nationals, IMF placements, Multipatriates','Home-country nationals, Host-country nationals, Third-country nationals, Multipatriates'],ans:1,fb:'Four sources: Home-country nationals, Host-country nationals, Third-country nationals (TCNs), and Inpatriates.'},
+    {q:'Inpatriates are:',opts:['Home-country nationals assigned to foreign subsidiaries','Local managers hired in the host country','Individuals from a host or third country assigned to work in the MNC\'s HOME country','Citizens of third countries assigned to other foreign countries'],ans:2,fb:'Inpatriates = from host or third country, assigned to work IN the MNC\'s home country.'},
+    {q:'The most common approach to expatriate compensation is the _____, which ensures the expat does not lose money.',opts:['Regional system approach','Balance-sheet approach','Cafeteria approach','Localization approach'],ans:1,fb:'Balance-sheet approach = most common; ensures expat is "made whole" and does not lose money.'},
+    {q:'The _____ approach gives the expat a predetermined amount of money and lets the individual decide how to spend it.',opts:['Localization approach','Cafeteria approach','Lump-sum method','Balance-sheet approach'],ans:2,fb:'Lump-sum method = predetermined amount; expat decides how to spend it.'},
+    {q:'The _____ approach gives expats a series of options and lets them choose how to allocate funds.',opts:['Negotiation','Balance-sheet','Localization','Cafeteria'],ans:3,fb:'Cafeteria approach = series of options; expat chooses how to allocate funds.'},
+    {q:'A(n) _____ MNC puts home-office people in charge of key international management positions.',opts:['Ethnocentric','Polycentric','Regiocentric','Geocentric'],ans:0,fb:'Ethnocentric MNC = home-office people lead key international positions. All training done at HQ.'},
+    {q:'A polycentric MNC:',opts:['Uses home-office people for key positions','Places local nationals in key positions and allows them to develop their own people','Relies on regional managers to handle their area','Integrates diverse world regions through a global decision-making approach'],ans:1,fb:'Polycentric = local nationals in key positions; they manage and develop their own people.'},
+    {q:'A(n) _____ MNC relies on local managers from a particular geographic region.',opts:['Ethnocentric','Geocentric','Ultracentric','Regiocentric'],ans:3,fb:'Regiocentric = regional managers handle operations in/around their geographic area.'},
+    {q:'A geocentric MNC:',opts:['Puts home-office people in charge everywhere','Relies on regional managers','Places locals in key positions only','Seeks to integrate diverse world regions through a global approach to decision making'],ans:3,fb:'Geocentric = global integrated approach; assignments based on qualifications; treats all subsidiaries equally.'},
+    {q:'A cultural assimilator exposes members of one culture to:',opts:['The economic systems of another culture','Basic concepts, attitudes, role perceptions, customs, and values of another culture','The management hierarchy of another culture','The legal framework of another culture'],ans:1,fb:'Cultural assimilators expose members of one culture to concepts, attitudes, role perceptions, customs, and values of another. Uses critical incidents.'},
+    {q:'Repatriation problems include all of the following EXCEPT:',opts:['Demotion of permanent position','Promotion upon return with higher salary','Lack of opportunities to use foreign experience','Loss of salary and fringe benefits'],ans:1,fb:'Repatriation problems: demotion, loss of salary/benefits, difficulty adjusting, less significance of international experience — NOT guaranteed promotion.'},
+    {q:'Which is NOT a selection criterion for international assignments?',opts:['Adaptability to cultural change','Physical and emotional health','Company profitability goals','Spouse and family adaptability'],ans:2,fb:'Selection criteria: adaptability, health, age/experience, language, motivation, family adaptability, leadership — NOT company profitability goals.'},
+    {q:'Which type of adjustment occurs BEFORE the expat leaves for an overseas assignment?',opts:['In-country adjustment','Anticipatory adjustment','Cultural adjustment','Post-arrival adjustment'],ans:1,fb:'Anticipatory adjustments = pre-departure (training, prior experience, organizational culture fit). In-country = after arrival.'},
+    {q:'Tax equalization means that:',opts:['The expat pays no taxes during the assignment','All taxes are paid by the host government','Any taxes exceeding home-country level are paid by the MNC','The expat pays the same taxes as local nationals'],ans:2,fb:'Tax equalization = MNC pays any taxes that exceed the home-country level, so the expat is not penalized.'},
+    {q:'Ethnocentrism is the belief that:',opts:['Local cultures are superior to home culture','Geocentric approaches are optimal','One\'s own way of doing things is superior to that of others','International management requires cultural neutrality'],ans:2,fb:'Ethnocentrism = belief that one\'s own way of doing things is superior to that of others.'}
+  ]
+};
+
+// ══════════════════════════════════════
+// DATA — ESSAY GUIDE
+// ══════════════════════════════════════
+const ESSAY = [
+  {
+    num: 'ESSAY TOPIC 01',
+    title: 'Basic Strategies Used by Multinational Corporations',
+    sections: [
+      {
+        head: 'The Four Strategic Imperatives',
+        body: `MNCs use four primary imperatives to compete internationally. The <b>Economic Imperative</b> focuses on cost leadership, differentiation, and segmentation on a worldwide basis — used when products are generic and value is added upstream in R&D and manufacturing. The <b>Political Imperative</b> is country-responsive, protecting local market niches, used when value is added downstream through marketing and sales services. The <b>Quality Imperative</b> employs Total Quality Management (TQM) — a systematic approach using cross-training of personnel, process reengineering, and reward systems for quality performance. <b>Administrative Coordination</b> makes decisions based on the merits of the individual situation rather than a predetermined strategy — the least common approach.`
+      },
+      {
+        head: 'The Four International Strategies (I-R Framework)',
+        body: `Based on pressures for global integration vs national responsiveness: <b>International strategy</b> (low/low) = mixed approach. <b>Multi-domestic strategy</b> (low integration, high responsiveness) = local adaptation, niche focus. <b>Global strategy</b> (high integration, low responsiveness) = price competition, economies of scale. <b>Transnational strategy</b> (high/high) = both integration and responsiveness simultaneously.`
+      },
+      {
+        head: 'Real-World Example',
+        body: `Coca-Cola in India retained the domestic brand Thums Up rather than replacing it with Coca-Cola, demonstrating a combination of political and economic imperatives. McDonald's adapts its menu significantly by country (no beef in India, different items in Middle East) — a multi-domestic approach.`
+      }
+    ]
+  },
+  {
+    num: 'ESSAY TOPIC 02',
+    title: 'Major Types of Common Entry Strategies',
+    sections: [
+      {
+        head: 'Spectrum of Entry Modes (Low to High Commitment)',
+        body: `<b>Export/Import:</b> Minimum investment; transitional; best for small/new firms testing markets. <b>Licensing:</b> Allows use of IP for a fee — best for mature-stage products when licensor lacks resources. <b>Franchising:</b> Brand and methods licensed for a fee — rapid expansion with limited capital. <b>Joint Ventures:</b> Shared risk and local knowledge; improves efficiency, access to knowledge, and political mitigation; improvement of efficiency, access to knowledge, overcoming restrictions. <b>Mergers and Acquisitions:</b> Rapid market access and resources but high financial risk; cultural barriers and transition costs are major challenges. <b>Wholly Owned Subsidiaries:</b> Maximum control; highest risk and investment; prohibited in some countries.`
+      },
+      {
+        head: 'Selection Factors',
+        body: `Choice of entry mode depends on: market conditions, available resources, risk tolerance, and strategic objectives. Key principle: entry strategy should match the firm's capabilities and the host country's regulatory and cultural environment.`
+      },
+      {
+        head: 'Real-World Examples',
+        body: `Starbucks in India entered through a joint venture with Tata, combining Starbucks' global brand with Tata's deep local market knowledge. Airbnb used differentiated strategies in China vs Cuba, adapting its business model to each country's unique regulatory and cultural environment.`
+      }
+    ]
+  },
+  {
+    num: 'ESSAY TOPIC 03',
+    title: 'Motivation and Its Theories',
+    sections: [
+      {
+        head: 'Content Theories (WHAT Motivates)',
+        body: `<b>Maslow's Hierarchy:</b> Physiological → Safety → Social → Esteem → Self-actualization. Lower needs must be satisfied first. A satisfied need no longer motivates. Nevis's collectivist variant reorders for China: Belonging → Physiological → Safety → Self-actualization in service of society. <b>Herzberg's Two-Factor Theory:</b> Motivators (job content: achievement, recognition, responsibility, advancement, the work itself) ensure satisfaction. Hygiene factors (job context: salary, conditions, supervision, policies) prevent dissatisfaction but do not motivate — salary is a HYGIENE factor. <b>McClelland's Achievement Motivation:</b> Need for achievement is LEARNED; measured by TAT; high achievers are moderate risk takers, want concrete feedback, and tend to be loners.`
+      },
+      {
+        head: 'Process Theories (HOW Behavior Is Directed)',
+        body: `<b>Equity Theory:</b> Perceived unfair treatment → dissatisfaction → negative job performance. Supported in the West; Asian/Middle Eastern employees accept inequity for group harmony. <b>Goal-Setting Theory:</b> Specific, challenging goals that employees had a hand in setting drive performance. <b>Expectancy Theory:</b> Effort → Performance → Reward → Value. Culture-bound — works best with strong internal locus of control.`
+      },
+      {
+        head: 'Cultural Impact on Motivation',
+        body: `Individual bonuses work in the U.S.; group rewards suit collectivist Asian cultures. Work centrality: Japan = highest; Britain = lowest. Type of reward is NOT culture-bound, but culture affects cost and effectiveness of different rewards.`
+      }
+    ]
+  },
+  {
+    num: 'ESSAY TOPIC 04',
+    title: 'TQM Technique of Rewards and Recognition',
+    sections: [
+      {
+        head: 'What is TQM?',
+        body: `Total Quality Management is an organizational strategy and accompanying techniques that result in the delivery of high-quality products and services to customers. It involves all employees in continuous improvement of processes, products, and services. Core philosophy: Kaizen (continuous improvement). Quality is formulated at top management and diffused throughout the entire organization.`
+      },
+      {
+        head: 'Rewards and Recognition in TQM',
+        body: `<b>Merit Pay:</b> Salary increases based on quality performance metrics. <b>Discretionary Bonuses:</b> One-time payments when quality milestones or project targets are met. <b>Pay-for-Skills:</b> Higher pay for quality-related certifications — encourages skill development and versatility. <b>Plaques and Trophies:</b> Physical symbols of quality achievement for long-term sustained excellence. <b>Public Recognition:</b> Acknowledgment in meetings and newsletters — reinforces quality values across the organization. <b>Team Awards:</b> Group rewards for collective quality efforts — suited to team-based environments.`
+      },
+      {
+        head: 'Cultural Fit in Reward Design',
+        body: `Effectiveness of rewards depends heavily on cultural context. Public individual recognition may motivate U.S. employees who value personal achievement. Group-based rewards and collective recognition are more suitable in Japanese culture where team harmony is prioritized. Best practices: link rewards directly to measurable quality outcomes; ensure fairness and transparency; adapt to local cultural context; make recognition timely and specific.`
+      }
+    ]
+  },
+  {
+    num: 'ESSAY TOPIC 05',
+    title: 'Leadership and Its Theories',
+    sections: [
+      {
+        head: 'Foundational Theories (X, Y, Z)',
+        body: `<b>Theory X:</b> Employees are lazy, avoid responsibility, need coercion and control. <b>Theory Y:</b> Employees are self-motivated, enjoy work, seek responsibility, creative potential is widespread — provide rewards tied to objectives. <b>Theory Z (Ouchi):</b> Combines Japanese and U.S. approaches — lifetime employment, consensus decision making, holistic concern for employees; builds trust and loyalty.`
+      },
+      {
+        head: 'Leadership Styles',
+        body: `<b>Authoritarian:</b> Work-centered, one-way communication, task focus. Used by Theory X managers. Effective in crises. <b>Paternalistic:</b> "Work hard, company takes care of you." Guarantees employment and security. Strong in collectivist, high power-distance cultures. <b>Participative:</b> Decentralized authority, involves team in decisions, promotes creativity. Popular in U.S., UK, Scandinavia. <b>Transformational:</b> Motivates to accept new goals and ways — characterized by the 4 I's (Idealized influence, Inspirational motivation, Intellectual stimulation, Individualized consideration). <b>Servant Leadership:</b> Serves team first; 10 qualities from listening to building community.`
+      },
+      {
+        head: 'Cross-Cultural Differences',
+        body: `Japan uses variety amplification (many alternatives, ambiguous goals) vs U.S. variety reduction (focus, limited alternatives). GLOBE study identifies six leadership behaviors. Authentic leadership focuses on internal aspects (values, integrity) vs transformational which focuses on motivating others. New Chinese leadership generation shows higher individualism and lower collectivism.`
+      }
+    ]
+  },
+  {
+    num: 'ESSAY TOPIC 06',
+    title: 'Types of Allowances in an Expatriate\'s Compensation Package',
+    sections: [
+      {
+        head: 'Five Components of Expatriate Compensation',
+        body: `A comprehensive expatriate compensation package includes: (1) Base Salary — set according to home country base pay. (2) Benefits — one-third of regular employee compensation. (3) Allowances — the expensive, variable component. (4) Incentives — ongoing premiums often replaced by one-time lump-sum premiums. (5) Tax Equalization/Protection — MNC pays taxes that exceed home-country level.`
+      },
+      {
+        head: 'Six Common Allowance Types',
+        body: `<b>Cost-of-Living Allowance (COLA):</b> Compensates for higher daily living expenses in the host country vs home country. Calculated based on price differences for goods and services. <b>Housing Allowance:</b> Covers rent, utilities, and maintenance — often the largest component, especially in high-cost cities (London, Tokyo, Singapore). <b>Education Allowance:</b> School fees for expatriate children at international/private schools maintaining home-country curriculum continuity. <b>Relocation Allowance:</b> Moving and setup costs for international household shipment. <b>Hardship Allowance:</b> Extra premium for assignments in difficult, dangerous, or remote locations with limited infrastructure. <b>Home Leave and Travel:</b> Annual visits to the home country for expat and family, plus emergency travel.`
+      },
+      {
+        head: 'The Six Compensation Approaches',
+        body: `<b>Balance-sheet</b> (most common) = ensures expat does not lose money. <b>Negotiation</b> = ad hoc special arrangement. <b>Localization</b> = pays comparable to local nationals. <b>Lump-sum</b> = predetermined amount, expat decides spending. <b>Cafeteria</b> = series of options to choose from. <b>Regional system</b> = standard for all expats in a geographic region. Purpose: ensure employees do not suffer financial disadvantage from accepting international assignments, helping companies attract and retain top global talent.`
+      }
+    ]
+  }
+];
+
+// ══════════════════════════════════════
+// STATE
+// ══════════════════════════════════════
+const state = {
+  p: { correct: 0, answered: 0, total: PREV_MCQ.length },
+  c: { correct: 0, answered: 0, total: 0, filter: 'All' }
+};
+
+// ══════════════════════════════════════
+// TAB SWITCHING
+// ══════════════════════════════════════
+function switchTab(id) {
+  document.querySelectorAll('.tab-btn').forEach((b, i) => {
+    b.classList.toggle('active', ['summary','prevmcq','chmcq','essay'][i] === id);
+  });
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  document.getElementById('pane-' + id).classList.add('active');
+  const sb = document.getElementById('sidebar');
+  if (id === 'summary') {
+    sb.classList.add('visible');
+  } else {
+    sb.classList.remove('visible');
+  }
+}
+
+// ══════════════════════════════════════
+// BUILD SUMMARY
+// ══════════════════════════════════════
+function buildSummary() {
+  const root = document.getElementById('summary-root');
+  const sb = document.getElementById('sidebar');
+  sb.innerHTML = '<div class="sidebar-label">Chapters</div>';
+  sb.classList.add('visible');
+
+  SUMMARY.forEach((ch, ci) => {
+    // Sidebar button
+    const sbBtn = document.createElement('button');
+    sbBtn.className = 'sidebar-btn' + (ci === 0 ? ' active' : '');
+    sbBtn.textContent = ch.num + ' — ' + ch.title.split('—')[0].trim();
+    sbBtn.style.fontSize = '11px';
+    sbBtn.onclick = () => {
+      document.querySelectorAll('.sidebar-btn').forEach(b => b.classList.remove('active'));
+      sbBtn.classList.add('active');
+      document.querySelectorAll('.chapter-header').forEach(h => {
+        if (h.dataset.ci == ci) {
+          if (!h.classList.contains('open')) h.click();
+          h.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    };
+    sb.appendChild(sbBtn);
+
+    // Chapter block
+    const block = document.createElement('div');
+    block.className = 'chapter-block';
+
+    const header = document.createElement('div');
+    header.className = 'chapter-header' + (ci === 0 ? ' open' : '');
+    header.dataset.ci = ci;
+    header.innerHTML = `
+      <div class="chapter-header-left">
+        <span class="ch-num">${ch.num}</span>
+        <span class="ch-title">${ch.title}</span>
+      </div>
+      <span class="ch-arrow">▾</span>
+    `;
+
+    const body = document.createElement('div');
+    body.className = 'chapter-body' + (ci === 0 ? ' open' : '');
+
+    // Section sub-tabs
+    const stBar = document.createElement('div');
+    stBar.className = 'section-tab-bar';
+    ch.sections.forEach((sec, si) => {
+      const stBtn = document.createElement('button');
+      stBtn.className = 'section-tab' + (si === 0 ? ' active' : '');
+      stBtn.textContent = sec.name;
+      stBtn.onclick = () => {
+        stBar.querySelectorAll('.section-tab').forEach(b => b.classList.remove('active'));
+        stBtn.classList.add('active');
+        body.querySelectorAll('.section-pane').forEach(p => p.classList.remove('active'));
+        body.querySelectorAll('.section-pane')[si].classList.add('active');
+      };
+      stBar.appendChild(stBtn);
+    });
+    body.appendChild(stBar);
+
+    ch.sections.forEach((sec, si) => {
+      const pane = document.createElement('div');
+      pane.className = 'section-pane' + (si === 0 ? ' active' : '');
+      pane.innerHTML = sec.content;
+      body.appendChild(pane);
+    });
+
+    header.onclick = () => {
+      const isOpen = header.classList.contains('open');
+      header.classList.toggle('open', !isOpen);
+      body.classList.toggle('open', !isOpen);
+    };
+
+    block.appendChild(header);
+    block.appendChild(body);
+    root.appendChild(block);
+  });
+}
+
+// ══════════════════════════════════════
+// BUILD QUIZ
+// ══════════════════════════════════════
+function buildQuiz(containerId, data, prefix) {
+  const root = document.getElementById(containerId);
+  root.innerHTML = '';
+  data.forEach((item, idx) => {
+    const card = document.createElement('div');
+    card.className = 'quiz-card';
+    card.id = `${prefix}-card-${idx}`;
+
+    const numTag = document.createElement('div');
+    numTag.className = 'q-num-tag';
+    numTag.textContent = `Q${idx + 1} of ${data.length}`;
+
+    const qText = document.createElement('div');
+    qText.className = 'q-text';
+    qText.textContent = item.q;
+
+    const optList = document.createElement('div');
+    optList.className = 'opt-list';
+
+    item.opts.forEach((opt, oi) => {
+      const btn = document.createElement('button');
+      btn.className = 'opt-btn';
+      btn.innerHTML = `<span class="opt-letter">${['A','B','C','D'][oi]}</span>${opt}`;
+      btn.onclick = () => handleAnswer(prefix, idx, oi, item.ans, item.fb, card, optList);
+      optList.appendChild(btn);
+    });
+
+    const fb = document.createElement('div');
+    fb.className = 'feedback-strip';
+
+    card.appendChild(numTag);
+    card.appendChild(qText);
+    card.appendChild(optList);
+    card.appendChild(fb);
+    root.appendChild(card);
+  });
+}
+
+function handleAnswer(prefix, qIdx, chosen, correct, fbText, card, optList) {
+  const btns = optList.querySelectorAll('.opt-btn');
+  btns.forEach((b, i) => {
+    b.disabled = true;
+    if (i === correct) b.classList.add('correct');
+    else if (i === chosen && chosen !== correct) b.classList.add('wrong');
+  });
+
+  const isRight = chosen === correct;
+  const fbEl = card.querySelector('.feedback-strip');
+  fbEl.className = 'feedback-strip ' + (isRight ? 'correct-fb' : 'wrong-fb');
+  fbEl.innerHTML = `<span class="fb-icon">${isRight ? '✓' : '✗'}</span>${fbText}`;
+  fbEl.style.display = 'block';
+
+  card.classList.add(isRight ? 'answered-right' : 'answered-wrong');
+  card.querySelector('.q-num-tag').textContent = isRight ? `Q${qIdx+1} — Correct ✓` : `Q${qIdx+1} — Incorrect ✗`;
+
+  state[prefix].answered++;
+  if (isRight) state[prefix].correct++;
+  updateScore(prefix);
+}
+
+function updateScore(prefix) {
+  const s = state[prefix];
+  document.getElementById(`${prefix}-score`).textContent = `${s.correct} / ${s.answered}`;
+  const pct = s.answered > 0 ? Math.round(s.correct / s.answered * 100) : 0;
+  document.getElementById(`${prefix}-pct`).textContent = s.answered > 0 ? `${pct}%` : '—';
+  const progPct = s.total > 0 ? (s.answered / s.total * 100) : 0;
+  document.getElementById(`${prefix}-prog`).style.width = progPct + '%';
+}
+
+function resetQuiz(prefix) {
+  if (prefix === 'p') {
+    state.p = { correct: 0, answered: 0, total: PREV_MCQ.length };
+    buildQuiz('prev-quiz-root', PREV_MCQ, 'p');
+  } else {
+    const data = getFilteredData(state.c.filter);
+    state.c = { correct: 0, answered: 0, total: data.length, filter: state.c.filter };
+    buildQuiz('ch-quiz-root', data, 'c');
+  }
+  updateScore(prefix);
+}
+
+function getFilteredData(filter) {
+  if (filter === 'All') {
+    return Object.values(CH_MCQ).flat();
+  }
+  return CH_MCQ[filter] || [];
+}
+
+// ══════════════════════════════════════
+// BUILD CHAPTER FILTER
+// ══════════════════════════════════════
+function buildChapterFilter() {
+  const bar = document.getElementById('ch-filter-bar');
+  const filters = ['All', 'Ch 8', 'Ch 9', 'Ch 10', 'Ch 11', 'Ch 12', 'Ch 13', 'Ch 14'];
+  filters.forEach(f => {
+    const btn = document.createElement('button');
+    btn.className = 'filter-btn' + (f === 'All' ? ' active' : '');
+    btn.textContent = f === 'All' ? `All (${Object.values(CH_MCQ).flat().length} Qs)` : f;
+    btn.onclick = () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const data = getFilteredData(f);
+      state.c = { correct: 0, answered: 0, total: data.length, filter: f };
+      buildQuiz('ch-quiz-root', data, 'c');
+      updateScore('c');
+    };
+    bar.appendChild(btn);
+  });
+}
+
+// ══════════════════════════════════════
+// BUILD ESSAY
+// ══════════════════════════════════════
+function buildEssay() {
+  const root = document.getElementById('essay-root');
+  ESSAY.forEach(e => {
+    const card = document.createElement('div');
+    card.className = 'essay-card';
+    let html = `<div class="essay-num">${e.num}</div><div class="essay-title">${e.title}</div>`;
+    e.sections.forEach(s => {
+      html += `<div class="essay-section-head">${s.head}</div><div class="essay-body">${s.body}</div>`;
+    });
+    card.innerHTML = html;
+    root.appendChild(card);
+  });
+}
+
+// ══════════════════════════════════════
+// INIT
+// ══════════════════════════════════════
+buildSummary();
+buildQuiz('prev-quiz-root', PREV_MCQ, 'p');
+buildChapterFilter();
+const allData = getFilteredData('All');
+state.c.total = allData.length;
+buildQuiz('ch-quiz-root', allData, 'c');
+updateScore('p');
+updateScore('c');
+buildEssay();
+</script>
+</body>
+</html>

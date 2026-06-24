@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ECOM 500 – Essays Final Exam Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+
+  /* ─── TOKENS ─── */
+  :root {
+    --bg: #f8f7f5;
+    --text: #1a1a1a;
+    --muted: #6b6660;
+
+    /* Per-chapter hues */
+    --c1: #1d4ed8;   --c1l: #dbeafe;   --c1d: #1e3a8a;   /* Ch1  IT mgmt   – blue */
+    --c3: #b91c1c;   --c3l: #fee2e2;   --c3d: #7f1d1d;   /* Ch3  dirty data – red */
+    --c4: #15803d;   --c4l: #dcfce7;   --c4d: #14532d;   /* Ch4  biz units  – green */
+    --c7: #6d28d9;   --c7l: #ede9fe;   --c7d: #4c1d95;   /* Ch7  search     – purple */
+    --c8: #c2410c;   --c8l: #ffedd5;   --c8d: #7c2d12;   /* Ch8  omni/ecom  – orange */
+    --c9: #0f766e;   --c9l: #ccfbf1;   --c9d: #134e4a;   /* Ch9  sales sys  – teal */
+    --c10:#7c3aed;   --c10l:#f5f3ff;   --c10d:#4c1d95;   /* Ch10 legacy     – violet */
+    --c12:#0369a1;   --c12l:#e0f2fe;   --c12d:#075985;   /* Ch12 CIO        – sky */
+    --c13:#be185d;   --c13l:#fce7f3;   --c13d:#9d174d;   /* Ch13 PM         – pink */
+    --c14:#374151;   --c14l:#f3f4f6;   --c14d:#111827;   /* Ch14 ethics     – slate */
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 20px 16px 40px;
+    line-height: 1.55;
+  }
+
+  /* ─── HEADER ─── */
+  .hero {
+    background: #0a0f1e;
+    border-radius: 20px;
+    padding: 32px 24px 28px;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+  .hero-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #64748b; letter-spacing: 3px; text-transform:uppercase; margin-bottom:10px; }
+  .hero h1 { font-family:'Syne', sans-serif; font-size: clamp(34px,9vw,70px); color: #fff; line-height:1; letter-spacing:-1px; }
+  .hero h1 span { color: #38bdf8; }
+  .hero-sub { color:#94a3b8; font-size:14px; margin-top:10px; }
+  .hero-badge { display:inline-block; margin-top:14px; background:#ef4444; color:#fff; font-size:12px; font-weight:700; padding:5px 16px; border-radius:99px; letter-spacing:.5px; }
+
+  /* ─── SECTION ─── */
+  .section {
+    border-radius: 16px;
+    margin-bottom: 28px;
+    overflow: hidden;
+    box-shadow: 0 1px 8px rgba(0,0,0,.07);
+  }
+
+  .sec-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 20px;
+    color: white;
+  }
+  .sec-ch {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    opacity: .65;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .sec-title { font-family:'Syne',sans-serif; font-size:18px; flex:1; line-height:1.2; }
+  .sec-q { font-size:11px; opacity:.7; text-align:right; white-space:nowrap; }
+
+  .sec-body { background:#fff; padding:20px; }
+
+  /* Chapter header colors */
+  .h1  { background: var(--c1d); }
+  .h3  { background: var(--c3d); }
+  .h4  { background: var(--c4d); }
+  .h7  { background: var(--c7d); }
+  .h8  { background: var(--c8d); }
+  .h9  { background: var(--c9d); }
+  .h10 { background: var(--c10d); }
+  .h12 { background: var(--c12d); }
+  .h13 { background: var(--c13d); }
+  .h14 { background: var(--c14d); }
+
+  /* ─── CARDS ─── */
+  .grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(200px,1fr)); gap:10px; margin-bottom:12px; }
+  .grid-2 { grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); }
+
+  .card {
+    border-radius: 12px;
+    padding: 13px 14px;
+    border-left: 5px solid;
+  }
+  .card-name { font-weight:700; font-size:14px; margin-bottom:3px; }
+  .card-desc { font-size:12.5px; color:#44403c; margin-bottom:6px; }
+  .ex { font-size:11.5px; padding:5px 8px; border-radius:6px; font-style:italic; }
+
+  /* Card color variants */
+  .k1  { background:var(--c1l);  border-color:var(--c1);  } .k1  .ex { background:#bfdbfe; }
+  .k3  { background:var(--c3l);  border-color:var(--c3);  } .k3  .ex { background:#fecaca; }
+  .k4  { background:var(--c4l);  border-color:var(--c4);  } .k4  .ex { background:#bbf7d0; }
+  .k7  { background:var(--c7l);  border-color:var(--c7);  } .k7  .ex { background:#ddd6fe; }
+  .k8  { background:var(--c8l);  border-color:var(--c8);  } .k8  .ex { background:#fed7aa; }
+  .k9  { background:var(--c9l);  border-color:var(--c9);  } .k9  .ex { background:#99f6e4; }
+  .k10 { background:var(--c10l); border-color:var(--c10); } .k10 .ex { background:#e9d5ff; }
+  .k12 { background:var(--c12l); border-color:var(--c12); } .k12 .ex { background:#bae6fd; }
+  .k13 { background:var(--c13l); border-color:var(--c13); } .k13 .ex { background:#fbcfe8; }
+  .k14 { background:var(--c14l); border-color:var(--c14); } .k14 .ex { background:#e5e7eb; }
+
+  /* ─── MNEMONIC BOX ─── */
+  .brain {
+    border-radius:10px;
+    padding:12px 15px;
+    font-size:13px;
+    margin-bottom:14px;
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    border-left:4px solid;
+  }
+  .brain-icon { font-size:22px; flex-shrink:0; }
+  .brain strong { display:block; font-size:13.5px; margin-bottom:2px; }
+
+  .br1  { background:#eff6ff; border-color:var(--c1);  }
+  .br3  { background:#fef2f2; border-color:var(--c3);  }
+  .br4  { background:#f0fdf4; border-color:var(--c4);  }
+  .br7  { background:#f5f3ff; border-color:var(--c7);  }
+  .br8  { background:#fff7ed; border-color:var(--c8);  }
+  .br9  { background:#f0fdfa; border-color:var(--c9);  }
+  .br10 { background:#faf5ff; border-color:var(--c10); }
+  .br12 { background:#f0f9ff; border-color:var(--c12); }
+  .br13 { background:#fdf2f8; border-color:var(--c13); }
+  .br14 { background:#f8fafc; border-color:var(--c14); }
+
+  /* ─── WARN BOX ─── */
+  .warn {
+    background:#fefce8; border:1.5px solid #fbbf24;
+    border-radius:9px; padding:10px 14px;
+    font-size:12.5px; margin-top:10px;
+  }
+  .warn strong { color:#92400e; }
+
+  /* ─── PAIR GROUPS ─── */
+  .pairs { display:grid; grid-template-columns: repeat(auto-fill, minmax(180px,1fr)); gap:8px; margin:12px 0; }
+  .pair {
+    border-radius:10px;
+    padding:10px 13px;
+    text-align:center;
+    font-size:13px;
+  }
+  .pair-title { font-weight:700; font-size:14px; margin-bottom:4px; }
+  .pair-items { font-size:11.5px; color:#44403c; }
+
+  /* ─── FLOW (search engine steps) ─── */
+  .flow { display:flex; align-items:center; flex-wrap:wrap; gap:6px; margin:14px 0; }
+  .flow-step {
+    flex:1; min-width:130px;
+    border-radius:10px;
+    padding:12px 10px;
+    text-align:center;
+  }
+  .flow-step .num { font-family:'JetBrains Mono',monospace; font-size:20px; font-weight:500; margin-bottom:2px; }
+  .flow-step .label { font-weight:700; font-size:13px; }
+  .flow-step .sub { font-size:11px; margin-top:3px; }
+  .flow-arrow { font-size:20px; color:#94a3b8; flex-shrink:0; }
+  @media(max-width:500px){ .flow-arrow{ display:none; } .flow-step{ min-width:calc(50% - 4px); } }
+
+  /* ─── TRIANGLE (PM) ─── */
+  .triangle-wrap { display:flex; align-items:center; justify-content:center; gap:16px; flex-wrap:wrap; margin:14px 0; }
+  .tri-svg-wrap { width:240px; height:auto; min-height:200px; flex-shrink:0; }
+  .tri-explain { flex:1; min-width:200px; font-size:13px; }
+  .tri-explain h4 { font-size:14px; font-weight:700; margin-bottom:8px; }
+  .tri-explain ul { list-style:none; }
+  .tri-explain li { padding:4px 0 4px 18px; position:relative; font-size:12.5px; }
+  .tri-explain li::before { content:'▸'; position:absolute; left:0; }
+
+  /* ─── DIVIDER ─── */
+  hr.dash { border:none; border-top:1.5px dashed #e5e7eb; margin:12px 0; }
+
+  h3.sub-head { font-size:14px; font-weight:700; margin:14px 0 8px; }
+
+  .tag {
+    display:inline-block; font-size:10px; font-weight:700; letter-spacing:.5px;
+    padding:2px 9px; border-radius:99px; margin-top:6px;
+    text-transform:uppercase;
+    color:white;
+  }
+
+  /* ─── TWO-COL ─── */
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  @media(max-width:480px){ .two-col{ grid-template-columns:1fr; } }
+
+  /* ─── LARGE NUMBER ─── */
+  .bignum {
+    font-family:'Syne',sans-serif;
+    font-size:64px;
+    line-height:1;
+    font-weight:800;
+  }
+  .bignum-wrap {
+    display:flex; gap:16px; align-items:flex-start;
+    background:#fef3c7; border-radius:12px;
+    padding:16px; margin-bottom:12px;
+  }
+  .bignum-text { flex:1; font-size:13px; }
+  .bignum-text strong { font-size:15px; display:block; margin-bottom:4px; }
+
+</style>
+</head>
+<body>
+
+<!-- ╔══════════════════════════════════╗ -->
+<!-- ║           HEADER                ║ -->
+<!-- ╚══════════════════════════════════╝ -->
+<div class="hero">
+  <div class="hero-eyebrow">Final Exam — Visual Study Guide</div>
+  <h1>ECOM <span>500</span></h1>
+  <div class="hero-sub">10 Essay Questions · With Examples & Memory Tricks</div>
+  <div class="hero-badge">⚡  Let's Go</div>
+</div>
+
+
+<!-- ╔══════════════════════════════════╗ -->
+<!-- ║  CH 1 — 10 IT MANAGEMENT ISSUES ║ -->
+<!-- ╚══════════════════════════════════╝ -->
+<div class="section">
+  <div class="sec-head h1">
+    <div>
+      <div class="sec-ch">Chapter 1</div>
+      <div class="sec-title">10 IT Management Issues</div>
+    </div>
+    <div class="sec-q">Memorize all 10</div>
+  </div>
+  <div class="sec-body">
+
+    <div class="brain br1">
+      <div class="brain-icon">🧠</div>
+      <div>
+        <strong>Memory Trick — Group into 5 pairs:</strong>
+        🔐 <b>Lock & Sync</b> · 📊 <b>Know Your Data</b> · 💰 <b>Cut Both Costs</b> · 🚀 <b>Go Digital</b> · ⚡ <b>Stay Agile</b>
+      </div>
+    </div>
+
+    <div class="pairs">
+      <div class="pair" style="background:#dbeafe;">
+        <div class="pair-title" style="color:var(--c1d);">🔐 Lock & Sync</div>
+        <div class="pair-items"><b>1. Security / Cybersecurity / Privacy</b><br>Protect data from threats<br><br><b>2. IT-Business Alignment</b><br>IT must serve business goals</div>
+      </div>
+      <div class="pair" style="background:#dcfce7;">
+        <div class="pair-title" style="color:var(--c4d);">📊 Know Your Data</div>
+        <div class="pair-items"><b>3. Data Analytics</b><br>Turn raw data → decisions<br><br><b>4. Compliance & Regulations</b><br>Follow legal/industry rules</div>
+      </div>
+      <div class="pair" style="background:#fef9c3;">
+        <div class="pair-title" style="color:#713f12;">💰 Cut Both Costs</div>
+        <div class="pair-items"><b>5. IT Cost Reduction</b><br>Spend less on tech<br><br><b>6. Business Cost Reduction</b><br>Tech saves overall operations</div>
+      </div>
+      <div class="pair" style="background:#ede9fe;">
+        <div class="pair-title" style="color:var(--c7d);">🚀 Go Digital</div>
+        <div class="pair-items"><b>7. Innovation</b><br>Use tech for competitive edge<br><br><b>8. Digital Transformation</b><br>Overhaul processes digitally</div>
+      </div>
+      <div class="pair" style="background:#ffedd5;">
+        <div class="pair-title" style="color:var(--c8d);">⚡ Stay Agile</div>
+        <div class="pair-items"><b>9. Business Agility</b><br>Respond to market changes fast<br><br><b>10. IT Agility</b><br>Adapt IT systems quickly</div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card k1">
+        <div class="card-name">🔐 Security & Privacy</div>
+        <div class="card-desc">Protect systems and data from internal leaks and external hackers.</div>
+        <div class="ex">💡 The 2013 Target breach: 40M credit card numbers stolen through a vendor's access.</div>
+      </div>
+      <div class="card k1">
+        <div class="card-name">🎯 IT-Business Alignment</div>
+        <div class="card-desc">Every IT project must link to a real business goal — no tech for tech's sake.</div>
+        <div class="ex">💡 Amazon's recommendation engine: IT investment directly drives more sales.</div>
+      </div>
+      <div class="card k1">
+        <div class="card-name">📊 Data Analytics</div>
+        <div class="card-desc">Convert raw numbers into business insights and smarter decisions.</div>
+        <div class="ex">💡 Netflix analyzes watching data to decide which shows to produce next.</div>
+      </div>
+      <div class="card k1">
+        <div class="card-name">⚖️ Compliance & Regulations</div>
+        <div class="card-desc">Follow GDPR, HIPAA, SEC rules — or face fines and lawsuits.</div>
+        <div class="ex">💡 Facebook fined €1.2B for violating GDPR data transfer rules (2023).</div>
+      </div>
+      <div class="card k1">
+        <div class="card-name">💻 IT Cost Reduction</div>
+        <div class="card-desc">Spend less on technology infrastructure without losing capability.</div>
+        <div class="ex">💡 Moving servers to AWS cloud cuts hardware costs by 40%.</div>
+      </div>
+      <div class="card k1">
+        <div class="card-name">🏢 Business Cost Reduction</div>
+        <div class="card-desc">Use tech to cut overall operational costs across the whole company.</div>
+        <div class="ex">💡 Chatbots handling 60% of customer queries → fewer support staff needed.</div>
+      </div>
+      <div class="card k1">
+        <div class="card-name">💡 Innovation</div>
+        <div class="card-desc">Leverage emerging technologies to gain a competitive advantage.</div>
+        <div class="ex">💡 Uber disrupted taxis using GPS + mobile payments — pure innovation.</div>
+      </div>
+      <div class="card k1">
+        <div class="card-name">🔄 Digital Transformation</div>
+        <div class="card-desc">Completely overhaul business processes and models using digital tech.</div>
+        <div class="ex">💡 Kodak failed to digitally transform → went bankrupt. Netflix did → dominates.</div>
+      </div>
+      <div class="card k1">
+        <div class="card-name">🏃 Business Agility</div>
+        <div class="card-desc">Build the ability to respond quickly to market disruptions and opportunities.</div>
+        <div class="ex">💡 During COVID, agile restaurants pivoted to delivery in days; rigid ones closed.</div>
+      </div>
+      <div class="card k1">
+        <div class="card-name">⚙️ IT Agility</div>
+        <div class="card-desc">Rapidly adapt IT systems and infrastructure to meet new business needs.</div>
+        <div class="ex">💡 Zoom scaled from 10M to 200M daily users in weeks — agile cloud infrastructure.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ╔══════════════════════════════════╗ -->
+<!-- ║  CH 3 — DIRTY DATA              ║ -->
+<!-- ╚══════════════════════════════════╝ -->
+<div class="section">
+  <div class="sec-head h3">
+    <div>
+      <div class="sec-ch">Chapter 3</div>
+      <div class="sec-title">Dirty Data + MDM</div>
+    </div>
+    <div class="sec-q">10x Rule is guaranteed</div>
+  </div>
+  <div class="sec-body">
+
+    <div class="brain br3">
+      <div class="brain-icon">🧠</div>
+      <div>
+        <strong>Memory Trick: "IOCD" → "I Often Create Disasters"</strong>
+        Incomplete · Outdated · Correct? No → Incorrect · Duplicated. Dirty data = bad decisions.
+      </div>
+    </div>
+
+    <div class="bignum-wrap">
+      <div>
+        <div class="bignum" style="color:var(--c3);">10x</div>
+        <div style="font-size:11px; color:#92400e; font-weight:600; margin-top:2px;">THE RULE</div>
+      </div>
+      <div class="bignum-text">
+        <strong>The 10x Rule — Always mention this first!</strong>
+        It costs <b>10 times more</b> to fix dirty data AFTER it enters the system than to prevent it from entering in the first place.
+        Prevention is always cheaper than cleanup.
+        <div class="ex" style="background:#fecaca; border-radius:6px; padding:5px 8px; margin-top:6px; font-style:italic;">
+          💡 A hospital enters a patient's wrong birthdate. Fixing it after records are linked costs 10x the original entry effort.
+        </div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <h3 class="sub-head" style="color:var(--c3);">🦠 Characteristics of Dirty Data</h3>
+        <div class="card k3" style="margin-bottom:8px;">
+          <div class="card-name">❌ Incomplete</div>
+          <div class="card-desc">Missing fields — customer record with no email or phone.</div>
+        </div>
+        <div class="card k3" style="margin-bottom:8px;">
+          <div class="card-name">⏰ Outdated</div>
+          <div class="card-desc">Old addresses, discontinued products, former employees still listed.</div>
+        </div>
+        <div class="card k3" style="margin-bottom:8px;">
+          <div class="card-name">❌ Incorrect</div>
+          <div class="card-desc">Typos, wrong values, mislabeled data — "Mhmd" instead of "Mohammed."</div>
+        </div>
+        <div class="card k3">
+          <div class="card-name">👥 Duplicated</div>
+          <div class="card-desc">Same customer entered twice with slightly different names.</div>
+        </div>
+      </div>
+      <div>
+        <h3 class="sub-head" style="color:var(--c3);">✅ Solution: MDM</h3>
+        <div class="card k3" style="border-color:#15803d; background:#dcfce7;">
+          <div class="card-name" style="color:#14532d;">🏛️ Master Data Management (MDM)</div>
+          <div class="card-desc">Creates ONE single, trusted, authoritative version of core data — customers, products, suppliers. Breaks down data silos so every department sees the same truth.</div>
+          <div class="ex" style="background:#bbf7d0;">💡 Walmart's MDM means every store, website, and warehouse share one product database. No duplicates, no conflicts.</div>
+        </div>
+        <div class="warn" style="margin-top:8px;">
+          <strong>Impact of Dirty Data:</strong> Flawed analytics → poor decisions → regulatory fines → lost revenue. Dirty data is expensive!
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ╔══════════════════════════════════╗ -->
+<!-- ║  CH 4 — 5 BUSINESS UNITS        ║ -->
+<!-- ╚══════════════════════════════════╝ -->
+<div class="section">
+  <div class="sec-head h4">
+    <div>
+      <div class="sec-ch">Chapter 4</div>
+      <div class="sec-title">5 Core Business Functional Units</div>
+    </div>
+    <div class="sec-q">Link each unit to its IS tool</div>
+  </div>
+  <div class="sec-body">
+
+    <div class="brain br4">
+      <div class="brain-icon">🧠</div>
+      <div>
+        <strong>Memory Trick: "HF SPI" → "Happy Finance Students Produce IT"</strong>
+        <b>H</b>uman Resources · <b>F</b>inance &amp; Accounting · <b>S</b>ales &amp; Marketing · <b>P</b>roduction &amp; Operations · <b>I</b>nformation Technology
+      </div>
+    </div>
+
+    <div class="grid grid-2">
+      <div class="card k4">
+        <div class="card-name">👥 Human Resources</div>
+        <div class="card-desc">Hiring, onboarding, training, evaluating, and managing all employees.</div>
+        <div class="ex">💡 HR IS automates payroll, benefits, and performance reviews at a company like Aramco.</div>
+        <span class="tag" style="background:var(--c4);">HR IS Systems</span>
+      </div>
+      <div class="card k4">
+        <div class="card-name">💰 Finance & Accounting</div>
+        <div class="card-desc">Manages budgeting, financial planning, auditing, and regulatory compliance. Uses <b>XBRL Tagging</b> (SEC mandate) for machine-readable financial reporting.</div>
+        <div class="ex">💡 Saudi Aramco files XBRL-tagged financial reports so regulators can read them instantly.</div>
+        <span class="tag" style="background:var(--c4);">XBRL · SEC Compliance</span>
+      </div>
+      <div class="card k4">
+        <div class="card-name">📣 Sales & Marketing</div>
+        <div class="card-desc">Identifies customer needs, drives sales, builds brand awareness.</div>
+        <div class="ex">💡 Starbucks uses CRM to track every customer's drink history and send personalized offers.</div>
+        <span class="tag" style="background:var(--c4);">CRM · DSS · SFA</span>
+      </div>
+      <div class="card k4">
+        <div class="card-name">🏭 Production & Operations</div>
+        <div class="card-desc">Plans and controls manufacturing of goods and delivery of services efficiently.</div>
+        <div class="ex">💡 Toyota uses JIT (Just-In-Time) to receive parts only when needed — zero wasted inventory.</div>
+        <span class="tag" style="background:var(--c4);">POM · JIT · Lean</span>
+      </div>
+      <div class="card k4">
+        <div class="card-name">🖥️ Information Technology</div>
+        <div class="card-desc">Manages systems, networks, data, digital processes, and cybersecurity across the entire organization.</div>
+        <div class="ex">💡 IT dept at any bank manages ATM networks, mobile apps, and protects against cyberattacks 24/7.</div>
+        <span class="tag" style="background:var(--c4);">Networks · Security · Systems</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ╔══════════════════════════════════╗ -->
+<!-- ║  CH 7 — CRAWLER SEARCH ENGINES  ║ -->
+<!-- ╚══════════════════════════════════╝ -->
+<div class="section">
+  <div class="sec-head h7">
+    <div>
+      <div class="sec-ch">Chapter 7</div>
+      <div class="sec-title">How Crawler Search Engines Work</div>
+    </div>
+    <div class="sec-q">4 sequential steps</div>
+  </div>
+  <div class="sec-body">
+
+    <div class="brain br7">
+      <div class="brain-icon">🧠</div>
+      <div>
+        <strong>Memory Trick: "SIRQ" → "Spiders Investigate, Ranks Quickly"</strong>
+        <b>S</b>pider → <b>I</b>ndexer → <b>R</b>anking Module → <b>Q</b>uery Interface. Always in this order!
+      </div>
+    </div>
+
+    <div class="flow">
+      <div class="flow-step k7" style="border:2px solid var(--c7);">
+        <div class="num" style="color:var(--c7);">01</div>
+        <div class="label">🕷️ Spider</div>
+        <div class="sub">(Crawling)</div>
+        <div class="sub" style="margin-top:4px; font-size:11px;">A software bot follows hyperlinks across the web, downloading page content to a server.</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step k7" style="border:2px solid var(--c7);">
+        <div class="num" style="color:var(--c7);">02</div>
+        <div class="label">📑 Indexer</div>
+        <div class="sub">(Processing)</div>
+        <div class="sub" style="margin-top:4px; font-size:11px;">Downloaded pages are catalogued into a massive searchable index mapping keywords to pages.</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step k7" style="border:2px solid var(--c7);">
+        <div class="num" style="color:var(--c7);">03</div>
+        <div class="label">🏆 Ranking</div>
+        <div class="sub">(Scoring)</div>
+        <div class="sub" style="margin-top:4px; font-size:11px;">When you search, the ranking module scores every indexed page for relevance and sorts them.</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step k7" style="border:2px solid var(--c7);">
+        <div class="num" style="color:var(--c7);">04</div>
+        <div class="label">🖥️ Query Interface</div>
+        <div class="sub">(Display)</div>
+        <div class="sub" style="margin-top:4px; font-size:11px;">The front-end where users type queries and see ranked results, autocomplete, spell-check.</div>
+      </div>
+    </div>
+
+    <div class="ex" style="background:var(--c7l); border-radius:8px; padding:10px 12px; font-style:italic; font-size:13px; margin-bottom:10px;">
+      💡 When you Google "best laptop 2025" — Google's spider has already visited millions of laptop review pages. The indexer stored all keyword links. The ranking module picks the most relevant 10. The query interface shows them in 0.5 seconds.
+    </div>
+
+    <div class="card k7">
+      <div class="card-name">🔍 SEO — Always Mention This at the End!</div>
+      <div class="card-desc"><b>Search Engine Optimization</b> is the practice of designing web pages to score high in the Ranking Module, achieving free (organic) visibility without paying for ads.</div>
+      <div class="ex">💡 A business adds keywords, fast load times, and backlinks to rank on Google's first page — free traffic.</div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ╔══════════════════════════════════╗ -->
+<!-- ║  CH 8 — CHANNEL CONFLICT        ║ -->
+<!-- ╚══════════════════════════════════╝ -->
+<div class="section">
+  <div class="sec-head h8">
+    <div>
+      <div class="sec-ch">Chapter 8</div>
+      <div class="sec-title">Resolving Channel Conflict in E-Commerce</div>
+    </div>
+    <div class="sec-q">BOPIS is the headline answer</div>
+  </div>
+  <div class="sec-body">
+
+    <div class="brain br8">
+      <div class="brain-icon">🧠</div>
+      <div>
+        <strong>Memory Trick: "BUL" → Buy Online, Unify Pricing, Link Logistics</strong>
+        <b>B</b>OPIS · <b>U</b>nified Pricing · <b>L</b>ogistical Alignment. Define conflict first, then list the 3 solutions.
+      </div>
+    </div>
+
+    <div class="card k8" style="margin-bottom:12px; border-width:3px;">
+      <div class="card-name">⚠️ What is Channel Conflict?</div>
+      <div class="card-desc">When a company's <b>online store competes with its own physical stores</b> — causing internal tension over pricing, inventory, and customer ownership. Stores lose sales to the company's own website.</div>
+      <div class="ex">💡 Nike's own website undercuts Nike store prices → store managers are furious. That's channel conflict.</div>
+    </div>
+
+    <div class="grid">
+      <div class="card k8">
+        <div class="card-name">🏪 BOPIS — The #1 Answer!</div>
+        <div class="card-desc"><b>Buy Online, Pick Up In Store.</b> Drives online shoppers back into physical locations where they often buy more on impulse. Removes pure price competition by adding immediacy.</div>
+        <div class="ex">💡 Target: order online at night, pick up in 2 hours. 40% of BOPIS customers buy something extra in-store.</div>
+        <span class="tag" style="background:var(--c8);">Most Powerful Solution</span>
+      </div>
+      <div class="card k8">
+        <div class="card-name">💲 Unified Pricing Strategy</div>
+        <div class="card-desc">Same price online and in-store eliminates "showrooming" — where customers browse in-store but buy online for a lower price.</div>
+        <div class="ex">💡 Apple charges $999 for iPhone 16 everywhere — Apple Store, apple.com, all the same price.</div>
+        <span class="tag" style="background:var(--c8);">Stops Showrooming</span>
+      </div>
+      <div class="card k8">
+        <div class="card-name">🔗 Logistical & Inventory Alignment</div>
+        <div class="card-desc">Integrate digital and physical channels so both share inventory, fulfillment, and customer data — they cooperate instead of compete.</div>
+        <div class="ex">💡 Zara's system: if online inventory runs low, it pulls from nearby store stock — one unified pool.</div>
+        <span class="tag" style="background:var(--c8);">Shared Infrastructure</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ╔══════════════════════════════════╗ -->
+<!-- ║  CH 9 — SALES SUPPORT SYSTEMS   ║ -->
+<!-- ╚══════════════════════════════════╝ -->
+<div class="section">
+  <div class="sec-head h9">
+    <div>
+      <div class="sec-ch">Chapter 9</div>
+      <div class="sec-title">Sales & Marketing Support Systems</div>
+    </div>
+    <div class="sec-q">CRM is always the anchor</div>
+  </div>
+  <div class="sec-body">
+
+    <div class="brain br9">
+      <div class="brain-icon">🧠</div>
+      <div>
+        <strong>Memory Trick: "CDB DS" → "Customers Deserve Better Data & Sales"</strong>
+        <b>C</b>RM · <b>D</b>SS · <b>B</b>I · <b>D</b>ata Analytics · <b>S</b>FA
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card k9">
+        <div class="card-name">👑 CRM — Customer Relationship Management</div>
+        <div class="card-desc">The central pillar. Manages all customer interactions, tracks purchase history, improves loyalty and lifetime value.</div>
+        <div class="ex">💡 Salesforce CRM: every time a customer calls, the agent sees their entire purchase history instantly.</div>
+        <span class="tag" style="background:var(--c9);">Central Pillar</span>
+      </div>
+      <div class="card k9">
+        <div class="card-name">🧮 DSS — Decision Support System</div>
+        <div class="card-desc">Analytical models that help managers make informed decisions on pricing, targeting, and campaign investment.</div>
+        <div class="ex">💡 A marketing manager uses DSS to simulate: "What if we drop price by 10%? How many more units sell?"</div>
+        <span class="tag" style="background:var(--c9);">Informed Decisions</span>
+      </div>
+      <div class="card k9">
+        <div class="card-name">📉 BI — Business Intelligence</div>
+        <div class="card-desc">Analyzes large historical datasets to identify broad market patterns, trends, and emerging opportunities for strategic planning.</div>
+        <div class="ex">💡 Walmart's BI shows that hurricane warnings spike flashlight sales → stock up automatically before storms.</div>
+        <span class="tag" style="background:var(--c9);">Historical Trends</span>
+      </div>
+      <div class="card k9">
+        <div class="card-name">🔮 Data Analytics</div>
+        <div class="card-desc"><b>Predictive</b> analytics forecast future demand. <b>Prescriptive</b> analytics recommend specific actions (promotions, discounts) to maximize revenue.</div>
+        <div class="ex">💡 Amazon: "Customers who bought this also bought…" — predictive analytics in action every second.</div>
+        <span class="tag" style="background:var(--c9);">Predict &amp; Prescribe</span>
+      </div>
+      <div class="card k9">
+        <div class="card-name">🤖 SFA — Sales Force Automation</div>
+        <div class="card-desc">Automates routine sales tasks — order processing, contact management, pipeline tracking — freeing the team to build relationships.</div>
+        <div class="ex">💡 A pharma rep's SFA logs each doctor visit automatically so they never forget to follow up.</div>
+        <span class="tag" style="background:var(--c9);">Free Humans for Humans</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ╔══════════════════════════════════╗ -->
+<!-- ║  CH 10 — LEGACY SYSTEMS         ║ -->
+<!-- ╚══════════════════════════════════╝ -->
+<div class="section">
+  <div class="sec-head h10">
+    <div>
+      <div class="sec-ch">Chapter 10</div>
+      <div class="sec-title">Reasons for Replacing Legacy Systems</div>
+    </div>
+    <div class="sec-q">Lead with maintenance cost</div>
+  </div>
+  <div class="sec-body">
+
+    <div class="brain br10">
+      <div class="brain-icon">🧠</div>
+      <div>
+        <strong>Memory Trick: "MILCM" → "Money Issues Leave Companies Modern"</strong>
+        <b>M</b>aintenance Costs · <b>I</b>ntegration Obstacles · <b>L</b>ack of Staff · <b>C</b>loud Alternatives · <b>M</b>odern Business Needs
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card k10">
+        <div class="card-name">💸 High Maintenance Costs</div>
+        <div class="card-desc">Older systems need rare specialized skills and expensive hardware. Keeping them alive costs more than replacing them.</div>
+        <div class="ex">💡 The US government still ran COBOL systems in 2020 — paying $400/hr for COBOL programmers while younger devs make $80/hr.</div>
+        <span class="tag" style="background:var(--c10);">Lead With This</span>
+      </div>
+      <div class="card k10">
+        <div class="card-name">🔌 Integration Obstacles</div>
+        <div class="card-desc">Legacy systems can't connect with modern cloud services, mobile apps, or APIs. They are hardwired islands.</div>
+        <div class="ex">💡 A bank's 1980s mainframe can't connect to a modern mobile banking app without expensive custom "bridges."</div>
+        <span class="tag" style="background:var(--c10);">Can't Connect</span>
+      </div>
+      <div class="card k10">
+        <div class="card-name">👴 Lack of Qualified Staff</div>
+        <div class="card-desc">IT professionals trained in COBOL, FORTRAN are retiring. The talent pool is shrinking, creating critical knowledge gaps.</div>
+        <div class="ex">💡 When a COBOL expert retires, nobody left can fix the system — it becomes a ticking time bomb.</div>
+        <span class="tag" style="background:var(--c10);">Dying Expertise</span>
+      </div>
+      <div class="card k10">
+        <div class="card-name">☁️ Cloud Alternatives (SaaS)</div>
+        <div class="card-desc">Modern SaaS systems offer lower costs, better scalability, automatic updates, and no hardware overhead.</div>
+        <div class="ex">💡 Replace on-premise SAP with Salesforce cloud → 60% lower IT costs, updates happen automatically.</div>
+        <span class="tag" style="background:var(--c10);">Modern Solution</span>
+      </div>
+      <div class="card k10">
+        <div class="card-name">📱 Modern Business Needs</div>
+        <div class="card-desc">Legacy systems can't support real-time analytics, big data, mobile access, or the high transaction volumes required today.</div>
+        <div class="ex">💡 An airline's 1970s booking system crashes on Black Friday because it was never designed for 10M simultaneous users.</div>
+        <span class="tag" style="background:var(--c10);">Can't Keep Up</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ╔══════════════════════════════════╗ -->
+<!-- ║  CH 12 — CIO SKILLS             ║ -->
+<!-- ╚══════════════════════════════════╝ -->
+<div class="section">
+  <div class="sec-head h12">
+    <div>
+      <div class="sec-ch">Chapter 12</div>
+      <div class="sec-title">CIO Skills for Business-IT Alignment</div>
+    </div>
+    <div class="sec-q">5 skills, all link to alignment</div>
+  </div>
+  <div class="sec-body">
+
+    <div class="brain br12">
+      <div class="brain-icon">🧠</div>
+      <div>
+        <strong>Memory Trick: "BCSLR" → "Business Chiefs Strategically Lead Relationships"</strong>
+        <b>B</b>usiness Understanding · <b>C</b>ommunication · <b>S</b>trategic Thinking · <b>L</b>eadership &amp; Change · <b>R</b>elationship Building
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card k12">
+        <div class="card-name">🏢 Business Understanding</div>
+        <div class="card-desc">Deep knowledge of business processes, strategic goals, and market dynamics — ensures IT investments solve real business problems.</div>
+        <div class="ex">💡 A CIO who understands retail doesn't just build systems — they build systems that increase checkout speed and cut returns.</div>
+      </div>
+      <div class="card k12">
+        <div class="card-name">🗣️ Communication</div>
+        <div class="card-desc">Translate complex tech concepts into business language for executives. And translate business needs into technical requirements for IT teams.</div>
+        <div class="ex">💡 CIO explains to the CEO: "Our cybersecurity gap costs $50M if breached" — not technical jargon, business impact.</div>
+      </div>
+      <div class="card k12">
+        <div class="card-name">🗺️ Strategic Thinking</div>
+        <div class="card-desc">Plan long-term IT roadmaps that anticipate future business needs, not just react to today's crises.</div>
+        <div class="ex">💡 Microsoft's CIO invested in cloud infrastructure in 2012 — a 10-year bet that made Azure dominant by 2022.</div>
+      </div>
+      <div class="card k12">
+        <div class="card-name">🔄 Leadership & Change Management</div>
+        <div class="card-desc">Guide the organization through IT-driven transformation, manage resistance, ensure people actually adopt new systems.</div>
+        <div class="ex">💡 Introducing SAP to 10,000 employees — without change management, 60% won't use it properly. The CIO must lead this.</div>
+      </div>
+      <div class="card k12">
+        <div class="card-name">🤝 Relationship Building</div>
+        <div class="card-desc">Build strong partnerships with CEO, CFO, COO so IT is seen as a strategic partner, not just a cost center.</div>
+        <div class="ex">💡 A CIO who lunches with the CFO monthly ensures IT budgets survive cuts — they're partners, not adversaries.</div>
+      </div>
+    </div>
+
+    <div class="warn">
+      <strong>Core theme to repeat in your essay:</strong> Every CIO skill must tie back to making IT a <em>strategic partner</em> to the business, not just a back-office support function.
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ╔══════════════════════════════════╗ -->
+<!-- ║  CH 13 — PROJECT MANAGER        ║ -->
+<!-- ╚══════════════════════════════════╝ -->
+<div class="section">
+  <div class="sec-head h13">
+    <div>
+      <div class="sec-ch">Chapter 13</div>
+      <div class="sec-title">Project Manager Characteristics</div>
+    </div>
+    <div class="sec-q">End with the Project Triangle!</div>
+  </div>
+  <div class="sec-body">
+
+    <div class="brain br13">
+      <div class="brain-icon">🧠</div>
+      <div>
+        <strong>Memory Trick: "PC CRM" → "PMs Create Clear Risk Management"</strong>
+        <b>P</b>lanning · <b>C</b>oordinating · <b>C</b>ommunication · <b>R</b>isk Management · <b>M</b>onitoring &amp; Controlling
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card k13">
+        <div class="card-name">📋 Planning</div>
+        <div class="card-desc">Defines scope, identifies milestones, allocates budget, creates the formal Project Plan that governs everything.</div>
+        <div class="ex">💡 Building a new e-commerce website: PM creates a 6-month roadmap with sprints, deliverables, and budget checkpoints.</div>
+      </div>
+      <div class="card k13">
+        <div class="card-name">🔧 Coordinating</div>
+        <div class="card-desc">Assigns tasks to team members and manages human, financial, and technical resources to ensure timely delivery.</div>
+        <div class="ex">💡 PM assigns designers the wireframes, developers the backend, and QA the testing schedule — keeping all 3 in sync.</div>
+      </div>
+      <div class="card k13">
+        <div class="card-name">📢 Communication</div>
+        <div class="card-desc">Reports status, milestones, risks, and issues to all stakeholders consistently. Poor communication = lost stakeholder trust.</div>
+        <div class="ex">💡 Weekly Slack updates + monthly board reports. If the PM goes silent, executives panic and micromanage.</div>
+      </div>
+      <div class="card k13">
+        <div class="card-name">⚠️ Risk Management</div>
+        <div class="card-desc">Continuously identifies threats (scope creep, staff shortages, tech failures) and implements mitigation plans before they escalate.</div>
+        <div class="ex">💡 PM sees developer turnover risk → cross-trains 2 backup devs before the key dev quits. Crisis avoided.</div>
+      </div>
+      <div class="card k13">
+        <div class="card-name">📊 Monitoring & Controlling</div>
+        <div class="card-desc">Tracks actual progress against the plan continuously and takes corrective action whenever the project drifts off schedule, over budget, or out of scope.</div>
+        <div class="ex">💡 Dashboard shows project is 2 weeks behind → PM adds resources and cuts non-essential features immediately.</div>
+      </div>
+    </div>
+
+    <hr class="dash">
+    <h3 class="sub-head" style="color:var(--c13);">⭐ The Project Triangle — Always Conclude With This!</h3>
+
+    <div class="triangle-wrap">
+      <div class="tri-svg-wrap">
+       <svg viewBox="-40 -20 280 220" xmlns="http://www.w3.org/2000/svg" width="100%" height="auto">
+  <polygon points="100,10 195,170 5,170" fill="#fce7f3" stroke="#be185d" stroke-width="3"/>
+  
+  <text x="100" y="-2" text-anchor="middle" font-family="Syne,sans-serif" font-size="13" font-weight="800" fill="#be185d">⏱ TIME</text>
+  <text x="195" y="195" text-anchor="middle" font-family="Syne,sans-serif" font-size="13" font-weight="800" fill="#be185d">💰 COST</text>
+  <text x="5" y="195" text-anchor="middle" font-family="Syne,sans-serif" font-size="13" font-weight="800" fill="#be185d">📌 SCOPE</text>
+  
+  <text x="100" y="108" text-anchor="middle" font-family="Outfit,sans-serif" font-size="11" fill="#9d174d" font-weight="600">Change one →</text>
+  <text x="100" y="124" text-anchor="middle" font-family="Outfit,sans-serif" font-size="11" fill="#9d174d" font-weight="600">others change too</text>
+</svg>
+      </div>
+      <div class="tri-explain">
+        <h4 style="color:var(--c13);">Scope · Time · Cost — Always Linked</h4>
+        <ul>
+          <li>Expand <b>Scope</b> → must extend Time OR increase Cost (or both)</li>
+          <li>Cut <b>Cost</b> → must reduce Scope OR extend Time</li>
+          <li>Shrink <b>Time</b> → must cut Scope OR increase Cost</li>
+          <li>Every PM decision is a trade-off within this triangle</li>
+        </ul>
+        <div class="ex" style="background:var(--c13l); border-radius:7px; padding:7px 10px; margin-top:8px; font-style:italic; font-size:12px;">
+          💡 Client says "add 10 new features" (scope up) → PM says "that will cost $200K more OR take 3 more months" — the triangle in action.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ╔══════════════════════════════════╗ -->
+<!-- ║  CH 14 — SOCIAL MEDIA RECRUIT.  ║ -->
+<!-- ╚══════════════════════════════════╝ -->
+<div class="section">
+  <div class="sec-head h14">
+    <div>
+      <div class="sec-ch">Chapter 14</div>
+      <div class="sec-title">Discrimination in Social Media Recruiting</div>
+    </div>
+    <div class="sec-q">AI Bias → Privacy → Governance</div>
+  </div>
+  <div class="sec-body">
+
+    <div class="brain br14">
+      <div class="brain-icon">🧠</div>
+      <div>
+        <strong>Memory Trick: "APG" → "AI Picks, Governance Guards"</strong>
+        <b>A</b>I Bias · <b>P</b>rivacy Violations · <b>G</b>overnance &amp; Code of Ethics
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card k14">
+        <div class="card-name">🤖 AI Bias & Discriminatory Algorithms</div>
+        <div class="card-desc">ML models inherit historical biases. If past hiring skewed toward certain groups, the algorithm learns to replicate those patterns — systematically disadvantaging protected groups.</div>
+        <div class="ex">💡 Amazon's AI recruitment tool was scrapped in 2018 — it downgraded resumes mentioning "women's" (e.g., women's chess club) because it trained on a decade of male-dominated hires.</div>
+        <span class="tag" style="background:var(--c14);">Technical Root Cause</span>
+      </div>
+      <div class="card k14">
+        <div class="card-name">🔒 Privacy Violations & Ethical Concerns</div>
+        <div class="card-desc">Harvesting social media profiles without consent violates digital ethics and civil rights. Accessing religion, family status, or political views visible online introduces illegal bias into hiring.</div>
+        <div class="ex">💡 A recruiter sees a candidate is pregnant from Instagram photos and quietly rejects her — illegal discrimination that would never happen in an interview room.</div>
+        <span class="tag" style="background:var(--c14);">Legal + Ethical Violation</span>
+      </div>
+      <div class="card k14">
+        <div class="card-name">🏛️ Governance & Code of Ethics</div>
+        <div class="card-desc">Organizations must implement a Code of Ethics covering AI in recruiting: regular algorithmic audits for bias, clear accountability, and transparent communication to candidates about data use.</div>
+        <div class="ex">💡 IBM's HR team runs quarterly AI audits — if their screening model rejects a protected group 20% more than average, they halt and retrain it before continuing.</div>
+        <span class="tag" style="background:var(--c14);">The Solution</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ─── FOOTER ─── -->
+<div style="text-align:center; margin-top:28px; padding:20px; font-size:13px; color:#6b6660;">
+  <div style="font-family:'Syne',sans-serif; font-size:22px; color:#0a0f1e; margin-bottom:6px;">You've covered every essay. You're ready. 🎯</div>
+  <div>ECOM 500 · Final Exam · Good luck!</div>
+</div>
+
+</body>
+</html>

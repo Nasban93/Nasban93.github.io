@@ -4,6 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Khalid Bin Nasban — PMP, MBA | Performance & Project Management</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-991LP5M6MF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-991LP5M6MF');
+  </script>
+
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     /* ── Reset & Base ── */
@@ -261,14 +271,15 @@
     section {
       position: relative;
       z-index: 1;
-      padding: 7rem 5vw;
+      padding: 2.75rem 5vw;
+      scroll-margin-top: 90px;
     }
 
     .section-header {
       display: flex;
       align-items: center;
       gap: 1.2rem;
-      margin-bottom: 3rem;
+      margin-bottom: 1rem;
     }
 
     .section-label {
@@ -288,11 +299,11 @@
 
     .section-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-size: clamp(2rem, 4vw, 2.8rem);
       font-weight: 500;
-      line-height: 1.2;
+      line-height: 1.15;
       letter-spacing: -0.01em;
-      margin-bottom: 4rem;
+      margin-bottom: 1.25rem;
     }
 
     .section-title em {
@@ -314,10 +325,10 @@
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: var(--radius);
-      padding: 3rem 2.6rem;
+      padding: 1.6rem 1.8rem;
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 0.75rem;
       transition: all var(--transition);
       position: relative;
       overflow: hidden;
@@ -346,7 +357,7 @@
 
     .project-number {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 3.5rem;
+      font-size: 1.5rem;
       font-weight: 500;
       color: var(--accent-dim);
       line-height: 1;
@@ -355,8 +366,8 @@
 
     .project-tag {
       display: inline-block;
-      padding: 0.3rem 0.8rem;
-      font-size: 0.65rem;
+      padding: 0.25rem 0.7rem;
+      font-size: 0.62rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--accent);
@@ -368,22 +379,26 @@
 
     .project-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.9rem;
+      font-size: 1.5rem;
       font-weight: 600;
-      line-height: 1.2;
+      line-height: 1.15;
       color: var(--text-main);
     }
 
     .project-desc {
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       color: var(--text-muted);
-      line-height: 1.7;
+      line-height: 1.55;
       font-weight: 400;
       flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
 
     .project-footer {
-      padding-top: 1.5rem;
+      padding-top: 0.75rem;
       border-top: 1px solid var(--line);
       display: flex;
       align-items: center;
@@ -540,6 +555,7 @@
       border-top: 1px solid var(--line);
       position: relative;
       z-index: 1;
+      scroll-margin-top: 90px;
     }
 
     .footer-inner {
@@ -727,25 +743,9 @@
         </div>
       </div>
 
-      <!-- Card 2: MBA Executive Knowledge Hub -->
+      <!-- Card 2: Data Analytics Portfolio -->
       <div class="project-card reveal reveal-delay-1">
         <div class="project-number">02</div>
-        <span class="project-tag">Strategy · Frameworks</span>
-        <h3 class="project-title">MBA Knowledge Hub</h3>
-        <p class="project-desc">
-          A structured digital wiki distilling core frameworks across 11 executive disciplines — from OKRs and balanced scorecards to risk management — built as a practitioner's reference for high-performance decision-making.
-        </p>
-        <div class="project-footer">
-          <span class="project-status">Reference Resource</span>
-          <a href="https://seu-mba2026.tiiny.site" target="_blank" rel="noopener" class="btn btn-primary">
-            View Hub <span class="btn-arrow">→</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Card 3: Data Analytics Portfolio -->
-      <div class="project-card reveal reveal-delay-2">
-        <div class="project-number">03</div>
         <span class="project-tag">Python & Power BI</span>
         <h3 class="project-title">Data Analytics Portfolio</h3>
         <p class="project-desc">
