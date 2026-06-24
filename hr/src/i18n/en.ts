@@ -75,6 +75,16 @@ export const en = {
   noCoaching: "All team members are above 75% — no coaching needed.",
   belowThreshold: "Below threshold",
 
+  // Casual staff
+  casualStaff: "Casual Staff",
+  directStaff: "Direct Staff",
+  allStaff: "All Staff",
+  vendor: "Vendor",
+  vendorBreakdown: "Vendor Breakdown",
+  casualNote: "Casual staff are on vendor payroll — excluded from Nitaqat",
+  directOnly: "Direct only",
+  staffType: "Staff Type",
+
   // Employee Self
   myKpiTrend: "My KPI Trend",
   myKpiRadar: "My KPI vs Team Avg",

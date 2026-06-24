@@ -35,15 +35,23 @@ const TT_STYLE = {
 
 interface Props { data: SeedData }
 
+type StaffFilter = "all" | "direct" | "casual";
+
 export function HrManager({ data }: Props) {
   const t = useT();
   const { lang } = useLang();
   const isAr = lang === "ar";
   const [period, setPeriod] = useState("2026-04");
+  const [staffFilter, setStaffFilter] = useState<StaffFilter>("all");
 
   const employeeResults = useMemo(() => {
     return data.employees
-      .filter((e) => e.employmentStatus === "Active")
+      .filter((e) => {
+        if (e.employmentStatus !== "Active") return false;
+        if (staffFilter === "direct") return e.staffType !== "casual";
+        if (staffFilter === "casual") return e.staffType === "casual";
+        return true;
+      })
       .map((emp) => {
         const deptKpis = KPI_DEFINITIONS.filter((k) => k.departmentId === emp.departmentId && k.active);
         const empScores = data.kpiScores.filter((s) => s.employeeId === emp.employeeId && s.period === period);
@@ -110,10 +118,20 @@ export function HrManager({ data }: Props) {
 
   return (
     <div className="space-y-6">
-      <div className="flex gap-3 items-center">
+      <div className="flex flex-wrap gap-3 items-center">
         <select value={period} onChange={(e) => setPeriod(e.target.value)} className="ctrl">
           {PERIODS.map((p) => <option key={p} value={p}>{PERIOD_LABELS[p]}</option>)}
         </select>
+        <select value={staffFilter} onChange={(e) => setStaffFilter(e.target.value as StaffFilter)} className="ctrl">
+          <option value="all">{t.allStaff}</option>
+          <option value="direct">{t.directStaff}</option>
+          <option value="casual">{t.casualStaff}</option>
+        </select>
+        {staffFilter === "casual" && (
+          <span className="text-xs px-2 py-1 rounded-full" style={{ background: "var(--gold-bg)", color: "var(--gold)" }}>
+            {t.casualNote}
+          </span>
+        )}
       </div>
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
@@ -186,6 +204,51 @@ export function HrManager({ data }: Props) {
         </ResponsiveContainer>
       </ChartFrame>
 
+      {/* Vendor breakdown — shown when viewing all or casual */}
+      {staffFilter !== "direct" && data.vendors?.length > 0 && (
+        <ChartFrame title={t.vendorBreakdown}>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="text-xs uppercase" style={{ color: "var(--text-muted)" }}>
+                  <th className="text-start py-2 px-2">{t.vendor}</th>
+                  <th className="text-start py-2 px-2">{isAr ? "الموظفون النشطون" : "Active Staff"}</th>
+                  <th className="text-start py-2 px-2">{t.avgPerformance}</th>
+                  <th className="text-start py-2 px-2">{t.department}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.vendors.map((vendor) => {
+                  const vendorEmps = data.employees.filter(
+                    (e) => e.vendorId === vendor.id && e.employmentStatus === "Active"
+                  );
+                  const vendorResults = employeeResults.filter((r) => r.emp.vendorId === vendor.id);
+                  const scores = vendorResults.map((r) => r.result.finalScore).filter((s) => s > 0);
+                  const avg = scores.length > 0
+                    ? Math.round((scores.reduce((a, b) => a + b, 0) / scores.length) * 10) / 10
+                    : null;
+                  const depts = [...new Set(vendorEmps.map((e) => e.departmentId))];
+                  return (
+                    <tr key={vendor.id} className="border-t" style={{ borderColor: "var(--border)" }}>
+                      <td className="py-2 px-2 font-medium" style={{ color: "var(--text)" }}>
+                        {isAr ? vendor.nameAr : vendor.name}
+                      </td>
+                      <td className="py-2 px-2" style={{ color: "var(--text-muted)" }}>{vendorEmps.length}</td>
+                      <td className="py-2 px-2 font-bold" style={{ color: "var(--gold)" }}>
+                        {avg ?? "—"}
+                      </td>
+                      <td className="py-2 px-2 text-xs" style={{ color: "var(--text-muted)" }}>
+                        {depts.map((id) => DEPTS.find((d) => d.id === id)).map((d) => isAr ? d?.nameAr : d?.name).join(", ")}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </ChartFrame>
+      )}
+
       <ChartFrame title={t.coachingQueue}>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
@@ -195,6 +258,7 @@ export function HrManager({ data }: Props) {
                 <th className="text-start py-2 px-2">{t.department}</th>
                 <th className="text-start py-2 px-2">{t.finalKpi}</th>
                 <th className="text-start py-2 px-2">{t.grade}</th>
+                <th className="text-start py-2 px-2">{t.vendor}</th>
               </tr>
             </thead>
             <tbody>
@@ -203,12 +267,20 @@ export function HrManager({ data }: Props) {
                 .sort((a, b) => a.result.finalScore - b.result.finalScore)
                 .map(({ emp, result }) => {
                   const deptName = DEPTS.find((d) => d.id === emp.departmentId);
+                  const vendor = emp.vendorId ? data.vendors?.find((v) => v.id === emp.vendorId) : null;
                   return (
                     <tr key={emp.employeeId}
                       className="border-t"
                       style={{ borderColor: "var(--border)" }}
                     >
-                      <td className="py-2 px-2 font-medium" style={{ color: "var(--text)" }}>{isAr ? emp.displayNameAr : emp.displayName}</td>
+                      <td className="py-2 px-2 font-medium" style={{ color: "var(--text)" }}>
+                        {isAr ? emp.displayNameAr : emp.displayName}
+                        {emp.staffType === "casual" && (
+                          <span className="ml-2 text-xs px-1.5 py-0.5 rounded" style={{ background: "rgba(37,99,235,0.12)", color: "var(--c-blue)" }}>
+                            {isAr ? "شركة" : "Casual"}
+                          </span>
+                        )}
+                      </td>
                       <td className="py-2 px-2" style={{ color: "var(--text-muted)" }}>
                         {isAr ? deptName?.nameAr : deptName?.name}
                       </td>
@@ -217,6 +289,9 @@ export function HrManager({ data }: Props) {
                       </td>
                       <td className="py-2 px-2">
                         <GradeBadge grade={result.grade} size="sm" />
+                      </td>
+                      <td className="py-2 px-2 text-xs" style={{ color: "var(--text-muted)" }}>
+                        {vendor ? (isAr ? vendor.nameAr : vendor.name) : "—"}
                       </td>
                     </tr>
                   );

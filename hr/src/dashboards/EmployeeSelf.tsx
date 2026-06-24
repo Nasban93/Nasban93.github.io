@@ -106,8 +106,18 @@ export function EmployeeSelf({ data }: Props) {
         </select>
         <SyntheticDisclaimer />
         {emp && (
-          <div className="text-sm" style={{ color: "var(--text-muted)" }}>
-            {emp.position} · {emp.departmentId === "front_office" ? (isAr ? "مكتب الاستقبال" : "Front Office") : (isAr ? "التدبير المنزلي" : "Housekeeping")}
+          <div className="flex items-center gap-2 flex-wrap">
+            <span className="text-sm" style={{ color: "var(--text-muted)" }}>
+              {emp.position} · {emp.departmentId === "front_office" ? (isAr ? "مكتب الاستقبال" : "Front Office") : (isAr ? "التدبير المنزلي" : "Housekeeping")}
+            </span>
+            {emp.staffType === "casual" && (() => {
+              const vendor = data.vendors?.find((v) => v.id === emp.vendorId);
+              return (
+                <span className="text-xs px-2 py-0.5 rounded-full" style={{ background: "rgba(37,99,235,0.12)", color: "var(--c-blue)" }}>
+                  {isAr ? "موظف شركة" : "Casual"}{vendor ? ` · ${isAr ? vendor.nameAr : vendor.name}` : ""}
+                </span>
+              );
+            })()}
           </div>
         )}
       </div>
@@ -119,8 +129,21 @@ export function EmployeeSelf({ data }: Props) {
             className="card p-5 flex flex-wrap gap-6 items-center surface-transition"
           >
             <div>
-              <div className="text-lg font-bold" style={{ color: "var(--text)" }}>{isAr ? emp.displayNameAr : emp.displayName}</div>
-              <div className="text-sm" style={{ color: "var(--text-muted)" }}>{emp.employeeId} · {emp.position}</div>
+              <div className="flex items-center gap-2">
+                <div className="text-lg font-bold" style={{ color: "var(--text)" }}>{isAr ? emp.displayNameAr : emp.displayName}</div>
+                {emp.staffType === "casual" && (
+                  <span className="text-xs px-1.5 py-0.5 rounded" style={{ background: "rgba(37,99,235,0.12)", color: "var(--c-blue)" }}>
+                    {isAr ? "شركة" : "Casual"}
+                  </span>
+                )}
+              </div>
+              <div className="text-sm" style={{ color: "var(--text-muted)" }}>
+                {emp.employeeId} · {emp.position}
+                {emp.staffType === "casual" && emp.vendorId && (() => {
+                  const v = data.vendors?.find((vd) => vd.id === emp.vendorId);
+                  return v ? ` · ${isAr ? v.nameAr : v.name}` : "";
+                })()}
+              </div>
             </div>
             <div className="flex items-center gap-3">
               <div className="text-3xl font-bold" style={{ color: gradeColor(latestResult.grade) }}>

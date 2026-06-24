@@ -81,7 +81,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "LinkedIn",
       "position": "Senior Front Desk Agent",
-      "positionAr": "موظف أول استقبال"
+      "positionAr": "موظف أول استقبال",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0002",
@@ -102,7 +103,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "Referral",
       "position": "Night Auditor",
-      "positionAr": "محاسب ليلي"
+      "positionAr": "محاسب ليلي",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0003",
@@ -123,7 +125,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "Direct",
       "position": "Night Auditor",
-      "positionAr": "محاسب ليلي"
+      "positionAr": "محاسب ليلي",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0004",
@@ -144,7 +147,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "Referral",
       "position": "Night Auditor",
-      "positionAr": "محاسب ليلي"
+      "positionAr": "محاسب ليلي",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0005",
@@ -165,7 +169,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "Referral",
       "position": "Guest Services Agent",
-      "positionAr": "موظف خدمات ضيوف"
+      "positionAr": "موظف خدمات ضيوف",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0006",
@@ -186,7 +191,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "Agency",
       "position": "Front Office Supervisor",
-      "positionAr": "مشرف مكتب الاستقبال"
+      "positionAr": "مشرف مكتب الاستقبال",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0007",
@@ -207,7 +213,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "Referral",
       "position": "Senior Front Desk Agent",
-      "positionAr": "موظف أول استقبال"
+      "positionAr": "موظف أول استقبال",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0008",
@@ -228,7 +235,8 @@
       "employmentStatus": "Terminated",
       "sourceOfHire": "Referral",
       "position": "Night Auditor",
-      "positionAr": "محاسب ليلي"
+      "positionAr": "محاسب ليلي",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0009",
@@ -249,7 +257,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "Agency",
       "position": "Front Office Supervisor",
-      "positionAr": "مشرف مكتب الاستقبال"
+      "positionAr": "مشرف مكتب الاستقبال",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0010",
@@ -270,7 +279,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "Referral",
       "position": "Front Office Supervisor",
-      "positionAr": "مشرف مكتب الاستقبال"
+      "positionAr": "مشرف مكتب الاستقبال",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0011",
@@ -291,7 +301,8 @@
       "employmentStatus": "Terminated",
       "sourceOfHire": "LinkedIn",
       "position": "Night Auditor",
-      "positionAr": "محاسب ليلي"
+      "positionAr": "محاسب ليلي",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0012",
@@ -312,7 +323,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "Referral",
       "position": "Night Auditor",
-      "positionAr": "محاسب ليلي"
+      "positionAr": "محاسب ليلي",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0013",
@@ -333,7 +345,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "Direct",
       "position": "Guest Services Agent",
-      "positionAr": "موظف خدمات ضيوف"
+      "positionAr": "موظف خدمات ضيوف",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0014",
@@ -354,7 +367,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "Referral",
       "position": "Senior Front Desk Agent",
-      "positionAr": "موظف أول استقبال"
+      "positionAr": "موظف أول استقبال",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0015",
@@ -375,7 +389,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "LinkedIn",
       "position": "Front Office Supervisor",
-      "positionAr": "مشرف مكتب الاستقبال"
+      "positionAr": "مشرف مكتب الاستقبال",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0016",
@@ -396,7 +411,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "Agency",
       "position": "Guest Services Agent",
-      "positionAr": "موظف خدمات ضيوف"
+      "positionAr": "موظف خدمات ضيوف",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0017",
@@ -417,7 +433,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "LinkedIn",
       "position": "Senior Front Desk Agent",
-      "positionAr": "موظف أول استقبال"
+      "positionAr": "موظف أول استقبال",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0018",
@@ -438,7 +455,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "Direct",
       "position": "Guest Services Agent",
-      "positionAr": "موظف خدمات ضيوف"
+      "positionAr": "موظف خدمات ضيوف",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0019",
@@ -459,7 +477,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "Agency",
       "position": "Night Auditor",
-      "positionAr": "محاسب ليلي"
+      "positionAr": "محاسب ليلي",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0020",
@@ -480,7 +499,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "Referral",
       "position": "Front Office Supervisor",
-      "positionAr": "مشرف مكتب الاستقبال"
+      "positionAr": "مشرف مكتب الاستقبال",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0021",
@@ -501,7 +521,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "Referral",
       "position": "Guest Services Agent",
-      "positionAr": "موظف خدمات ضيوف"
+      "positionAr": "موظف خدمات ضيوف",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0022",
@@ -522,7 +543,8 @@
       "employmentStatus": "Terminated",
       "sourceOfHire": "Referral",
       "position": "Night Auditor",
-      "positionAr": "محاسب ليلي"
+      "positionAr": "محاسب ليلي",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0023",
@@ -543,7 +565,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "LinkedIn",
       "position": "Guest Services Agent",
-      "positionAr": "موظف خدمات ضيوف"
+      "positionAr": "موظف خدمات ضيوف",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0024",
@@ -564,7 +587,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "Agency",
       "position": "Guest Services Agent",
-      "positionAr": "موظف خدمات ضيوف"
+      "positionAr": "موظف خدمات ضيوف",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0025",
@@ -585,7 +609,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "LinkedIn",
       "position": "Senior Front Desk Agent",
-      "positionAr": "موظف أول استقبال"
+      "positionAr": "موظف أول استقبال",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0026",
@@ -606,7 +631,8 @@
       "employmentStatus": "Terminated",
       "sourceOfHire": "LinkedIn",
       "position": "Night Auditor",
-      "positionAr": "محاسب ليلي"
+      "positionAr": "محاسب ليلي",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0027",
@@ -627,7 +653,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "Direct",
       "position": "Front Office Supervisor",
-      "positionAr": "مشرف مكتب الاستقبال"
+      "positionAr": "مشرف مكتب الاستقبال",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0028",
@@ -648,7 +675,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "LinkedIn",
       "position": "Front Office Supervisor",
-      "positionAr": "مشرف مكتب الاستقبال"
+      "positionAr": "مشرف مكتب الاستقبال",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0029",
@@ -669,7 +697,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "Referral",
       "position": "Front Office Supervisor",
-      "positionAr": "مشرف مكتب الاستقبال"
+      "positionAr": "مشرف مكتب الاستقبال",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0030",
@@ -690,7 +719,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "Agency",
       "position": "Front Office Supervisor",
-      "positionAr": "مشرف مكتب الاستقبال"
+      "positionAr": "مشرف مكتب الاستقبال",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0031",
@@ -711,7 +741,8 @@
       "employmentStatus": "Terminated",
       "sourceOfHire": "LinkedIn",
       "position": "Night Auditor",
-      "positionAr": "محاسب ليلي"
+      "positionAr": "محاسب ليلي",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0032",
@@ -732,7 +763,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "Referral",
       "position": "Senior Front Desk Agent",
-      "positionAr": "موظف أول استقبال"
+      "positionAr": "موظف أول استقبال",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0033",
@@ -753,7 +785,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "Direct",
       "position": "Housekeeping Supervisor",
-      "positionAr": "مشرف تدبير منزلي"
+      "positionAr": "مشرف تدبير منزلي",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0034",
@@ -774,7 +807,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "Agency",
       "position": "Housekeeping Supervisor",
-      "positionAr": "مشرف تدبير منزلي"
+      "positionAr": "مشرف تدبير منزلي",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0035",
@@ -795,7 +829,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "Agency",
       "position": "Room Attendant",
-      "positionAr": "عامل غرف"
+      "positionAr": "عامل غرف",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0036",
@@ -816,7 +851,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "LinkedIn",
       "position": "Housekeeping Supervisor",
-      "positionAr": "مشرف تدبير منزلي"
+      "positionAr": "مشرف تدبير منزلي",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0037",
@@ -837,7 +873,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "Referral",
       "position": "Room Attendant",
-      "positionAr": "عامل غرف"
+      "positionAr": "عامل غرف",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0038",
@@ -858,7 +895,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "Agency",
       "position": "Housekeeping Supervisor",
-      "positionAr": "مشرف تدبير منزلي"
+      "positionAr": "مشرف تدبير منزلي",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0039",
@@ -879,7 +917,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "Agency",
       "position": "Senior Room Attendant",
-      "positionAr": "عامل غرف أول"
+      "positionAr": "عامل غرف أول",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0040",
@@ -900,7 +939,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "Direct",
       "position": "Housekeeping Supervisor",
-      "positionAr": "مشرف تدبير منزلي"
+      "positionAr": "مشرف تدبير منزلي",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0041",
@@ -921,7 +961,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "Agency",
       "position": "Room Attendant",
-      "positionAr": "عامل غرف"
+      "positionAr": "عامل غرف",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0042",
@@ -942,7 +983,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "Agency",
       "position": "Senior Room Attendant",
-      "positionAr": "عامل غرف أول"
+      "positionAr": "عامل غرف أول",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0043",
@@ -963,7 +1005,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "Referral",
       "position": "Housekeeping Supervisor",
-      "positionAr": "مشرف تدبير منزلي"
+      "positionAr": "مشرف تدبير منزلي",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0044",
@@ -984,7 +1027,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "Referral",
       "position": "Senior Room Attendant",
-      "positionAr": "عامل غرف أول"
+      "positionAr": "عامل غرف أول",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0045",
@@ -1005,7 +1049,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "LinkedIn",
       "position": "Housekeeping Supervisor",
-      "positionAr": "مشرف تدبير منزلي"
+      "positionAr": "مشرف تدبير منزلي",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0046",
@@ -1026,7 +1071,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "Referral",
       "position": "Housekeeping Supervisor",
-      "positionAr": "مشرف تدبير منزلي"
+      "positionAr": "مشرف تدبير منزلي",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0047",
@@ -1047,7 +1093,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "Referral",
       "position": "Room Attendant",
-      "positionAr": "عامل غرف"
+      "positionAr": "عامل غرف",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0048",
@@ -1068,7 +1115,8 @@
       "employmentStatus": "Terminated",
       "sourceOfHire": "Referral",
       "position": "Housekeeping Supervisor",
-      "positionAr": "مشرف تدبير منزلي"
+      "positionAr": "مشرف تدبير منزلي",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0049",
@@ -1089,7 +1137,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "Referral",
       "position": "Housekeeping Supervisor",
-      "positionAr": "مشرف تدبير منزلي"
+      "positionAr": "مشرف تدبير منزلي",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0050",
@@ -1110,7 +1159,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "LinkedIn",
       "position": "Housekeeping Supervisor",
-      "positionAr": "مشرف تدبير منزلي"
+      "positionAr": "مشرف تدبير منزلي",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0051",
@@ -1131,7 +1181,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "Direct",
       "position": "Room Attendant",
-      "positionAr": "عامل غرف"
+      "positionAr": "عامل غرف",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0052",
@@ -1152,7 +1203,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "Agency",
       "position": "Laundry Attendant",
-      "positionAr": "عامل غسيل"
+      "positionAr": "عامل غسيل",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0053",
@@ -1173,7 +1225,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "Referral",
       "position": "Laundry Attendant",
-      "positionAr": "عامل غسيل"
+      "positionAr": "عامل غسيل",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0054",
@@ -1194,7 +1247,8 @@
       "employmentStatus": "Active",
       "sourceOfHire": "Referral",
       "position": "Laundry Attendant",
-      "positionAr": "عامل غسيل"
+      "positionAr": "عامل غسيل",
+      "staffType": "direct"
     },
     {
       "employeeId": "EMP-0055",
@@ -1215,7 +1269,192 @@
       "employmentStatus": "Active",
       "sourceOfHire": "Direct",
       "position": "Laundry Attendant",
-      "positionAr": "عامل غسيل"
+      "positionAr": "عامل غسيل",
+      "staffType": "direct"
+    },
+    {
+      "employeeId": "EMP-C001",
+      "fullName": "Fatima Reyes",
+      "fullNameLong": "Fatima Reyes",
+      "displayName": "Fatima Reyes",
+      "fullNameAr": "فاطمة رييس",
+      "fullNameLongAr": "فاطمة رييس",
+      "displayNameAr": "فاطمة رييس",
+      "departmentId": "front_office",
+      "jobLevelId": "L1",
+      "gender": "F",
+      "nationality": "Non-Saudi",
+      "age": 27,
+      "educationLevel": "Diploma",
+      "hireDate": "2025-11-01",
+      "tenureYears": 0.5,
+      "employmentStatus": "Active",
+      "sourceOfHire": "Vendor",
+      "position": "Front Desk Agent",
+      "positionAr": "موظف استقبال",
+      "staffType": "casual",
+      "vendorId": "V-001"
+    },
+    {
+      "employeeId": "EMP-C002",
+      "fullName": "Marcus Tesfaye",
+      "fullNameLong": "Marcus Tesfaye",
+      "displayName": "Marcus Tesfaye",
+      "fullNameAr": "ماركوس تسفاي",
+      "fullNameLongAr": "ماركوس تسفاي",
+      "displayNameAr": "ماركوس تسفاي",
+      "departmentId": "front_office",
+      "jobLevelId": "L1",
+      "gender": "M",
+      "nationality": "Non-Saudi",
+      "age": 30,
+      "educationLevel": "Bachelor",
+      "hireDate": "2025-12-01",
+      "tenureYears": 0.4,
+      "employmentStatus": "Active",
+      "sourceOfHire": "Vendor",
+      "position": "Front Desk Agent",
+      "positionAr": "موظف استقبال",
+      "staffType": "casual",
+      "vendorId": "V-001"
+    },
+    {
+      "employeeId": "EMP-C003",
+      "fullName": "Ravi Sharma",
+      "fullNameLong": "Ravi Sharma",
+      "displayName": "Ravi Sharma",
+      "fullNameAr": "رافي شارما",
+      "fullNameLongAr": "رافي شارما",
+      "displayNameAr": "رافي شارما",
+      "departmentId": "front_office",
+      "jobLevelId": "L2",
+      "gender": "M",
+      "nationality": "Non-Saudi",
+      "age": 33,
+      "educationLevel": "Bachelor",
+      "hireDate": "2025-09-01",
+      "tenureYears": 0.8,
+      "employmentStatus": "Active",
+      "sourceOfHire": "Vendor",
+      "position": "Senior Front Desk Agent",
+      "positionAr": "موظف استقبال أول",
+      "staffType": "casual",
+      "vendorId": "V-002"
+    },
+    {
+      "employeeId": "EMP-C004",
+      "fullName": "Khalil Mansour",
+      "fullNameLong": "Khalil Mansour",
+      "displayName": "Khalil Mansour",
+      "fullNameAr": "خليل منصور",
+      "fullNameLongAr": "خليل منصور",
+      "displayNameAr": "خليل منصور",
+      "departmentId": "front_office",
+      "jobLevelId": "L4",
+      "gender": "M",
+      "nationality": "Non-Saudi",
+      "age": 38,
+      "educationLevel": "Bachelor",
+      "hireDate": "2025-06-01",
+      "tenureYears": 1.0,
+      "employmentStatus": "Active",
+      "sourceOfHire": "Vendor",
+      "position": "Shift Supervisor",
+      "positionAr": "مشرف وردية",
+      "staffType": "casual",
+      "vendorId": "V-002"
+    },
+    {
+      "employeeId": "EMP-C005",
+      "fullName": "Priya Nair",
+      "fullNameLong": "Priya Nair",
+      "displayName": "Priya Nair",
+      "fullNameAr": "بريا ناير",
+      "fullNameLongAr": "بريا ناير",
+      "displayNameAr": "بريا ناير",
+      "departmentId": "housekeeping",
+      "jobLevelId": "L5",
+      "gender": "F",
+      "nationality": "Non-Saudi",
+      "age": 29,
+      "educationLevel": "Diploma",
+      "hireDate": "2025-10-01",
+      "tenureYears": 0.6,
+      "employmentStatus": "Active",
+      "sourceOfHire": "Vendor",
+      "position": "Room Attendant",
+      "positionAr": "مشرفة غرف",
+      "staffType": "casual",
+      "vendorId": "V-001"
+    },
+    {
+      "employeeId": "EMP-C006",
+      "fullName": "Rajesh Kumar",
+      "fullNameLong": "Rajesh Kumar",
+      "displayName": "Rajesh Kumar",
+      "fullNameAr": "راجيش كومار",
+      "fullNameLongAr": "راجيش كومار",
+      "displayNameAr": "راجيش كومار",
+      "departmentId": "housekeeping",
+      "jobLevelId": "L5",
+      "gender": "M",
+      "nationality": "Non-Saudi",
+      "age": 34,
+      "educationLevel": "Secondary",
+      "hireDate": "2025-08-01",
+      "tenureYears": 0.9,
+      "employmentStatus": "Active",
+      "sourceOfHire": "Vendor",
+      "position": "Room Attendant",
+      "positionAr": "عامل غرف",
+      "staffType": "casual",
+      "vendorId": "V-003"
+    },
+    {
+      "employeeId": "EMP-C007",
+      "fullName": "Binod Thapa",
+      "fullNameLong": "Binod Thapa",
+      "displayName": "Binod Thapa",
+      "fullNameAr": "بينود ثابا",
+      "fullNameLongAr": "بينود ثابا",
+      "displayNameAr": "بينود ثابا",
+      "departmentId": "housekeeping",
+      "jobLevelId": "L5",
+      "gender": "M",
+      "nationality": "Non-Saudi",
+      "age": 26,
+      "educationLevel": "Secondary",
+      "hireDate": "2025-11-15",
+      "tenureYears": 0.4,
+      "employmentStatus": "Active",
+      "sourceOfHire": "Vendor",
+      "position": "Room Attendant",
+      "positionAr": "عامل غرف",
+      "staffType": "casual",
+      "vendorId": "V-003"
+    },
+    {
+      "employeeId": "EMP-C008",
+      "fullName": "Aisha Tesfaye",
+      "fullNameLong": "Aisha Tesfaye",
+      "displayName": "Aisha Tesfaye",
+      "fullNameAr": "عائشة تسفاي",
+      "fullNameLongAr": "عائشة تسفاي",
+      "displayNameAr": "عائشة تسفاي",
+      "departmentId": "housekeeping",
+      "jobLevelId": "L5",
+      "gender": "F",
+      "nationality": "Non-Saudi",
+      "age": 25,
+      "educationLevel": "Secondary",
+      "hireDate": "2025-12-01",
+      "tenureYears": 0.4,
+      "employmentStatus": "Active",
+      "sourceOfHire": "Vendor",
+      "position": "Room Attendant",
+      "positionAr": "مشرفة غرف",
+      "staffType": "casual",
+      "vendorId": "V-001"
     }
   ],
   "kpiScores": [
@@ -13954,6 +14193,1846 @@
       "rawValue": 76,
       "score": 76,
       "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2025-11",
+      "kpiDefId": "fo_guest_experience",
+      "rawValue": null,
+      "score": 82.2,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2025-11",
+      "kpiDefId": "fo_supervisor",
+      "rawValue": null,
+      "score": 72.4,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2025-11",
+      "kpiDefId": "fo_attendance",
+      "rawValue": null,
+      "score": 76.4,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2025-11",
+      "kpiDefId": "fo_upselling",
+      "rawValue": null,
+      "score": 75.6,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2025-11",
+      "kpiDefId": "fo_enrollments",
+      "rawValue": null,
+      "score": 83.8,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2025-11",
+      "kpiDefId": "fo_production",
+      "rawValue": null,
+      "score": 82.8,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2025-12",
+      "kpiDefId": "fo_guest_experience",
+      "rawValue": null,
+      "score": 78.8,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2025-12",
+      "kpiDefId": "fo_supervisor",
+      "rawValue": null,
+      "score": 72.5,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2025-12",
+      "kpiDefId": "fo_attendance",
+      "rawValue": null,
+      "score": 75.5,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2025-12",
+      "kpiDefId": "fo_upselling",
+      "rawValue": null,
+      "score": 80.1,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2025-12",
+      "kpiDefId": "fo_enrollments",
+      "rawValue": null,
+      "score": 72.4,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2025-12",
+      "kpiDefId": "fo_production",
+      "rawValue": null,
+      "score": 75.2,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2026-01",
+      "kpiDefId": "fo_guest_experience",
+      "rawValue": null,
+      "score": 75.5,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2026-01",
+      "kpiDefId": "fo_supervisor",
+      "rawValue": null,
+      "score": 81.4,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2026-01",
+      "kpiDefId": "fo_attendance",
+      "rawValue": null,
+      "score": 85.0,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2026-01",
+      "kpiDefId": "fo_upselling",
+      "rawValue": null,
+      "score": 72.1,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2026-01",
+      "kpiDefId": "fo_enrollments",
+      "rawValue": null,
+      "score": 84.9,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2026-01",
+      "kpiDefId": "fo_production",
+      "rawValue": null,
+      "score": 83.2,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2026-02",
+      "kpiDefId": "fo_guest_experience",
+      "rawValue": null,
+      "score": 87.3,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2026-02",
+      "kpiDefId": "fo_supervisor",
+      "rawValue": null,
+      "score": 77.4,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2026-02",
+      "kpiDefId": "fo_attendance",
+      "rawValue": null,
+      "score": 73.5,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2026-02",
+      "kpiDefId": "fo_upselling",
+      "rawValue": null,
+      "score": 73.5,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2026-02",
+      "kpiDefId": "fo_enrollments",
+      "rawValue": null,
+      "score": 85.6,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2026-02",
+      "kpiDefId": "fo_production",
+      "rawValue": null,
+      "score": 81.7,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2026-03",
+      "kpiDefId": "fo_guest_experience",
+      "rawValue": null,
+      "score": 80.6,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2026-03",
+      "kpiDefId": "fo_supervisor",
+      "rawValue": null,
+      "score": 87.6,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2026-03",
+      "kpiDefId": "fo_attendance",
+      "rawValue": null,
+      "score": 78.1,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2026-03",
+      "kpiDefId": "fo_upselling",
+      "rawValue": null,
+      "score": 80.8,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2026-03",
+      "kpiDefId": "fo_enrollments",
+      "rawValue": null,
+      "score": 85.3,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2026-03",
+      "kpiDefId": "fo_production",
+      "rawValue": null,
+      "score": 81.9,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2026-04",
+      "kpiDefId": "fo_guest_experience",
+      "rawValue": null,
+      "score": 83.3,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2026-04",
+      "kpiDefId": "fo_supervisor",
+      "rawValue": null,
+      "score": 72.7,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2026-04",
+      "kpiDefId": "fo_attendance",
+      "rawValue": null,
+      "score": 75.6,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2026-04",
+      "kpiDefId": "fo_upselling",
+      "rawValue": null,
+      "score": 76.6,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2026-04",
+      "kpiDefId": "fo_enrollments",
+      "rawValue": null,
+      "score": 73.3,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2026-04",
+      "kpiDefId": "fo_production",
+      "rawValue": null,
+      "score": 75.7,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C002",
+      "period": "2025-12",
+      "kpiDefId": "fo_guest_experience",
+      "rawValue": null,
+      "score": 76.9,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C002",
+      "period": "2025-12",
+      "kpiDefId": "fo_supervisor",
+      "rawValue": null,
+      "score": 73.1,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C002",
+      "period": "2025-12",
+      "kpiDefId": "fo_attendance",
+      "rawValue": null,
+      "score": 73.2,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C002",
+      "period": "2025-12",
+      "kpiDefId": "fo_upselling",
+      "rawValue": null,
+      "score": 70.9,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C002",
+      "period": "2025-12",
+      "kpiDefId": "fo_enrollments",
+      "rawValue": null,
+      "score": 71.7,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C002",
+      "period": "2025-12",
+      "kpiDefId": "fo_production",
+      "rawValue": null,
+      "score": 81.1,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C002",
+      "period": "2026-01",
+      "kpiDefId": "fo_guest_experience",
+      "rawValue": null,
+      "score": 70.4,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C002",
+      "period": "2026-01",
+      "kpiDefId": "fo_supervisor",
+      "rawValue": null,
+      "score": 78.2,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C002",
+      "period": "2026-01",
+      "kpiDefId": "fo_attendance",
+      "rawValue": null,
+      "score": 70.3,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C002",
+      "period": "2026-01",
+      "kpiDefId": "fo_upselling",
+      "rawValue": null,
+      "score": 73.3,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C002",
+      "period": "2026-01",
+      "kpiDefId": "fo_enrollments",
+      "rawValue": null,
+      "score": 81.9,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C002",
+      "period": "2026-01",
+      "kpiDefId": "fo_production",
+      "rawValue": null,
+      "score": 77.0,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C002",
+      "period": "2026-02",
+      "kpiDefId": "fo_guest_experience",
+      "rawValue": null,
+      "score": 79.8,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C002",
+      "period": "2026-02",
+      "kpiDefId": "fo_supervisor",
+      "rawValue": null,
+      "score": 78.9,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C002",
+      "period": "2026-02",
+      "kpiDefId": "fo_attendance",
+      "rawValue": null,
+      "score": 71.2,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C002",
+      "period": "2026-02",
+      "kpiDefId": "fo_upselling",
+      "rawValue": null,
+      "score": 68.4,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C002",
+      "period": "2026-02",
+      "kpiDefId": "fo_enrollments",
+      "rawValue": null,
+      "score": 72.4,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C002",
+      "period": "2026-02",
+      "kpiDefId": "fo_production",
+      "rawValue": null,
+      "score": 71.7,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C002",
+      "period": "2026-03",
+      "kpiDefId": "fo_guest_experience",
+      "rawValue": null,
+      "score": 78.1,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C002",
+      "period": "2026-03",
+      "kpiDefId": "fo_supervisor",
+      "rawValue": null,
+      "score": 71.0,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C002",
+      "period": "2026-03",
+      "kpiDefId": "fo_attendance",
+      "rawValue": null,
+      "score": 75.0,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C002",
+      "period": "2026-03",
+      "kpiDefId": "fo_upselling",
+      "rawValue": null,
+      "score": 80.4,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C002",
+      "period": "2026-03",
+      "kpiDefId": "fo_enrollments",
+      "rawValue": null,
+      "score": 77.0,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C002",
+      "period": "2026-03",
+      "kpiDefId": "fo_production",
+      "rawValue": null,
+      "score": 70.0,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C002",
+      "period": "2026-04",
+      "kpiDefId": "fo_guest_experience",
+      "rawValue": null,
+      "score": 75.5,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C002",
+      "period": "2026-04",
+      "kpiDefId": "fo_supervisor",
+      "rawValue": null,
+      "score": 78.5,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C002",
+      "period": "2026-04",
+      "kpiDefId": "fo_attendance",
+      "rawValue": null,
+      "score": 74.0,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C002",
+      "period": "2026-04",
+      "kpiDefId": "fo_upselling",
+      "rawValue": null,
+      "score": 76.2,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C002",
+      "period": "2026-04",
+      "kpiDefId": "fo_enrollments",
+      "rawValue": null,
+      "score": 73.1,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C002",
+      "period": "2026-04",
+      "kpiDefId": "fo_production",
+      "rawValue": null,
+      "score": 82.0,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2025-11",
+      "kpiDefId": "fo_guest_experience",
+      "rawValue": null,
+      "score": 89.8,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2025-11",
+      "kpiDefId": "fo_supervisor",
+      "rawValue": null,
+      "score": 91.2,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2025-11",
+      "kpiDefId": "fo_attendance",
+      "rawValue": null,
+      "score": 82.0,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2025-11",
+      "kpiDefId": "fo_upselling",
+      "rawValue": null,
+      "score": 82.1,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2025-11",
+      "kpiDefId": "fo_enrollments",
+      "rawValue": null,
+      "score": 88.8,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2025-11",
+      "kpiDefId": "fo_production",
+      "rawValue": null,
+      "score": 87.8,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2025-12",
+      "kpiDefId": "fo_guest_experience",
+      "rawValue": null,
+      "score": 86.9,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2025-12",
+      "kpiDefId": "fo_supervisor",
+      "rawValue": null,
+      "score": 92.6,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2025-12",
+      "kpiDefId": "fo_attendance",
+      "rawValue": null,
+      "score": 91.2,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2025-12",
+      "kpiDefId": "fo_upselling",
+      "rawValue": null,
+      "score": 80.1,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2025-12",
+      "kpiDefId": "fo_enrollments",
+      "rawValue": null,
+      "score": 89.4,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2025-12",
+      "kpiDefId": "fo_production",
+      "rawValue": null,
+      "score": 88.9,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2026-01",
+      "kpiDefId": "fo_guest_experience",
+      "rawValue": null,
+      "score": 88.3,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2026-01",
+      "kpiDefId": "fo_supervisor",
+      "rawValue": null,
+      "score": 81.5,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2026-01",
+      "kpiDefId": "fo_attendance",
+      "rawValue": null,
+      "score": 85.7,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2026-01",
+      "kpiDefId": "fo_upselling",
+      "rawValue": null,
+      "score": 85.9,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2026-01",
+      "kpiDefId": "fo_enrollments",
+      "rawValue": null,
+      "score": 92.4,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2026-01",
+      "kpiDefId": "fo_production",
+      "rawValue": null,
+      "score": 91.4,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2026-02",
+      "kpiDefId": "fo_guest_experience",
+      "rawValue": null,
+      "score": 82.3,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2026-02",
+      "kpiDefId": "fo_supervisor",
+      "rawValue": null,
+      "score": 91.9,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2026-02",
+      "kpiDefId": "fo_attendance",
+      "rawValue": null,
+      "score": 91.3,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2026-02",
+      "kpiDefId": "fo_upselling",
+      "rawValue": null,
+      "score": 83.9,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2026-02",
+      "kpiDefId": "fo_enrollments",
+      "rawValue": null,
+      "score": 88.3,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2026-02",
+      "kpiDefId": "fo_production",
+      "rawValue": null,
+      "score": 87.9,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2026-03",
+      "kpiDefId": "fo_guest_experience",
+      "rawValue": null,
+      "score": 92.4,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2026-03",
+      "kpiDefId": "fo_supervisor",
+      "rawValue": null,
+      "score": 92.0,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2026-03",
+      "kpiDefId": "fo_attendance",
+      "rawValue": null,
+      "score": 91.9,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2026-03",
+      "kpiDefId": "fo_upselling",
+      "rawValue": null,
+      "score": 87.8,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2026-03",
+      "kpiDefId": "fo_enrollments",
+      "rawValue": null,
+      "score": 86.4,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2026-03",
+      "kpiDefId": "fo_production",
+      "rawValue": null,
+      "score": 81.5,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2026-04",
+      "kpiDefId": "fo_guest_experience",
+      "rawValue": null,
+      "score": 80.8,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2026-04",
+      "kpiDefId": "fo_supervisor",
+      "rawValue": null,
+      "score": 91.4,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2026-04",
+      "kpiDefId": "fo_attendance",
+      "rawValue": null,
+      "score": 92.3,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2026-04",
+      "kpiDefId": "fo_upselling",
+      "rawValue": null,
+      "score": 81.1,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2026-04",
+      "kpiDefId": "fo_enrollments",
+      "rawValue": null,
+      "score": 86.3,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2026-04",
+      "kpiDefId": "fo_production",
+      "rawValue": null,
+      "score": 80.9,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2025-11",
+      "kpiDefId": "fo_guest_experience",
+      "rawValue": null,
+      "score": 92.3,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2025-11",
+      "kpiDefId": "fo_supervisor",
+      "rawValue": null,
+      "score": 95.4,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2025-11",
+      "kpiDefId": "fo_attendance",
+      "rawValue": null,
+      "score": 86.8,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2025-11",
+      "kpiDefId": "fo_upselling",
+      "rawValue": null,
+      "score": 90.8,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2025-11",
+      "kpiDefId": "fo_enrollments",
+      "rawValue": null,
+      "score": 91.7,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2025-11",
+      "kpiDefId": "fo_production",
+      "rawValue": null,
+      "score": 95.6,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2025-12",
+      "kpiDefId": "fo_guest_experience",
+      "rawValue": null,
+      "score": 87.2,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2025-12",
+      "kpiDefId": "fo_supervisor",
+      "rawValue": null,
+      "score": 88.4,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2025-12",
+      "kpiDefId": "fo_attendance",
+      "rawValue": null,
+      "score": 95.9,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2025-12",
+      "kpiDefId": "fo_upselling",
+      "rawValue": null,
+      "score": 92.1,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2025-12",
+      "kpiDefId": "fo_enrollments",
+      "rawValue": null,
+      "score": 89.8,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2025-12",
+      "kpiDefId": "fo_production",
+      "rawValue": null,
+      "score": 90.7,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2026-01",
+      "kpiDefId": "fo_guest_experience",
+      "rawValue": null,
+      "score": 88.7,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2026-01",
+      "kpiDefId": "fo_supervisor",
+      "rawValue": null,
+      "score": 91.5,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2026-01",
+      "kpiDefId": "fo_attendance",
+      "rawValue": null,
+      "score": 87.5,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2026-01",
+      "kpiDefId": "fo_upselling",
+      "rawValue": null,
+      "score": 87.4,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2026-01",
+      "kpiDefId": "fo_enrollments",
+      "rawValue": null,
+      "score": 85.8,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2026-01",
+      "kpiDefId": "fo_production",
+      "rawValue": null,
+      "score": 91.9,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2026-02",
+      "kpiDefId": "fo_guest_experience",
+      "rawValue": null,
+      "score": 88.6,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2026-02",
+      "kpiDefId": "fo_supervisor",
+      "rawValue": null,
+      "score": 90.7,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2026-02",
+      "kpiDefId": "fo_attendance",
+      "rawValue": null,
+      "score": 88.1,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2026-02",
+      "kpiDefId": "fo_upselling",
+      "rawValue": null,
+      "score": 90.3,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2026-02",
+      "kpiDefId": "fo_enrollments",
+      "rawValue": null,
+      "score": 90.9,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2026-02",
+      "kpiDefId": "fo_production",
+      "rawValue": null,
+      "score": 93.0,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2026-03",
+      "kpiDefId": "fo_guest_experience",
+      "rawValue": null,
+      "score": 87.7,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2026-03",
+      "kpiDefId": "fo_supervisor",
+      "rawValue": null,
+      "score": 90.2,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2026-03",
+      "kpiDefId": "fo_attendance",
+      "rawValue": null,
+      "score": 89.5,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2026-03",
+      "kpiDefId": "fo_upselling",
+      "rawValue": null,
+      "score": 86.0,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2026-03",
+      "kpiDefId": "fo_enrollments",
+      "rawValue": null,
+      "score": 92.2,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2026-03",
+      "kpiDefId": "fo_production",
+      "rawValue": null,
+      "score": 88.9,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2026-04",
+      "kpiDefId": "fo_guest_experience",
+      "rawValue": null,
+      "score": 92.4,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2026-04",
+      "kpiDefId": "fo_supervisor",
+      "rawValue": null,
+      "score": 95.8,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2026-04",
+      "kpiDefId": "fo_attendance",
+      "rawValue": null,
+      "score": 86.1,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2026-04",
+      "kpiDefId": "fo_upselling",
+      "rawValue": null,
+      "score": 89.4,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2026-04",
+      "kpiDefId": "fo_enrollments",
+      "rawValue": null,
+      "score": 88.7,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2026-04",
+      "kpiDefId": "fo_production",
+      "rawValue": null,
+      "score": 94.5,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C005",
+      "period": "2025-11",
+      "kpiDefId": "hk_room_quality",
+      "rawValue": null,
+      "score": 80.3,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C005",
+      "period": "2025-11",
+      "kpiDefId": "hk_productivity",
+      "rawValue": null,
+      "score": 79.9,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C005",
+      "period": "2025-11",
+      "kpiDefId": "hk_attendance",
+      "rawValue": null,
+      "score": 77.9,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C005",
+      "period": "2025-11",
+      "kpiDefId": "hk_supervisor",
+      "rawValue": null,
+      "score": 77.5,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C005",
+      "period": "2025-12",
+      "kpiDefId": "hk_room_quality",
+      "rawValue": null,
+      "score": 86.1,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C005",
+      "period": "2025-12",
+      "kpiDefId": "hk_productivity",
+      "rawValue": null,
+      "score": 81.7,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C005",
+      "period": "2025-12",
+      "kpiDefId": "hk_attendance",
+      "rawValue": null,
+      "score": 74.7,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C005",
+      "period": "2025-12",
+      "kpiDefId": "hk_supervisor",
+      "rawValue": null,
+      "score": 88.0,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C005",
+      "period": "2026-01",
+      "kpiDefId": "hk_room_quality",
+      "rawValue": null,
+      "score": 85.9,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C005",
+      "period": "2026-01",
+      "kpiDefId": "hk_productivity",
+      "rawValue": null,
+      "score": 76.3,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C005",
+      "period": "2026-01",
+      "kpiDefId": "hk_attendance",
+      "rawValue": null,
+      "score": 80.8,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C005",
+      "period": "2026-01",
+      "kpiDefId": "hk_supervisor",
+      "rawValue": null,
+      "score": 77.0,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C005",
+      "period": "2026-02",
+      "kpiDefId": "hk_room_quality",
+      "rawValue": null,
+      "score": 79.3,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C005",
+      "period": "2026-02",
+      "kpiDefId": "hk_productivity",
+      "rawValue": null,
+      "score": 87.8,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C005",
+      "period": "2026-02",
+      "kpiDefId": "hk_attendance",
+      "rawValue": null,
+      "score": 77.7,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C005",
+      "period": "2026-02",
+      "kpiDefId": "hk_supervisor",
+      "rawValue": null,
+      "score": 85.0,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C005",
+      "period": "2026-03",
+      "kpiDefId": "hk_room_quality",
+      "rawValue": null,
+      "score": 87.4,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C005",
+      "period": "2026-03",
+      "kpiDefId": "hk_productivity",
+      "rawValue": null,
+      "score": 87.9,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C005",
+      "period": "2026-03",
+      "kpiDefId": "hk_attendance",
+      "rawValue": null,
+      "score": 81.8,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C005",
+      "period": "2026-03",
+      "kpiDefId": "hk_supervisor",
+      "rawValue": null,
+      "score": 84.1,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C005",
+      "period": "2026-04",
+      "kpiDefId": "hk_room_quality",
+      "rawValue": null,
+      "score": 87.6,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C005",
+      "period": "2026-04",
+      "kpiDefId": "hk_productivity",
+      "rawValue": null,
+      "score": 82.1,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C005",
+      "period": "2026-04",
+      "kpiDefId": "hk_attendance",
+      "rawValue": null,
+      "score": 81.6,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C005",
+      "period": "2026-04",
+      "kpiDefId": "hk_supervisor",
+      "rawValue": null,
+      "score": 84.5,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C006",
+      "period": "2025-11",
+      "kpiDefId": "hk_room_quality",
+      "rawValue": null,
+      "score": 85.0,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C006",
+      "period": "2025-11",
+      "kpiDefId": "hk_productivity",
+      "rawValue": null,
+      "score": 89.9,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C006",
+      "period": "2025-11",
+      "kpiDefId": "hk_attendance",
+      "rawValue": null,
+      "score": 80.2,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C006",
+      "period": "2025-11",
+      "kpiDefId": "hk_supervisor",
+      "rawValue": null,
+      "score": 91.5,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C006",
+      "period": "2025-12",
+      "kpiDefId": "hk_room_quality",
+      "rawValue": null,
+      "score": 86.3,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C006",
+      "period": "2025-12",
+      "kpiDefId": "hk_productivity",
+      "rawValue": null,
+      "score": 87.5,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C006",
+      "period": "2025-12",
+      "kpiDefId": "hk_attendance",
+      "rawValue": null,
+      "score": 81.3,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C006",
+      "period": "2025-12",
+      "kpiDefId": "hk_supervisor",
+      "rawValue": null,
+      "score": 79.7,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C006",
+      "period": "2026-01",
+      "kpiDefId": "hk_room_quality",
+      "rawValue": null,
+      "score": 86.3,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C006",
+      "period": "2026-01",
+      "kpiDefId": "hk_productivity",
+      "rawValue": null,
+      "score": 86.7,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C006",
+      "period": "2026-01",
+      "kpiDefId": "hk_attendance",
+      "rawValue": null,
+      "score": 83.9,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C006",
+      "period": "2026-01",
+      "kpiDefId": "hk_supervisor",
+      "rawValue": null,
+      "score": 86.2,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C006",
+      "period": "2026-02",
+      "kpiDefId": "hk_room_quality",
+      "rawValue": null,
+      "score": 87.4,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C006",
+      "period": "2026-02",
+      "kpiDefId": "hk_productivity",
+      "rawValue": null,
+      "score": 82.4,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C006",
+      "period": "2026-02",
+      "kpiDefId": "hk_attendance",
+      "rawValue": null,
+      "score": 81.7,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C006",
+      "period": "2026-02",
+      "kpiDefId": "hk_supervisor",
+      "rawValue": null,
+      "score": 79.8,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C006",
+      "period": "2026-03",
+      "kpiDefId": "hk_room_quality",
+      "rawValue": null,
+      "score": 91.0,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C006",
+      "period": "2026-03",
+      "kpiDefId": "hk_productivity",
+      "rawValue": null,
+      "score": 91.1,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C006",
+      "period": "2026-03",
+      "kpiDefId": "hk_attendance",
+      "rawValue": null,
+      "score": 78.1,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C006",
+      "period": "2026-03",
+      "kpiDefId": "hk_supervisor",
+      "rawValue": null,
+      "score": 86.7,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C006",
+      "period": "2026-04",
+      "kpiDefId": "hk_room_quality",
+      "rawValue": null,
+      "score": 85.5,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C006",
+      "period": "2026-04",
+      "kpiDefId": "hk_productivity",
+      "rawValue": null,
+      "score": 85.1,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C006",
+      "period": "2026-04",
+      "kpiDefId": "hk_attendance",
+      "rawValue": null,
+      "score": 79.9,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C006",
+      "period": "2026-04",
+      "kpiDefId": "hk_supervisor",
+      "rawValue": null,
+      "score": 82.9,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C007",
+      "period": "2025-11",
+      "kpiDefId": "hk_room_quality",
+      "rawValue": null,
+      "score": 69.3,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C007",
+      "period": "2025-11",
+      "kpiDefId": "hk_productivity",
+      "rawValue": null,
+      "score": 71.6,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C007",
+      "period": "2025-11",
+      "kpiDefId": "hk_attendance",
+      "rawValue": null,
+      "score": 73.1,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C007",
+      "period": "2025-11",
+      "kpiDefId": "hk_supervisor",
+      "rawValue": null,
+      "score": 69.5,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C007",
+      "period": "2025-12",
+      "kpiDefId": "hk_room_quality",
+      "rawValue": null,
+      "score": 65.1,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C007",
+      "period": "2025-12",
+      "kpiDefId": "hk_productivity",
+      "rawValue": null,
+      "score": 77.3,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C007",
+      "period": "2025-12",
+      "kpiDefId": "hk_attendance",
+      "rawValue": null,
+      "score": 69.5,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C007",
+      "period": "2025-12",
+      "kpiDefId": "hk_supervisor",
+      "rawValue": null,
+      "score": 75.0,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C007",
+      "period": "2026-01",
+      "kpiDefId": "hk_room_quality",
+      "rawValue": null,
+      "score": 66.7,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C007",
+      "period": "2026-01",
+      "kpiDefId": "hk_productivity",
+      "rawValue": null,
+      "score": 66.6,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C007",
+      "period": "2026-01",
+      "kpiDefId": "hk_attendance",
+      "rawValue": null,
+      "score": 73.3,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C007",
+      "period": "2026-01",
+      "kpiDefId": "hk_supervisor",
+      "rawValue": null,
+      "score": 69.1,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C007",
+      "period": "2026-02",
+      "kpiDefId": "hk_room_quality",
+      "rawValue": null,
+      "score": 68.1,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C007",
+      "period": "2026-02",
+      "kpiDefId": "hk_productivity",
+      "rawValue": null,
+      "score": 74.5,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C007",
+      "period": "2026-02",
+      "kpiDefId": "hk_attendance",
+      "rawValue": null,
+      "score": 69.0,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C007",
+      "period": "2026-02",
+      "kpiDefId": "hk_supervisor",
+      "rawValue": null,
+      "score": 72.3,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C007",
+      "period": "2026-03",
+      "kpiDefId": "hk_room_quality",
+      "rawValue": null,
+      "score": 74.5,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C007",
+      "period": "2026-03",
+      "kpiDefId": "hk_productivity",
+      "rawValue": null,
+      "score": 77.4,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C007",
+      "period": "2026-03",
+      "kpiDefId": "hk_attendance",
+      "rawValue": null,
+      "score": 65.7,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C007",
+      "period": "2026-03",
+      "kpiDefId": "hk_supervisor",
+      "rawValue": null,
+      "score": 70.0,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C007",
+      "period": "2026-04",
+      "kpiDefId": "hk_room_quality",
+      "rawValue": null,
+      "score": 76.1,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C007",
+      "period": "2026-04",
+      "kpiDefId": "hk_productivity",
+      "rawValue": null,
+      "score": 73.3,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C007",
+      "period": "2026-04",
+      "kpiDefId": "hk_attendance",
+      "rawValue": null,
+      "score": 71.4,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C007",
+      "period": "2026-04",
+      "kpiDefId": "hk_supervisor",
+      "rawValue": null,
+      "score": 65.1,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C008",
+      "period": "2025-12",
+      "kpiDefId": "hk_room_quality",
+      "rawValue": null,
+      "score": 72.2,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C008",
+      "period": "2025-12",
+      "kpiDefId": "hk_productivity",
+      "rawValue": null,
+      "score": 70.5,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C008",
+      "period": "2025-12",
+      "kpiDefId": "hk_attendance",
+      "rawValue": null,
+      "score": 75.5,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C008",
+      "period": "2025-12",
+      "kpiDefId": "hk_supervisor",
+      "rawValue": null,
+      "score": 78.3,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C008",
+      "period": "2026-01",
+      "kpiDefId": "hk_room_quality",
+      "rawValue": null,
+      "score": 75.5,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C008",
+      "period": "2026-01",
+      "kpiDefId": "hk_productivity",
+      "rawValue": null,
+      "score": 84.0,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C008",
+      "period": "2026-01",
+      "kpiDefId": "hk_attendance",
+      "rawValue": null,
+      "score": 84.6,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C008",
+      "period": "2026-01",
+      "kpiDefId": "hk_supervisor",
+      "rawValue": null,
+      "score": 70.6,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C008",
+      "period": "2026-02",
+      "kpiDefId": "hk_room_quality",
+      "rawValue": null,
+      "score": 80.0,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C008",
+      "period": "2026-02",
+      "kpiDefId": "hk_productivity",
+      "rawValue": null,
+      "score": 75.3,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C008",
+      "period": "2026-02",
+      "kpiDefId": "hk_attendance",
+      "rawValue": null,
+      "score": 78.4,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C008",
+      "period": "2026-02",
+      "kpiDefId": "hk_supervisor",
+      "rawValue": null,
+      "score": 83.1,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C008",
+      "period": "2026-03",
+      "kpiDefId": "hk_room_quality",
+      "rawValue": null,
+      "score": 83.9,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C008",
+      "period": "2026-03",
+      "kpiDefId": "hk_productivity",
+      "rawValue": null,
+      "score": 73.6,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C008",
+      "period": "2026-03",
+      "kpiDefId": "hk_attendance",
+      "rawValue": null,
+      "score": 72.4,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C008",
+      "period": "2026-03",
+      "kpiDefId": "hk_supervisor",
+      "rawValue": null,
+      "score": 82.0,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C008",
+      "period": "2026-04",
+      "kpiDefId": "hk_room_quality",
+      "rawValue": null,
+      "score": 72.7,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C008",
+      "period": "2026-04",
+      "kpiDefId": "hk_productivity",
+      "rawValue": null,
+      "score": 83.9,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C008",
+      "period": "2026-04",
+      "kpiDefId": "hk_attendance",
+      "rawValue": null,
+      "score": 81.7,
+      "configVersion": "2026-01"
+    },
+    {
+      "employeeId": "EMP-C008",
+      "period": "2026-04",
+      "kpiDefId": "hk_supervisor",
+      "rawValue": null,
+      "score": 76.2,
+      "configVersion": "2026-01"
     }
   ],
   "workforceSnapshots": [
@@ -16436,6 +18515,374 @@
       "monthlySalary": 6010,
       "performanceRating": 81,
       "trainingHoursYtd": 16
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2025-11",
+      "nitaqatBand": "Green",
+      "monthlySalary": 3500,
+      "performanceRating": 81.6,
+      "trainingHoursYtd": 22
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2025-12",
+      "nitaqatBand": "Green",
+      "monthlySalary": 6000,
+      "performanceRating": 77.0,
+      "trainingHoursYtd": 17
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2026-01",
+      "nitaqatBand": "Green",
+      "monthlySalary": 4000,
+      "performanceRating": 71.2,
+      "trainingHoursYtd": 10
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2026-02",
+      "nitaqatBand": "Green",
+      "monthlySalary": 8000,
+      "performanceRating": 80.0,
+      "trainingHoursYtd": 18
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2026-03",
+      "nitaqatBand": "Green",
+      "monthlySalary": 6000,
+      "performanceRating": 81.0,
+      "trainingHoursYtd": 10
+    },
+    {
+      "employeeId": "EMP-C001",
+      "period": "2026-04",
+      "nitaqatBand": "Green",
+      "monthlySalary": 4500,
+      "performanceRating": 66.7,
+      "trainingHoursYtd": 18
+    },
+    {
+      "employeeId": "EMP-C002",
+      "period": "2025-12",
+      "nitaqatBand": "Green",
+      "monthlySalary": 6000,
+      "performanceRating": 72.0,
+      "trainingHoursYtd": 24
+    },
+    {
+      "employeeId": "EMP-C002",
+      "period": "2026-01",
+      "nitaqatBand": "Green",
+      "monthlySalary": 8000,
+      "performanceRating": 70.5,
+      "trainingHoursYtd": 14
+    },
+    {
+      "employeeId": "EMP-C002",
+      "period": "2026-02",
+      "nitaqatBand": "Green",
+      "monthlySalary": 6000,
+      "performanceRating": 64.7,
+      "trainingHoursYtd": 32
+    },
+    {
+      "employeeId": "EMP-C002",
+      "period": "2026-03",
+      "nitaqatBand": "Green",
+      "monthlySalary": 8000,
+      "performanceRating": 63.5,
+      "trainingHoursYtd": 21
+    },
+    {
+      "employeeId": "EMP-C002",
+      "period": "2026-04",
+      "nitaqatBand": "Green",
+      "monthlySalary": 5000,
+      "performanceRating": 63.5,
+      "trainingHoursYtd": 6
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2025-11",
+      "nitaqatBand": "Green",
+      "monthlySalary": 6000,
+      "performanceRating": 78.3,
+      "trainingHoursYtd": 18
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2025-12",
+      "nitaqatBand": "Green",
+      "monthlySalary": 4500,
+      "performanceRating": 80.8,
+      "trainingHoursYtd": 28
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2026-01",
+      "nitaqatBand": "Green",
+      "monthlySalary": 6000,
+      "performanceRating": 76.3,
+      "trainingHoursYtd": 28
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2026-02",
+      "nitaqatBand": "Green",
+      "monthlySalary": 4000,
+      "performanceRating": 74.5,
+      "trainingHoursYtd": 21
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2026-03",
+      "nitaqatBand": "Green",
+      "monthlySalary": 4500,
+      "performanceRating": 77.9,
+      "trainingHoursYtd": 11
+    },
+    {
+      "employeeId": "EMP-C003",
+      "period": "2026-04",
+      "nitaqatBand": "Green",
+      "monthlySalary": 4000,
+      "performanceRating": 84.4,
+      "trainingHoursYtd": 8
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2025-11",
+      "nitaqatBand": "Green",
+      "monthlySalary": 8000,
+      "performanceRating": 90.2,
+      "trainingHoursYtd": 26
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2025-12",
+      "nitaqatBand": "Green",
+      "monthlySalary": 4000,
+      "performanceRating": 78.3,
+      "trainingHoursYtd": 6
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2026-01",
+      "nitaqatBand": "Green",
+      "monthlySalary": 3500,
+      "performanceRating": 79.9,
+      "trainingHoursYtd": 31
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2026-02",
+      "nitaqatBand": "Green",
+      "monthlySalary": 6000,
+      "performanceRating": 89.5,
+      "trainingHoursYtd": 19
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2026-03",
+      "nitaqatBand": "Green",
+      "monthlySalary": 8000,
+      "performanceRating": 82.5,
+      "trainingHoursYtd": 5
+    },
+    {
+      "employeeId": "EMP-C004",
+      "period": "2026-04",
+      "nitaqatBand": "Green",
+      "monthlySalary": 4000,
+      "performanceRating": 80.2,
+      "trainingHoursYtd": 21
+    },
+    {
+      "employeeId": "EMP-C005",
+      "period": "2025-11",
+      "nitaqatBand": "Green",
+      "monthlySalary": 5000,
+      "performanceRating": 82.3,
+      "trainingHoursYtd": 29
+    },
+    {
+      "employeeId": "EMP-C005",
+      "period": "2025-12",
+      "nitaqatBand": "Green",
+      "monthlySalary": 3500,
+      "performanceRating": 80.8,
+      "trainingHoursYtd": 28
+    },
+    {
+      "employeeId": "EMP-C005",
+      "period": "2026-01",
+      "nitaqatBand": "Green",
+      "monthlySalary": 3500,
+      "performanceRating": 73.4,
+      "trainingHoursYtd": 9
+    },
+    {
+      "employeeId": "EMP-C005",
+      "period": "2026-02",
+      "nitaqatBand": "Green",
+      "monthlySalary": 5000,
+      "performanceRating": 74.3,
+      "trainingHoursYtd": 26
+    },
+    {
+      "employeeId": "EMP-C005",
+      "period": "2026-03",
+      "nitaqatBand": "Green",
+      "monthlySalary": 4500,
+      "performanceRating": 69.2,
+      "trainingHoursYtd": 10
+    },
+    {
+      "employeeId": "EMP-C005",
+      "period": "2026-04",
+      "nitaqatBand": "Green",
+      "monthlySalary": 6000,
+      "performanceRating": 67.6,
+      "trainingHoursYtd": 19
+    },
+    {
+      "employeeId": "EMP-C006",
+      "period": "2025-11",
+      "nitaqatBand": "Green",
+      "monthlySalary": 4000,
+      "performanceRating": 71.6,
+      "trainingHoursYtd": 6
+    },
+    {
+      "employeeId": "EMP-C006",
+      "period": "2025-12",
+      "nitaqatBand": "Green",
+      "monthlySalary": 4000,
+      "performanceRating": 85.5,
+      "trainingHoursYtd": 22
+    },
+    {
+      "employeeId": "EMP-C006",
+      "period": "2026-01",
+      "nitaqatBand": "Green",
+      "monthlySalary": 4500,
+      "performanceRating": 79.2,
+      "trainingHoursYtd": 10
+    },
+    {
+      "employeeId": "EMP-C006",
+      "period": "2026-02",
+      "nitaqatBand": "Green",
+      "monthlySalary": 5000,
+      "performanceRating": 81.3,
+      "trainingHoursYtd": 14
+    },
+    {
+      "employeeId": "EMP-C006",
+      "period": "2026-03",
+      "nitaqatBand": "Green",
+      "monthlySalary": 3500,
+      "performanceRating": 79.9,
+      "trainingHoursYtd": 6
+    },
+    {
+      "employeeId": "EMP-C006",
+      "period": "2026-04",
+      "nitaqatBand": "Green",
+      "monthlySalary": 4000,
+      "performanceRating": 71.4,
+      "trainingHoursYtd": 15
+    },
+    {
+      "employeeId": "EMP-C007",
+      "period": "2025-11",
+      "nitaqatBand": "Green",
+      "monthlySalary": 8000,
+      "performanceRating": 75.7,
+      "trainingHoursYtd": 20
+    },
+    {
+      "employeeId": "EMP-C007",
+      "period": "2025-12",
+      "nitaqatBand": "Green",
+      "monthlySalary": 4000,
+      "performanceRating": 74.9,
+      "trainingHoursYtd": 12
+    },
+    {
+      "employeeId": "EMP-C007",
+      "period": "2026-01",
+      "nitaqatBand": "Green",
+      "monthlySalary": 8000,
+      "performanceRating": 69.1,
+      "trainingHoursYtd": 14
+    },
+    {
+      "employeeId": "EMP-C007",
+      "period": "2026-02",
+      "nitaqatBand": "Green",
+      "monthlySalary": 3500,
+      "performanceRating": 74.3,
+      "trainingHoursYtd": 6
+    },
+    {
+      "employeeId": "EMP-C007",
+      "period": "2026-03",
+      "nitaqatBand": "Green",
+      "monthlySalary": 4500,
+      "performanceRating": 60.8,
+      "trainingHoursYtd": 9
+    },
+    {
+      "employeeId": "EMP-C007",
+      "period": "2026-04",
+      "nitaqatBand": "Green",
+      "monthlySalary": 8000,
+      "performanceRating": 59.8,
+      "trainingHoursYtd": 32
+    },
+    {
+      "employeeId": "EMP-C008",
+      "period": "2025-12",
+      "nitaqatBand": "Green",
+      "monthlySalary": 3500,
+      "performanceRating": 70.6,
+      "trainingHoursYtd": 13
+    },
+    {
+      "employeeId": "EMP-C008",
+      "period": "2026-01",
+      "nitaqatBand": "Green",
+      "monthlySalary": 8000,
+      "performanceRating": 69.4,
+      "trainingHoursYtd": 11
+    },
+    {
+      "employeeId": "EMP-C008",
+      "period": "2026-02",
+      "nitaqatBand": "Green",
+      "monthlySalary": 8000,
+      "performanceRating": 80.3,
+      "trainingHoursYtd": 8
+    },
+    {
+      "employeeId": "EMP-C008",
+      "period": "2026-03",
+      "nitaqatBand": "Green",
+      "monthlySalary": 5000,
+      "performanceRating": 66.1,
+      "trainingHoursYtd": 4
+    },
+    {
+      "employeeId": "EMP-C008",
+      "period": "2026-04",
+      "nitaqatBand": "Green",
+      "monthlySalary": 8000,
+      "performanceRating": 74.9,
+      "trainingHoursYtd": 29
     }
   ],
   "exitRecords": [
@@ -16480,6 +18927,26 @@
       "terminationReason": "Personal Reasons",
       "tenureAtExit": 6.9,
       "period": "2026-03"
+    }
+  ],
+  "vendors": [
+    {
+      "id": "V-001",
+      "name": "Gulf Staffing Solutions",
+      "nameAr": "حلول التوظيف الخليجية",
+      "country": "Saudi Arabia"
+    },
+    {
+      "id": "V-002",
+      "name": "Al Majd Manpower",
+      "nameAr": "شركة المجد للقوى العاملة",
+      "country": "Saudi Arabia"
+    },
+    {
+      "id": "V-003",
+      "name": "ProService Arabia",
+      "nameAr": "برو سيرفس العربية",
+      "country": "Saudi Arabia"
     }
   ]
 }

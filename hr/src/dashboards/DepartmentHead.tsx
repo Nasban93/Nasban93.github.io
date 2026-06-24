@@ -30,6 +30,8 @@ const TT_STYLE = {
 };
 const KPI_COLORS = ["#C9A227","#2563EB","#16A34A","#8B5CF6","#EC4899","#14B8A6"];
 
+type StaffFilter = "all" | "direct" | "casual";
+
 interface Props { data: SeedData }
 
 export function DepartmentHead({ data }: Props) {
@@ -40,6 +42,7 @@ export function DepartmentHead({ data }: Props) {
   const [deptId, setDeptId] = useState<"front_office" | "housekeeping">("front_office");
   const [period, setPeriod] = useState("2026-04");
   const [search, setSearch] = useState("");
+  const [staffFilter, setStaffFilter] = useState<StaffFilter>("all");
 
   const deptKpis = useMemo(
     () => KPI_DEFINITIONS.filter((k) => k.departmentId === deptId && k.active),
@@ -47,9 +50,12 @@ export function DepartmentHead({ data }: Props) {
   );
 
   const employeeResults = useMemo(() => {
-    const deptEmps = data.employees.filter(
-      (e) => e.departmentId === deptId && e.employmentStatus === "Active"
-    );
+    const deptEmps = data.employees.filter((e) => {
+      if (e.departmentId !== deptId || e.employmentStatus !== "Active") return false;
+      if (staffFilter === "direct") return e.staffType !== "casual";
+      if (staffFilter === "casual") return e.staffType === "casual";
+      return true;
+    });
     return deptEmps
       .map((emp) => {
         const empScores = data.kpiScores.filter(
@@ -109,6 +115,11 @@ export function DepartmentHead({ data }: Props) {
         </select>
         <select value={period} onChange={(e) => setPeriod(e.target.value)} className="ctrl">
           {PERIODS.map((p) => <option key={p} value={p}>{PERIOD_LABELS[p]}</option>)}
+        </select>
+        <select value={staffFilter} onChange={(e) => setStaffFilter(e.target.value as StaffFilter)} className="ctrl">
+          <option value="all">{t.allStaff}</option>
+          <option value="direct">{t.directStaff}</option>
+          <option value="casual">{t.casualStaff}</option>
         </select>
         <input
           value={search}
@@ -184,6 +195,11 @@ export function DepartmentHead({ data }: Props) {
                   <td className="py-2 px-2" style={{ color: "var(--text-muted)" }}>{i + 1}</td>
                   <td className="py-2 px-2 font-medium" style={{ color: "var(--text)" }}>
                     {isAr ? emp.displayNameAr : emp.displayName}
+                    {emp.staffType === "casual" && (
+                      <span className="ml-2 text-xs px-1.5 py-0.5 rounded" style={{ background: "rgba(37,99,235,0.12)", color: "var(--c-blue)" }}>
+                        {isAr ? "شركة" : "Casual"}
+                      </span>
+                    )}
                     {result.isCoaching && <span className="ml-2 text-xs" style={{ color: "#F97316" }}>⚠</span>}
                   </td>
                   <td className="py-2 px-2 font-bold" style={{ color: gradeColor(result.grade) }}>
@@ -231,6 +247,11 @@ export function DepartmentHead({ data }: Props) {
                 >
                   <div className="flex items-center gap-3 mb-2 flex-wrap">
                     <span className="font-semibold" style={{ color: "var(--text)" }}>{isAr ? emp.displayNameAr : emp.displayName}</span>
+                    {emp.staffType === "casual" && (
+                      <span className="text-xs px-1.5 py-0.5 rounded" style={{ background: "rgba(37,99,235,0.12)", color: "var(--c-blue)" }}>
+                        {isAr ? "شركة" : "Casual"}
+                      </span>
+                    )}
                     <GradeBadge grade={result.grade} size="sm" />
                     <span className="text-sm font-medium" style={{ color: "#F97316" }}>{result.finalScore}</span>
                     {lowest && (

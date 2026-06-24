@@ -70,6 +70,15 @@ export const ar: Translations = {
   noCoaching: "جميع أعضاء الفريق أعلى من 75% — لا يحتاجون تدريباً.",
   belowThreshold: "أقل من الحد",
 
+  casualStaff: "موظفو الشركات",
+  directStaff: "موظفو الفندق",
+  allStaff: "جميع الموظفين",
+  vendor: "الشركة",
+  vendorBreakdown: "توزيع الشركات",
+  casualNote: "موظفو الشركات على رواتب مزودي الخدمة — مستثنون من حساب نطاقات",
+  directOnly: "المباشرون فقط",
+  staffType: "نوع التوظيف",
+
   myKpiTrend: "اتجاه مؤشري",
   myKpiRadar: "مؤشري مقابل المتوسط",
   myActionPlan: "خطة التحسين الخاصة بي",

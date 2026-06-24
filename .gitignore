@@ -2,3 +2,10 @@
 *.pbix
 *.pdf
 Thumbs.db
+
+# Native binaries installed by npm on Linux (platform-specific, not committed)
+hr/node_modules/@esbuild/
+hr/node_modules/@rollup/
+hr/node_modules/vite-node/node_modules/@esbuild/
+hr/node_modules/vite/node_modules/@esbuild/
+hr/node_modules/vitest/node_modules/@esbuild/

@@ -17,6 +17,13 @@ export interface JobLevel {
   salaryBandMax: number;
 }
 
+export interface CasualVendor {
+  id: string;
+  name: string;
+  nameAr: string;
+  country: string;
+}
+
 export interface Employee {
   employeeId: string;
   /** Short EN display: "Abdullah Al-Qahtani" / "Maria Santos" */
@@ -43,6 +50,9 @@ export interface Employee {
   sourceOfHire: string;
   position: string;
   positionAr: string;
+  /** "direct" = hotel payroll; "casual" = third-party vendor, excluded from Nitaqat */
+  staffType: "direct" | "casual";
+  vendorId?: string;
 }
 
 export type ScoringMethod =
@@ -105,6 +115,7 @@ export interface SeedData {
   departments: Department[];
   jobLevels: JobLevel[];
   employees: Employee[];
+  vendors: CasualVendor[];
   kpiScores: KpiScore[];
   workforceSnapshots: WorkforceSnapshot[];
   exitRecords: ExitRecord[];

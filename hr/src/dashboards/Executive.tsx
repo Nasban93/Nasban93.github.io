@@ -99,9 +99,9 @@ export function Executive({ data }: Props) {
       {/* KPI cards */}
       <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
         <StatCard label={t.headcount} value={rollup.headcount}
-          sub={`${data.exitRecords.length} ${isAr ? "مغادرة" : "exits"}`} />
+          sub={`${isAr ? "مباشر" : "Direct"}: ${rollup.directCount} · ${isAr ? "شركات" : "Casual"}: ${rollup.casualCount}`} />
         <StatCard label={t.saudization} value={`${saudiPct}%`}
-          sub={`${t.nitaqat}: ${rollup.nitaqatBand}`} accent={nitaqatColor(rollup.nitaqatBand)} />
+          sub={`${t.nitaqat}: ${rollup.nitaqatBand} · ${t.directOnly}`} accent={nitaqatColor(rollup.nitaqatBand)} />
         <StatCard label={t.femaleRep} value={`${Math.round(rollup.femaleRate * 100)}%`} accent={tokens.blue} />
         <StatCard label={t.attrition} value={`${Math.round(rollup.attritionRate * 100)}%`}
           sub={isAr ? "معدل الدوران" : "trailing window"}
@@ -153,6 +153,47 @@ export function Executive({ data }: Props) {
             </div>
           </div>
         </ChartFrame>
+      </div>
+
+      {/* Workforce composition — direct vs casual */}
+      <div className="card p-4">
+        <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
+          <span className="text-xs font-semibold uppercase tracking-wide" style={{ color: "var(--text-muted)" }}>
+            {isAr ? "تكوين القوى العاملة" : "Workforce Composition"}
+          </span>
+          <span className="text-xs px-2 py-0.5 rounded-full" style={{ background: "var(--gold-bg)", color: "var(--gold)" }}>
+            {t.casualNote}
+          </span>
+        </div>
+        <div className="grid grid-cols-2 gap-4">
+          {[
+            { label: isAr ? "موظفو الفندق" : "Direct (Hotel Payroll)", count: rollup.directCount, color: "var(--gold)", note: isAr ? "محسوبون في نطاقات" : "Counted in Nitaqat" },
+            { label: isAr ? "موظفو الشركات" : "Casual (Vendor Payroll)", count: rollup.casualCount, color: "var(--c-blue)", note: isAr ? "خارج نطاقات" : "Excluded from Nitaqat" },
+          ].map((item) => (
+            <div key={item.label} className="card-inner p-4 flex items-center gap-4">
+              <div className="text-3xl font-bold" style={{ color: item.color }}>{item.count}</div>
+              <div>
+                <div className="text-sm font-medium" style={{ color: "var(--text)" }}>{item.label}</div>
+                <div className="text-xs mt-0.5" style={{ color: "var(--text-muted)" }}>{item.note}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+        {data.vendors?.length > 0 && (
+          <div className="mt-3 flex flex-wrap gap-2">
+            {data.vendors.map((v) => {
+              const count = data.employees.filter(
+                (e) => e.vendorId === v.id && e.employmentStatus === "Active"
+              ).length;
+              return (
+                <span key={v.id} className="text-xs px-2 py-1 rounded-lg"
+                  style={{ background: "var(--surface-2)", border: "1px solid var(--border)", color: "var(--text-muted)" }}>
+                  {isAr ? v.nameAr : v.name}: <strong style={{ color: "var(--text)" }}>{count}</strong>
+                </span>
+              );
+            })}
+          </div>
+        )}
       </div>
 
       {/* Charts row 2 */}

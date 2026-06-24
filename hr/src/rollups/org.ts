@@ -2,6 +2,8 @@ import type { Employee, WorkforceSnapshot, ExitRecord } from "../domain/types";
 
 export interface OrgRollup {
   headcount: number;
+  directCount: number;
+  casualCount: number;
   saudizationRate: number;
   nitaqatBand: "Red" | "Yellow" | "Green" | "Platinum";
   femaleRate: number;
@@ -31,10 +33,15 @@ export function computeOrgRollup(
   );
 
   const headcount = active.length;
-  const saudiCount = active.filter((e) => e.nationality === "Saudi").length;
+  const directEmps = active.filter((e) => e.staffType !== "casual");
+  const directCount = directEmps.length;
+  const casualCount = headcount - directCount;
   const femaleCount = active.filter((e) => e.gender === "F").length;
 
-  const saudizationRate = headcount > 0 ? saudiCount / headcount : 0;
+  // Nitaqat/Saudization only counts direct (hotel-payroll) employees —
+  // casual staff are on vendor payroll and excluded from the Nitaqat calculation.
+  const saudiDirect = directEmps.filter((e) => e.nationality === "Saudi").length;
+  const saudizationRate = directCount > 0 ? saudiDirect / directCount : 0;
   const femaleRate = headcount > 0 ? femaleCount / headcount : 0;
   const nitaqatBand = nitaqatFromRate(saudizationRate);
 
@@ -79,6 +86,8 @@ export function computeOrgRollup(
 
   return {
     headcount,
+    directCount,
+    casualCount,
     saudizationRate,
     nitaqatBand,
     femaleRate,
