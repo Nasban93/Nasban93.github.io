@@ -137,7 +137,12 @@ export function EmployeeProfileModal({ employeeId, data, onClose }: Props) {
                 [isAr ? "القسم" : "Department",     isAr ? dept?.nameAr : dept?.name],
                 [isAr ? "المسمى الوظيفي" : "Position", isAr ? emp.positionAr : emp.position],
                 [isAr ? "الدرجة الوظيفية" : "Job Level", jobLevel ? `${jobLevel.id} — ${jobLevel.name}` : emp.jobLevelId],
-                [isAr ? "نطاق الراتب" : "Salary Band", jobLevel ? `${jobLevel.salaryBandMin.toLocaleString()} – ${jobLevel.salaryBandMax.toLocaleString()} SAR` : "—"],
+                [isAr ? "نطاق الراتب" : "Grade Band", jobLevel ? `${jobLevel.salaryBandMin.toLocaleString()} – ${jobLevel.salaryBandMax.toLocaleString()} SAR` : "—"],
+                [isAr ? "الراتب الشهري" : "Monthly Salary", (() => {
+                  const filtered = snapshots.filter((s): s is NonNullable<typeof s> => s != null);
+                  const sal = (filtered[filtered.length - 1] ?? filtered[0])?.monthlySalary;
+                  return sal ? `${sal.toLocaleString()} SAR` : "—";
+                })()],
                 [isAr ? "الجنسية" : "Nationality",  isAr ? (emp.nationality === "Saudi" ? "سعودي" : "غير سعودي") : emp.nationality],
                 [isAr ? "الجنس" : "Gender",         isAr ? (emp.gender === "M" ? "ذكر" : "أنثى") : (emp.gender === "M" ? "Male" : "Female")],
                 [isAr ? "العمر" : "Age",             `${emp.age}`],
@@ -258,12 +263,11 @@ export function EmployeeProfileModal({ employeeId, data, onClose }: Props) {
               {isAr ? "بيانات القوى العاملة" : "Workforce Snapshots"}
             </div>
             <div className="overflow-x-auto">
-              <table className="w-full text-sm" style={{ minWidth: 440 }}>
+              <table className="w-full text-sm" style={{ minWidth: 300 }}>
                 <thead>
                   <tr className="text-xs uppercase" style={{ color: "var(--text-muted)" }}>
                     <th className="text-start py-2 px-2">{isAr ? "الفترة" : "Period"}</th>
-                    <th className="text-start py-2 px-2">{isAr ? "الراتب" : "Salary (SAR)"}</th>
-                    <th className="text-start py-2 px-2">{isAr ? "ساعات التدريب" : "Training Hrs"}</th>
+                    <th className="text-start py-2 px-2">{isAr ? "ساعات التدريب" : "Training Hrs YTD"}</th>
                     <th className="text-start py-2 px-2">{isAr ? "تقييم الأداء" : "Perf. Rating"}</th>
                   </tr>
                 </thead>
@@ -274,9 +278,6 @@ export function EmployeeProfileModal({ employeeId, data, onClose }: Props) {
                       <tr key={p} className="border-t" style={{ borderColor: "var(--border)" }}>
                         <td className="py-2 px-2 font-medium" style={{ color: "var(--text)" }}>
                           {PERIOD_LABELS[p]}
-                        </td>
-                        <td className="py-2 px-2" style={{ color: "var(--text-muted)" }}>
-                          {snap ? snap.monthlySalary.toLocaleString() : "—"}
                         </td>
                         <td className="py-2 px-2" style={{ color: "var(--text-muted)" }}>
                           {snap ? `${snap.trainingHoursYtd}h` : "—"}

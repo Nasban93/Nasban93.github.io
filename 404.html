@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script>
+    // GitHub Pages SPA fix: when a sub-app route is refreshed, GH Pages serves
+    // this 404.html. We save the full URL to sessionStorage and redirect to the
+    // sub-app root so its index.html can restore the correct route via
+    // history.replaceState before React Router initialises.
+    var path = window.location.pathname;
+    if (path.startsWith('/hr/')) {
+      sessionStorage.setItem('spa-redirect', window.location.href);
+      window.location.replace('/hr/');
+    }
+  </script>
+</head>
+<body></body>
+</html>

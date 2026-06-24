@@ -63,7 +63,7 @@ export function HrManager({ data }: Props) {
         const result = computeFromStoredScores(deptKpis, empScores);
         return { emp, result };
       });
-  }, [data, period]);
+  }, [data, period, staffFilter]);
 
   const deptAvgs = useMemo(() => DEPTS.map((dept) => {
     const deptResults = employeeResults.filter((r) => r.emp.departmentId === dept.id);
