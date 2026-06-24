@@ -13,6 +13,7 @@ import { useT, useLang } from "../i18n/useT";
 import { SyntheticDisclaimer } from "../components/SyntheticDisclaimer";
 import { PIP_PRESETS_EN, PIP_PRESETS_AR } from "../components/PipPresets";
 import { COACHING_THRESHOLD } from "../config/gradeBands";
+import { EmployeeProfileModal } from "../components/EmployeeProfileModal";
 import type { Grade } from "../domain/types";
 
 const PERIODS = ["2025-11","2025-12","2026-01","2026-02","2026-03","2026-04"];
@@ -43,6 +44,7 @@ export function DepartmentHead({ data }: Props) {
   const [period, setPeriod] = useState("2026-04");
   const [search, setSearch] = useState("");
   const [staffFilter, setStaffFilter] = useState<StaffFilter>("all");
+  const [selectedEmpId, setSelectedEmpId] = useState<string | null>(null);
 
   const deptKpis = useMemo(
     () => KPI_DEFINITIONS.filter((k) => k.departmentId === deptId && k.active),
@@ -193,8 +195,14 @@ export function DepartmentHead({ data }: Props) {
                   }}
                 >
                   <td className="py-2 px-2" style={{ color: "var(--text-muted)" }}>{i + 1}</td>
-                  <td className="py-2 px-2 font-medium" style={{ color: "var(--text)" }}>
-                    {isAr ? emp.displayNameAr : emp.displayName}
+                  <td className="py-2 px-2 font-medium">
+                    <button
+                      onClick={() => setSelectedEmpId(emp.employeeId)}
+                      className="hover:underline text-start"
+                      style={{ color: "var(--gold)" }}
+                    >
+                      {isAr ? emp.displayNameAr : emp.displayName}
+                    </button>
                     {emp.staffType === "casual" && (
                       <span className="ml-2 text-xs px-1.5 py-0.5 rounded" style={{ background: "rgba(37,99,235,0.12)", color: "var(--c-blue)" }}>
                         {isAr ? "شركة" : "Casual"}
@@ -246,7 +254,13 @@ export function DepartmentHead({ data }: Props) {
                   style={{ border: "1px solid rgba(249,115,22,0.25)", backgroundColor: "rgba(249,115,22,0.04)" }}
                 >
                   <div className="flex items-center gap-3 mb-2 flex-wrap">
-                    <span className="font-semibold" style={{ color: "var(--text)" }}>{isAr ? emp.displayNameAr : emp.displayName}</span>
+                    <button
+                      onClick={() => setSelectedEmpId(emp.employeeId)}
+                      className="font-semibold hover:underline text-start"
+                      style={{ color: "var(--gold)" }}
+                    >
+                      {isAr ? emp.displayNameAr : emp.displayName}
+                    </button>
                     {emp.staffType === "casual" && (
                       <span className="text-xs px-1.5 py-0.5 rounded" style={{ background: "rgba(37,99,235,0.12)", color: "var(--c-blue)" }}>
                         {isAr ? "شركة" : "Casual"}
@@ -267,6 +281,14 @@ export function DepartmentHead({ data }: Props) {
           </div>
         )}
       </ChartFrame>
+
+      {selectedEmpId && (
+        <EmployeeProfileModal
+          employeeId={selectedEmpId}
+          data={data}
+          onClose={() => setSelectedEmpId(null)}
+        />
+      )}
     </div>
   );
 }

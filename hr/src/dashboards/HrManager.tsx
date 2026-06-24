@@ -12,6 +12,8 @@ import { GradeBadge } from "../components/GradeBadge";
 import { gradeColor, tokens } from "../theme/tokens";
 import { useT, useLang } from "../i18n/useT";
 import { SyntheticDisclaimer } from "../components/SyntheticDisclaimer";
+import { EmployeeProfileModal } from "../components/EmployeeProfileModal";
+import { COACHING_THRESHOLD } from "../config/gradeBands";
 import type { Grade } from "../domain/types";
 
 const PERIODS = ["2025-11","2025-12","2026-01","2026-02","2026-03","2026-04"];
@@ -43,6 +45,9 @@ export function HrManager({ data }: Props) {
   const isAr = lang === "ar";
   const [period, setPeriod] = useState("2026-04");
   const [staffFilter, setStaffFilter] = useState<StaffFilter>("all");
+  const [tableSearch, setTableSearch] = useState("");
+  const [sortBy, setSortBy] = useState<"score" | "name" | "dept">("score");
+  const [selectedEmpId, setSelectedEmpId] = useState<string | null>(null);
 
   const employeeResults = useMemo(() => {
     return data.employees
@@ -104,6 +109,21 @@ export function HrManager({ data }: Props) {
       ? Math.round(snaps.reduce((a, b) => a + b.trainingHoursYtd, 0) / snaps.length) : 0;
     return { dept: isAr ? dept.nameAr : dept.name, avg };
   }), [data, period, isAr]);
+
+  const filteredSorted = useMemo(() => {
+    const q = tableSearch.toLowerCase();
+    const rows = employeeResults.filter(({ emp }) =>
+      emp.displayName.toLowerCase().includes(q) ||
+      emp.fullNameAr?.includes(q) ||
+      emp.employeeId.toLowerCase().includes(q)
+    );
+    return [...rows].sort((a, b) => {
+      if (sortBy === "score") return b.result.finalScore - a.result.finalScore;
+      if (sortBy === "dept") return a.emp.departmentId.localeCompare(b.emp.departmentId);
+      return (isAr ? a.emp.displayNameAr : a.emp.displayName)
+        .localeCompare(isAr ? b.emp.displayNameAr : b.emp.displayName);
+    });
+  }, [employeeResults, tableSearch, sortBy, isAr]);
 
   const kpiTrend = useMemo(() => PERIODS.map((p) => {
     const snaps = data.workforceSnapshots.filter(
@@ -273,8 +293,14 @@ export function HrManager({ data }: Props) {
                       className="border-t"
                       style={{ borderColor: "var(--border)" }}
                     >
-                      <td className="py-2 px-2 font-medium" style={{ color: "var(--text)" }}>
-                        {isAr ? emp.displayNameAr : emp.displayName}
+                      <td className="py-2 px-2 font-medium">
+                        <button
+                          onClick={() => setSelectedEmpId(emp.employeeId)}
+                          className="hover:underline text-start"
+                          style={{ color: "var(--gold)" }}
+                        >
+                          {isAr ? emp.displayNameAr : emp.displayName}
+                        </button>
                         {emp.staffType === "casual" && (
                           <span className="ml-2 text-xs px-1.5 py-0.5 rounded" style={{ background: "rgba(37,99,235,0.12)", color: "var(--c-blue)" }}>
                             {isAr ? "شركة" : "Casual"}
@@ -301,6 +327,106 @@ export function HrManager({ data }: Props) {
         </div>
         <SyntheticDisclaimer />
       </ChartFrame>
+
+      {/* Full employee performance table */}
+      <ChartFrame title={isAr ? "جدول الموظفين الكامل" : "Full Employee Table"}>
+        <div className="flex flex-wrap gap-2 mb-3">
+          <input
+            value={tableSearch}
+            onChange={(e) => setTableSearch(e.target.value)}
+            placeholder={t.search}
+            className="ctrl flex-1 min-w-40"
+          />
+          <select value={sortBy} onChange={(e) => setSortBy(e.target.value as typeof sortBy)} className="ctrl">
+            <option value="score">{isAr ? "ترتيب: النتيجة" : "Sort: Score"}</option>
+            <option value="name">{isAr ? "ترتيب: الاسم" : "Sort: Name"}</option>
+            <option value="dept">{isAr ? "ترتيب: القسم" : "Sort: Dept"}</option>
+          </select>
+          <span className="text-xs self-center" style={{ color: "var(--text-muted)" }}>
+            {filteredSorted.length} {isAr ? "موظف" : "employees"}
+          </span>
+        </div>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm" style={{ minWidth: 640 }}>
+            <thead>
+              <tr className="text-xs uppercase" style={{ color: "var(--text-muted)" }}>
+                <th className="text-start py-2 px-2">#</th>
+                <th className="text-start py-2 px-2">{t.name}</th>
+                <th className="text-start py-2 px-2">{t.department}</th>
+                <th className="text-start py-2 px-2">{t.staffType}</th>
+                <th className="text-start py-2 px-2">{t.finalKpi}</th>
+                <th className="text-start py-2 px-2">{t.grade}</th>
+                <th className="text-start py-2 px-2 hidden md:table-cell">{t.avgTraining}</th>
+                <th className="text-start py-2 px-2 hidden lg:table-cell">{t.nationality}</th>
+                <th className="text-start py-2 px-2 hidden lg:table-cell">{t.gender}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredSorted.map(({ emp, result }, i) => {
+                const deptName = DEPTS.find((d) => d.id === emp.departmentId);
+                const snap = data.workforceSnapshots.find(
+                  (s) => s.employeeId === emp.employeeId && s.period === period
+                );
+                return (
+                  <tr key={emp.employeeId}
+                    className="border-t"
+                    style={{
+                      borderColor: "var(--border)",
+                      backgroundColor: result.isCoaching ? "rgba(249,115,22,0.04)" : undefined,
+                    }}
+                  >
+                    <td className="py-2 px-2 text-xs" style={{ color: "var(--text-muted)" }}>{i + 1}</td>
+                    <td className="py-2 px-2">
+                      <button
+                        onClick={() => setSelectedEmpId(emp.employeeId)}
+                        className="font-medium hover:underline text-start"
+                        style={{ color: "var(--gold)" }}
+                      >
+                        {isAr ? emp.displayNameAr : emp.displayName}
+                      </button>
+                      {emp.staffType === "casual" && (
+                        <span className="ml-2 text-xs px-1.5 py-0.5 rounded" style={{ background: "rgba(37,99,235,0.12)", color: "var(--c-blue)" }}>
+                          {isAr ? "شركة" : "Casual"}
+                        </span>
+                      )}
+                      {result.isCoaching && <span className="ml-1 text-xs" style={{ color: "#F97316" }}>⚠</span>}
+                    </td>
+                    <td className="py-2 px-2 text-xs" style={{ color: "var(--text-muted)" }}>
+                      {isAr ? deptName?.nameAr : deptName?.name}
+                    </td>
+                    <td className="py-2 px-2 text-xs" style={{ color: emp.staffType === "casual" ? "var(--c-blue)" : "var(--text-muted)" }}>
+                      {emp.staffType === "casual" ? (isAr ? "شركة" : "Casual") : (isAr ? "مباشر" : "Direct")}
+                    </td>
+                    <td className="py-2 px-2 font-bold" style={{ color: gradeColor(result.grade) }}>
+                      {result.finalScore > 0 ? result.finalScore : "—"}
+                    </td>
+                    <td className="py-2 px-2">
+                      {result.finalScore > 0 ? <GradeBadge grade={result.grade} size="sm" /> : <span style={{ color: "var(--text-faint)" }}>—</span>}
+                    </td>
+                    <td className="py-2 px-2 hidden md:table-cell text-xs" style={{ color: snap && snap.trainingHoursYtd < COACHING_THRESHOLD ? "#F97316" : "var(--text-muted)" }}>
+                      {snap ? `${snap.trainingHoursYtd}h` : "—"}
+                    </td>
+                    <td className="py-2 px-2 hidden lg:table-cell text-xs" style={{ color: "var(--text-muted)" }}>
+                      {isAr ? (emp.nationality === "Saudi" ? "سعودي" : "غير سعودي") : emp.nationality}
+                    </td>
+                    <td className="py-2 px-2 hidden lg:table-cell text-xs" style={{ color: "var(--text-muted)" }}>
+                      {isAr ? (emp.gender === "M" ? "ذكر" : "أنثى") : (emp.gender === "M" ? "M" : "F")}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </ChartFrame>
+
+      {selectedEmpId && (
+        <EmployeeProfileModal
+          employeeId={selectedEmpId}
+          data={data}
+          onClose={() => setSelectedEmpId(null)}
+        />
+      )}
     </div>
   );
 }
