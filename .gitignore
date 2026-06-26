@@ -1,14 +1,13 @@
 .DS_Store
 *.pbix
 *.pdf
+# keep the downloadable CV even though PDFs are ignored
+!Khalid_BinNasban_CV.pdf
 Thumbs.db
 
 # Vite build output — not committed; hr/assets/ holds the deployed copy
 hr/dist/
 
-# Native binaries installed by npm on Linux (platform-specific, not committed)
-hr/node_modules/@esbuild/
-hr/node_modules/@rollup/
-hr/node_modules/vite-node/node_modules/@esbuild/
-hr/node_modules/vite/node_modules/@esbuild/
-hr/node_modules/vitest/node_modules/@esbuild/
+# node_modules — never commit (platform-specific, huge)
+node_modules/
+**/node_modules/
