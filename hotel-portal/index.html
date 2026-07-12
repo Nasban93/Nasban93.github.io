@@ -3,373 +3,124 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>FO Portal — Hotel Front Office KPI Suite (Live Demo) | Khalid Bin Nasban</title>
-<meta name="description" content="A click-around, view-only demo of FO Portal — six hotel Front Office KPI apps built by Khalid Bin Nasban, plus the Performance capstone that ties them together. 100% synthetic data." />
+<title>FO Portal — Live Demo | Khalid Bin Nasban</title>
+<meta name="description" content="Live, view-only demo of FO Portal — six hotel Front Office KPI apps. 100% synthetic data." />
 <meta property="og:title" content="FO Portal — Hotel Front Office KPI Suite (Live Demo)" />
 <meta property="og:description" content="Six hotel KPI apps + one performance score per employee. Click around the live demo — 100% fictional data." />
 <meta property="og:image" content="https://binnasban.com/og-demo.png" />
 <meta property="og:url" content="https://binnasban.com/hotel-portal/" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary_large_image" />
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --bg-main:   #ffffff;
-    --bg-alt:    #fafafa;
-    --text-main: #1a1a1a;
-    --text-muted:#666666;
-    --accent:    #c8a45d;
-    --accent-lt: #dcb974;
-    --accent-dim:rgba(200,164,93,0.12);
-    --card-border: rgba(200,164,93,0.2);
-    --card-hover:#fdfaf5;
-    --line:      #eaeaea;
-    --radius:    6px;
-    --transition:0.38s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-  html { scroll-behavior: smooth; }
-  body {
-    background: var(--bg-main);
-    color: var(--text-main);
-    font-family: 'Jost', -apple-system, 'Segoe UI', sans-serif;
-    font-weight: 300;
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-  }
-  h1, h2, h3, .serif, .card-title { font-family: 'Cormorant Garamond', Georgia, serif; }
-  a { color: inherit; }
-
-  .synthetic-banner {
-    background: var(--accent-dim);
-    color: #8a6d33;
-    text-align: center;
-    font-size: .74rem;
-    font-weight: 500;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    padding: .55rem 1rem;
-    border-bottom: 1px solid var(--card-border);
-  }
-
-  /* ── Hero — light, matching binnasban.com ── */
-  header.hero {
-    padding: 4.6rem 6vw 3.8rem;
-    text-align: center;
-    border-bottom: 1px solid var(--line);
-    background: var(--bg-main);
-  }
-  .eyebrow {
-    letter-spacing: .22em;
-    text-transform: uppercase;
-    font-size: .72rem;
-    color: var(--accent);
-    font-weight: 500;
-    margin-bottom: 1.2rem;
-  }
-  header.hero h1 {
-    font-size: clamp(2.3rem, 5.5vw, 3.6rem);
-    font-weight: 500;
-    letter-spacing: -0.01em;
-    line-height: 1.15;
-    margin-bottom: 1.1rem;
-  }
-  header.hero h1 em { font-style: italic; font-weight: 400; color: var(--accent); }
-  header.hero p.lead {
-    max-width: 680px;
-    margin: 0 auto 1.8rem;
-    color: var(--text-muted);
-    font-size: 1.02rem;
-  }
-  .hero-links { display: flex; gap: .9rem; justify-content: center; flex-wrap: wrap; }
-  .hero-note { margin: 1.2rem auto 0; max-width: 680px; font-size: .82rem; color: var(--text-muted); }
-  .hero-note strong { color: var(--accent); }
-
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: .5rem;
-    padding: .7rem 1.5rem;
-    border-radius: var(--radius);
-    font-size: .8rem;
-    font-weight: 500;
-    letter-spacing: .05em;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: var(--transition);
-    border: 1px solid transparent;
-    cursor: pointer;
-  }
-  .btn-gold { background: var(--accent); color: #ffffff; }
-  .btn-gold:hover { background: var(--accent-lt); transform: translateY(-1px); }
-  .btn-outline { border-color: var(--line); color: var(--text-main); background: transparent; }
-  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
-
-  main { max-width: 1080px; margin: 0 auto; padding: 3.4rem 6vw 1rem; }
-
-  .group-label {
-    text-transform: uppercase;
-    letter-spacing: .16em;
-    font-size: .72rem;
-    color: var(--accent);
-    font-weight: 500;
-    margin: 2.8rem 0 1rem;
-    display: flex;
-    align-items: center;
-    gap: .55rem;
-  }
-  .group-label::before { content: ""; width: 22px; height: 1px; background: var(--accent); flex-shrink: 0; }
-  .group-label:first-child { margin-top: 0; }
-
-  .cards { display: grid; gap: 1.1rem; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); }
-
-  .card {
-    background: var(--bg-main);
-    border: 1px solid var(--card-border);
-    border-radius: var(--radius);
-    padding: 1.5rem 1.5rem 1.35rem;
-    transition: var(--transition);
-    display: flex;
-    flex-direction: column;
-    gap: .55rem;
-  }
-  .card:hover {
-    background: var(--card-hover);
-    border-color: var(--accent);
-    box-shadow: 0 12px 30px rgba(200,164,93,.12);
-    transform: translateY(-2px);
-  }
-
-  .card.featured {
-    background: var(--card-hover);
-    border: 1px solid var(--accent);
-    grid-column: 1 / -1;
-    padding: 2rem 2rem 1.8rem;
-  }
-  .card.featured .card-tag { color: var(--accent); }
-  .card.featured a.open { color: #ffffff; background: var(--accent); }
-  .card.featured a.open:hover { background: var(--accent-lt); }
-
-  .card-tag {
-    font-size: .68rem;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    font-weight: 500;
-  }
-  .card-title { font-size: 1.65rem; font-weight: 600; letter-spacing: -0.01em; }
-  .card.featured .card-title { font-size: 2.1rem; }
-  .card-story { color: var(--text-muted); font-size: .92rem; flex: 1; }
-
-  a.open {
-    align-self: flex-start;
-    margin-top: .4rem;
-    font-size: .8rem;
-    font-weight: 500;
-    letter-spacing: .05em;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: var(--accent);
-    border-bottom: 1px solid transparent;
-    transition: var(--transition);
-  }
-  a.open:hover { border-color: var(--accent); }
-  .card.featured a.open { padding: .55rem 1.2rem; border-radius: var(--radius); border: none; }
-
-  footer {
-    margin-top: 3.8rem;
-    border-top: 1px solid var(--line);
-    padding: 2.2rem 6vw 3rem;
-    text-align: center;
-    color: var(--text-muted);
-    font-size: .84rem;
-    background: var(--bg-alt);
-  }
-  footer .disclaimer { max-width: 640px; margin: 0 auto 1.1rem; line-height: 1.6; }
-  footer .foot-links { display: flex; gap: 1.4rem; justify-content: center; flex-wrap: wrap; margin-bottom: .6rem; }
-  footer a { text-decoration: none; color: var(--text-muted); font-weight: 500; }
-  footer a:hover { color: var(--accent); }
-  #resetBtn {
-    background: none;
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    padding: .45rem 1rem;
-    font-family: inherit;
-    font-size: .8rem;
-    font-weight: 500;
-    color: var(--text-muted);
-    cursor: pointer;
-    transition: var(--transition);
-  }
-  #resetBtn:hover { border-color: var(--accent); color: var(--accent); }
-  #resetNote { font-size: .74rem; margin-top: .5rem; min-height: 1em; color: var(--accent); }
-
-  a:focus-visible, button:focus-visible, .card:focus-within {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-    border-radius: 4px;
-  }
-  .card { will-change: transform; }
-  .card:active { transform: translateY(0); }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .card { animation: cardIn .55s cubic-bezier(.25,.46,.45,.94) both; }
-    .cards .card:nth-child(1) { animation-delay: .02s; }
-    .cards .card:nth-child(2) { animation-delay: .09s; }
-    .cards .card:nth-child(3) { animation-delay: .16s; }
-    @keyframes cardIn {
-      from { opacity: 0; transform: translateY(14px); }
-      to   { opacity: 1; transform: none; }
-    }
-  }
-
-  @media (max-width: 560px) {
-    header.hero { padding: 3.2rem 6vw 2.8rem; }
-    main { padding: 2.4rem 6vw 1rem; }
-  }
-
-  @media (max-width: 420px) {
-    .cards { grid-template-columns: 1fr; }
-    .card.featured { padding: 1.6rem 1.4rem 1.5rem; }
-    .card { padding: 1.3rem 1.3rem 1.2rem; }
-    header.hero h1 { font-size: 1.9rem; }
-    header.hero p.lead { font-size: .92rem; }
-    .btn { padding: .6rem 1.1rem; font-size: .74rem; }
-    .group-label { margin: 2.1rem 0 .85rem; }
-  }
+:root{
+  --bg:#F6F7F9;--surface:#FFFFFF;--surface2:#F1F3F7;--border:#E6E8EE;
+  --text:#101828;--text2:#5A6472;--text3:#98A2B3;--accent:#4F46E5;--accent-soft:#EEF0FE;
+  --good:#059669;--good-soft:#E7F6EF;--warn:#B45309;--warn-soft:#FBF0DC;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#0C0F14;--surface:#151A21;--surface2:#1B212A;--border:#242B35;
+  --text:#E7EAF0;--text2:#9AA4B2;--text3:#68727F;--accent:#7C74F0;--accent-soft:rgba(124,116,240,.14);
+  --good:#34D399;--good-soft:rgba(52,211,153,.14);--warn:#FBBF24;--warn-soft:rgba(251,191,36,.14);
+}}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;min-height:100vh;padding:48px 24px}
+.wrap{max-width:820px;margin:0 auto}
+.head{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+.logo{width:44px;height:44px;border-radius:11px;background:var(--accent);display:flex;align-items:center;justify-content:center;color:#fff}
+.logo svg{width:24px;height:24px}
+h1{font-size:22px;font-weight:600}
+.sub{font-size:13px;color:var(--text3);margin-bottom:28px;margin-left:58px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.card{display:flex;flex-direction:column;gap:10px;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;text-decoration:none;color:inherit;transition:border-color .15s,transform .1s}
+.card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.card.soon{opacity:.6;pointer-events:none}
+.ic{width:38px;height:38px;border-radius:10px;background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center}
+.ic svg{width:20px;height:20px;stroke-width:2}
+.name{font-size:15px;font-weight:600}
+.desc{font-size:12.5px;color:var(--text2);flex:1}
+.badge{align-self:flex-start;font-size:11px;font-weight:600;padding:2px 9px;border-radius:20px}
+.live{background:var(--good-soft);color:var(--good)}.plan{background:var(--warn-soft);color:var(--warn)}
+.note{margin-top:26px;font-size:12px;color:var(--text3);line-height:1.6;border-top:1px solid var(--border);padding-top:16px}
+.kbd{font-family:ui-monospace,Menlo,Consolas,monospace;background:var(--surface2);border:1px solid var(--border);border-radius:5px;padding:1px 6px;font-size:11.5px}
+.conn-strip{display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 16px;margin-bottom:20px;font-size:13px}
+.conn-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;background:var(--text3)}
+.conn-dot.on{background:var(--good)}
+.conn-dot.warn{background:var(--warn)}
+.conn-text{color:var(--text2);flex:1}
+.conn-btn{font-size:12.5px;font-weight:600;padding:6px 14px;border-radius:8px;border:1px solid var(--border);background:var(--accent-soft);color:var(--accent);cursor:pointer}
+.conn-btn:hover{border-color:var(--accent)}
 </style>
 </head>
 <body>
-
-<div class="synthetic-banner">Synthetic demo data — fictional guests &amp; staff · binnasban.com</div>
-
-<header class="hero">
-  <div class="eyebrow">Building a Hotel PMS — LinkedIn series</div>
-  <h1>FO Portal · <em>Front Office KPI Suite</em></h1>
-  <p class="lead">
-    Six small apps that turn routine front-office work — check-ins, night audits, upsell
-    offers, guest recovery, supervisor walkthroughs, attendance — into fair, defensible
-    KPIs, with no extra forms or self-reporting. Built end-to-end by
-    <strong>Khalid Bin Nasban</strong> for a real property; this is a public, read-only
-    demo with 100% fictional guests and staff — click around freely, nothing you do here
-    is saved anywhere but your own browser.
-  </p>
-  <div class="hero-links">
-    <a class="btn btn-gold" href="performance/">Open the capstone →</a>
-    <a class="btn btn-outline" href="https://www.linkedin.com/in/khalid-nasban" target="_blank" rel="noopener">Watch the LinkedIn series</a>
-    <a class="btn btn-outline" href="../">binnasban.com</a>
+<div class="wrap">
+  <div class="head">
+    <div class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-5h6v5"/></svg></div>
+    <div><h1>FO Portal</h1></div>
   </div>
-  <p class="hero-note">New here? Each app opens with a quick explainer — look for the <strong>?</strong> button top-right if you dismiss it.</p>
-</header>
+  <div class="sub">FO Portal — Demo Grand Hotel · open an app · synthetic demo data, click around freely</div>
 
-<main>
+  <div class="conn-strip" style="margin-bottom:18px;padding:9px 14px;border:1px solid var(--border);border-radius:10px;background:var(--surface);font-size:12px;color:var(--text2);letter-spacing:.04em;">SYNTHETIC DEMO DATA — fictional guests &amp; staff · nothing you do here is saved anywhere but your own browser</div>
 
-  <div class="group-label">Capstone</div>
-  <div class="cards">
-    <div class="card featured">
-      <div class="card-tag">Performance Profiles</div>
-      <div class="card-title">Performance</div>
-      <p class="card-story">One score per employee, per cycle — attendance, production, upselling,
-        guest feedback, supervisor assessment and membership enrollment rolled into a single
-        weighted composite, so a review is built from what actually happened at work, not a
-        manager's memory of it.</p>
-      <a class="open" href="performance/">Open demo →</a>
-    </div>
-  </div>
+  <div class="grid">
+    <a class="card" href="attendance/">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></div>
+      <div class="name">Attendance</div>
+      <div class="desc">Roster, fingerprint exports, attendance KPI.</div>
+      <span class="badge live">Live</span>
+    </a>
 
-  <div class="group-label">Operations</div>
-  <div class="cards">
-    <div class="card">
-      <div class="card-tag">KPI 01 — Attendance</div>
-      <div class="card-title">Attendance</div>
-      <p class="card-story">Rosters, coverage and fairness — punctuality and absenteeism measured
-        from the schedule itself, with owed-day tracking and rotation alerts so the numbers stay
-        honest for everyone, not just the loudest complainer.</p>
-      <a class="open" href="attendance/">Open demo →</a>
-    </div>
-    <div class="card">
-      <div class="card-tag">KPI 02 — Production</div>
-      <div class="card-title">Night Audit</div>
-      <p class="card-story">Every night's cashier journal and check-in/out log, reconciled and
-        scored per agent — volume share plus accuracy, with corrections attributed to whoever
-        actually made the mistake, not whoever caught it.</p>
-      <a class="open" href="night-audit/">Open demo →</a>
-    </div>
+    <a class="card" href="night-audit/">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 3a9 9 0 1 0 9 9c0-.5 0-1-.1-1.4A5.5 5.5 0 0 1 12.4 3z"/></svg></div>
+      <div class="name">Night Audit</div>
+      <div class="desc">Production KPI — journal, corrections, history.</div>
+      <span class="badge live">Live</span>
+    </a>
+
+    <a class="card" href="guest-care/">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8M19 8v6M22 11h-6"/></svg></div>
+      <div class="name">Guest Care</div>
+      <div class="desc">Complaints, champions, handover, courtesy & departure. PIN login.</div>
+      <span class="badge live">Live</span>
+    </a>
+
+    <a class="card" href="upselling/">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 19V5M4 19h16M8 15v-3M12 15V9M16 15v-6"/></svg></div>
+      <div class="name">Upselling & Enrollment</div>
+      <div class="desc">Upselling & membership enrollment — target-vs-actual KPI, leaderboard.</div>
+      <span class="badge live">Live</span>
+    </a>
+    <a class="card" href="supervisor-assessment/">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 11l3 3 8-8M21 12v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h11"/></svg></div>
+      <div class="name">Supervisor Assessment</div>
+      <div class="desc">Cycle rubric, agent responses, training plans.</div>
+      <span class="badge live">Live</span>
+    </a>
+
+    <a class="card" href="performance/">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+      <div class="name">Performance Profiles</div>
+      <div class="desc">All six KPIs, one composite review, per employee.</div>
+      <span class="badge live">Live</span>
+    </a>
+
   </div>
 
-  <div class="group-label">Financial targets</div>
-  <div class="cards">
-    <div class="card">
-      <div class="card-tag">KPI 03 + 06 — Upselling &amp; Enrollment</div>
-      <div class="card-title">Upselling &amp; Enrollment</div>
-      <p class="card-story">Two commercial KPIs, one screen: upsell revenue against target, and
-        loyalty capture rate — valid enrollments against eligible, non-member check-ins — both
-        tracked back to the agent who closed them.</p>
-      <a class="open" href="upselling/">Open demo →</a>
-    </div>
+  <div class="note">
+    Every name, guest and shift here is fictional — data is generated in your browser and resets from the links below. Each app opens with a short explainer; look for the <span class="kbd">?</span> button if you dismiss it.
   </div>
-
-  <div class="group-label">Guest care</div>
-  <div class="cards">
-    <div class="card">
-      <div class="card-tag">KPI 04 — Guest Feedback</div>
-      <div class="card-title">Guest Care</div>
-      <p class="card-story">Arrivals, in-house and departures on one live board — courtesy calls,
-        recovery cases and requests logged at the moment they happen, so service quality is
-        measured from real touchpoints, not a post-stay survey alone.</p>
-      <a class="open" href="guest-care/">Open demo →</a>
-    </div>
-  </div>
-
-  <div class="group-label">Leadership</div>
-  <div class="cards">
-    <div class="card">
-      <div class="card-tag">KPI 05 — Supervisor Assessment</div>
-      <div class="card-title">Supervisor Assessment</div>
-      <p class="card-story">An LQA-style walkthrough rubric supervisors run per agent, per cycle —
-        standards met vs. missed, turned into one comparable score alongside training notes and
-        follow-ups.</p>
-      <a class="open" href="supervisor-assessment/">Open demo →</a>
-    </div>
-  </div>
-
-</main>
-
-<footer>
-  <p class="disclaimer">
-    Every name, guest, figure and shift on this site is fictional, generated for
-    demonstration only — no real hotel, guest or staff data appears anywhere in this demo.
-    All data lives in your browser's local storage and resets the moment you clear it or
-    reload from a fresh profile; nothing is ever sent anywhere.
-  </p>
-  <div class="foot-links">
-    <button id="resetBtn" type="button">Reset demo data</button>
-    <a href="../">← Back to binnasban.com</a>
-    <a href="https://www.linkedin.com/in/khalid-nasban" target="_blank" rel="noopener">LinkedIn</a>
-  </div>
-  <div id="resetNote"></div>
-</footer>
-
+</div>
+<div style="max-width:820px;margin:26px auto 0;display:flex;gap:18px;flex-wrap:wrap;font-size:12.5px;color:var(--text3);">
+  <a href="about.html" style="color:var(--accent);text-decoration:none;">What is this demo? →</a>
+  <a href="#" id="resetDemo" style="color:inherit;text-decoration:none;">Reset demo data</a>
+  <a href="https://binnasban.com/" style="color:inherit;text-decoration:none;">binnasban.com</a>
+  <span id="resetNote"></span>
+</div>
 <script>
-  // Every app on this demo namespaces its own localStorage under "demo:<appId>:" —
-  // see the bootstrap script shipped inside each app folder. Clearing everything with
-  // that prefix resets all six apps back to their freshly-seeded state in one click,
-  // without touching anything else that might share this origin.
-  document.getElementById('resetBtn').addEventListener('click', function () {
-    var removed = 0;
-    try {
-      var keys = Object.keys(localStorage);
-      for (var i = 0; i < keys.length; i++) {
-        if (keys[i].indexOf('demo:') === 0) { localStorage.removeItem(keys[i]); removed++; }
-      }
-    } catch (e) { /* localStorage unavailable — nothing to reset */ }
-    var note = document.getElementById('resetNote');
-    note.textContent = removed > 0
-      ? 'Cleared ' + removed + ' item(s). Reopen any app below and it will reseed automatically.'
-      : 'Nothing to clear yet — open an app first, then come back here.';
-  });
+document.getElementById('resetDemo').addEventListener('click',function(e){
+  e.preventDefault();var removed=0;
+  try{var ks=Object.keys(localStorage);for(var i=0;i<ks.length;i++){if(ks[i].indexOf('demo:')===0){localStorage.removeItem(ks[i]);removed++;}}}catch(err){}
+  document.getElementById('resetNote').textContent=removed?('Cleared '+removed+' items — apps will reseed on open.'):'Nothing to clear yet.';
+});
 </script>
-
 </body>
 </html>
