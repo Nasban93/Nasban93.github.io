@@ -148,7 +148,7 @@ function App(){
   /* BRIEF-POLISH-1.md #1 — home button + Alt+Home, origin-absolute so it
      works from any folder depth on the served origin (file:// is unsupported
      anyway — the button is hidden there, see IS_FILE_PROTOCOL in identity.js). */
-  const goHome=useCallback(()=>{window.location.href="/Launcher.html";},[]);
+  const goHome=useCallback(()=>{window.location.href="../";},[]);
   useEffect(()=>{
     function onKey(e){if(e.altKey&&e.key==="Home"){e.preventDefault();goHome();}}
     window.addEventListener("keydown",onKey);

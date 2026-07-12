@@ -204,7 +204,7 @@ en:{
     unresolvedFlagsBody:"{0} flagged item{1} have no linked correction. Approving now acknowledges these as open and carries them forward.",
     goBackResolve:"Go back — resolve first", ackAndSign:"Acknowledge & Sign",
     noComment:"no comment",
-    homeBtn:"FO Portal", homeBtnTitle:"Back to the FO Portal Launcher (Alt+Home)"
+    homeBtn:"FO Portal", homeBtnTitle:"Back to the demo hub (Alt+Home)"
   },
   toast:{
     loadedTx:"Loaded {0} transactions", fileEmpty:"File is empty",
