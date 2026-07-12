@@ -258,7 +258,7 @@ en:{
     cardTotal:"Card total"
   },
   cash:{
-    empty:"Upload an Opera export first.",
+    empty:"No cash drop to show — this demo does not include a live per-night Opera upload. See Production KPI and History for this app's populated views (~4 months of audited nights).",
     fxBanner:"Foreign currency in this drop — ",
     fxBannerEnd:". The physical count should include these banknotes, not SAR — don't expect SAR notes to cover this portion.",
     operaCashDrop:"Opera cash drop", fromSystem:"From system",
@@ -275,7 +275,7 @@ en:{
     exceptionMark:"Mark exception"
   },
   plo:{
-    empty:"Upload an Opera export first.",
+    empty:"No PLO entries to show — this demo does not include a live per-night Opera upload. See Production KPI and History for this app's populated views.",
     howItWorksTitle:"How PLO works:",
     howItWorksBody:" In the Journal, find any card transaction processed outside the physical terminals and click ",
     howItWorksEnd:" on that row.",
@@ -304,7 +304,7 @@ en:{
     lowErrors:"Low errors", review:"Review", monitor:"Monitor"
   },
   reconcile:{
-    empty:"Upload an Opera export first.",
+    empty:"Nothing to reconcile yet — this demo does not include a live per-night Opera upload. See Production KPI and History for this app's populated views (~4 months of audited nights).",
     /* No longer numbered "1 ·"/"2 ·"/"3 ·" (BRIEF-NIGHT-AUDIT-2 Phase N1) —
        these are now sub-sections nested under the guided flow's own
        "3 · Payments reconciled" step (reconcile.stepPaymentsReconciled),
@@ -378,7 +378,7 @@ en:{
     settledTxns:"{0} transaction{1}"
   },
   reports:{
-    emptyUpload:"Upload an Opera export first.",
+    emptyUpload:"No report to generate — this demo does not include a live per-night Opera upload. See Production KPI and History for this app's populated views.",
     draftStamp:"— DRAFT —", draftStampPlain:"DRAFT",
     title:"Night Audit Report",
     businessDate:"Business date: {0} · Generated: {1}",
@@ -413,7 +413,7 @@ en:{
     writtenToFolder:" · written to your connected folder.", downloaded:" · downloaded."
   },
   journal:{
-    empty:"Upload an Opera export first.",
+    empty:"No journal to show — this demo does not include a live per-night Opera upload. See Production KPI and History for this app's populated views (~4 months of audited nights).",
     filterAll:"All ({0})", filterUnchecked:"Unchecked ({0})", filterPayments:"Payments ({0})",
     filterCharges:"Charges ({0})", filterCards:"Cards ({0})", filterCash:"Cash ({0})",
     filterCorrections:"Corrections ({0})", filterPlo:"PLO ({0})",
@@ -524,7 +524,7 @@ en:{
     assignTo:"Assign {0} to:", chooseStaff:"Choose staff…", assign:"Assign", cancel:"Cancel",
     staffMapping:"Staff mapping",
     staffId:"Staff ID", name:"Name", cashierId:"Cashier ID", operaUsernames:"Opera username(s)",
-    cashierIdPh:"e.g. 101", usernamePh:"HB4X1-AALDOSSARI@ACCOREN", clear:"Clear",
+    cashierIdPh:"e.g. 101", usernamePh:"FD001-AALPHA@HOTELCO", clear:"Clear",
     noRegistryStaff:"No staff in the shared registry yet — connect the PMS folder from Staff & PINs.",
     scoringSettings:"Scoring settings",
     weights:"Weights", volumeWeight:"Volume weight %", accuracyWeight:"Accuracy weight %",
@@ -998,7 +998,7 @@ ar:{
     assignTo:"إسناد {0} إلى:", chooseStaff:"اختر الموظف…", assign:"إسناد", cancel:"إلغاء",
     staffMapping:"ربط الموظفين",
     staffId:"رقم الموظف", name:"الاسم", cashierId:"رقم الكاشير", operaUsernames:"اسم مستخدم أوبرا",
-    cashierIdPh:"مثال: 101", usernamePh:"HB4X1-AALDOSSARI@ACCOREN", clear:"مسح",
+    cashierIdPh:"مثال: 101", usernamePh:"FD001-AALPHA@HOTELCO", clear:"مسح",
     noRegistryStaff:"لا يوجد موظفون في السجل المشترك بعد — اربط مجلد النظام من الموظفون والرموز.",
     scoringSettings:"إعدادات التقييم",
     weights:"الأوزان", volumeWeight:"وزن الحجم %", accuracyWeight:"وزن الدقة %",

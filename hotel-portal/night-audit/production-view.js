@@ -43,10 +43,10 @@ const PROD_EMPTY={};
 const PROD_CHART_PALETTE=["#2563eb","#16a34a","#d97706","#dc2626","#8b5cf6","#ec4899","#0d9488","#f97316"];
 
 /* Opera's two exports spell the same person's username with and without a
-   hyphen (HB4X1AALNASSER@ACCOREN vs HB4X1-AALNASSER@ACCOREN) — strip hyphens
-   and the @ACCOREN domain suffix so both forms match one identity. */
+   hyphen (FD001AALPHA@HOTELCO vs FD001-AALPHA@HOTELCO) — strip hyphens
+   and the @HOTELCO domain suffix so both forms match one identity. */
 function normUser(u){
-  return String(u||"").toUpperCase().replace(/-/g,"").replace(/@ACCOREN\b/,"").trim();
+  return String(u||"").toUpperCase().replace(/-/g,"").replace(/@HOTELCO\b/,"").trim();
 }
 /* INS_CHAR_DATE is "DD/MM/YY" (e.g. "30/06/26") — convert to ISO so it sorts
    and buckets into weeks the same way every other date in this app does. */

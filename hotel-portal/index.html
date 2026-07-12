@@ -10,124 +10,116 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
     --bg-main:   #ffffff;
-    --bg-alt:    #faf9f7;
+    --bg-alt:    #fafafa;
     --text-main: #1a1a1a;
     --text-muted:#666666;
     --accent:    #c8a45d;
     --accent-lt: #dcb974;
     --accent-dim:rgba(200,164,93,0.12);
+    --card-border: rgba(200,164,93,0.2);
+    --card-hover:#fdfaf5;
     --line:      #eaeaea;
-    --dark-bg:   #14120f;
-    --dark-bg2:  #1d1a15;
-    --radius:    8px;
-    --transition:0.3s cubic-bezier(.25,.46,.45,.94);
+    --radius:    6px;
+    --transition:0.38s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
   html { scroll-behavior: smooth; }
   body {
     background: var(--bg-main);
     color: var(--text-main);
-    font-family: 'Jost', sans-serif;
+    font-family: 'Jost', -apple-system, 'Segoe UI', sans-serif;
+    font-weight: 300;
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; }
+  h1, h2, h3, .serif, .card-title { font-family: 'Cormorant Garamond', Georgia, serif; }
   a { color: inherit; }
 
-  /* ── Dark header (video-series branding) ── */
-  header.hero {
-    background: radial-gradient(120% 140% at 50% -10%, #2a2318 0%, var(--dark-bg) 55%, #0e0c0a 100%);
-    color: #f4efe6;
-    padding: 4.2rem 6vw 3.6rem;
+  .synthetic-banner {
+    background: var(--accent-dim);
+    color: #8a6d33;
     text-align: center;
-    position: relative;
-    overflow: hidden;
+    font-size: .74rem;
+    font-weight: 500;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: .55rem 1rem;
+    border-bottom: 1px solid var(--card-border);
   }
-  header.hero::after {
-    content: "";
-    position: absolute; inset: 0;
-    background-image: radial-gradient(circle, rgba(200,164,93,0.18) 1px, transparent 1px);
-    background-size: 26px 26px;
-    opacity: .35;
-    pointer-events: none;
+
+  /* ── Hero — light, matching binnasban.com ── */
+  header.hero {
+    padding: 4.6rem 6vw 3.8rem;
+    text-align: center;
+    border-bottom: 1px solid var(--line);
+    background: var(--bg-main);
   }
   .eyebrow {
     letter-spacing: .22em;
     text-transform: uppercase;
     font-size: .72rem;
-    color: var(--accent-lt);
-    font-weight: 600;
-    margin-bottom: 1.1rem;
-    position: relative;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 1.2rem;
   }
   header.hero h1 {
-    font-size: clamp(2rem, 5vw, 3.1rem);
+    font-size: clamp(2.3rem, 5.5vw, 3.6rem);
     font-weight: 500;
-    letter-spacing: .01em;
-    margin-bottom: 1rem;
-    position: relative;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    margin-bottom: 1.1rem;
   }
-  header.hero h1 span { color: var(--accent); }
+  header.hero h1 em { font-style: italic; font-weight: 400; color: var(--accent); }
   header.hero p.lead {
     max-width: 680px;
-    margin: 0 auto 1.7rem;
-    color: #cfc7b8;
+    margin: 0 auto 1.8rem;
+    color: var(--text-muted);
     font-size: 1.02rem;
-    position: relative;
   }
-  .hero-links {
-    display: flex;
-    gap: .9rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    position: relative;
-  }
+  .hero-links { display: flex; gap: .9rem; justify-content: center; flex-wrap: wrap; }
+  .hero-note { margin: 1.2rem auto 0; max-width: 680px; font-size: .82rem; color: var(--text-muted); }
+  .hero-note strong { color: var(--accent); }
+
   .btn {
     display: inline-flex;
     align-items: center;
     gap: .5rem;
-    padding: .7rem 1.35rem;
-    border-radius: 999px;
-    font-size: .82rem;
-    font-weight: 600;
-    letter-spacing: .04em;
+    padding: .7rem 1.5rem;
+    border-radius: var(--radius);
+    font-size: .8rem;
+    font-weight: 500;
+    letter-spacing: .05em;
+    text-transform: uppercase;
     text-decoration: none;
     transition: var(--transition);
     border: 1px solid transparent;
     cursor: pointer;
   }
-  .btn-gold { background: var(--accent); color: #1a1508; }
+  .btn-gold { background: var(--accent); color: #ffffff; }
   .btn-gold:hover { background: var(--accent-lt); transform: translateY(-1px); }
-  .btn-outline-dark { border-color: rgba(244,239,230,.35); color: #f4efe6; background: transparent; }
-  .btn-outline-dark:hover { border-color: var(--accent); color: var(--accent-lt); }
+  .btn-outline { border-color: var(--line); color: var(--text-main); background: transparent; }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
-  .synthetic-banner {
-    background: #221c10;
-    color: #e8cf9b;
-    text-align: center;
-    font-size: .74rem;
-    letter-spacing: .05em;
-    padding: .55rem 1rem;
-    border-bottom: 1px solid rgba(200,164,93,.3);
-    position: relative;
-  }
-
-  main { max-width: 1080px; margin: 0 auto; padding: 3.2rem 6vw 1rem; }
+  main { max-width: 1080px; margin: 0 auto; padding: 3.4rem 6vw 1rem; }
 
   .group-label {
     text-transform: uppercase;
     letter-spacing: .16em;
     font-size: .72rem;
     color: var(--accent);
-    font-weight: 600;
-    margin: 2.6rem 0 1rem;
+    font-weight: 500;
+    margin: 2.8rem 0 1rem;
+    display: flex;
+    align-items: center;
+    gap: .55rem;
   }
+  .group-label::before { content: ""; width: 22px; height: 1px; background: var(--accent); flex-shrink: 0; }
   .group-label:first-child { margin-top: 0; }
 
   .cards { display: grid; gap: 1.1rem; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); }
 
   .card {
-    background: var(--bg-alt);
-    border: 1px solid var(--line);
+    background: var(--bg-main);
+    border: 1px solid var(--card-border);
     border-radius: var(--radius);
     padding: 1.5rem 1.5rem 1.35rem;
     transition: var(--transition);
@@ -135,18 +127,21 @@
     flex-direction: column;
     gap: .55rem;
   }
-  .card:hover { border-color: var(--accent); box-shadow: 0 10px 28px rgba(200,164,93,.14); transform: translateY(-2px); }
+  .card:hover {
+    background: var(--card-hover);
+    border-color: var(--accent);
+    box-shadow: 0 12px 30px rgba(200,164,93,.12);
+    transform: translateY(-2px);
+  }
 
   .card.featured {
-    background: linear-gradient(155deg, #1d1a15 0%, #14120f 100%);
-    color: #f4efe6;
-    border-color: #2a2318;
+    background: var(--card-hover);
+    border: 1px solid var(--accent);
     grid-column: 1 / -1;
     padding: 2rem 2rem 1.8rem;
   }
-  .card.featured .card-tag { color: var(--accent-lt); }
-  .card.featured .card-story { color: #cfc7b8; }
-  .card.featured a.open { color: #1a1508; background: var(--accent); }
+  .card.featured .card-tag { color: var(--accent); }
+  .card.featured a.open { color: #ffffff; background: var(--accent); }
   .card.featured a.open:hover { background: var(--accent-lt); }
 
   .card-tag {
@@ -154,60 +149,48 @@
     letter-spacing: .12em;
     text-transform: uppercase;
     color: var(--text-muted);
-    font-weight: 600;
+    font-weight: 500;
   }
-  .card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; }
-  .card.featured .card-title { font-size: 1.9rem; }
+  .card-title { font-size: 1.65rem; font-weight: 600; letter-spacing: -0.01em; }
+  .card.featured .card-title { font-size: 2.1rem; }
   .card-story { color: var(--text-muted); font-size: .92rem; flex: 1; }
 
   a.open {
     align-self: flex-start;
     margin-top: .4rem;
-    font-size: .82rem;
-    font-weight: 600;
+    font-size: .8rem;
+    font-weight: 500;
+    letter-spacing: .05em;
+    text-transform: uppercase;
     text-decoration: none;
     color: var(--accent);
     border-bottom: 1px solid transparent;
     transition: var(--transition);
   }
   a.open:hover { border-color: var(--accent); }
-
-  .card.featured a.open {
-    padding: .55rem 1.1rem;
-    border-radius: 999px;
-    border: none;
-  }
+  .card.featured a.open { padding: .55rem 1.2rem; border-radius: var(--radius); border: none; }
 
   footer {
-    margin-top: 3.6rem;
+    margin-top: 3.8rem;
     border-top: 1px solid var(--line);
     padding: 2.2rem 6vw 3rem;
     text-align: center;
     color: var(--text-muted);
     font-size: .84rem;
+    background: var(--bg-alt);
   }
-  footer .disclaimer {
-    max-width: 640px;
-    margin: 0 auto 1.1rem;
-    line-height: 1.6;
-  }
-  footer .foot-links {
-    display: flex;
-    gap: 1.4rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: .6rem;
-  }
-  footer a { text-decoration: none; color: var(--text-muted); font-weight: 600; }
+  footer .disclaimer { max-width: 640px; margin: 0 auto 1.1rem; line-height: 1.6; }
+  footer .foot-links { display: flex; gap: 1.4rem; justify-content: center; flex-wrap: wrap; margin-bottom: .6rem; }
+  footer a { text-decoration: none; color: var(--text-muted); font-weight: 500; }
   footer a:hover { color: var(--accent); }
   #resetBtn {
     background: none;
     border: 1px solid var(--line);
-    border-radius: 999px;
+    border-radius: var(--radius);
     padding: .45rem 1rem;
     font-family: inherit;
     font-size: .8rem;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--text-muted);
     cursor: pointer;
     transition: var(--transition);
@@ -215,19 +198,48 @@
   #resetBtn:hover { border-color: var(--accent); color: var(--accent); }
   #resetNote { font-size: .74rem; margin-top: .5rem; min-height: 1em; color: var(--accent); }
 
+  a:focus-visible, button:focus-visible, .card:focus-within {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  .card { will-change: transform; }
+  .card:active { transform: translateY(0); }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .card { animation: cardIn .55s cubic-bezier(.25,.46,.45,.94) both; }
+    .cards .card:nth-child(1) { animation-delay: .02s; }
+    .cards .card:nth-child(2) { animation-delay: .09s; }
+    .cards .card:nth-child(3) { animation-delay: .16s; }
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: none; }
+    }
+  }
+
   @media (max-width: 560px) {
-    header.hero { padding: 3rem 6vw 2.6rem; }
+    header.hero { padding: 3.2rem 6vw 2.8rem; }
     main { padding: 2.4rem 6vw 1rem; }
+  }
+
+  @media (max-width: 420px) {
+    .cards { grid-template-columns: 1fr; }
+    .card.featured { padding: 1.6rem 1.4rem 1.5rem; }
+    .card { padding: 1.3rem 1.3rem 1.2rem; }
+    header.hero h1 { font-size: 1.9rem; }
+    header.hero p.lead { font-size: .92rem; }
+    .btn { padding: .6rem 1.1rem; font-size: .74rem; }
+    .group-label { margin: 2.1rem 0 .85rem; }
   }
 </style>
 </head>
 <body>
 
-<div class="synthetic-banner">SYNTHETIC DEMO DATA — fictional guests &amp; staff · binnasban.com</div>
+<div class="synthetic-banner">Synthetic demo data — fictional guests &amp; staff · binnasban.com</div>
 
 <header class="hero">
   <div class="eyebrow">Building a Hotel PMS — LinkedIn series</div>
-  <h1>FO Portal <span>·</span> Front Office KPI Suite</h1>
+  <h1>FO Portal · <em>Front Office KPI Suite</em></h1>
   <p class="lead">
     Six small apps that turn routine front-office work — check-ins, night audits, upsell
     offers, guest recovery, supervisor walkthroughs, attendance — into fair, defensible
@@ -238,9 +250,10 @@
   </p>
   <div class="hero-links">
     <a class="btn btn-gold" href="performance/">Open the capstone →</a>
-    <a class="btn btn-outline-dark" href="https://www.linkedin.com/in/khalid-nasban" target="_blank" rel="noopener">Watch the LinkedIn series</a>
-    <a class="btn btn-outline-dark" href="../">binnasban.com</a>
+    <a class="btn btn-outline" href="https://www.linkedin.com/in/khalid-nasban" target="_blank" rel="noopener">Watch the LinkedIn series</a>
+    <a class="btn btn-outline" href="../">binnasban.com</a>
   </div>
+  <p class="hero-note">New here? Each app opens with a quick explainer — look for the <strong>?</strong> button top-right if you dismiss it.</p>
 </header>
 
 <main>
@@ -282,7 +295,7 @@
   <div class="cards">
     <div class="card">
       <div class="card-tag">KPI 03 + 06 — Upselling &amp; Enrollment</div>
-      <div class="card-title">Upselling</div>
+      <div class="card-title">Upselling &amp; Enrollment</div>
       <p class="card-story">Two commercial KPIs, one screen: upsell revenue against target, and
         loyalty capture rate — valid enrollments against eligible, non-member check-ins — both
         tracked back to the agent who closed them.</p>
