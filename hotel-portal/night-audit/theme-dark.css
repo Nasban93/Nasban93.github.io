@@ -1,0 +1,110 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   theme-dark.css — Dark mode for Night Audit
+   ───────────────────────────────────────────────────────────────────────────
+   Loaded AFTER styles.css. Activates only when <html data-theme="dark"> is set
+   (the topbar toggle does this; see app.js). Light mode is untouched.
+
+   Strategy:
+   1. Redefine every :root token under [data-theme="dark"]. Because the app is
+      almost entirely token-based, this alone re-skins ~90% of the UI.
+   2. The colored triplets are INVERTED, not just darkened: in light mode a badge
+      is dark text (--blue-t) on a light tint (--blue-bg); in dark mode it must be
+      LIGHT text on a DARK tint, or it disappears. So --*-bg become dark washes and
+      --*-t become light hues. The base accents (--blue etc.) are brightened so
+      dots/outlines/focus rings still pop against the dark surface.
+   3. A handful of component classes hardcode light hex tints (row states, the
+      sticky cashier header, flag panels, banner/toast/badge borders). Those can't
+      follow tokens, so they're overridden explicitly below.
+   4. REPORT STAYS LIGHT. The on-screen report (.report-section) re-asserts the
+      light token set so it looks like paper and, critically, so PDF export / Print
+      stay legible (light text on white) no matter which theme is active when you
+      hit Save PDF.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+[data-theme="dark"]{
+  color-scheme: dark;            /* dark native scrollbars, date picker, number spinners */
+
+  --bg:#1A1815;                  /* warm near-black, echoes the warm light bg (#F5F4F1) */
+  --surface:#232019;
+  --surface2:#2D2A22;            /* input wells, kbd, muted sub-rows */
+  --border:#38332B;
+  --border2:#4C463B;
+
+  --t1:#ECE8E1;                  /* warm off-white, not pure #fff (easier at 4am) */
+  --t2:#A9A299;
+  --t3:#787069;
+
+  --blue:#3B82F6;   --blue-bg:#172238;   --blue-t:#93C5FD;
+  --green:#22C55E;  --green-bg:#142A1C;   --green-t:#86EFAC;
+  --red:#EF4444;    --red-bg:#2E1818;     --red-t:#FCA5A5;
+  --amber:#F59E0B;  --amber-bg:#2C2310;   --amber-t:#FCD34D;
+
+  --shadow:0 1px 3px rgba(0,0,0,.45);
+}
+
+/* Slightly lift card/metric definition since shadows read weaker on dark */
+[data-theme="dark"] .card,
+[data-theme="dark"] .metric{ border-color:var(--border); }
+
+/* ── Journal row states (hardcoded light tints in styles.css) ──────────────── */
+[data-theme="dark"] .row-checked td{ background:rgba(34,197,94,.13); }
+[data-theme="dark"] .row-flagged td{ background:rgba(239,68,68,.14); }
+[data-theme="dark"] .row-focused td{ background:rgba(59,130,246,.20) !important; }
+[data-theme="dark"] .vat-subrow.row-checked td{ background:rgba(34,197,94,.13); }
+[data-theme="dark"] .vat-subrow.row-flagged td{ background:rgba(239,68,68,.14); }
+
+/* Sticky per-cashier header — was a light gradient */
+[data-theme="dark"] .cashier-hdr td{
+  background:linear-gradient(90deg,#2A261E,#312C23);
+  border-top-color:var(--border2);
+}
+
+/* ── Flag / correction panels ──────────────────────────────────────────────── */
+[data-theme="dark"] .flag-inner{ background:rgba(239,68,68,.10); }
+[data-theme="dark"] .flag-textarea{
+  background:var(--surface2);
+  color:var(--t1);
+  border-color:#7F3838;
+}
+[data-theme="dark"] .corr-candidate:hover{ background:rgba(245,158,11,.14); }
+[data-theme="dark"] .open-flags-box{ border-color:#7F3838; }
+
+/* ── Banners / toasts (hardcoded light tint borders) ───────────────────────── */
+[data-theme="dark"] .banner-warn{ border-color:#5A4420; }
+[data-theme="dark"] .banner-ok{   border-color:#2C5238; }
+[data-theme="dark"] .banner-info{ border-color:#2F4D7A; }
+[data-theme="dark"] .toast.ok{    border-color:#2C5238; }
+[data-theme="dark"] .toast.err{   border-color:#6E2A2A; }
+
+/* "New" badge had a hardcoded light-blue scheme */
+[data-theme="dark"] .bdg.bnew{
+  background:var(--blue-bg);
+  color:var(--blue-t);
+  border-color:#2F4D7A;
+}
+
+/* Drop-zone hover used --blue-bg (now dark) which is correct; nudge the dashed
+   border so it reads against the darker surface */
+[data-theme="dark"] .drop-zone:hover,
+[data-theme="dark"] .drop-zone.drag{ border-color:var(--blue); }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   REPORT LIGHT-ISLAND
+   Keep the printable report on a white/light palette in dark mode so it matches
+   the exported PDF and stays legible when printed. Re-assert the full light token
+   set; descendant .card/.t tables inherit it. (Report rows use inline light tints,
+   not the .row-* classes overridden above, so those dark overrides don't reach in.)
+   ═══════════════════════════════════════════════════════════════════════════ */
+[data-theme="dark"] .report-section{
+  color-scheme: light;
+  --bg:#F5F4F1; --surface:#FFF; --surface2:#F0EEE9;
+  --border:#E2DFD9; --border2:#CBC7C0;
+  --t1:#1A1917; --t2:#706B65; --t3:#A09A94;
+  --blue:#2563EB; --blue-bg:#EFF6FF; --blue-t:#1E40AF;
+  --green:#16A34A; --green-bg:#F0FDF4; --green-t:#14532D;
+  --red:#DC2626; --red-bg:#FEF2F2; --red-t:#991B1B;
+  --amber:#D97706; --amber-bg:#FFFBEB; --amber-t:#78350F;
+  --shadow:0 1px 4px rgba(0,0,0,.07);
+  background:var(--surface);
+  color:var(--t1);
+}
