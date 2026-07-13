@@ -3,7 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:,">
 <title>Night Audit · Front Office</title>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-991LP5M6MF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-991LP5M6MF');
+</script>
+
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="theme-dark.css">
 <style id="demo-calm">
@@ -81,6 +90,64 @@ table.t tbody tr{transition:background .15s ease}
     window.addEventListener("resize", schedule);
   }
   if (document.body) { __start(); } else { document.addEventListener("DOMContentLoaded", __start); }
+})();
+</script>
+<style id="demo-menu-mobilefix">@media (max-width:640px){.ds-switch-menu{position:fixed !important;left:10px !important;right:10px !important;top:calc(var(--ds-shell-h,44px) + 4px) !important;min-width:0 !important;max-height:70vh;overflow-y:auto}}</style>
+<style id="demo-plo-hide">
+.plo-btn,.plo-drop,.plo-opt{display:none !important}
+.demo-plo-hidden{display:none !important}
+</style>
+<script src="demo-data/payload.js"></script>
+<script id="demo-plo-hide-js">
+(function(){
+  function sweep(){
+    var els=document.querySelectorAll('button,th,td,span,div,label,a,li,p');
+    for(var i=0;i<els.length;i++){var e=els[i];
+      if(e.classList.contains('demo-plo-hidden'))continue;
+      var tx=(e.textContent||'').trim();
+      if(/^(Keys:|المفاتيح:)/.test(tx)&&tx.length<250){ e.classList.add('demo-plo-hidden'); continue; }
+      if(/^PLO \(\d+\)$/.test(tx)&&e.children.length<=1){
+        if(e.tagName==='BUTTON'){ e.classList.add('demo-plo-hidden'); continue; }
+        var pe1=e.parentElement;
+        (pe1&&pe1.textContent.trim().length<80?pe1:e).classList.add('demo-plo-hidden');
+        continue;
+      }
+      /* Reconcile/Reports payments-table "PLO"/"PLO txns" column headers (also
+         matches Journal's own PLO th \u2014 already an intended target): hide the
+         th via visibility (keeps the other columns aligned) and hide only the
+         SAME column's td in every row by cellIndex \u2014 never the whole <tr>,
+         which would blank every other header/cell in that row too. */
+      if(e.tagName==='TH'&&(tx==='PLO'||tx==='PLO txns'||tx==='معاملات PLO')){
+        e.style.visibility='hidden';
+        var idx=e.cellIndex, tbl=e.closest('table');
+        if(tbl&&idx>-1){
+          var trs=tbl.querySelectorAll('tbody tr, tfoot tr');
+          for(var j=0;j<trs.length;j++){var cell=trs[j].cells[idx]; if(cell)cell.style.visibility='hidden';}
+        }
+        continue;
+      }
+      if(e.children.length<=1&&(tx==='PLO total'||tx==='\u0625\u062c\u0645\u0627\u0644\u064a PLO'||/^PLO Entries/.test(tx)||/^\u0625\u062f\u062e\u0627\u0644\u0627\u062a PLO/.test(tx)||/^PLO \(SAR\)/.test(tx)||/^PLO \(\u0631\u064a\u0627\u0644\)/.test(tx)||tx==='PLO Type'||tx==='\u0646\u0648\u0639 PLO'||/^PLO tagging/.test(tx))){
+        /* PLO-total tile: the per-card zero tiles (Span/Visa/Mastercard/Amex)
+           and the total tile are siblings inside ONE .grid in PLOView (see
+           plo-view.js) \u2014 nothing else lives in that grid, so hiding it by
+           walking up to the nearest .grid is precise, not a broad-ancestor
+           hide (never closest('section')/an unrelated parentElement chain). */
+        var grid=e.closest('.grid');
+        var pe=e.parentElement;
+        var host=grid||((pe&&pe.textContent.trim().length<60)?pe:e);
+        host.classList.add('demo-plo-hidden'); continue;
+      }
+      if(e.children.length<=1&&(tx==='No PLO transactions tagged yet.'||tx==='\u0644\u0627 \u062a\u0648\u062c\u062f \u0645\u0639\u0627\u0645\u0644\u0627\u062a PLO \u0645\u0648\u0633\u0648\u0645\u0629 \u0628\u0639\u062f.')){
+        var card=e.closest('.card');
+        (card||e.parentElement).classList.add('demo-plo-hidden'); continue;
+      }
+      if(e.tagName==='TH'&&tx==='PLO'){ e.style.visibility='hidden'; continue; }
+      if(e.children.length<=2&&/^(How PLO works|كيف تعمل PLO)/.test(tx)&&tx.length<300){ e.classList.add('demo-plo-hidden'); continue; }
+      if(e.tagName==='BUTTON'&&/^\s*Link\s*$/.test(tx))e.classList.add('demo-plo-hidden');
+    }
+  }
+  var mo=new MutationObserver(function(){clearTimeout(mo._t);mo._t=setTimeout(sweep,250)});
+  document.addEventListener('DOMContentLoaded',function(){sweep();mo.observe(document.body,{childList:true,subtree:true})});
 })();
 </script>
 </head>
@@ -345,7 +412,105 @@ table.t tbody tr{transition:background .15s ease}
     });
   }
 
-  var DEMO_PIN = "6284";
+    var DEMO_PIN = "6284";
+
+  /* Demo data auto-upload (Khalid: "night audit by far the worst demo" —
+     Journal/Cash Drop/Reconcile/Reports are gated purely on rows.length via
+     the Upload view's own <input type=file>; a browser won't let JS put a
+     file into a file input from nothing, but a real File object built from
+     fetch()'d bytes + DataTransfer is exactly what a user dropping a file
+     does under the hood, so this is a real in-page upload, not a fork of the
+     app's own logic). Ships the same two files this app's own Ep2 video
+     parsed successfully (FO_Cashier_Journal + user_activity_log — fictional
+     guests WAYNE/BRUCE, HOLMES/SHERLOCK etc., Agents Alpha-Delta), the
+     journal regenerated only to move its business date from 2026-07-01 to
+     2026-07-12 (the night right after this demo's most recent seeded/
+     Approved history night, 2026-07-11) so it doesn't render as a two-week-
+     stale file — every other field verified byte-identical to the proven
+     original. Runs before the overlay lifts, silent on any failure (the
+     existing "upload first" empty states are always the fallback). */
+  var DEMO_DATA_DIR = "demo-data/";
+  var JOURNAL_FILE = "FO_Cashier_Journal_2026-07-12.xlsx";
+  var ACTIVITY_FILE = "user_activity_log_Q2.xml";
+  /* Z-report per-card totals the generator itself computed for this journal
+     (card code -> {amt,cnt}) — auto-typed into Reconcile's Machine 1 column
+     so the card-vs-Z-report tie-out actually ties out, the way the generator
+     designed it to, instead of every card reading "100% off" for lack of a
+     manual Z-report entry no visitor can type in. */
+  var MACHINE_TOTALS = {"9090":{"amt":1770,"cnt":3},"9100":{"amt":4894.75,"cnt":9},"9104":{"amt":1986,"cnt":3},"9102":{"amt":504,"cnt":1}};
+  var CARDS_ORDER = ["9090","9100","9104","9102"]; /* must match constants.js CARDS order */
+
+  async function fetchAsFile(url, name, mime){
+    var b64 = window.__DEMO_FILES && window.__DEMO_FILES[name];
+    if (b64){
+      var bin = atob(b64), arr = new Uint8Array(bin.length);
+      for (var bi = 0; bi < bin.length; bi++) arr[bi] = bin.charCodeAt(bi);
+      return new File([arr], name, { type: mime });
+    }
+    var res = await fetch(url);
+    if (!res.ok) throw new Error("fetch failed: " + url + " (" + res.status + ")");
+    var buf = await res.arrayBuffer();
+    return new File([buf], name, { type: mime });
+  }
+  function setInputFiles(input, file){
+    var dt = new DataTransfer();
+    dt.items.add(file);
+    input.files = dt.files;
+    input.dispatchEvent(new Event("change", { bubbles: true }));
+  }
+  function clickNavLabel(label){
+    var items = document.querySelectorAll(".nb-label");
+    for (var i = 0; i < items.length; i++) {
+      if (items[i].textContent.trim() === label) { items[i].closest(".nb").click(); return true; }
+    }
+    return false;
+  }
+
+  async function autoUploadJournal(){
+    try{
+      var input = await waitFor(function(){
+        return document.querySelector('input[type="file"][accept=".xlsx,.xls,.csv,.xml"]');
+      }, 5000);
+      var file = await fetchAsFile(DEMO_DATA_DIR + JOURNAL_FILE, JOURNAL_FILE,
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+      setInputFiles(input, file);
+      await waitFor(function(){
+        var on = document.querySelector(".nb.on .nb-label");
+        return on && on.textContent.trim() === "Journal";
+      }, 5000);
+    }catch(e){ /* Journal/Cash Drop/Reconcile/Reports stay on their empty state */ }
+  }
+
+  async function autoFillMachineCounts(){
+    try{
+      if (!clickNavLabel("Reconcile")) return;
+      var inputs = await waitFor(function(){
+        var els = document.querySelectorAll(".mach-inp");
+        return els.length ? els : null;
+      }, 5000);
+      inputs = Array.prototype.slice.call(inputs);
+      for (var ci = 0; ci < CARDS_ORDER.length; ci++) {
+        var tot = MACHINE_TOTALS[CARDS_ORDER[ci]];
+        if (!tot) continue;
+        var amtInput = inputs[ci * 10];     /* Machine 1, amount */
+        var cntInput = inputs[ci * 10 + 1]; /* Machine 1, count */
+        if (amtInput) setNativeValue(amtInput, String(tot.amt));
+        if (cntInput) setNativeValue(cntInput, String(tot.cnt));
+      }
+      await wait(120);
+    }catch(e){ /* Reconcile still shows real journal/cash data, just not tied out */ }
+  }
+
+  async function autoUploadActivityLog(){
+    try{
+      var input = await waitFor(function(){
+        return document.querySelector('input[type="file"][accept=".xml"]');
+      }, 5000);
+      var file = await fetchAsFile(DEMO_DATA_DIR + ACTIVITY_FILE, ACTIVITY_FILE, "text/xml");
+      setInputFiles(input, file);
+      await wait(900);
+    }catch(e){ /* Production KPI still populated from history alone */ }
+  }
 
   async function run(){
     // Night Audit has no vault/password — straight to the ID+PIN identity gate.
@@ -362,6 +527,13 @@ table.t tbody tr{transition:background .15s ease}
       await wait(90);
     }
 
+    // Auto-upload the proven synthetic Journal (un-gates Journal/Cash Drop/
+    // Reconcile/Reports), then auto-fill Reconcile's machine Z-report grid so
+    // it ties out — both while still on the default Upload/then-Reconcile
+    // view, before landing on Production KPI below.
+    await autoUploadJournal();
+    await autoFillMachineCounts();
+
     // Land on the Production KPI view (the featured KPI climax view for this app).
     var prodTab = await waitFor(function(){
       var items = document.querySelectorAll(".nb-label");
@@ -370,6 +542,9 @@ table.t tbody tr{transition:background .15s ease}
     }, 15000);
     prodTab.click();
     await wait(300);
+    // Activity-log XML upload lives on Production KPI's own view — same
+    // silent/idempotent auto-upload pattern as the journal above.
+    await autoUploadActivityLog();
 
     removeOverlay();
     if (window.innerWidth <= 900) {

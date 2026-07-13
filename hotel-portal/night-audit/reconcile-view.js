@@ -6,7 +6,7 @@
    available once step 5 (Approved) is done. ── */
 function ReconcileView(p){
   useLang();
-  const {rows,operaTot,operaCounts,machSums,machCounts,ploSums,ploCounts,ploList,cashPhys,disc,countDisc,totalDisc,balanced,
+  const {rows,operaTot,operaCounts,machSums,machCounts,ploSums,ploCounts,ploList,cashPhys,disc,countDisc,totalDisc,balanced,countsBalanced,
          allCorrCount,checkedCnt,flaggedCnt,payRows,totalCash,auditStatus,
          cashByAgent,auditorName,auditorNote,setAuditorNote,
          submittedAt,nightMgrName,nightMgrNote,setNightMgrNote,

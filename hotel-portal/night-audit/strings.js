@@ -94,7 +94,7 @@ const HELP_STRINGS={
       "If a second batch comes in late for the same night, use Re-sync from the Journal view to merge it in — don't re-upload from scratch, that loses your checks/flags."],
     journal:[
       "Every transaction is grouped by cashier. Click the checkbox or press C / Space to check a row; press F to flag it and leave a note.",
-      "Use ↑ / ↓ to move between rows, Tab to jump to the next unchecked one, and 1–9 to filter (All, Unchecked, Payments, Charges, Cards, Cash, Corrections, PLO, New).",
+      "Use ↑ / ↓ to move between rows, Tab to jump to the next unchecked one, and 1–9 to filter (All, Unchecked, Payments, Charges, Cards, Cash, Corrections, New).",
       "If something needs correcting, flag it and link it to its reversal/replacement so both sides show in the audit trail.",
       "A flagged row left unlinked stays open — you'll need to acknowledge it before final approval."],
     cash:[
@@ -102,7 +102,6 @@ const HELP_STRINGS={
       "The variance against Opera's cash total is colored by how far off it is, not a single pass/fail cutoff — small amounts are normal handling slack."],
     reconcile:[
       "Machine Z-Reports: enter the amount and transaction count from each terminal's paper Z-report, per card type. Tab walks down one machine's card types before moving to the next, so you can fill in one paper slip at a time.",
-      "PLO Entries: tag any card payment that was actually a Paid-Out so it's correctly excluded from the discrepancy.",
       "The Discrepancy Summary shows amount and count mismatches separately — a count mismatch can hide behind a matching amount if two wrong entries cancel out.",
       "Cash per Cashier and Non-Card Settlements complete the reconciliation — count physical cash on the Cash tab for every cashier; City Ledger/ALL Reward/Expedia are listed for a complete total, since there's no terminal to check them against.",
       "Submit for review, then the Night Manager approves. Unchecked rows block approval; an open flag just needs to be acknowledged."],
@@ -132,7 +131,7 @@ const HELP_STRINGS={
       "إذا وصلت دفعة ثانية متأخرة لنفس الليلة، استخدم إعادة المزامنة من شاشة اليومية لدمجها — لا تُعِد الرفع من الصفر، فذلك يفقد التحقق والإشارات التي أدخلتها."],
     journal:[
       "كل معاملة مصنّفة حسب الكاشير. انقر على المربع أو اضغط C أو مسافة للتحقق من الصف؛ اضغط F لوضع إشارة وترك ملاحظة.",
-      "استخدم ↑ / ↓ للتنقل بين الصفوف، Tab للانتقال إلى أول صف غير محقَّق، والأرقام 1–9 للتصفية (الكل، غير محقَّق، مدفوعات، رسوم، بطاقات، نقدي، تصحيحات، PLO، جديد).",
+      "استخدم ↑ / ↓ للتنقل بين الصفوف، Tab للانتقال إلى أول صف غير محقَّق، والأرقام 1–9 للتصفية (الكل، غير محقَّق، مدفوعات، رسوم، بطاقات، نقدي، تصحيحات، جديد).",
       "إذا احتاجت معاملة تصحيحاً، ضع عليها إشارة واربطها بمعاملة العكس/الاستبدال ليظهر الطرفان في مسار التدقيق.",
       "الصف الذي عليه إشارة ولم يُربط يبقى مفتوحاً — يجب الإقرار به قبل الاعتماد النهائي."],
     cash:[
@@ -140,7 +139,6 @@ const HELP_STRINGS={
       "يُلوَّن الفارق مقابل إجمالي أوبرا النقدي حسب مقدار الفرق، وليس بمعيار نجاح/فشل واحد — الفروقات الصغيرة تُعد تفاوتاً طبيعياً في التعامل النقدي."],
     reconcile:[
       "تقارير إغلاق الأجهزة (Z-Report): أدخل المبلغ وعدد المعاملات من تقرير الإغلاق الورقي لكل جهاز، لكل نوع بطاقة. يتنقل مفتاح Tab عبر أنواع البطاقات لجهاز واحد قبل الانتقال للجهاز التالي، لتُدخل بيانات كشف ورقي واحد في كل مرة.",
-      "إدخالات PLO: ضع إشارة على أي دفعة بطاقة كانت في الحقيقة صرفاً (Paid-Out) ليتم استبعادها بشكل صحيح من الفارق.",
       "ملخص الفارق يعرض فروقات المبلغ والعدد بشكل منفصل — قد يختفي فارق في العدد خلف مبلغ متطابق إذا ألغى إدخالان خاطئان بعضهما.",
       "«النقدية حسب الكاشير» و«تسويات بدون بطاقة» تُكمل المطابقة — عُدّ النقدية فعلياً في تبويب النقدي لكل كاشير؛ أما City Ledger وALL Reward وExpedia فتُعرض لإظهار إجمالي كامل، لعدم وجود جهاز طرفي لمطابقتها.",
       "أرسل للمراجعة، ثم يعتمدها مدير المناوبة الليلية. الصفوف غير المحقَّقة تمنع الاعتماد؛ الإشارة المفتوحة تحتاج فقط للإقرار بها."],
@@ -346,7 +344,7 @@ en:{
     accuracyReviewedNote:"{0}/{1} transactions addressed (checked or flagged)",
     accuracyNotReviewed:"Check or flag every transaction in the Journal before continuing.",
     paymentsReconciledNote:"Card totals balance against Machine Z-Reports + PLO, and every cashier has been counted within tolerance.",
-    paymentsNotReconciled:"Not balanced yet — resolve it in Machine Z-Reports/PLO above, count every cashier in Cash per Cashier below, or explain the variance in the note below so the audit can proceed.",
+    paymentsNotReconciled:"Not balanced yet — resolve it in Machine Z-Reports above, count every cashier in Cash per Cashier below, or explain the variance in the note below so the audit can proceed.",
     varianceNoteLabel:"Variance explanation (required while unbalanced):",
     varianceNotePh:"e.g. \"Visa terminal 2 Z-report missing — chasing with FDM in the morning\"",
     productionIntro:"Review this week's Production KPI numbers before signing off — a specialist agent's low check-in/out count may be fully explained by courtesy/departure calls.",
@@ -373,7 +371,7 @@ en:{
     cashReconciledNote:"Every cashier counted, within tolerance.",
     cashNotReconciledNote:"Not every cashier has been counted yet, or a variance exceeds tolerance.",
     goToCash:"Go to Cash tab →",
-    nonCardIntro:"These settle directly — no terminal or PLO to check against. Listed here for a complete night total, not gated on a variance.",
+    nonCardIntro:"These settle directly — no terminal to check against. Listed here for a complete night total, not gated on a variance.",
     totalSettled:"Total settled (all payment types)",
     settledTxns:"{0} transaction{1}"
   },
@@ -409,7 +407,7 @@ en:{
     openFlagsUnresolved:"Open flags (unresolved at time of report)",
     tabSummary:"Reconciliation Summary", tabJournal:"Final Journal Report",
     savePdf:"Save PDF", saveExcel:"Save Excel", print:"Print", exportJson:"Export JSON",
-    footnote:"PDF/Print bundle both reports; Excel is typed data across tabs (Summary, Journal, Cash, PLO)",
+    footnote:"PDF/Print bundle both reports; Excel is typed data across tabs (Summary, Journal, Cash)",
     writtenToFolder:" · written to your connected folder.", downloaded:" · downloaded."
   },
   journal:{
@@ -819,7 +817,7 @@ ar:{
     accuracyReviewedNote:"{0}/{1} معاملة تمت مراجعتها (محقَّقة أو عليها إشارة)",
     accuracyNotReviewed:"حقِّق أو ضع إشارة على كل معاملة في اليومية قبل المتابعة.",
     paymentsReconciledNote:"إجماليات البطاقات متطابقة مع تقارير إغلاق الأجهزة و PLO، وتم عدّ جميع الكاشيرين ضمن الحد المسموح.",
-    paymentsNotReconciled:"لم تتطابق بعد — عالِج الفارق في تقارير إغلاق الأجهزة/PLO أعلاه، أو أكمل عدّ كل كاشير في قسم «النقدية حسب الكاشير» أدناه، أو اشرح سبب الفارق في الملاحظة أدناه للمتابعة.",
+    paymentsNotReconciled:"لم تتطابق بعد — عالِج الفارق في تقارير إغلاق الأجهزة أعلاه، أو أكمل عدّ كل كاشير في قسم «النقدية حسب الكاشير» أدناه، أو اشرح سبب الفارق في الملاحظة أدناه للمتابعة.",
     varianceNoteLabel:"توضيح الفارق (مطلوب أثناء عدم التطابق):",
     varianceNotePh:"مثال: «تقرير إغلاق جهاز فيزا 2 مفقود — يُتابع مع FDM صباحاً»",
     productionIntro:"راجع أرقام مؤشر الإنتاجية لهذا الأسبوع قبل الاعتماد — انخفاض عدد تسجيلات الوصول/المغادرة لموظف متخصص قد يكون بسبب مكالمات المجاملة/المغادرة.",
@@ -847,7 +845,7 @@ ar:{
     cashReconciledNote:"تم عدّ جميع الكاشيرين، والفروقات ضمن الحد المسموح.",
     cashNotReconciledNote:"لم يُعدّ بعض الكاشيرين بعد، أو أن الفارق يتجاوز الحد المسموح.",
     goToCash:"الانتقال إلى تبويب النقدي ←",
-    nonCardIntro:"تُسوَّى هذه البنود مباشرة — لا يوجد جهاز طرفي أو PLO لمطابقتها. تُعرض هنا لإظهار إجمالي الليلة الكامل، دون اشتراط مطابقة فارق.",
+    nonCardIntro:"تُسوَّى هذه البنود مباشرة — لا يوجد جهاز طرفي لمطابقتها. تُعرض هنا لإظهار إجمالي الليلة الكامل، دون اشتراط مطابقة فارق.",
     totalSettled:"إجمالي المسدد (جميع طرق الدفع)",
     settledTxns:"{0} معاملة{1}"
   },
@@ -883,7 +881,7 @@ ar:{
     openFlagsUnresolved:"إشارات مفتوحة (غير محلولة وقت إعداد التقرير)",
     tabSummary:"ملخص المطابقة", tabJournal:"تقرير اليومية النهائي",
     savePdf:"حفظ PDF", saveExcel:"حفظ Excel", print:"طباعة", exportJson:"تصدير JSON",
-    footnote:"يجمع PDF/الطباعة كلا التقريرين؛ ملف Excel بيانات مُهيكلة عبر عدة أوراق (الملخص، اليومية، النقدي، PLO)",
+    footnote:"يجمع PDF/الطباعة كلا التقريرين؛ ملف Excel بيانات مُهيكلة عبر عدة أوراق (الملخص، اليومية، النقدي)",
     writtenToFolder:" · كُتب في مجلدك المتصل.", downloaded:" · تم التنزيل."
   },
   journal:{
