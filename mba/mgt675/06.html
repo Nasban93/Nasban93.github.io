@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MGT675 · Step 6 — SPSS Analysis Walkthrough — MBA Wiki</title>
+<link rel="stylesheet" href="../style.css">
+<meta name="description" content="In one sentence: running a regression before checking your scales are reliable is building on a foundation you haven&#x27;t inspected.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MGT675 · Step 6 — SPSS Analysis Walkthrough — MBA Wiki">
+<meta property="og:description" content="In one sentence: running a regression before checking your scales are reliable is building on a foundation you haven&#x27;t inspected.">
+<meta property="og:url" content="https://binnasban.com/mba/mgt675/06.html">
+<meta property="og:site_name" content="MBA Wiki">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://binnasban.com/mba/mgt675/06.html">
+<link rel="stylesheet" href="../print.css" media="print">
+</head>
+<body>
+<nav>
+  <span class="brand">MBA <span class="gold">Wiki</span></span>
+  <span class="links">
+    <a href="../index.html"><span class="en">Courses</span><span class="ar">المقررات</span></a>
+    <a href="../mgt675.html">MGT675</a>
+    <a href="../concepts.html"><span class="en">Concepts A–Z</span><span class="ar">المفاهيم أ–ي</span></a>
+  </span>
+  <a class="nav-search" href="../search.html">🔍 <span class="en">Search</span><span class="ar" style="display:inline">بحث</span></a><span class="spacer"></span>
+  <button id="langBtn">عربي</button>
+</nav>
+
+<div class="course-hero">
+  <div class="code">MGT675 · <span class="en">Step 6 of 8</span><span class="ar">الخطوة 6 من 8</span></div>
+  <h1><span class="en">SPSS Analysis Walkthrough</span><span class="ar">جولة تحليل SPSS</span></h1>
+  <div class="cite"><span class="en">In one sentence: running a regression before checking your scales are reliable is building on a foundation you haven't inspected.</span><span class="ar">في جملة واحدة: إجراء انحدار قبل التحقق من ثبات مقاييسك بناء على أساس لم تفحصه.</span></div>
+</div>
+
+<div class="wrap">
+
+<h2 class="sec"><span class="en">Key Ideas</span><span class="ar">الأفكار الرئيسية</span></h2>
+
+<div class="concept" id="analysis-order">
+  <h3><span class="en">The Order of Operations, and Why It's Not Arbitrary</span> · <span class="ar" style="display:inline">ترتيب العمليات، ولماذا ليس اعتباطياً</span></h3>
+  <p class="en">Reliability first (<i>Analyze → Scale → Reliability Analysis</i>, checking Cronbach's alpha for each multi-item construct): there's no point analyzing relationships between measures you haven't confirmed are internally consistent. Descriptives second (<i>Analyze → Descriptive Statistics → Descriptives/Frequencies</i>): a sanity check on means, ranges, and missing-data patterns before any relationship testing — catching an impossible value (a "7" on a 5-point scale from a data-entry error) here saves discovering it as a confusing outlier three steps later. Correlation third (<i>Analyze → Correlate → Bivariate</i>): explores which pairs of variables move together and roughly how strongly, before committing to a specific causal model. Regression last (<i>Analyze → Regression → Linear</i>): tests the actual hypothesized model, ideally with all predictors entered together so their effects are estimated while controlling for each other. Each step depends on the one before it having been checked, not just completed.</p>
+  <p class="ar">الثبات أولاً (<i>تحليل ← مقياس ← تحليل الثبات</i>، فاحصاً ألفا كرونباخ لكل متغير متعدد الفقرات): لا جدوى بتحليل علاقات بين مقاييس لم تؤكد اتساقها الداخلي. والوصفيات ثانياً (<i>تحليل ← إحصاءات وصفية ← وصفيات/تكرارات</i>): فحص سلامة على المتوسطات والمديات وأنماط بيانات مفقودة قبل أي اختبار علاقة — التقاط قيمة مستحيلة («7» بمقياس من 5 من خطأ إدخال بيانات) هنا يُوفر اكتشافها كقيمة متطرفة مُربكة بعد ثلاث خطوات. والارتباط ثالثاً (<i>تحليل ← ارتباط ← ثنائي</i>): يستكشف أي أزواج متغيرات تتحرك معاً وتقريباً بأي قوة، قبل الالتزام بنموذج سببي محدد. والانحدار أخيراً (<i>تحليل ← انحدار ← خطي</i>): يختبر النموذج المفترض الفعلي، مثالياً بإدخال كل المُتنبئات معاً كي تُقدَّر آثارها بضبط كل منها للآخر. وتعتمد كل خطوة على فحص السابقة، لا إنجازها فقط.</p>
+</div>
+
+<div class="concept" id="alpha-interpretation">
+  <h3><span class="en">Reading an Alpha Output Table, Not Just the Headline Number</span> · <span class="ar" style="display:inline">قراءة جدول مخرجات ألفا، لا الرقم الرئيسي فقط</span></h3>
+  <p class="en">SPSS's reliability output gives the overall alpha, but the more diagnostically useful table is "Item-Total Statistics," which shows what alpha would become if each specific item were deleted. A construct with an acceptable overall alpha can still have one weak item quietly dragging it down — if deleting a specific item would raise alpha noticeably, that item deserves a second look (rewording, or removal with justification) even when the headline number technically clears the 0.7 threshold, connecting directly to RES500's scale-purification principle applied at the actual analysis stage rather than left as an abstract idea.</p>
+  <p class="ar">تُعطي مخرجات ثبات SPSS ألفا الإجمالي، لكن الجدول الأكثر فائدة تشخيصياً «إحصاءات الفقرة-الإجمالي»، الذي يُظهر ما سيصيره ألفا لو حُذفت كل فقرة محددة. ويمكن أن يملك متغير بألفا إجمالي مقبول فقرة ضعيفة واحدة رغم ذلك تسحبه لأسفل بصمت — إن كان حذف فقرة محددة سيرفع ألفا ملحوظاً، تستحق تلك الفقرة نظرة ثانية (إعادة صياغة أو حذف بتبرير) حتى حين يجتاز الرقم الرئيسي تقنياً حد 0.7، رابطاً مباشرة بمبدأ تنقية المقياس بRES500 مُطبقاً بمرحلة التحليل الفعلية بدل تركه فكرة مجردة.</p>
+</div>
+
+<div class="concept" id="correlation-to-regression">
+  <h3><span class="en">Why Correlation Comes Before Regression, Not Instead of It</span> · <span class="ar" style="display:inline">لماذا يأتي الارتباط قبل الانحدار، لا بدلاً منه</span></h3>
+  <p class="en">A correlation matrix run before regression serves two purposes beyond simple exploration: it flags multicollinearity risk early (two predictor variables correlating very strongly with each other, above roughly 0.8, can make a regression's individual coefficient estimates unstable and hard to interpret) and it provides a sanity check against the regression output — a predictor that correlates near zero with the outcome in the simple bivariate check but comes out as a strong significant predictor in the full regression deserves a second look at what's happening, since that pattern is unusual though not automatically wrong (it can reflect a genuine suppression effect once other variables are controlled for). Regression should confirm and refine the pattern correlation suggested, not contradict it without a specific, checkable explanation.</p>
+  <p class="ar">تخدم مصفوفة ارتباط مُجراة قبل الانحدار غرضين يتجاوزان الاستكشاف البسيط: تُشير لمخاطرة تعدد الخطية باكراً (متغيرا مُتنبئ يرتبطان بقوة كبيرة ببعضهما، فوق 0.8 تقريباً، قد يجعلان تقديرات معامل انحدار فردية غير مستقرة وصعبة التفسير) وتُقدّم فحص سلامة مقابل مخرجات الانحدار — مُتنبئ يرتبط قريباً من الصفر بالنتيجة بالفحص الثنائي البسيط لكن يخرج مُتنبئاً دالاً قوياً بالانحدار الكامل يستحق نظرة ثانية لما يحدث، إذ ذلك النمط غير معتاد رغم أنه ليس خاطئاً تلقائياً (يمكن أن يعكس أثر كبت حقيقياً بمجرد ضبط متغيرات أخرى). وينبغي أن يؤكد الانحدار ويُنقّح النمط الذي اقترحه الارتباط، لا يناقضه دون تفسير محدد وقابل للفحص.</p>
+</div>
+
+<div class="concept" id="reading-regression-output">
+  <h3><span class="en">Reading a Regression Table Without Over- or Under-Claiming</span> · <span class="ar" style="display:inline">قراءة جدول انحدار دون مبالغة أو تقصير بالمطالبة</span></h3>
+  <p class="en">The Model Summary's R² tells you what proportion of variance in the outcome the whole model explains together — useful for overall model strength, not for judging any single predictor. The Coefficients table's standardized Beta and its significance value tell you, for each predictor, both the direction and relative strength of its unique association with the outcome while holding other predictors constant, and whether that association is unlikely to be due to chance alone. A predictor with a significant p-value but a very small Beta is statistically detectable but practically minor — reporting only significance stars without also reporting and discussing effect size overstates a finding's real-world importance, exactly the "statistical significance ≠ practical importance" distinction the hub's own stats-basics section warns about.</p>
+  <p class="ar">تُخبرك R² بملخص النموذج أي نسبة تباين بالنتيجة يُفسرها النموذج كله معاً — مفيد لقوة النموذج الإجمالية، لا للحكم على أي مُتنبئ فردي. وتُخبرك بيتا المُوحَّدة بجدول المعاملات وقيمة دلالتها، لكل مُتنبئ، باتجاه وقوة نسبية لارتباطه الفريد بالنتيجة مع تثبيت مُتنبئات أخرى، وهل ذلك الارتباط غير مُرجَّح كونه بالصدفة وحدها. ومُتنبئ بقيمة احتمالية دالة لكن بيتا صغيرة جداً قابل للاكتشاف إحصائياً لكن ثانوي عملياً — الإبلاغ عن نجوم دلالة فقط دون الإبلاغ أيضاً بحجم الأثر ومناقشته يُبالغ بأهمية اكتشاف الواقعية، بالضبط تمييز «الدلالة الإحصائية ≠ الأهمية العملية» الذي يُحذّر منه قسم أساسيات إحصاءات المحور نفسه.</p>
+</div>
+
+<h2 class="sec"><span class="en">Case Study 🇸🇦 — What the Regression Table Actually Showed</span><span class="ar">دراسة حالة 🇸🇦 — ما أظهره جدول الانحدار فعلاً</span></h2>
+<div class="saudi">
+  <p class="en">Running his analysis in the order this topic prescribes, Khalid first checked reliability for all five constructs from his extended TAM model, finding acceptable alphas (all above 0.75) for four, and one construct (privacy concern) sitting at 0.68 until the item-total statistics table flagged a single item worth dropping, after which the revised alpha cleared 0.72. Descriptives came next, and a frequency check caught eleven cases with an impossible value on one item (a data-entry artifact from the online platform's export, not a respondent error), corrected before proceeding. The bivariate correlation matrix showed perceived usefulness and trust both correlating moderately-to-strongly with acceptance intention, ease of use correlating more weakly, and — a useful early warning — trust and fairness perception correlating with each other at 0.71, high enough that Khalid flagged possible multicollinearity to watch for in the regression step rather than being surprised by it later. Running the full linear regression with all five predictors entered together, the Model Summary showed the model explained a meaningful 54% of variance in acceptance intention (R² = .54), and the Coefficients table told a more specific story than the correlation matrix alone had: perceived usefulness (Beta = .31, p &lt; .01) and trust (Beta = .28, p &lt; .01) emerged as the strongest significant predictors, fairness perception was significant but with a smaller unique effect once trust was controlled for (Beta = .14, p &lt; .05) — consistent with the correlation warning, since some of fairness's apparent influence overlapped with trust rather than being fully independent — and ease of use did not reach significance in the full model (p = .19) despite a modest positive correlation on its own, a genuine and reportable null finding rather than something to omit. This full pattern — not just the headline "usefulness and trust matter most" summary the hub gives — is what actually appears in Khalid's Results chapter, with the ease-of-use null finding and the fairness-trust overlap both discussed honestly in the Discussion chapter rather than smoothed over.</p>
+  <p class="ar">بإجراء تحليله بالترتيب الذي يصفه هذا الموضوع، فحص خالد أولاً ثبات المتغيرات الخمسة كلها من نموذجه الموسَّع لقبول التكنولوجيا، واجداً ألفا مقبولاً (كله فوق 0.75) لأربعة، ومتغيراً واحداً (مخاوف الخصوصية) عند 0.68 حتى أشار جدول إحصاءات الفقرة-الإجمالي لفقرة واحدة تستحق الحذف، وبعدها تجاوز ألفا المُنقَّح 0.72. وأتت الوصفيات تالياً، والتقط فحص تكرارات إحدى عشرة حالة بقيمة مستحيلة بفقرة واحدة (خلل تصدير من المنصة الأونلاين، لا خطأ مستجيب)، صُححت قبل المضي. وأظهرت مصفوفة الارتباط الثنائي الفائدة المدركة والثقة مرتبطتين معتدلاً لقوياً بنية التقبل، وسهولة الاستخدام مرتبطة أضعف، و — تحذير مبكر مفيد — الثقة وإدراك العدالة مرتبطتان ببعضهما عند 0.71، مرتفعة بما يكفي كي يُشير خالد لتعدد خطية محتمل يُراقب بخطوة الانحدار بدل مفاجأته به لاحقاً. وبإجراء الانحدار الخطي الكامل بكل المُتنبئات الخمسة مُدخلة معاً، أظهر ملخص النموذج أن النموذج فسّر 54٪ معتبرة من التباين بنية التقبل (R² = .54)، وروى جدول المعاملات قصة أكثر تحديداً مما فعلت مصفوفة الارتباط وحدها: برزت الفائدة المدركة (بيتا = .31، احتمالية أقل من 0.01) والثقة (بيتا = .28، احتمالية أقل من 0.01) كأقوى المُتنبئات الدالة، وكان إدراك العدالة دالاً لكن بأثر فريد أصغر بمجرد ضبط الثقة (بيتا = .14، احتمالية أقل من 0.05) — مُتسقاً مع تحذير الارتباط، إذ تداخل بعض تأثير العدالة الظاهر مع الثقة بدل كونه مستقلاً كلياً — ولم تصل سهولة الاستخدام للدلالة بالنموذج الكامل (احتمالية = 0.19) رغم ارتباط إيجابي متواضع بمفردها، اكتشاف عدمي حقيقي وقابل للإبلاغ لا شيء يُحذف. وهذا النمط الكامل — لا ملخص «الفائدة والثقة تهمان أكثر» الرئيسي فقط الذي يُقدّمه المحور — ما يظهر فعلاً بفصل نتائج خالد، بمناقشة اكتشاف عدمية سهولة الاستخدام وتداخل العدالة-الثقة معاً بصدق بفصل المناقشة بدل تنعيمهما.</p>
+</div>
+
+<h2 class="sec"><span class="en">Test Yourself</span><span class="ar">اختبر نفسك</span></h2>
+<details class="quiz"><summary><span class="en">Why did Khalid check the correlation between trust and fairness perception before running the regression?</span><span class="ar">لماذا فحص خالد الارتباط بين الثقة وإدراك العدالة قبل إجراء الانحدار؟</span></summary>
+<p class="en">A correlation of 0.71 between two predictors flags possible multicollinearity, which can make individual regression coefficients unstable — checking this beforehand meant he wasn't surprised by fairness's smaller unique effect once trust was controlled for.</p>
+<p class="ar">يُشير ارتباط 0.71 بين مُتنبئين لتعدد خطية محتمل، قد يجعل معاملات انحدار فردية غير مستقرة — عنى فحص هذا مسبقاً عدم مفاجأته بأثر العدالة الفريد الأصغر بمجرد ضبط الثقة.</p></details>
+<details class="quiz"><summary><span class="en">Why did Khalid report the ease-of-use null finding instead of omitting it?</span><span class="ar">لماذا أبلغ خالد اكتشاف سهولة الاستخدام العدمي بدل حذفه؟</span></summary>
+<p class="en">A documented, honestly reported non-significant finding is still a real finding worth discussing — omitting inconvenient results violates the objectivity principle central to credible research, covered throughout RES500.</p>
+<p class="ar">اكتشاف غير دال مُوثق ومُبلَّغ عنه بصدق لا يزال اكتشافاً حقيقياً يستحق المناقشة — يُخالف حذف نتائج مُزعجة مبدأ الموضوعية المحوري للبحث الموثوق، المُغطى عبر RES500.</p></details>
+<details class="quiz"><summary><span class="en">Why did the item-total statistics table matter even though the overall alpha for privacy concern was close to acceptable at 0.68?</span><span class="ar">لماذا أهم جدول إحصاءات الفقرة-الإجمالي رغم أن ألفا الإجمالي لمخاوف الخصوصية كان قريباً من المقبول عند 0.68؟</span></summary>
+<p class="en">It identified the specific item dragging the alpha down, letting Khalid fix the actual problem (drop that item) rather than either accepting a borderline scale as-is or discarding the whole construct unnecessarily.</p>
+<p class="ar">حدد الفقرة المحددة التي تسحب ألفا لأسفل، مُتيحاً لخالد إصلاح المشكلة الفعلية (حذف تلك الفقرة) بدل إما قبول مقياس حدّي كما هو أو تجاهل المتغير كله دون داعٍ.</p></details>
+
+<div class="crumb">
+  <a href="05.html"><span class="en">← Prev</span><span class="ar" style="display:inline">→ السابق</span></a> · <a href="../mgt675.html">MGT675</a> · <a href="07.html"><span class="en">Next: Writing & Turnitin →</span><span class="ar" style="display:inline">التالي: الكتابة وTurnitin ←</span></a>
+</div>
+</div>
+<footer>
+  <div class="fbtn"><a href="https://binnasban.com" target="_blank" rel="noopener">Visit Binnasban.com</a></div>
+  <div class="fcredit">Built by <b>Khalid Bin Nasban</b> · <a href="mailto:knasban@gmail.com">knasban@gmail.com</a> · <a href="https://www.linkedin.com/in/khalid-nasban" target="_blank" rel="noopener">LinkedIn</a></div>
+  <div>MBA Wiki · Binnasban.com/mba</div>
+</footer>
+<script src="../app.js"></script>
+</body>
+</html>
