@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Search — MBA Wiki</title>
+<meta name="description" content="Search every course, study topic, and concept in the MBA Wiki — in English and Arabic.">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="print.css" media="print">
+</head>
+<body>
+<nav>
+  <span class="brand">MBA <span class="gold">Wiki</span></span>
+  <span class="links">
+    <a href="index.html"><span class="en">Courses</span><span class="ar">المقررات</span></a>
+    <a href="concepts.html"><span class="en">Concepts A–Z</span><span class="ar">المفاهيم أ–ي</span></a>
+    <a href="finder.html"><span class="en">Framework Finder</span><span class="ar">دليل الأدوات</span></a>
+  </span>
+  <span class="spacer"></span>
+  <button id="langBtn">عربي</button>
+</nav>
+
+<div class="hero">
+  <h1><span class="en">Search the <i style="color:var(--gold);font-style:italic">Wiki</i></span><span class="ar">ابحث في <span style="color:var(--gold)">الموسوعة</span></span></h1>
+  <p class="en">Every course, every study topic, every concept — English and Arabic.</p>
+  <p class="ar">كل مقرر وكل موضوع دراسي وكل مفهوم — بالعربية والإنجليزية.</p>
+  <input id="q" type="search" placeholder="Try: WACC · بيتا · Kotter · الميزة النسبية · bullwhip…" autofocus>
+</div>
+
+<div class="wrap" id="results">
+  <p class="en" style="color:var(--dim)">Type at least two characters to search 175 pages and concepts.</p>
+  <p class="ar" style="color:var(--dim)">اكتب حرفين على الأقل للبحث في 175 صفحة ومفهوماً.</p>
+</div>
+
+<footer>
+  <div class="fbtn"><a href="https://binnasban.com" target="_blank" rel="noopener">Visit Binnasban.com</a></div>
+  <div class="fcredit">Built by <b>Khalid Bin Nasban</b> · <a href="mailto:knasban@gmail.com">knasban@gmail.com</a> · <a href="https://www.linkedin.com/in/khalid-nasban" target="_blank" rel="noopener">LinkedIn</a></div>
+  <div>MBA Wiki · Binnasban.com/mba</div>
+</footer>
+<script src="searchdata.js"></script>
+<script src="app.js"></script>
+<script>
+(function(){
+  var q = document.getElementById('q'), out = document.getElementById('results');
+  var isAr = function(){ return document.body.classList.contains('lang-ar'); };
+
+  function group(u){
+    if (u.indexOf('#') !== -1) return 'concepts';
+    if (u.indexOf('/') !== -1) return 'topics';
+    return 'courses';
+  }
+  var groupTitles = {
+    courses:  {en:'Courses', ar:'المقررات'},
+    topics:   {en:'Study Topics', ar:'موضوعات الدراسة'},
+    concepts: {en:'Concepts', ar:'المفاهيم'}
+  };
+
+  function render(){
+    var term = q.value.trim().toLowerCase();
+    out.innerHTML = '';
+    if (term.length < 2){
+      out.innerHTML = '<p style="color:var(--dim)">' + (isAr() ? 'اكتب حرفين على الأقل…' : 'Type at least two characters…') + '</p>';
+      return;
+    }
+    var hits = window.MBA_INDEX.filter(function(p){
+      return (p.e + ' ' + p.a + ' ' + p.k).toLowerCase().indexOf(term) !== -1;
+    });
+    if (!hits.length){
+      out.innerHTML = '<p style="color:var(--dim)">' + (isAr() ? 'لا نتائج — جرّب كلمة أخرى أو مرادفاً إنجليزياً/عربياً.' : 'No results — try another word, or its English/Arabic equivalent.') + '</p>';
+      return;
+    }
+    ['concepts','topics','courses'].forEach(function(g){
+      var items = hits.filter(function(p){ return group(p.u) === g; });
+      if (!items.length) return;
+      var h = document.createElement('h2'); h.className = 'sec';
+      h.textContent = (isAr() ? groupTitles[g].ar : groupTitles[g].en) + ' (' + items.length + ')';
+      out.appendChild(h);
+      items.slice(0, 30).forEach(function(p){
+        var a = document.createElement('a'); a.className = 'gloss'; a.style.display = 'block'; a.href = p.u;
+        a.innerHTML = '<b>' + p.e + '</b>' + (p.a ? ' · <span dir="rtl">' + p.a + '</span>' : '');
+        out.appendChild(a);
+      });
+    });
+  }
+
+  q.addEventListener('input', render);
+  document.getElementById('langBtn').addEventListener('click', render);
+  // support ?q= links from anywhere on the site
+  var m = location.search.match(/[?&]q=([^&]+)/);
+  if (m){ q.value = decodeURIComponent(m[1].replace(/\+/g, ' ')); render(); }
+})();
+</script>
+</body>
+</html>

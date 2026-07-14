@@ -1,0 +1,184 @@
+/* MBA Wiki — Binnasban.com/mba · light edition, binnasban.com design language */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,500;1,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap');
+
+:root{
+  --bg:#faf9f6; --bg2:#f4f1ea; --panel:#ffffff; --panel2:#fbf8f1;
+  --line:#e7e2d6; --line2:#d8d1c0;
+  --ink:#1c2430; --muted:#5b6675; --dim:#8b94a3;
+  --gold:#b08628; --gold2:#8f6c1c; --accent:#2563b0;
+  --green:#177a4c;
+  --serif:"Playfair Display",Georgia,serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;font-family:Inter,"IBM Plex Sans Arabic",Tahoma,sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;font-size:16.5px}
+a{color:var(--gold2);text-decoration:none;transition:color .2s}
+a:hover{color:var(--ink)}
+::selection{background:rgba(176,134,40,.25)}
+
+.ar{display:none;direction:rtl;text-align:right;font-family:"IBM Plex Sans Arabic",Tahoma,sans-serif}
+body.lang-ar .ar{display:block}
+body.lang-ar .en{display:none}
+body.lang-ar span.ar,body.lang-ar .chip.ar,body.lang-ar b.ar{display:inline-block}
+
+/* ---------- nav ---------- */
+nav{background:rgba(250,249,246,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);
+  padding:.85rem 1.6rem;display:flex;align-items:center;gap:1.4rem;flex-wrap:wrap;position:sticky;top:0;z-index:9}
+nav .brand{font-family:var(--serif);font-weight:600;font-size:1.25rem;color:var(--ink);letter-spacing:.3px}
+nav .brand .gold{color:var(--gold);font-style:italic}
+nav a{color:var(--muted);font-size:.92rem;font-weight:500;letter-spacing:.3px}
+nav a:hover{color:var(--gold2)}
+nav .links{display:flex;gap:1.3rem;flex-wrap:wrap}
+nav .spacer{flex:1}
+#langBtn{background:transparent;color:var(--gold2);border:1.5px solid var(--gold);border-radius:999px;
+  padding:.35rem 1.1rem;font-weight:600;cursor:pointer;font-size:.9rem;transition:all .25s;font-family:inherit}
+#langBtn:hover{background:var(--gold);color:#fff}
+
+/* ---------- heroes ---------- */
+.hero,.course-hero{position:relative;overflow:hidden;background:
+  radial-gradient(900px 420px at 85% -10%,rgba(176,134,40,.10),transparent 60%),
+  radial-gradient(700px 380px at 8% 110%,rgba(37,99,176,.06),transparent 55%),var(--bg2);
+  border-bottom:1px solid var(--line)}
+.hero{padding:4.2rem 1.6rem 3.4rem;text-align:center}
+.hero h1{font-family:var(--serif);font-size:clamp(2rem,5vw,3.3rem);margin:.3rem 0 .9rem;color:var(--ink);font-weight:600;letter-spacing:.3px}
+.hero h1 .ar{font-family:"IBM Plex Sans Arabic",Tahoma,sans-serif;font-weight:700}
+.hero p{margin:.3rem auto;max-width:720px;color:var(--muted);font-size:1.03rem}
+.course-hero{padding:3rem 1.6rem 2.4rem}
+.course-hero .code{color:var(--gold2);font-size:.82rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase}
+.course-hero h1{font-family:var(--serif);font-size:clamp(1.7rem,4vw,2.6rem);margin:.45rem 0;color:var(--ink);font-weight:600}
+.course-hero h1 .ar{font-family:"IBM Plex Sans Arabic",Tahoma,sans-serif;font-weight:700}
+.course-hero .cite{font-size:.88rem;color:var(--dim);margin-top:.7rem}
+
+.wrap{max-width:1080px;margin:0 auto;padding:2rem 1.4rem 3rem}
+.wrap>p{color:#333e4e;max-width:860px}
+
+/* ---------- headings ---------- */
+h2,.term-h{font-family:var(--serif);color:var(--ink);font-weight:600}
+h2.sec,.wrap h2{font-size:1.5rem;margin:2.6rem 0 1rem;padding-bottom:.45rem;border-bottom:1px solid var(--line);position:relative}
+h2.sec::after,.wrap h2::after{content:"";position:absolute;left:0;bottom:-1px;width:64px;height:2px;background:var(--gold)}
+body.lang-ar h2.sec::after,body.lang-ar .wrap h2::after{left:auto;right:0}
+.term-h{margin:2.6rem 0 1rem;font-size:1.25rem;border-bottom:1px solid var(--line);padding-bottom:.45rem;
+  display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;position:relative}
+.term-h::after{content:"";position:absolute;left:0;bottom:-1px;width:64px;height:2px;background:var(--gold)}
+body.lang-ar .term-h::after{left:auto;right:0}
+
+/* ---------- cards ---------- */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.1rem;counter-reset:card}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:1.35rem 1.4rem;
+  transition:transform .25s,border-color .25s,box-shadow .25s;position:relative;box-shadow:0 1px 3px rgba(28,36,48,.04)}
+.grid .card{counter-increment:card}
+.grid .card::before{content:counter(card,decimal-leading-zero);position:absolute;top:1rem;right:1.15rem;
+  font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--dim);opacity:.7}
+body.lang-ar .grid .card::before{right:auto;left:1.15rem}
+.card:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 14px 30px rgba(28,36,48,.10)}
+.card h3{margin:.15rem 0 .5rem;font-size:1.12rem}
+.card h3 a{color:var(--ink)}
+.card h3 a:hover{color:var(--gold2)}
+.card p{color:var(--muted);font-size:.94rem;margin:.3rem 0}
+.card .code{font-size:.75rem;font-weight:700;color:var(--gold2);letter-spacing:2px}
+
+.chip{display:inline-block;background:rgba(176,134,40,.07);color:var(--gold2);border-radius:999px;
+  padding:.16rem .8rem;font-size:.8rem;margin:.14rem .16rem;border:1px solid rgba(176,134,40,.3);transition:all .2s}
+.chip:hover{background:var(--gold);color:#fff;border-color:var(--gold)}
+.chip.grade{background:rgba(23,122,76,.07);color:var(--green);border-color:rgba(23,122,76,.3)}
+
+/* ---------- concept blocks ---------- */
+.concept{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:12px;padding:1.25rem 1.5rem;margin:1rem 0;transition:border-color .25s,background .25s;box-shadow:0 1px 3px rgba(28,36,48,.04)}
+.concept:hover{background:var(--panel2);border-left-color:var(--gold2)}
+body.lang-ar .concept{border-left:1px solid var(--line);border-right:3px solid var(--gold)}
+.concept h3{margin:.1rem 0 .55rem;color:var(--ink);font-size:1.08rem;font-weight:600}
+.concept h3 .en{font-family:var(--serif)}
+.concept p{margin:.4rem 0;color:#3a4658;font-size:.97rem}
+.concept i{color:var(--gold2)}
+.concept b{color:var(--ink)}
+
+.saudi{background:linear-gradient(135deg,rgba(23,122,76,.05),rgba(176,134,40,.05));
+  border:1px solid rgba(23,122,76,.25);border-radius:12px;padding:1.3rem 1.5rem;margin:1.6rem 0}
+.saudi h3{color:var(--green);margin:.1rem 0 .55rem;font-size:1.08rem}
+.saudi p{color:#3a4658;font-size:.97rem}
+
+.note{background:rgba(176,134,40,.06);border:1px solid rgba(176,134,40,.25);border-radius:12px;
+  padding:1rem 1.3rem;font-size:.9rem;margin:2rem 0;color:var(--muted)}
+
+/* ---------- formulas / map / quiz ---------- */
+.formula{background:var(--panel);border:1px solid var(--line2);border-radius:12px;padding:1.2rem 1.4rem;margin:1.4rem 0}
+.formula h3{color:var(--gold2);margin:.1rem 0 .7rem;font-size:1rem;letter-spacing:.5px}
+.formula code{display:block;background:#f2efe7;border:1px solid var(--line);border-radius:8px;
+  padding:.55rem .9rem;margin:.4rem 0;font-family:Consolas,Monaco,monospace;font-size:.87rem;
+  color:#154c8c;direction:ltr;text-align:left}
+.map{display:flex;flex-wrap:wrap;gap:.45rem;margin:.7rem 0 1.2rem}
+.map span{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:.34rem .8rem;
+  font-size:.84rem;color:var(--muted);transition:all .2s}
+.map span:hover{border-color:var(--gold);color:var(--gold2)}
+details.quiz{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:.85rem 1.25rem;margin:.6rem 0;transition:border-color .25s;box-shadow:0 1px 3px rgba(28,36,48,.04)}
+details.quiz[open]{border-color:var(--gold)}
+details.quiz summary{cursor:pointer;font-weight:600;color:var(--ink);font-size:.97rem}
+details.quiz summary:hover{color:var(--gold2)}
+details.quiz p{margin:.7rem 0 .2rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:.7rem}
+
+/* ---------- glossary / finder ---------- */
+.gloss{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:.95rem 1.25rem;margin:.6rem 0;transition:border-color .2s;box-shadow:0 1px 3px rgba(28,36,48,.04)}
+.gloss:hover{border-color:var(--line2)}
+.gloss b{color:var(--ink)}
+.gloss .chip{margin-top:.4rem}
+.gloss span{color:var(--muted);font-size:.93rem}
+.letter{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:1.7rem;font-weight:700;margin:2rem 0 .5rem}
+.finder-q{display:flex;flex-wrap:wrap;gap:.6rem;margin:1.2rem 0}
+.finder-q button{background:var(--panel);border:1px solid var(--line2);color:var(--ink);border-radius:999px;
+  padding:.6rem 1.2rem;cursor:pointer;font-size:.95rem;font-family:inherit;transition:all .25s;box-shadow:0 1px 3px rgba(28,36,48,.05)}
+.finder-q button:hover{border-color:var(--gold);color:var(--gold2);transform:translateY(-2px)}
+.finder-q button.on{background:var(--gold);color:#fff;border-color:var(--gold);font-weight:600}
+.rec .card:hover{transform:none}
+
+/* ---------- misc ---------- */
+#search{width:100%;max-width:540px;padding:.8rem 1.3rem;border-radius:999px;border:1px solid var(--line2);
+  font-size:1rem;margin:1.3rem auto .2rem;display:block;background:var(--panel);color:var(--ink);font-family:inherit;outline:none;transition:border-color .25s,box-shadow .25s;box-shadow:0 1px 3px rgba(28,36,48,.05)}
+#search:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(176,134,40,.12)}
+#search::placeholder{color:var(--dim)}
+.hidden{display:none!important}
+.crumb{font-size:.86rem;margin:2rem 0 0;color:var(--dim)}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--gold2)}
+footer{color:var(--dim);text-align:center;padding:2.6rem 1rem;font-size:.85rem;border-top:1px solid var(--line);margin-top:2rem;letter-spacing:.4px}
+footer .fbtn{margin-bottom:.9rem}
+footer .fbtn a{display:inline-block;background:transparent;color:var(--gold2);border:1.5px solid var(--gold);border-radius:999px;padding:.35rem 1.1rem;font-weight:600;font-size:.85rem;transition:all .25s}
+footer .fbtn a:hover{background:var(--gold);color:#fff}
+footer .fcredit{margin-bottom:.5rem;color:var(--muted)}
+footer .fcredit b{color:var(--ink);font-weight:600}
+.tools{margin:1.4rem 0}
+.tools b{color:var(--muted);font-weight:600;font-size:.9rem;letter-spacing:.5px}
+
+/* kicker (small label above hero titles) */
+.kicker{color:var(--gold2);font-size:.8rem;font-weight:700;letter-spacing:3px;text-transform:uppercase}
+
+/* stats band */
+.stats{display:flex;justify-content:center;gap:2.8rem;flex-wrap:wrap;margin:2.2rem auto 0;padding-top:1.8rem;border-top:1px solid var(--line);max-width:760px}
+.stats div{text-align:center}
+.stats .n{font-family:var(--serif);font-style:italic;font-size:1.9rem;color:var(--gold2);font-weight:700}
+.stats .l{color:var(--dim);font-size:.8rem;letter-spacing:1.5px;text-transform:uppercase;margin-top:.15rem}
+
+/* chapter/topic lists on course hubs */
+.chapters{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:.6rem;margin:1rem 0}
+.chapters a{display:flex;align-items:baseline;gap:.8rem;background:var(--panel);border:1px solid var(--line);
+  border-radius:12px;padding:.8rem 1.1rem;color:var(--ink);transition:all .22s;box-shadow:0 1px 3px rgba(28,36,48,.04)}
+.chapters a:hover{border-color:var(--gold);transform:translateX(4px);text-decoration:none}
+body.lang-ar .chapters a:hover{transform:translateX(-4px)}
+.chapters .num{font-family:var(--serif);font-style:italic;font-size:1.25rem;color:var(--gold2);min-width:1.6rem;font-weight:700}
+.chapters .t{flex:1}
+.chapters .t small{display:block;color:var(--dim);font-size:.78rem;margin-top:.1rem}
+
+/* global search results (index page) */
+#gsr{max-width:640px;margin:.8rem auto 0;text-align:left}
+body.lang-ar #gsr{text-align:right}
+#gsr a{display:block;background:var(--panel);border:1px solid var(--line);border-radius:10px;
+  padding:.55rem 1rem;margin:.35rem 0;color:var(--ink);font-size:.93rem}
+#gsr a:hover{border-color:var(--gold);text-decoration:none}
+#gsr a b{color:var(--gold2);font-weight:600}
+#gsr .none{color:var(--dim);font-size:.9rem;padding:.5rem}
+
+@media(max-width:640px){
+  body{font-size:15.5px}
+  .stats{gap:1.4rem}
+  nav{gap:.8rem;padding:.75rem 1rem}
+}

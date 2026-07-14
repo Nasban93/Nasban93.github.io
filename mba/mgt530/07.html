@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MGT530 · 7 — Inventory Management — MBA Wiki</title>
+<link rel="stylesheet" href="../style.css">
+<meta name="description" content="In one sentence: inventory is money sleeping on shelves — hold enough to serve, little enough to breathe.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MGT530 · 7 — Inventory Management — MBA Wiki">
+<meta property="og:description" content="In one sentence: inventory is money sleeping on shelves — hold enough to serve, little enough to breathe.">
+<meta property="og:url" content="https://binnasban.com/mba/mgt530/07.html">
+<meta property="og:site_name" content="MBA Wiki">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://binnasban.com/mba/mgt530/07.html">
+<link rel="stylesheet" href="../print.css" media="print">
+</head>
+<body>
+<nav>
+  <span class="brand">MBA <span class="gold">Wiki</span></span>
+  <span class="links">
+    <a href="../index.html"><span class="en">Courses</span><span class="ar">المقررات</span></a>
+    <a href="../mgt530.html">MGT530</a>
+    <a href="../concepts.html"><span class="en">Concepts A–Z</span><span class="ar">المفاهيم أ–ي</span></a>
+  </span>
+  <a class="nav-search" href="../search.html">🔍 <span class="en">Search</span><span class="ar" style="display:inline">بحث</span></a><span class="spacer"></span>
+  <button id="langBtn">عربي</button>
+</nav>
+
+<div class="course-hero">
+  <div class="code">MGT530 · <span class="en">Topic 7 of 10</span><span class="ar">الموضوع 7 من 10</span></div>
+  <h1><span class="en">Inventory Management</span><span class="ar">إدارة المخزون</span></h1>
+  <div class="cite"><span class="en">In one sentence: inventory is money sleeping on shelves — hold enough to serve, little enough to breathe.</span><span class="ar">في جملة واحدة: المخزون مالٌ نائم على الرفوف — احتفظ بما يكفي للخدمة وبأقل ما يتيح التنفس.</span></div>
+</div>
+
+<div class="wrap">
+
+<h2 class="sec"><span class="en">Key Ideas</span><span class="ar">الأفكار الرئيسية</span></h2>
+
+<div class="concept" id="functions-costs">
+  <h3><span class="en">Why Inventory Exists &amp; What It Costs</span> · <span class="ar" style="display:inline">لماذا يوجد المخزون وماذا يكلف</span></h3>
+  <p class="en">Functions: decouple stages, meet expected demand, buffer surprises, ride out lead times, capture quantity discounts, hedge price rises. Costs: holding (capital, storage, insurance, spoilage, obsolescence — typically 20–40% of item value per year), ordering (paperwork, receiving, setup), and shortage (lost sales, expediting, broken trust — the hardest to see, the largest when it lands).</p>
+  <p class="ar">الوظائف: فصل المراحل، وتلبية الطلب المتوقع، وامتصاص المفاجآت، وعبور مهل التوريد، واقتناص خصومات الكمية، والتحوط من صعود الأسعار. والتكاليف: الاحتفاظ (رأس مال وتخزين وتأمين وتلف وتقادم — عادة 20–40% من قيمة الصنف سنوياً)، والطلب (إجراءات واستلام وتجهيز)، والعجز (مبيعات ضائعة واستعجال وثقة مكسورة — الأخفى رؤيةً والأثقل وقعاً).</p>
+</div>
+
+<div class="concept" id="abc-analysis">
+  <h3><span class="en">ABC Classification</span> · <span class="ar" style="display:inline">تصنيف ABC</span></h3>
+  <p class="en">Rank items by annual riyal usage: A-items (~10–20% of SKUs, ~70–80% of value) get tight control, frequent counts, careful forecasting; B-items moderate attention; C-items (half your SKUs, pocket change) get simple rules and big bins. Managing 4,000 SKUs identically is a choice to manage none of them well.</p>
+  <p class="ar">رتّب الأصناف بالاستخدام الريالي السنوي: أصناف A (نحو 10–20% من الأصناف و70–80% من القيمة) ضبط صارم وجرد متكرر وتنبؤ متأنٍ؛ وB عناية متوسطة؛ وC (نصف أصنافك وفكّة نقدية) قواعد بسيطة وصناديق كبيرة. إدارة 4,000 صنف بالطريقة ذاتها اختيارٌ ألا تدير أياً منها جيداً.</p>
+</div>
+
+<div class="concept" id="eoq-worked">
+  <h3><span class="en">EOQ — Worked</span> · <span class="ar" style="display:inline">الكمية الاقتصادية — محلولاً</span></h3>
+  <p class="en">A hotel's laundry chemical: D = 2,400 drums/yr, ordering cost S = SAR 150, holding H = SAR 20/drum/yr. EOQ = √(2×2400×150/20) = √36,000 = 190 drums. Orders per year ≈ 12.6; total ordering+holding cost = √(2DSH) ≈ SAR 3,795. The curve is famously flat near the bottom: ordering 200 for pallet convenience costs almost nothing extra — precision theater is unnecessary, but order-size anarchy is expensive.</p>
+  <p class="ar">مادة غسيل فندقية: طلب سنوي 2,400 برميل، وتكلفة طلبية 150 ريالاً، واحتفاظ 20 ريالاً للبرميل سنوياً. الكمية = √(2×2400×150/20) = 190 برميلاً. الطلبيات سنوياً ≈ 12.6؛ ومجموع تكلفتي الطلب والاحتفاظ = √(2DSH) ≈ 3,795 ريالاً. والمنحنى شهيرٌ بتسطحه قرب القاع: طلبُ 200 لملاءمة الطبليات لا يكاد يكلف شيئاً إضافياً — مسرحُ الدقة غير لازم، لكن فوضى أحجام الطلب باهظة.</p>
+</div>
+
+<div class="concept" id="rop-ss">
+  <h3><span class="en">Reorder Points &amp; Safety Stock</span> · <span class="ar" style="display:inline">نقطة إعادة الطلب ومخزون الأمان</span></h3>
+  <p class="en">ROP = demand during lead time + safety stock. With daily demand d̄ = 8 drums, lead time 5 days, σ of lead-time demand = 6, and a 95% service level (z = 1.645): SS = 1.645×6 ≈ 10; ROP = 40 + 10 = 50 drums. Service level is a policy choice with a price: 99% costs far more safety stock than 95% — decide by shortage pain, not pride.</p>
+  <p class="ar">نقطة إعادة الطلب = الطلب خلال مهلة التوريد + مخزون الأمان. بطلب يومي 8 براميل ومهلة 5 أيام وانحراف طلب المهلة 6 ومستوى خدمة 95% (z = 1.645): الأمان = 10 تقريباً؛ والنقطة = 40 + 10 = 50 برميلاً. ومستوى الخدمة قرارُ سياسة له ثمن: 99% يكلف أماناً أكثر بكثير من 95% — فاحسم بألم العجز لا بالكبرياء.</p>
+</div>
+
+<div class="concept" id="single-period">
+  <h3><span class="en">The Newsvendor: Single-Period Items</span> · <span class="ar" style="display:inline">بائع الصحف: أصناف الفترة الواحدة</span></h3>
+  <p class="en">Perishables (buffet trays, event flowers, daily pastries) can't carry over. Optimal stocking balances the cost of running short (Cs = lost margin) vs overage (Co = cost minus salvage): stock to the demand percentile Cs ÷ (Cs + Co). If a pastry earns 8 when sold and loses 3 when binned: 8/11 = 73rd percentile of demand — deliberately planning some stockouts and some waste, in the profit-maximizing ratio.</p>
+  <p class="ar">القابل للتلف (صواني البوفيه وورود الفعاليات ومعجنات اليوم) لا يُرحَّل. والتخزين الأمثل يوازن كلفة العجز (الهامش الضائع) وكلفة الفائض (التكلفة ناقص قيمة الاسترجاع): خزّن حتى مئين الطلب = كلفة العجز ÷ (العجز + الفائض). معجنة تربح 8 عند البيع وتخسر 3 عند الرمي: 8/11 = المئين 73 — تخطيطٌ متعمد لبعض النفاد وبعض الهدر بالنسبة المعظمة للربح.</p>
+</div>
+
+<h2 class="sec"><span class="en">Case Study 🇸🇦 — A Pharmacy Chain's Inventory Engine</span><span class="ar">دراسة حالة 🇸🇦 — محرك المخزون في سلسلة صيدليات</span></h2>
+<div class="saudi">
+  <p class="en">Picture a Saudi pharmacy chain at Nahdi/Dawaa scale: a thousand-plus branches, tens of thousands of SKUs, and two unforgivable sins — stockouts of chronic medications, and expiry write-offs. The whole topic operates at once. ABC: insulin, cardiac, and fast-moving OTC lines are A-items with daily replenishment from regional DCs and tight cold-chain monitoring; seasonal sunscreens and niche vitamins live as C-items on monthly cycles. EOQ logic sets order sizes per SKU per branch, but with a twist — shelf-space costs and expiry dates cap the holding side, so slow movers order small even when the formula smiles at bulk. Reorder points carry service-level tiers: chronic meds at 99%+ (the shortage cost is a patient, not a sale), cosmetics at 90%. Ramadan and back-to-school run seasonal indexes from the forecasting topic; flu season triggers newsvendor buys on vaccines (single season, real salvage constraints). The dashboard that rules them all: inventory turnover by category and expiry-risk aging — inventory theory, running quietly behind every prescription counter in the Kingdom.</p>
+  <p class="ar">تخيّل سلسلة صيدليات سعودية بمقياس النهدي/الدواء: أكثر من ألف فرع وعشرات آلاف الأصناف وخطيئتان لا تغتفران — نفاد أدوية الأمراض المزمنة، وشطب المنتهي صلاحيته. الموضوع كله يعمل دفعة واحدة. تصنيف ABC: الأنسولين وأدوية القلب والأصناف السريعة فئة A بتغذية يومية من مراكز التوزيع الإقليمية ومراقبة سلسلة تبريد صارمة؛ وواقيات الشمس الموسمية والفيتامينات النادرة فئة C بدورات شهرية. ومنطق الكمية الاقتصادية يضبط أحجام الطلب لكل صنف وفرع، بلمسة — كلفة الرف وتواريخ الانتهاء تكبح جانب الاحتفاظ، فيطلب بطيء الحركة قليلاً ولو ابتسمت المعادلة للجملة. ونقاط إعادة الطلب بطبقات مستوى خدمة: أدوية المزمنين فوق 99% (كلفة العجز مريضٌ لا صفقة)، ومستحضرات التجميل 90%. ويدير رمضانُ والعودةُ للمدارس مؤشراتِ موسمية من موضوع التنبؤ؛ وموسم الإنفلونزا يستدعي شراء بائع الصحف للقاحات (موسم واحد وقيود استرجاع حقيقية). واللوحة الحاكمة: دوران المخزون بالفئة وأعمار خطر الانتهاء — نظرية المخزون تعمل بصمت خلف كل كاونتر وصفات في المملكة.</p>
+</div>
+
+<div class="formula">
+  <h3><span class="en">Quick Reference</span><span class="ar" style="display:inline"> · مرجع سريع</span></h3>
+  <code>EOQ = √(2DS ÷ H)   ·   TC at EOQ = √(2DSH)</code>
+  <code>ROP = d̄ × LT + z·σ_LT</code>
+  <code>Newsvendor service ratio = Cs ÷ (Cs + Co)</code>
+  <code>Inventory turnover = COGS ÷ Average inventory</code>
+</div>
+
+<h2 class="sec"><span class="en">Test Yourself</span><span class="ar">اختبر نفسك</span></h2>
+<details class="quiz"><summary><span class="en">D = 9,000/yr, S = 100, H = 8. EOQ, orders/year, and total O+H cost?</span><span class="ar">طلب 9,000 سنوياً وتكلفة طلبية 100 واحتفاظ 8. الكمية والطلبيات سنوياً والتكلفة الكلية؟</span></summary>
+<p class="en">EOQ = √(2×9000×100/8) = √225,000 = 474; ≈ 19 orders/yr; TC = √(2×9000×100×8) ≈ SAR 3,795.</p>
+<p class="ar">الكمية = 474؛ نحو 19 طلبية سنوياً؛ والتكلفة = √(2×9000×100×8) ≈ 3,795 ريالاً.</p></details>
+<details class="quiz"><summary><span class="en">Your supplier offers 5% off for doubling order size. What two costs move, and how do you decide?</span><span class="ar">موردك يعرض خصم 5% مقابل مضاعفة حجم الطلبية. أي كلفتين تتحركان وكيف تحسم؟</span></summary>
+<p class="en">Holding cost rises (bigger average stock), purchase+ordering costs fall. Compare total annual cost (purchase + ordering + holding) at EOQ vs at the discount quantity — take the lower total, not the shinier discount.</p>
+<p class="ar">تصعد كلفة الاحتفاظ (متوسط مخزون أكبر) وتهبط كلفتا الشراء والطلب. قارن التكلفة السنوية الكلية عند الكمية الاقتصادية وعند كمية الخصم — وخذ الأدنى إجمالاً لا الخصم الأبرق.</p></details>
+<details class="quiz"><summary><span class="en">Buffet trays cost 90, sell (in covers) for 240, unsold food is donated (salvage ≈ 0). Stock at which demand percentile?</span><span class="ar">صينية البوفيه تكلف 90 وتباع (بالوجبات) بـ240 وغير المباع يُتبرع به (استرجاع ≈ صفر). عند أي مئين تخزن؟</span></summary>
+<p class="en">Cs = 150, Co = 90 → 150/240 = 62.5th percentile of expected covers — deliberately short some nights, deliberately donating others; that's the optimum, not a failure.</p>
+<p class="ar">العجز = 150 والفائض = 90 ← 150/240 = المئين 62.5 من الوجبات المتوقعة — نفادٌ مقصود في ليالٍ وتبرعٌ مقصود في أخرى؛ ذلك هو الأمثل لا الإخفاق.</p></details>
+
+<div class="crumb">
+  <a href="06.html"><span class="en">← Prev</span><span class="ar" style="display:inline">→ السابق</span></a> · <a href="../mgt530.html">MGT530</a> · <a href="08.html"><span class="en">Next: Lean &amp; JIT →</span><span class="ar" style="display:inline">التالي: اللين وJIT ←</span></a>
+</div>
+</div>
+<footer>
+  <div class="fbtn"><a href="https://binnasban.com" target="_blank" rel="noopener">Visit Binnasban.com</a></div>
+  <div class="fcredit">Built by <b>Khalid Bin Nasban</b> · <a href="mailto:knasban@gmail.com">knasban@gmail.com</a> · <a href="https://www.linkedin.com/in/khalid-nasban" target="_blank" rel="noopener">LinkedIn</a></div>
+  <div>MBA Wiki · Binnasban.com/mba</div>
+</footer>
+<script src="../app.js"></script>
+</body>
+</html>

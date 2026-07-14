@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MGT530 · 2 — Forecasting — MBA Wiki</title>
+<link rel="stylesheet" href="../style.css">
+<meta name="description" content="In one sentence: every forecast is wrong — the discipline is knowing by how much, in which direction, and what to do about it.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MGT530 · 2 — Forecasting — MBA Wiki">
+<meta property="og:description" content="In one sentence: every forecast is wrong — the discipline is knowing by how much, in which direction, and what to do about it.">
+<meta property="og:url" content="https://binnasban.com/mba/mgt530/02.html">
+<meta property="og:site_name" content="MBA Wiki">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://binnasban.com/mba/mgt530/02.html">
+<link rel="stylesheet" href="../print.css" media="print">
+</head>
+<body>
+<nav>
+  <span class="brand">MBA <span class="gold">Wiki</span></span>
+  <span class="links">
+    <a href="../index.html"><span class="en">Courses</span><span class="ar">المقررات</span></a>
+    <a href="../mgt530.html">MGT530</a>
+    <a href="../concepts.html"><span class="en">Concepts A–Z</span><span class="ar">المفاهيم أ–ي</span></a>
+  </span>
+  <a class="nav-search" href="../search.html">🔍 <span class="en">Search</span><span class="ar" style="display:inline">بحث</span></a><span class="spacer"></span>
+  <button id="langBtn">عربي</button>
+</nav>
+
+<div class="course-hero">
+  <div class="code">MGT530 · <span class="en">Topic 2 of 10</span><span class="ar">الموضوع 2 من 10</span></div>
+  <h1><span class="en">Forecasting</span><span class="ar">التنبؤ بالطلب</span></h1>
+  <div class="cite"><span class="en">In one sentence: every forecast is wrong — the discipline is knowing by how much, in which direction, and what to do about it.</span><span class="ar">في جملة واحدة: كل تنبؤ خاطئ — والانضباط أن تعرف بكم، وفي أي اتجاه، وماذا تفعل حياله.</span></div>
+</div>
+
+<div class="wrap">
+
+<h2 class="sec"><span class="en">Key Ideas</span><span class="ar">الأفكار الرئيسية</span></h2>
+
+<div class="concept" id="approaches">
+  <h3><span class="en">Qualitative vs Quantitative Approaches</span> · <span class="ar" style="display:inline">الأساليب النوعية والكمية</span></h3>
+  <p class="en">No history? Use judgment: executive opinion, sales-force composites, Delphi rounds with experts, market surveys. Have history? Let the data speak through time-series models (the past pattern continues) or associative models (regression on drivers like price and events). Mature operations blend both: models propose, judgment adjusts for what the data can't know (a new competitor opening next door).</p>
+  <p class="ar">لا تاريخ لديك؟ استخدم الحكم: رأي الإدارة، وتجميعات رجال البيع، وجولات دلفي مع الخبراء، ومسوح السوق. لديك تاريخ؟ دع البيانات تتكلم عبر السلاسل الزمنية (النمط الماضي يستمر) أو النماذج الترابطية (انحدار على محركات كالسعر والفعاليات). والعمليات الناضجة تمزج: النماذج تقترح والحكم يعدّل لما لا تعرفه البيانات (منافس جديد يفتتح في الجوار).</p>
+</div>
+
+<div class="concept" id="components">
+  <h3><span class="en">Time-Series Components</span> · <span class="ar" style="display:inline">مكونات السلسلة الزمنية</span></h3>
+  <p class="en">Demand = trend (long climb or decline) + seasonality (repeating calendar pattern) + cycles (multi-year economic waves) + random variation (noise you must not chase). Decomposing a series into these is half the analysis; the other half is refusing to "explain" noise with stories.</p>
+  <p class="ar">الطلب = اتجاه (صعود أو هبوط طويل) + موسمية (نمط تقويمي متكرر) + دورات (موجات اقتصادية متعددة السنوات) + تذبذب عشوائي (ضجيج يجب ألا تطارده). وتفكيك السلسلة إلى هذه المكونات نصف التحليل؛ والنصف الآخر رفض «تفسير» الضجيج بالقصص.</p>
+</div>
+
+<div class="concept" id="smoothing">
+  <h3><span class="en">Moving Averages &amp; Exponential Smoothing — Worked</span> · <span class="ar" style="display:inline">المتوسطات المتحركة والتمهيد الأسي — محلولاً</span></h3>
+  <p class="en">Weekly covers at a restaurant: 420, 460, 440, 500. Three-week moving average forecast for week 5 = (460+440+500)/3 = 466.7. Exponential smoothing with α = 0.3, previous forecast 450, actual 500: F = 450 + 0.3(500−450) = 465. Higher α reacts faster but chases noise; lower α is calm but slow to catch real shifts. Choosing α is choosing your nervousness.</p>
+  <p class="ar">أعداد وجبات مطعم أسبوعياً: 420، 460، 440، 500. متوسط متحرك لثلاثة أسابيع للتنبؤ بالأسبوع الخامس = (460+440+500)/3 = 466.7. وتمهيد أسي بمعامل 0.3 وتنبؤ سابق 450 وفعلي 500: التنبؤ = 450 + 0.3(500−450) = 465. معامل أعلى يستجيب أسرع لكنه يطارد الضجيج؛ وأدنى هادئ لكنه بطيء التقاط التحولات الحقيقية. اختيار المعامل اختيارٌ لدرجة توترك.</p>
+</div>
+
+<div class="concept" id="seasonality-trend">
+  <h3><span class="en">Trend Lines &amp; Seasonal Indexes</span> · <span class="ar" style="display:inline">خطوط الاتجاه والمؤشرات الموسمية</span></h3>
+  <p class="en">Fit a linear trend (y = a + bx) for the long climb, then scale by seasonal relatives: if December averages 1.3× a normal month and the trend says 10,000 units, forecast December at 13,000. Deseasonalize before comparing months — a Ramadan dip in office lunches is calendar, not decline.</p>
+  <p class="ar">ركّب خط اتجاه (ص = أ + ب س) للمسار الطويل، ثم اضرب بالمعاملات الموسمية: إن كان ديسمبر يعادل 1.3 من شهر عادي والاتجاه يقول 10,000 وحدة، فتنبأ لديسمبر بـ13,000. وأزل الموسمية قبل مقارنة الشهور — فهبوط غداءات المكاتب في رمضان تقويمٌ لا تدهور.</p>
+</div>
+
+<div class="concept" id="accuracy">
+  <h3><span class="en">Tracking Accuracy: MAD, MSE, MAPE</span> · <span class="ar" style="display:inline">تتبع الدقة: الانحرافات المطلقة والمربعة والنسبية</span></h3>
+  <p class="en">MAD = average |error| (in units); MSE punishes large misses; MAPE expresses error as a % for comparisons across products. Monitor with a tracking signal (cumulative error ÷ MAD): drifting beyond ±4 means the model is biased — demand shifted and the formula didn't. Accuracy monitoring is what separates forecasting from fortune-telling.</p>
+  <p class="ar">متوسط الانحراف المطلق بالوحدات؛ ومتوسط مربع الخطأ يعاقب الإخفاقات الكبيرة؛ والخطأ النسبي المطلق نسبةٌ تتيح المقارنة بين المنتجات. وراقب بإشارة تتبع (الخطأ التراكمي ÷ الانحراف المطلق): تجاوزُ ±4 يعني نموذجاً منحازاً — الطلب تحول والمعادلة لم تفعل. مراقبة الدقة هي الفاصل بين التنبؤ وقراءة الطالع.</p>
+</div>
+
+<h2 class="sec"><span class="en">Case Study 🇸🇦 — Forecasting by Two Calendars: Makkah Hotel Demand</span><span class="ar">دراسة حالة 🇸🇦 — التنبؤ بتقويمين: طلب فنادق مكة</span></h2>
+<div class="saudi">
+  <p class="en">A Makkah hotel forecasting on the Gregorian calendar will be wrong twice a year by design: Ramadan and Hajj drift ~11 days earlier annually, dragging the two mightiest demand spikes across months. The working model: build seasonal indexes on the Hijri calendar (Ramadan's last ten nights may run 3–4× a normal week's RevPAR; Dhul-Hijjah peaks with Hajj permits), overlay Gregorian effects (summer vacations, school terms) as a second layer, then add event adjustments (expanded visa policies, new transport capacity like the Haramain rail). Error tracking earns its keep here: when Umrah visa rules loosened, actuals ran persistently above forecast — a biased tracking signal was the earliest, cheapest indicator that the game had structurally changed and indexes needed rebuilding. Two calendars, one lesson: seasonality is whatever your customers' calendar says it is.</p>
+  <p class="ar">فندق في مكة يتنبأ بالتقويم الميلادي سيخطئ مرتين سنوياً بحكم التصميم: رمضان والحج يتقدمان نحو 11 يوماً كل عام، جارّين أعظم ذروتي طلب عبر الشهور. والنموذج العملي: ابنِ المؤشرات الموسمية على التقويم الهجري (قد تبلغ العشر الأواخر 3–4 أضعاف إيراد أسبوع عادي؛ وذو الحجة يبلغ الذروة بتصاريح الحج)، وأضف الطبقة الميلادية (إجازات الصيف والفصول الدراسية)، ثم تعديلات الأحداث (توسع التأشيرات وطاقات نقل جديدة كقطار الحرمين). وهنا يثبت تتبعُ الخطأ جدارته: حين تيسّرت تأشيرات العمرة جاء الفعلي فوق التنبؤ باستمرار — فكانت إشارة التتبع المنحازة أبكرَ وأرخصَ مؤشر على أن اللعبة تغيرت هيكلياً وأن المؤشرات تحتاج إعادة بناء. تقويمان ودرس واحد: الموسمية هي ما يقوله تقويم عملائك.</p>
+</div>
+
+<div class="formula">
+  <h3><span class="en">Quick Reference</span><span class="ar" style="display:inline"> · مرجع سريع</span></h3>
+  <code>MA(n) = mean of last n actuals</code>
+  <code>Exponential smoothing: F(t+1) = F(t) + α[A(t) − F(t)]</code>
+  <code>Trend: y = a + bx (least squares)</code>
+  <code>MAD = Σ|A−F| ÷ n   ·   MAPE = Σ(|A−F|/A) ÷ n × 100</code>
+  <code>Tracking signal = Σ(A−F) ÷ MAD</code>
+</div>
+
+<h2 class="sec"><span class="en">Test Yourself</span><span class="ar">اختبر نفسك</span></h2>
+<details class="quiz"><summary><span class="en">Forecast 300, actuals 280; α = 0.2. Next forecast? And with α = 0.8?</span><span class="ar">تنبؤ 300 وفعلي 280 ومعامل 0.2. التنبؤ التالي؟ وبمعامل 0.8؟</span></summary>
+<p class="en">F = 300 + 0.2(280−300) = 296; with α = 0.8: F = 284. The high-α forecast nearly swallowed the whole miss — fine if it was signal, harmful if noise.</p>
+<p class="ar">التنبؤ = 300 + 0.2(280−300) = 296؛ وبمعامل 0.8: 284. التنبؤ عالي المعامل ابتلع الخطأ كله تقريباً — حسنٌ إن كان إشارة، وضارٌ إن كان ضجيجاً.</p></details>
+<details class="quiz"><summary><span class="en">Two models: A has MAD 12, B has MAD 12 but tracking signal +5.3. Which do you trust?</span><span class="ar">نموذجان: أ بانحراف 12، وب بانحراف 12 لكن إشارة تتبعه +5.3. أيهما تثق به؟</span></summary>
+<p class="en">A. Same average error size, but B errs consistently in one direction — it's biased (under-forecasting). Fix B's structure before using it.</p>
+<p class="ar">أ. حجم الخطأ المتوسط واحد، لكن ب يخطئ باتجاه واحد باستمرار — منحاز (يقلل التقدير). أصلح بنيته قبل استخدامه.</p></details>
+<details class="quiz"><summary><span class="en">Your café's Friday sales average 1.6× the daily mean. Trend says 900 cups/day next month. Friday forecast?</span><span class="ar">مبيعات مقهاك الجمعة 1.6 ضعف المتوسط اليومي. والاتجاه يقول 900 كوب يومياً الشهر القادم. تنبؤ الجمعة؟</span></summary>
+<p class="en">900 × 1.6 = 1,440 cups — trend for the level, seasonal relative for the shape.</p>
+<p class="ar">900 × 1.6 = 1,440 كوباً — الاتجاه للمستوى والمعامل الموسمي للشكل.</p></details>
+
+<div class="crumb">
+  <a href="01.html"><span class="en">← Prev</span><span class="ar" style="display:inline">→ السابق</span></a> · <a href="../mgt530.html">MGT530</a> · <a href="03.html"><span class="en">Next: Design, Process &amp; Layout →</span><span class="ar" style="display:inline">التالي: التصميم والعمليات ←</span></a>
+</div>
+</div>
+<footer>
+  <div class="fbtn"><a href="https://binnasban.com" target="_blank" rel="noopener">Visit Binnasban.com</a></div>
+  <div class="fcredit">Built by <b>Khalid Bin Nasban</b> · <a href="mailto:knasban@gmail.com">knasban@gmail.com</a> · <a href="https://www.linkedin.com/in/khalid-nasban" target="_blank" rel="noopener">LinkedIn</a></div>
+  <div>MBA Wiki · Binnasban.com/mba</div>
+</footer>
+<script src="../app.js"></script>
+</body>
+</html>

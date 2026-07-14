@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MGT530 · 6 — Statistical Process Control &amp; Six Sigma — MBA Wiki</title>
+<link rel="stylesheet" href="../style.css">
+<meta name="description" content="In one sentence: every process whispers in the language of variation — control charts are how you tell routine mumbling from a cry for help.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MGT530 · 6 — Statistical Process Control &amp; Six Sigma — MBA Wiki">
+<meta property="og:description" content="In one sentence: every process whispers in the language of variation — control charts are how you tell routine mumbling from a cry for help.">
+<meta property="og:url" content="https://binnasban.com/mba/mgt530/06.html">
+<meta property="og:site_name" content="MBA Wiki">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://binnasban.com/mba/mgt530/06.html">
+<link rel="stylesheet" href="../print.css" media="print">
+</head>
+<body>
+<nav>
+  <span class="brand">MBA <span class="gold">Wiki</span></span>
+  <span class="links">
+    <a href="../index.html"><span class="en">Courses</span><span class="ar">المقررات</span></a>
+    <a href="../mgt530.html">MGT530</a>
+    <a href="../concepts.html"><span class="en">Concepts A–Z</span><span class="ar">المفاهيم أ–ي</span></a>
+  </span>
+  <a class="nav-search" href="../search.html">🔍 <span class="en">Search</span><span class="ar" style="display:inline">بحث</span></a><span class="spacer"></span>
+  <button id="langBtn">عربي</button>
+</nav>
+
+<div class="course-hero">
+  <div class="code">MGT530 · <span class="en">Topic 6 of 10</span><span class="ar">الموضوع 6 من 10</span></div>
+  <h1><span class="en">Statistical Process Control &amp; Six Sigma</span><span class="ar">الضبط الإحصائي للعمليات وستة سيجما</span></h1>
+  <div class="cite"><span class="en">In one sentence: every process whispers in the language of variation — control charts are how you tell routine mumbling from a cry for help.</span><span class="ar">في جملة واحدة: كل عملية تهمس بلغة التذبذب — وخرائط الضبط هي تمييزك بين الغمغمة المعتادة وصرخة الاستغاثة.</span></div>
+</div>
+
+<div class="wrap">
+
+<h2 class="sec"><span class="en">Key Ideas</span><span class="ar">الأفكار الرئيسية</span></h2>
+
+<div class="concept" id="variation">
+  <h3><span class="en">Common vs Assignable Causes</span> · <span class="ar" style="display:inline">الأسباب العامة والخاصة</span></h3>
+  <p class="en">Common-cause variation is the process's natural noise — countless small factors, always present. Assignable (special) cause is something specific and findable: a worn blade, a new supplier, an untrained hire. The management crime Deming called "tampering": adjusting a process for common-cause wiggles, which adds variation instead of removing it. Charts exist to prevent exactly that.</p>
+  <p class="ar">التذبذب العام ضجيج العملية الطبيعي — عوامل صغيرة لا تحصى حاضرة دائماً. والسبب الخاص القابل للتحديد شيء بعينه يمكن العثور عليه: شفرة متآكلة أو مورد جديد أو موظف غير مدرب. والجريمة الإدارية التي سماها ديمنغ «العبث»: تعديل العملية لرعشات الأسباب العامة، فيضيف تذبذباً بدل إزالته. والخرائط وُجدت لمنع هذا تحديداً.</p>
+</div>
+
+<div class="concept" id="control-charts">
+  <h3><span class="en">Control Charts — Worked</span> · <span class="ar" style="display:inline">خرائط الضبط — محلولاً</span></h3>
+  <p class="en">For variables (measured data): x̄-chart tracks the mean, R-chart the spread. Limits sit at ±3σ of the sampling distribution. Worked: juice bottles target 330 ml; samples of n=4 show grand mean 330.2, average range R̄ = 1.6. With A₂(n=4) = 0.729: UCL = 330.2 + 0.729×1.6 = 331.37; LCL = 329.03. A sample mean of 331.9 → stop and hunt the assignable cause. For attributes (count data): p-charts track defective proportion, c-charts defects per unit.</p>
+  <p class="ar">للمتغيرات (بيانات مقيسة): خريطة المتوسط ترصد الوسط وخريطة المدى الانتشار. والحدود عند ±3 انحرافات للتوزيع العيني. محلول: قوارير عصير هدفها 330 مل؛ عينات من 4 تظهر متوسطاً عاماً 330.2 ومدى متوسطاً 1.6. وبمعامل A₂ = 0.729: الحد الأعلى = 331.37 والأدنى = 329.03. متوسط عينة 331.9 ← أوقف وطارد السبب الخاص. وللخصائص (بيانات عدّ): خرائط p لنسبة المعيب وc للعيوب في الوحدة.</p>
+</div>
+
+<div class="concept" id="patterns">
+  <h3><span class="en">Reading the Chart: Runs &amp; Signals</span> · <span class="ar" style="display:inline">قراءة الخريطة: السلاسل والإشارات</span></h3>
+  <p class="en">A process can be "in limits" and still sick: eight points on one side of the center line, six steadily rising, regular cycles — all betray assignable causes before any point escapes. The chart is a lie detector for patterns, not just a fence.</p>
+  <p class="ar">قد تكون العملية «داخل الحدود» ومريضة: ثماني نقاط في جهة واحدة من خط الوسط، أو ست صاعدة باطراد، أو دورات منتظمة — كلها تفضح أسباباً خاصة قبل أن تهرب أي نقطة. الخريطة كاشفُ كذبٍ للأنماط لا مجرد سياج.</p>
+</div>
+
+<div class="concept" id="capability">
+  <h3><span class="en">Process Capability: Cp &amp; Cpk</span> · <span class="ar" style="display:inline">قدرة العملية</span></h3>
+  <p class="en">Control says the process is stable; capability asks whether stable is good enough for the spec. Cp = (USL − LSL) ÷ 6σ; Cpk penalizes off-center processes. Cp = 1 means ~0.27% out of spec; world-class targets Cpk ≥ 1.33. A perfectly controlled process can be perfectly incapable — different questions, both mandatory.</p>
+  <p class="ar">الضبط يقول إن العملية مستقرة؛ والقدرة تسأل هل الاستقرار يكفي للمواصفة. Cp = (الحد الأعلى − الأدنى) ÷ 6σ؛ وCpk يعاقب الانحراف عن المركز. Cp = 1 يعني نحو 0.27% خارج المواصفة؛ والمستوى العالمي يستهدف Cpk ≥ 1.33. وقد تكون العملية مضبوطة تماماً وعاجزة تماماً — سؤالان مختلفان وكلاهما إلزامي.</p>
+</div>
+
+<div class="concept" id="six-sigma-dmaic">
+  <h3><span class="en">Six Sigma &amp; DMAIC</span> · <span class="ar" style="display:inline">ستة سيجما ومنهجية DMAIC</span></h3>
+  <p class="en">Six Sigma aims processes so capable that spec limits sit six standard deviations from the mean — 3.4 defects per million even with drift. The engine is DMAIC: Define the problem in money, Measure the baseline, Analyze root causes with data, Improve with verified fixes, Control so gains stick (usually with a control chart). Belts (green, black) are just trained problem-solvers with a mandate.</p>
+  <p class="ar">تستهدف ستة سيجما عمليات من القدرة بحيث تبعد حدود المواصفة ست انحرافات معيارية عن الوسط — 3.4 عيوب بالمليون حتى مع الانجراف. والمحرك DMAIC: عرّف المشكلة بالمال، وقِس خط الأساس، وحلّل الجذور بالبيانات، وحسّن بإصلاحات متحقق منها، واضبط لتثبت المكاسب (بخريطة ضبط غالباً). والأحزمة (الخضراء والسوداء) حلّالو مشكلات مدربون بتفويض، لا أكثر.</p>
+</div>
+
+<h2 class="sec"><span class="en">Case Study 🇸🇦 — Bottling Water in Riyadh: A p-Chart Story</span><span class="ar">دراسة حالة 🇸🇦 — تعبئة المياه في الرياض: قصة خريطة p</span></h2>
+<div class="saudi">
+  <p class="en">A bottled-water plant (think Berain/Nova scale) fills 40,000 bottles per shift; QC samples 200 per hour for label alignment, cap torque, and fill level. Historical defective rate p̄ = 2%. Control limits: p̄ ± 3√(p̄(1−p̄)/n) = 0.02 ± 3√(0.0196/200) = 0.02 ± 0.0297 → UCL 4.97%, LCL 0 (can't be negative). Tuesday 2 pm: 14 defectives in 200 (7%) — out of control. The hunt (fishbone in hand): same crew, same water, but a new shrink-label roll from a different supplier batch loaded at 1:40 pm. Assignable cause found, roll quarantined, supplier chargeback issued — and, crucially, nobody "adjusted" the filler settings, because the chart showed fill volumes were purely common-cause all along. Sequel: a Six Sigma project (DMAIC) on label defects cut p̄ to 0.8%, and the annualized saving — scrap, line stops, retail returns — funded the whole quality team. SPC isn't factory nostalgia; at 40,000 bottles a shift, 1.2 percentage points is 480 bottles per shift not thrown away.</p>
+  <p class="ar">مصنع مياه معبأة (بمقياس بيرين/نوفا) يعبئ 40,000 قارورة بالوردية؛ وضبط الجودة يعاين 200 كل ساعة لاستقامة الملصق وعزم الغطاء ومستوى التعبئة. النسبة المعيبة تاريخياً 2%. حدود الضبط: 0.02 ± 3√(0.0196/200) = 0.02 ± 0.0297 ← الأعلى 4.97% والأدنى صفر (لا سالب). الثلاثاء الثانية ظهراً: 14 معيبة من 200 (7%) — خارج الضبط. والمطاردة (بعظمة السمكة): الطاقم ذاته والمياه ذاتها، لكن لفة ملصقات حرارية جديدة من دفعة مورد مختلفة رُكبت 1:40. وُجد السبب الخاص، وحُجرت اللفة، وصدر خصم على المورد — والأهم: لم «يعدّل» أحد إعدادات الملء، لأن الخريطة أظهرت أن أحجام التعبئة أسبابٌ عامة صرفة طوال الوقت. والتتمة: مشروع ستة سيجما على عيوب الملصقات خفض النسبة إلى 0.8%، والوفر السنوي — تالف وتوقفات ومرتجعات تجزئة — موّل فريق الجودة كله. ليس الضبط الإحصائي حنيناً مصنعياً؛ فعند 40,000 قارورة بالوردية، 1.2 نقطة مئوية تعني 480 قارورة لا تُرمى كل وردية.</p>
+</div>
+
+<div class="formula">
+  <h3><span class="en">Quick Reference</span><span class="ar" style="display:inline"> · مرجع سريع</span></h3>
+  <code>x̄-chart: limits = x̿ ± A₂R̄</code>
+  <code>p-chart: limits = p̄ ± 3√(p̄(1−p̄)/n)</code>
+  <code>Cp = (USL − LSL) ÷ 6σ   ·   Cpk = min[(USL−μ), (μ−LSL)] ÷ 3σ</code>
+  <code>DMAIC: Define · Measure · Analyze · Improve · Control</code>
+</div>
+
+<h2 class="sec"><span class="en">Test Yourself</span><span class="ar">اختبر نفسك</span></h2>
+<details class="quiz"><summary><span class="en">p̄ = 4%, n = 100. Compute the p-chart limits. Is a sample with 9 defectives a signal?</span><span class="ar">النسبة المعيبة 4% وحجم العينة 100. احسب حدود الخريطة. هل عينة فيها 9 معيبات إشارة؟</span></summary>
+<p class="en">Limits = 0.04 ± 3√(0.0384/100) = 0.04 ± 0.0588 → UCL 9.88%, LCL 0. Nine defectives = 9% &lt; 9.88% — inside limits, no signal (but watch for runs).</p>
+<p class="ar">الحدود = 0.04 ± 0.0588 ← الأعلى 9.88% والأدنى صفر. تسع معيبات = 9% أقل من الحد — داخل الضبط، لا إشارة (لكن راقب السلاسل).</p></details>
+<details class="quiz"><summary><span class="en">Spec is 500 ± 6 g; the process runs σ = 2 g centered at 500. Cp? What if the mean drifts to 503?</span><span class="ar">المواصفة 500 ± 6 غرامات؛ والعملية بانحراف 2 غرام متمركزة عند 500. ما Cp؟ وماذا لو انجرف الوسط إلى 503؟</span></summary>
+<p class="en">Cp = 12/12 = 1.0 — barely adequate. At mean 503: Cpk = (506−503)/6 = 0.5 — badly incapable despite unchanged σ. Centering matters as much as spread.</p>
+<p class="ar">Cp = 12/12 = 1.0 — كافٍ بالكاد. وعند وسط 503: Cpk = 3/6 = 0.5 — عاجزة بشدة رغم ثبات الانحراف. التمركز لا يقل أهمية عن الانتشار.</p></details>
+<details class="quiz"><summary><span class="en">The front-desk manager re-briefs staff after every single bad review. Diagnose using this topic's vocabulary.</span><span class="ar">مدير الاستقبال يعيد توجيه الموظفين بعد كل تقييم سيئ منفرد. شخّص بمفردات هذا الموضوع.</span></summary>
+<p class="en">Tampering: single reviews are mostly common-cause noise. Chart weekly review scores; intervene on signals (runs, breaches), and attack common causes through system redesign, not repeated exhortation.</p>
+<p class="ar">عبث: التقييم المنفرد ضجيج أسباب عامة غالباً. ارسم درجات الأسبوع؛ وتدخل عند الإشارات (سلاسل واختراقات)، وهاجم الأسباب العامة بإعادة تصميم النظام لا بتكرار المواعظ.</p></details>
+
+<div class="crumb">
+  <a href="05.html"><span class="en">← Prev</span><span class="ar" style="display:inline">→ السابق</span></a> · <a href="../mgt530.html">MGT530</a> · <a href="07.html"><span class="en">Next: Inventory Management →</span><span class="ar" style="display:inline">التالي: إدارة المخزون ←</span></a>
+</div>
+</div>
+<footer>
+  <div class="fbtn"><a href="https://binnasban.com" target="_blank" rel="noopener">Visit Binnasban.com</a></div>
+  <div class="fcredit">Built by <b>Khalid Bin Nasban</b> · <a href="mailto:knasban@gmail.com">knasban@gmail.com</a> · <a href="https://www.linkedin.com/in/khalid-nasban" target="_blank" rel="noopener">LinkedIn</a></div>
+  <div>MBA Wiki · Binnasban.com/mba</div>
+</footer>
+<script src="../app.js"></script>
+</body>
+</html>

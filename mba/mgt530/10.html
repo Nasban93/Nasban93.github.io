@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MGT530 · 10 — Scheduling, Projects &amp; Waiting Lines — MBA Wiki</title>
+<link rel="stylesheet" href="../style.css">
+<meta name="description" content="In one sentence: time is the operations currency — schedules spend it on work, critical paths spend it on projects, and queues charge your customers interest on it.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MGT530 · 10 — Scheduling, Projects &amp; Waiting Lines — MBA Wiki">
+<meta property="og:description" content="In one sentence: time is the operations currency — schedules spend it on work, critical paths spend it on projects, and queues charge your customers interest on it.">
+<meta property="og:url" content="https://binnasban.com/mba/mgt530/10.html">
+<meta property="og:site_name" content="MBA Wiki">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://binnasban.com/mba/mgt530/10.html">
+<link rel="stylesheet" href="../print.css" media="print">
+</head>
+<body>
+<nav>
+  <span class="brand">MBA <span class="gold">Wiki</span></span>
+  <span class="links">
+    <a href="../index.html"><span class="en">Courses</span><span class="ar">المقررات</span></a>
+    <a href="../mgt530.html">MGT530</a>
+    <a href="../concepts.html"><span class="en">Concepts A–Z</span><span class="ar">المفاهيم أ–ي</span></a>
+  </span>
+  <a class="nav-search" href="../search.html">🔍 <span class="en">Search</span><span class="ar" style="display:inline">بحث</span></a><span class="spacer"></span>
+  <button id="langBtn">عربي</button>
+</nav>
+
+<div class="course-hero">
+  <div class="code">MGT530 · <span class="en">Topic 10 of 10</span><span class="ar">الموضوع 10 من 10</span></div>
+  <h1><span class="en">Scheduling, Project Management &amp; Waiting Lines</span><span class="ar">الجدولة وإدارة المشاريع وصفوف الانتظار</span></h1>
+  <div class="cite"><span class="en">In one sentence: time is the operations currency — schedules spend it on work, critical paths spend it on projects, and queues charge your customers interest on it.</span><span class="ar">في جملة واحدة: الوقت عملة العمليات — الجداول تنفقه على العمل، والمسارات الحرجة على المشاريع، والطوابير تُحمّل عملاءك فوائده.</span></div>
+</div>
+
+<div class="wrap">
+
+<h2 class="sec"><span class="en">Key Ideas</span><span class="ar">الأفكار الرئيسية</span></h2>
+
+<div class="concept" id="sequencing">
+  <h3><span class="en">Job Sequencing Rules</span> · <span class="ar" style="display:inline">قواعد ترتيب الأعمال</span></h3>
+  <p class="en">FCFS is fair and inefficient; SPT (shortest processing time) minimizes average flow time and WIP but starves long jobs; EDD (earliest due date) minimizes maximum lateness; critical ratio balances both. Worked: jobs of 2, 6, 3, 9 hours under SPT (2,3,6,9) yield average flow (2+5+11+20)/4 = 9.5 hrs vs FCFS order given 12.25 — a free 22% just from sequence.</p>
+  <p class="ar">قاعدة الوصول أولاً عادلة وغير كفؤة؛ وأقصر زمن معالجة تقلل متوسط زمن التدفق والعمل تحت التشغيل لكنها تجوّع الأعمال الطويلة؛ وأبكر استحقاق تقلل أقصى تأخير؛ والنسبة الحرجة توازن الاثنين. محلول: أعمال 2 و6 و3 و9 ساعات بقاعدة الأقصر (2،3،6،9) تعطي متوسط تدفق 9.5 ساعات مقابل 12.25 بترتيب الوصول — 22% مجاناً من مجرد الترتيب.</p>
+</div>
+
+<div class="concept" id="cpm">
+  <h3><span class="en">CPM — Worked</span> · <span class="ar" style="display:inline">المسار الحرج — محلولاً</span></h3>
+  <p class="en">A hotel-wing renovation: Design 3w → Permits 2w → (Demolition 2w → MEP 4w → Finishing 5w) while (Furniture order 8w) runs parallel after Design; Handover 1w needs both. Path A: 3+2+2+4+5+1 = 17w. Path B: 3+8+1 = 12w. Critical path = 17 weeks; furniture has 5 weeks of slack. Crashing finishing by 2 weeks (premium crews) shortens the project 2 weeks; crashing furniture changes nothing. Every riyal spent accelerating non-critical work is donated to entropy.</p>
+  <p class="ar">تجديد جناح فندقي: تصميم 3 أسابيع ← تراخيص 2 ← (هدم 2 ← كهروميكانيك 4 ← تشطيب 5) وبالتوازي بعد التصميم (طلب أثاث 8)؛ والتسليم 1 يحتاج الاثنين. المسار أ: 17 أسبوعاً. والمسار ب: 12. المسار الحرج = 17، وللأثاث فائض 5 أسابيع. تسريع التشطيب أسبوعين (طواقم إضافية) يقصّر المشروع أسبوعين؛ وتسريع الأثاث لا يغير شيئاً. وكل ريال يُنفق على تعجيل غير الحرج تبرعٌ للعبث.</p>
+</div>
+
+<div class="concept" id="pert-crashing">
+  <h3><span class="en">PERT Uncertainty &amp; Crashing Economics</span> · <span class="ar" style="display:inline">ريبة PERT واقتصاديات التسريع</span></h3>
+  <p class="en">PERT estimates each activity as (optimistic + 4×most likely + pessimistic)/6, giving the path a mean and variance — so you can state "85% chance of finishing by week 19" instead of pretending certainty. Crashing: rank critical activities by cost-per-week-saved, buy the cheapest weeks first, and stop when acceleration costs exceed delay penalties (or when a parallel path becomes critical too).</p>
+  <p class="ar">تقدّر PERT كل نشاط بـ(المتفائل + 4×الأرجح + المتشائم)/6، فتمنح المسار وسطاً وتبايناً — لتقول «احتمال 85% للإنهاء بالأسبوع 19» بدل ادعاء اليقين. والتسريع: رتّب الأنشطة الحرجة بكلفة الأسبوع الموفر، واشترِ الأسابيع الأرخص أولاً، وتوقف حين تفوق كلفةُ التعجيل غراماتِ التأخير (أو حين يصبح مسار موازٍ حرجاً بدوره).</p>
+</div>
+
+<div class="concept" id="queues">
+  <h3><span class="en">Waiting-Line Psychology &amp; Mathematics</span> · <span class="ar" style="display:inline">نفسية الطوابير ورياضياتها</span></h3>
+  <p class="en">M/M/1 basics: with arrivals λ and service rate μ, utilization ρ = λ/μ; average number in system L = ρ/(1−ρ). At ρ = 0.8, L = 4; at ρ = 0.95, L = 19 — congestion explodes nonlinearly, which is why "keep servers busy" is terrible queue policy. Psychology matters equally: occupied, explained, fair (single-line), and started waits feel shorter — mirrors by elevators cut complaints without cutting seconds.</p>
+  <p class="ar">أساسيات M/M/1: بوصول λ ومعدل خدمة μ يكون الاستغلال ρ = λ/μ؛ ومتوسط من في النظام L = ρ/(1−ρ). عند 0.8 يكون 4؛ وعند 0.95 يبلغ 19 — الازدحام ينفجر لا خطياً، ولهذا كانت «أبقِ الموظفين مشغولين» سياسةَ طوابير رديئة. والنفسية بذات الوزن: الانتظار المشغول والمفسَّر والعادل (طابور واحد) والذي بدأ يُحَس أقصر — مرايا المصاعد تقص الشكاوى دون أن تقص الثواني.</p>
+</div>
+
+<h2 class="sec"><span class="en">Case Study 🇸🇦 — Two Clocks: Metro Project, Airport Queue</span><span class="ar">دراسة حالة 🇸🇦 — ساعتان: مشروع المترو وطابور المطار</span></h2>
+<div class="saudi">
+  <p class="en">Clock one — the Riyadh Metro (opened in stages from late 2024): six lines, dozens of contractors, a decade of tunneling under a living city. Project-management reality at that scale: the critical path ran through station fit-out and systems integration (signaling, trains, and civil works must converge), not through digging — which is why some finished tunnels waited years for their stations, textbook slack in action. Staged opening was crashing-by-scope: deliver the Blue line's value early rather than hold everything for total completion. Clock two — passport control at King Khalid International in an Umrah wave: arrivals λ surge past service capacity μ and the corridor fills exactly as ρ→1 predicts. The fixes deployed are this topic's whole menu: add servers (open all booths — capacity), automate service (e-gates cut service time, raising μ), pool queues (single feeder line to many booths — variance reduction), and manage perception (staff walking the line pre-checking documents = occupied, started waits). One country, one chapter: CPM built the trains; queuing theory meets you at the border.</p>
+  <p class="ar">الساعة الأولى — مترو الرياض (افتُتح مراحل منذ أواخر 2024): ستة خطوط وعشرات المقاولين وعقدٌ من الحفر تحت مدينة حية. وواقع إدارة المشاريع بهذا المقياس: جرى المسار الحرج عبر تجهيز المحطات وتكامل الأنظمة (الإشارات والقطارات والأعمال المدنية يجب أن تلتقي) لا عبر الحفر — ولهذا انتظرت أنفاقٌ مكتملة سنواتٍ محطاتِها، فائضاً كتابياً يتجسد. والافتتاح المرحلي تسريعٌ بالنطاق: سلّم قيمة الخط الأزرق مبكراً بدل حبس كل شيء للاكتمال التام. الساعة الثانية — جوازات مطار الملك خالد في موجة عمرة: يتجاوز الوصولُ طاقةَ الخدمة فيمتلئ الممر تماماً كما يتنبأ اقتراب الاستغلال من الواحد. والحلول المنشورة قائمةُ هذا الموضوع كاملة: زد الخوادم (افتح كل الكبائن — طاقة)، وأتمت الخدمة (البوابات الإلكترونية تقص زمن الخدمة فترفع المعدل)، واجمع الطوابير (صف مغذٍ واحد لكبائن عدة — خفض تباين)، وأدر الإدراك (موظفون يمشون على الطابور يدققون الوثائق مسبقاً = انتظار مشغول وقد بدأ). بلد واحد وفصل واحد: المسار الحرج بنى القطارات؛ ونظرية الطوابير تستقبلك على الحدود.</p>
+</div>
+
+<div class="formula">
+  <h3><span class="en">Quick Reference</span><span class="ar" style="display:inline"> · مرجع سريع</span></h3>
+  <code>PERT time = (a + 4m + b) ÷ 6</code>
+  <code>Slack = Latest start − Earliest start (critical path: slack = 0)</code>
+  <code>ρ = λ/μ   ·   L = ρ/(1−ρ)   ·   W = L/λ  (M/M/1)</code>
+</div>
+
+<h2 class="sec"><span class="en">Test Yourself</span><span class="ar">اختبر نفسك</span></h2>
+<details class="quiz"><summary><span class="en">Paths: A-B-D = 14 days, A-C-D = 17, A-E = 9. Which activities deserve overtime money?</span><span class="ar">مسارات: أ-ب-د = 14 يوماً، أ-ج-د = 17، أ-هـ = 9. أي الأنشطة تستحق مال الإضافي؟</span></summary>
+<p class="en">Only A, C, D — the 17-day critical path. Accelerating B or E buys nothing until A-C-D drops below 14, when A-B-D takes over as critical.</p>
+<p class="ar">فقط أ وج ود — المسار الحرج ذو 17 يوماً. تعجيل ب أو هـ لا يشتري شيئاً حتى يهبط أ-ج-د دون 14 فيتولى أ-ب-د الحرجية.</p></details>
+<details class="quiz"><summary><span class="en">A clinic's doctor serves 5 patients/hr; arrivals average 4/hr. Average patients in clinic, and what happens if arrivals hit 4.8?</span><span class="ar">طبيب عيادة يخدم 5 مرضى بالساعة والوصول 4. متوسط من في العيادة؟ وماذا لو بلغ الوصول 4.8؟</span></summary>
+<p class="en">ρ = 0.8 → L = 4 patients. At λ = 4.8: ρ = 0.96 → L = 24 — a 20% arrival rise sextuples the crowd. Capacity cushions aren't luxury.</p>
+<p class="ar">الاستغلال 0.8 ← 4 مرضى. وعند 4.8: الاستغلال 0.96 ← 24 — زيادة وصول 20% تُسدّس الزحام. وسائد الطاقة ليست ترفاً.</p></details>
+<details class="quiz"><summary><span class="en">SPT minimizes average flow time. Why would a hotel maintenance team still not use it raw?</span><span class="ar">قاعدة الأقصر تقلل متوسط التدفق. فلمَ لا يستخدمها فريق صيانة الفندق خاماً؟</span></summary>
+<p class="en">Long jobs (a chiller overhaul) would wait forever behind endless quick fixes, and some jobs carry due-date or guest-impact urgency SPT ignores. Practical rule: SPT within priority classes, aging rules to rescue starving jobs.</p>
+<p class="ar">ستنتظر الأعمال الطويلة (عمرة تشيلر) إلى الأبد خلف إصلاحات سريعة لا تنتهي، ولبعض الأعمال استحقاقٌ أو أثرُ نزيلٍ تتجاهله القاعدة. والعرف العملي: الأقصر داخل فئات الأولوية مع قواعد تقادم تنقذ الجائعين.</p></details>
+
+<div class="crumb">
+  <a href="09.html"><span class="en">← Prev</span><span class="ar" style="display:inline">→ السابق</span></a> · <a href="../mgt530.html"><span class="en">Back to MGT530 hub</span><span class="ar" style="display:inline">عودة لصفحة المقرر</span></a>
+</div>
+</div>
+<footer>
+  <div class="fbtn"><a href="https://binnasban.com" target="_blank" rel="noopener">Visit Binnasban.com</a></div>
+  <div class="fcredit">Built by <b>Khalid Bin Nasban</b> · <a href="mailto:knasban@gmail.com">knasban@gmail.com</a> · <a href="https://www.linkedin.com/in/khalid-nasban" target="_blank" rel="noopener">LinkedIn</a></div>
+  <div>MBA Wiki · Binnasban.com/mba</div>
+</footer>
+<script src="../app.js"></script>
+</body>
+</html>
