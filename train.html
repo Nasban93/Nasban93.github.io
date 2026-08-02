@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#F2F6F4">
+<title>المدرب — عُدّة تدريب لأي محتوى</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F2F6F4; --bg2:#EBF1EE; --surface:#FFFFFF; --surface2:#F7FAF8;
+  --border:#DFE8E3; --border2:#CBD9D1;
+  --text:#14201A; --text2:#35443C; --muted:#5F7168;
+  --primary:#177B5B; --primary-strong:#0E5C43;
+  --pos:#25794A; --alert:#B3422F; --warn:#96690F;
+  --pos-bg:#EAF5EE; --alert-bg:#FBEEEA; --warn-bg:#FBF3E0;
+  --btn-text:#FFFFFF; --chip:#EBF1EE;
+  --primary-soft:color-mix(in srgb,var(--primary) 9%,transparent);
+  --shadow-sm:0 1px 2px rgba(10,30,20,.05);
+  --shadow:0 1px 3px rgba(10,30,20,.08),0 4px 14px rgba(10,30,20,.05);
+  --shadow-lg:0 8px 30px rgba(10,30,20,.14);
+  --r:14px; --mono:"Cascadia Mono","Consolas",monospace;
+}
+html[data-theme="dark"]{
+  --bg:#0B1410; --bg2:#08100C; --surface:#12211A; --surface2:#172a21;
+  --border:#22392E; --border2:#2E4C3D;
+  --text:#E7F1EB; --text2:#C2D4C9; --muted:#84a091;
+  --primary:#4FBF95; --primary-strong:#7BD9B4;
+  --pos:#69AE84; --alert:#C96D59; --warn:#C9A15A;
+  --pos-bg:rgba(105,174,132,.13); --alert-bg:rgba(201,109,89,.13); --warn-bg:rgba(201,161,90,.13);
+  --btn-text:#0a130e; --chip:#1A2E24;
+  --primary-soft:color-mix(in srgb,var(--primary) 14%,transparent);
+  --shadow-sm:0 1px 2px rgba(0,0,0,.3); --shadow:0 2px 6px rgba(0,0,0,.35); --shadow-lg:0 10px 34px rgba(0,0,0,.5);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--text);font-family:"Tajawal","Segoe UI",Tahoma,system-ui,sans-serif;
+  font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
+body{position:relative;isolation:isolate;min-height:100vh}
+/* أورورا */
+@keyframes auroraA{0%{transform:translate3d(-8%,-6%,0) scale(1)}50%{transform:translate3d(8%,6%,0) scale(1.16)}100%{transform:translate3d(-8%,-6%,0) scale(1)}}
+@keyframes auroraB{0%{transform:translate3d(6%,4%,0) scale(1.1)}50%{transform:translate3d(-6%,-6%,0) scale(1)}100%{transform:translate3d(6%,4%,0) scale(1.1)}}
+@keyframes floatUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+body::before,body::after{content:"";position:fixed;z-index:-1;pointer-events:none;border-radius:50%;filter:blur(60px)}
+body::before{width:58vw;height:58vw;top:-20vw;inset-inline-end:-12vw;background:radial-gradient(circle,color-mix(in srgb,var(--primary) 30%,transparent),transparent 62%)}
+body::after{width:50vw;height:50vw;bottom:-18vw;inset-inline-start:-10vw;background:radial-gradient(circle,color-mix(in srgb,#2C8C6E 26%,transparent),transparent 62%)}
+@media (prefers-reduced-motion:no-preference){body::before{animation:auroraA 22s ease-in-out infinite}body::after{animation:auroraB 26s ease-in-out infinite}}
+/* هيكل */
+header.top{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:14px;padding:12px 20px;
+  background:color-mix(in srgb,var(--surface) 72%,transparent);backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);
+  border-bottom:1px solid var(--border)}
+header.top::after{content:"";position:absolute;inset-inline:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,var(--primary),transparent);opacity:.45}
+.brand{display:flex;align-items:center;gap:10px}
+.brand .mark{width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;
+  background:linear-gradient(135deg,var(--primary),#2C8C6E);box-shadow:0 6px 16px -6px var(--primary)}
+.brand .mark svg{width:20px;height:20px}
+.brand h1{font-size:17.5px;font-weight:900;letter-spacing:-.3px}
+.brand .sub{font-size:11.5px;color:var(--muted)}
+.spacer{flex:1}
+.mode-pill{display:flex;background:var(--chip);border:1px solid var(--border);border-radius:22px;padding:3px;gap:3px}
+.mode-pill button{border:none;background:transparent;color:var(--muted);font-family:inherit;font-size:12.5px;font-weight:700;
+  padding:6px 16px;border-radius:18px;cursor:pointer;min-height:34px}
+.mode-pill button.active{background:var(--primary);color:var(--btn-text);box-shadow:0 4px 12px -4px var(--primary)}
+main{max-width:1080px;margin:0 auto;padding:22px;min-width:0}
+.view{display:none}.view.active{display:block;animation:floatUp .26s ease}
+/* بطاقات */
+.card{background:color-mix(in srgb,var(--surface) 72%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border:1px solid color-mix(in srgb,var(--primary) 13%,var(--border));border-radius:18px;padding:20px;margin-bottom:16px;
+  box-shadow:0 1px 0 color-mix(in srgb,#fff 7%,transparent) inset,var(--shadow)}
+.card:hover{border-color:color-mix(in srgb,var(--primary) 26%,var(--border))}
+.card h3{font-size:15.5px;margin-bottom:13px;display:flex;align-items:center;gap:8px;color:var(--primary-strong);font-weight:800}
+.card h3 small{color:var(--muted);font-weight:400;font-size:11.5px}
+.page-head{margin-bottom:16px}
+.page-head h2{font-size:22px;letter-spacing:-.3px}
+.page-head p{color:var(--muted);font-size:13px}
+.muted{color:var(--muted)} .small{font-size:12px} .num{font-family:var(--mono)}
+.flex{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:820px){.two-col{grid-template-columns:1fr}}
+/* أزرار وحقول */
+.btn{display:inline-flex;align-items:center;gap:7px;border:none;border-radius:11px;background:var(--primary);color:var(--btn-text);
+  font-family:inherit;font-size:13.5px;font-weight:700;padding:10px 18px;cursor:pointer;min-height:42px;
+  box-shadow:0 8px 20px -10px var(--primary);transition:transform .12s,box-shadow .18s}
+.btn:hover{transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--primary-strong);border:1.5px solid color-mix(in srgb,var(--primary) 45%,var(--border));box-shadow:none}
+.btn.danger{background:transparent;color:var(--alert);border:1.5px solid color-mix(in srgb,var(--alert) 40%,var(--border));box-shadow:none}
+.btn.pos{background:var(--pos)}
+.btn.small{padding:6px 12px;min-height:34px;font-size:12px;border-radius:9px}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+input,select,textarea{width:100%;background:var(--surface);border:1.5px solid var(--border2);border-radius:11px;color:var(--text);
+  font-family:inherit;font-size:14px;padding:10px 13px;outline:none;transition:border-color .15s}
+input:focus,select:focus,textarea:focus{border-color:var(--primary)}
+textarea{min-height:110px;resize:vertical;line-height:1.9}
+label{display:block;font-size:12.5px;font-weight:700;color:var(--text2);margin-bottom:5px}
+.field{margin-bottom:12px}
+.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+/* عناصر */
+.item-box{background:color-mix(in srgb,var(--surface2) 80%,transparent);border:1px solid var(--border);border-radius:13px;padding:13px 15px;margin-bottom:10px}
+.item-box h4{font-size:13.5px;margin-bottom:4px}
+.tag{display:inline-flex;align-items:center;font-size:11px;font-weight:700;padding:2px 11px;border-radius:20px;background:var(--chip);color:var(--muted)}
+.tag.ok{background:var(--pos-bg);color:var(--pos)} .tag.mid{background:var(--warn-bg);color:var(--warn)} .tag.no{background:var(--alert-bg);color:var(--alert)}
+.msg{padding:11px 15px;border-radius:11px;font-size:13.5px;margin-bottom:13px}
+.msg.ok{background:var(--pos-bg);border:1px solid color-mix(in srgb,var(--pos) 30%,transparent);color:var(--pos)}
+.msg.warn{background:var(--alert-bg);border:1px solid color-mix(in srgb,var(--alert) 30%,transparent);color:var(--alert)}
+.msg.info{background:var(--primary-soft);border:1px solid color-mix(in srgb,var(--primary) 30%,transparent);color:var(--primary-strong)}
+.grid-kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:16px}
+.kpi{background:color-mix(in srgb,var(--surface) 80%,transparent);border:1px solid var(--border);border-radius:15px;padding:15px 17px;position:relative;overflow:hidden}
+.kpi::before{content:"";position:absolute;inset-inline-start:0;top:0;bottom:0;width:3.5px;background:var(--primary)}
+.kpi .v{font-size:25px;font-weight:800;font-family:var(--mono);color:var(--primary-strong)}
+.kpi .v small{font-size:12px;color:var(--muted);font-weight:400}
+.kpi .t{color:var(--muted);font-size:12px;margin-top:2px;font-weight:600}
+.table-wrap{overflow-x:auto;border-radius:10px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:right;padding:9px 11px;border-bottom:1px solid var(--border)}
+th{color:var(--muted);font-size:11.5px;font-weight:700;white-space:nowrap}
+.dot{width:12px;height:12px;border-radius:50%;display:inline-block}
+.dot.g{background:var(--pos)} .dot.y{background:var(--warn)} .dot.o{background:var(--border2)}
+.progressbar{background:var(--bg2);border-radius:20px;height:10px;overflow:hidden;border:1px solid var(--border)}
+.progressbar div{height:100%;border-radius:20px;background:linear-gradient(90deg,var(--primary),#2C8C6E);transition:width .4s ease}
+.chips{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:13px}
+.chip{border:1.5px solid var(--border2);background:var(--surface);color:var(--text2);border-radius:20px;padding:6px 15px;
+  font-family:inherit;font-size:12.5px;font-weight:700;cursor:pointer;min-height:36px}
+.chip.active{background:var(--primary);border-color:var(--primary);color:var(--btn-text)}
+/* تبويبات المدرب */
+.tabs{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap}
+.tabs button{background:color-mix(in srgb,var(--surface) 75%,transparent);border:1px solid var(--border2);color:var(--text2);
+  font-family:inherit;font-size:13px;font-weight:700;padding:9px 18px;border-radius:11px;cursor:pointer;min-height:42px}
+.tabs button.active{color:var(--btn-text);border-color:var(--primary);background:var(--primary)}
+/* هيرو مصغر */
+.hero{position:relative;text-align:center;padding:38px 20px 30px;border-radius:22px;margin-bottom:18px;overflow:hidden;
+  background:color-mix(in srgb,var(--surface) 55%,transparent);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border:1px solid color-mix(in srgb,var(--primary) 22%,transparent);box-shadow:0 26px 60px -36px color-mix(in srgb,var(--primary) 45%,#000)}
+.hero::before{content:"";position:absolute;inset-inline:0;top:0;height:2px;background:linear-gradient(90deg,transparent,var(--primary),transparent)}
+.hero h2{font-size:30px;font-weight:900;letter-spacing:-.8px;margin-bottom:8px;
+  background:linear-gradient(105deg,var(--primary-strong),var(--primary));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:var(--muted);font-size:13.5px;max-width:640px;margin:0 auto}
+/* المودالات */
+.modal-back{position:fixed;inset:0;background:rgba(8,14,10,.55);backdrop-filter:blur(5px);z-index:80;display:none;align-items:center;justify-content:center;padding:16px}
+.modal-back.show{display:flex}
+.modal{background:var(--surface);border:1px solid var(--border);border-radius:20px;max-width:640px;width:100%;max-height:88vh;overflow:auto;padding:22px;box-shadow:var(--shadow-lg)}
+.modal h3{font-size:16px;margin-bottom:14px;color:var(--primary-strong);display:flex;align-items:center;justify-content:space-between}
+/* بطاقة المذاكرة */
+.fcard{perspective:1200px;cursor:pointer;margin:6px 0 14px}
+.fcard .inner{position:relative;min-height:210px;transition:transform .5s;transform-style:preserve-3d}
+.fcard.flip .inner{transform:rotateY(180deg)}
+.fcard .face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:16px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:22px;gap:8px;
+  border:1.5px solid color-mix(in srgb,var(--primary) 30%,var(--border))}
+.fcard .front{background:linear-gradient(160deg,color-mix(in srgb,var(--primary) 10%,var(--surface)),var(--surface))}
+.fcard .back{transform:rotateY(180deg);background:linear-gradient(160deg,color-mix(in srgb,var(--pos) 10%,var(--surface)),var(--surface))}
+.fcard .k{font-size:11px;font-weight:800;color:var(--muted);letter-spacing:1px}
+.fcard .q{font-size:16.5px;font-weight:800;line-height:1.8}
+.fcard .a{font-size:14px;line-height:1.9;color:var(--text2)}
+/* خيارات الأسئلة */
+.qopt{display:flex;align-items:center;gap:10px;border:1.5px solid var(--border2);border-radius:12px;padding:12px 15px;margin-bottom:9px;cursor:pointer;font-size:14px;transition:border-color .15s,background .15s}
+.qopt:hover{border-color:var(--primary)}
+.qopt.correct{border-color:var(--pos);background:var(--pos-bg)}
+.qopt.wrong{border-color:var(--alert);background:var(--alert-bg)}
+.timer{font-family:var(--mono);font-weight:800;font-size:15px;color:var(--primary-strong)}
+.timer.low{color:var(--alert);animation:pulse 1s infinite}
+@keyframes pulse{50%{opacity:.5}}
+/* الشهادة */
+#cert{display:none}
+@media print{
+  body::before,body::after,header.top,main>*{display:none!important}
+  body,html{background:#fff!important}
+  main{max-width:none;padding:0}
+  #cert{display:block!important;border:10px double #177B5B;border-radius:6px;padding:50px 40px;text-align:center;color:#14201A}
+  #cert .big{font-size:30px;font-weight:900;margin:16px 0}
+  #cert .name{font-size:26px;font-weight:900;color:#0E5C43;margin:8px 0}
+}
+.credit{margin-top:26px;padding:14px 0 6px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:center;gap:7px;font-size:11.5px;color:var(--muted)}
+.credit b{color:var(--primary-strong);font-weight:800;font-size:12.5px}
+.credit .dot-sep{width:3px;height:3px;border-radius:50%;background:var(--border2)}
+/* جوال */
+@media(max-width:720px){
+  main{padding:14px}
+  header.top{padding:10px 12px;gap:8px;flex-wrap:wrap}
+  .brand h1{font-size:15px}
+  .brand .sub{display:none}
+  input,select,textarea{font-size:16px}
+  .btn{min-height:44px}
+  .tabs button{flex:1;min-width:max-content}
+  .hero h2{font-size:23px}
+  .card{padding:15px}
+  .grid-kpi{grid-template-columns:1fr 1fr}
+  th,td{white-space:nowrap;font-size:12px;padding:7px 8px}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <div class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></svg></div>
+    <div>
+      <h1>المدرب</h1>
+      <div class="sub">عُدّة تدريب واختبار لأي محتوى — تعمل من المتصفح بلا خادم</div>
+    </div>
+  </div>
+  <span class="spacer"></span>
+  <div class="mode-pill" id="mode-pill"></div>
+  <button class="btn ghost small" id="theme-btn" onclick="toggleTheme()">🌙</button>
+</header>
+<main>
+  <div id="view-trainer" class="view"></div>
+  <div id="view-trainee" class="view"></div>
+  <div class="credit">إعداد وتطوير<span class="dot-sep"></span><b>خالد بن نصبان</b></div>
+  <div id="cert"></div>
+</main>
+<div class="modal-back" id="modal-back"><div class="modal" id="modal-body"></div></div>
+<script>
+/* ═════════ المدرب — عُدّة تدريب واختبار لأي محتوى ═════════
+   ملف واحد • يعمل من المتصفح بلا خادم • البيانات محلية على الجهاز
+   إعداد وتطوير: خالد بن نصبان */
+"use strict";
+const LS="mudarrib_v1",TH="mudarrib_theme";
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+let DB=null,MODE="trainer",TTAB="dash",CURP=null,TRAINEE=null,TPROG=null;
+var FCARD=null,PRAC=null,EXAM=null;
+
+/* ——— تخزين ——— */
+function save(){localStorage.setItem(LS,JSON.stringify(DB))}
+function load(){try{DB=JSON.parse(localStorage.getItem(LS))}catch(e){DB=null}}
+function nid(k){DB.seq[k]=(DB.seq[k]||0)+1;return DB.seq[k]}
+
+/* ——— بذرة: برنامج نموذجي عام (قابل للحذف) ——— */
+function seed(){
+  DB={v:1,seq:{p:1,u:2,c:11,q:10,t:1,r:0},
+  programs:[{id:1,name:"أساسيات خدمة العملاء — نموذج",desc:"برنامج نموذجي عام للتجربة — احذفه وأنشئ برنامجك، أو عدّل محتواه.",
+    units:[
+      {id:1,title:"مهارات المكالمة",cards:[
+        {id:1,q:"ما الترتيب الصحيح لافتتاح المكالمة؟",a:"التحية باسم الجهة ثم اسمك، ثم عرض المساعدة مباشرة: «حياك الله، معك (الاسم) من (الجهة)، كيف أقدر أخدمك؟»"},
+        {id:2,q:"ما هو الإنصات الفعّال؟",a:"الاستماع الكامل دون مقاطعة، مع تدوين النقاط، ثم تلخيص طلب العميل بكلماتك للتأكد من الفهم قبل الإجابة."},
+        {id:3,q:"كيف تتعامل مع عميل غاضب؟",a:"اسمح له يفرّغ دون مقاطعة، تعاطف بجملة قصيرة، لا تأخذ الكلام شخصياً، ركّز على الحل وقدّم إطاراً زمنياً واضحاً."},
+        {id:4,q:"ما هي اللغة الإيجابية في الرد؟",a:"استبدال صيغ النفي بصيغ الحل: بدل «ما أقدر» قل «اللي أقدر أسويه لك هو…»، وبدل «هذا مو قسمي» قل «بوصلك للمختص مباشرة»."},
+        {id:5,q:"متى تُصعّد المكالمة؟",a:"عند تجاوز صلاحياتك أو تكرار الشكوى أو طلب العميل التحدث لمسؤول — مع إبلاغ العميل بمن سيتابع والمدة المتوقعة."},
+        {id:6,q:"ما عناصر الختام الاحترافي؟",a:"تلخيص المتفق عليه، سؤال «هل أقدر أخدمك بشيء آخر؟»، الشكر، ثم توثيق المكالمة فور إغلاقها."}],
+       qs:[
+        {id:1,q:"أول خطوة عند استلام مكالمة عميل غاضب…",opts:["مقاطعته لتصحيح المعلومة","تركه يفرّغ ثم التعاطف","تحويله فوراً","إنهاء المكالمة"],c:1},
+        {id:2,q:"التلخيص بعد سماع الطلب هدفه…",opts:["كسب الوقت","التأكد من الفهم الصحيح","إظهار المهارة","تعبئة النظام"],c:1},
+        {id:3,q:"بدل «ما أقدر أساعدك» الأفضل قول…",opts:["«هذا مو شغلي»","«اللي أقدر أسويه لك هو…»","«اتصل بعدين»","«ما أدري»"],c:1},
+        {id:4,q:"عند التصعيد يجب إبلاغ العميل بـ…",opts:["اسم المدير فقط","من سيتابع والمدة المتوقعة","لا شيء","رقم الشكوى فقط"],c:1},
+        {id:5,q:"آخر خطوة بعد إغلاق أي مكالمة…",opts:["استراحة قصيرة","توثيق المكالمة فوراً","الانتقال للمكالمة التالية","إبلاغ الزميل"],c:1}]},
+      {id:2,title:"جودة الخدمة ومؤشراتها",cards:[
+        {id:7,q:"ما معنى «الحل من أول تواصل»؟",a:"إنهاء طلب العميل في نفس المكالمة دون تحويل أو معاودة — أهم مؤشر لجودة الخدمة وقرب المعلومة من الموظف."},
+        {id:8,q:"ما هو زمن أول رد؟",a:"المدة بين استلام البلاغ وأول تواصل فعلي مع العميل — كل ما قصُر ارتفعت الثقة."},
+        {id:9,q:"لماذا التوثيق مهم؟",a:"يحفظ حق العميل والموظف، ويحوّل المكالمات إلى أرقام قابلة للقياس واتخاذ القرار."},
+        {id:10,q:"ما قاعدة سرية بيانات العملاء؟",a:"لا إفصاح عن أي معلومة حساب قبل التحقق من هوية المتصل، ولا مشاركة البيانات خارج نطاق العمل."},
+        {id:11,q:"ما هو مؤشر رضا العملاء (CSAT)؟",a:"تقييم العميل للخدمة بعد إتمامها (عادة من 5) — يُجمع من استبيان أو اتصال ما بعد الخدمة."}],
+       qs:[
+        {id:6,q:"«الحل من أول تواصل» يعني…",opts:["الرد خلال ثوانٍ","إنهاء الطلب دون تحويل أو معاودة","تحويل سريع","إغلاق التذكرة آلياً"],c:1},
+        {id:7,q:"قبل الإفصاح عن معلومات الحساب يجب…",opts:["التحقق من هوية المتصل","سؤال المشرف","تسجيل تذكرة","لا شيء"],c:0},
+        {id:8,q:"زمن أول رد يُقاس من…",opts:["بداية الدوام","استلام البلاغ حتى أول تواصل","إغلاق التذكرة","نهاية المكالمة"],c:1},
+        {id:9,q:"فائدة التوثيق الأساسية…",opts:["ملء وقت الفراغ","تحويل الأداء لأرقام تُقاس","زيادة عدد الأنظمة","لا فائدة"],c:1},
+        {id:10,q:"مؤشر CSAT يقيس…",opts:["سرعة الإنترنت","رضا العميل عن الخدمة","عدد المكالمات","أداء النظام"],c:1}]}
+    ]}],
+  trainees:[{id:1,name:"متدرب تجريبي"}],
+  progress:{},results:[]};
+  save();
+}
+
+/* ——— أدوات ——— */
+function prog(id){return DB.programs.find(p=>p.id===id)}
+function pkey(pid,uid){return "p"+pid+"_u"+uid}
+function tprog(tid){return DB.progress["t"+tid]=DB.progress["t"+tid]||{}}
+function mastered(tid,pid,uid){const p=tprog(tid)[pkey(pid,uid)];return !!(p&&p.mastered)}
+function seen(tid,pid,uid){const p=tprog(tid)[pkey(pid,uid)];return !!(p&&p.seen)}
+function setProg(tid,pid,uid,patch){const t=tprog(tid);t[pkey(pid,uid)]=Object.assign(t[pkey(pid,uid)]||{},patch);save()}
+function pct(tid,pid){const P=prog(pid);if(!P||!P.units.length)return 0;
+  return Math.round(100*P.units.filter(u=>mastered(tid,pid,u.id)).length/P.units.length)}
+function toast(m){const el=document.createElement("div");el.textContent=m;
+  el.style.cssText="position:fixed;bottom:22px;inset-inline-start:50%;transform:translateX(50%);background:var(--primary);color:var(--btn-text);padding:10px 22px;border-radius:22px;font-weight:700;font-size:13px;z-index:99;box-shadow:var(--shadow-lg)";
+  document.body.appendChild(el);setTimeout(()=>el.remove(),1800)}
+
+/* ——— الثيم والوضع ——— */
+function applyTheme(t){document.documentElement.dataset.theme=t;localStorage.setItem(TH,t);
+  const b=$("#theme-btn");if(b)b.textContent=t==="dark"?"☀":"🌙";
+  const mc=document.querySelector('meta[name="theme-color"]');if(mc)mc.content=t==="dark"?"#0B1410":"#F2F6F4"}
+function toggleTheme(){applyTheme(document.documentElement.dataset.theme==="dark"?"light":"dark")}
+function setMode(m){MODE=m;render()}
+function renderModePill(){$("#mode-pill").innerHTML=`
+  <button class="${MODE==="trainer"?"active":""}" onclick="setMode('trainer')">لوحة المدرب</button>
+  <button class="${MODE==="trainee"?"active":""}" onclick="setMode('trainee')">بوابة المتدرب</button>`}
+function render(){renderModePill();
+  $("#view-trainer").classList.toggle("active",MODE==="trainer");
+  $("#view-trainee").classList.toggle("active",MODE==="trainee");
+  if(MODE==="trainer")renderTrainer();else renderTrainee();window.scrollTo(0,0)}
+
+/* ═════════ لوحة المدرب ═════════ */
+function renderTrainer(){
+  if(CURP&&!prog(CURP))CURP=null;
+  if(!CURP&&DB.programs.length)CURP=DB.programs[0].id;
+  let html=`
+  <div class="hero">
+    <h2>عُدّة المدرب</h2>
+    <p>أنشئ برنامجك التدريبي لأي محتوى — بطاقات مذاكرة وأسئلة، متدربون، تدريب بالتصحيح واختبار موقوت، ولوحة جاهزية تطلع منها بقرار.</p>
+  </div>
+  <div class="tabs">
+    ${[["dash","اللوحة"],["programs","البرامج"],["content","المحتوى"],["people","المتدربون"],["transfer","نقل ومشاركة"]]
+      .map(t=>`<button class="${TTAB===t[0]?"active":""}" onclick="TTAB='${t[0]}';renderTrainer()">${t[1]}</button>`).join("")}
+  </div><div id="ttab"></div>`;
+  $("#view-trainer").innerHTML=html;
+  ({dash:tDash,programs:tPrograms,content:tContent,people:tPeople,transfer:tTransfer})[TTAB]();
+}
+/* — اللوحة — */
+function tDash(){
+  const P=prog(CURP);
+  const nu=DB.programs.reduce((s,p)=>s+p.units.length,0);
+  const nc=DB.programs.reduce((s,p)=>s+p.units.reduce((x,u)=>x+u.cards.length,0),0);
+  const nq=DB.programs.reduce((s,p)=>s+p.units.reduce((x,u)=>x+u.qs.length,0),0);
+  /* أكثر الأسئلة خطأً */
+  const missCount={};DB.results.forEach(r=>(r.missed||[]).forEach(q=>missCount[q]=(missCount[q]||0)+1));
+  const topMiss=Object.entries(missCount).sort((a,b)=>b[1]-a[1]).slice(0,5);
+  $("#ttab").innerHTML=`
+  <div class="grid-kpi">
+    <div class="kpi"><div class="v num">${DB.programs.length}</div><div class="t">برنامج تدريبي</div></div>
+    <div class="kpi"><div class="v num">${nu}</div><div class="t">وحدة</div></div>
+    <div class="kpi"><div class="v num">${nc}</div><div class="t">بطاقة مذاكرة</div></div>
+    <div class="kpi"><div class="v num">${nq}</div><div class="t">سؤال اختبار</div></div>
+    <div class="kpi"><div class="v num">${DB.trainees.length}</div><div class="t">متدرباً</div></div>
+  </div>
+  ${P?`<div class="card"><h3>جاهزية الفريق <small>— ${esc(P.name)}</small></h3>
+    ${DB.programs.length>1?progChips("CURP","tDashPick"):""}
+    <div class="table-wrap"><table><tr><th>المتدرب</th>${P.units.map(u=>`<th title="${esc(u.title)}">${esc(u.title.length>12?u.title.slice(0,11)+"…":u.title)}</th>`).join("")}<th>الإتقان</th><th>آخر اختبار</th></tr>
+    ${DB.trainees.map(t=>{
+      const r=DB.results.filter(x=>x.tid===t.id&&x.pid===P.id).sort((a,b)=>b.ts-a.ts)[0];
+      return`<tr><td>${esc(t.name)}</td>
+      ${P.units.map(u=>`<td><span class="dot ${mastered(t.id,P.id,u.id)?"g":seen(t.id,P.id,u.id)?"y":"o"}"></span></td>`).join("")}
+      <td class="num">${pct(t.id,P.id)}%</td>
+      <td class="num">${r?r.pct+"% "+(r.pass?'<span class="tag ok">اجتاز</span>':'<span class="tag no">راسب</span>'):"—"}</td></tr>`}).join("")||"<tr><td class='muted'>أضف متدربين من تبويب «المتدربون»</td></tr>"}
+    </table></div>
+    <div class="flex small muted" style="margin-top:10px;gap:14px"><span><span class="dot g"></span> متقنة</span><span><span class="dot y"></span> قيد التدريب</span><span><span class="dot o"></span> لم تبدأ</span></div>
+  </div>`:'<div class="msg info">أنشئ برنامجاً من تبويب «البرامج» لتظهر اللوحة.</div>'}
+  <div class="two-col">
+    <div class="card"><h3>نتائج الاختبارات</h3>
+      <div class="table-wrap"><table><tr><th>المتدرب</th><th>البرنامج</th><th>النتيجة</th><th>التاريخ</th></tr>
+      ${[...DB.results].sort((a,b)=>b.ts-a.ts).slice(0,12).map(r=>{const t=DB.trainees.find(x=>x.id===r.tid);const p=prog(r.pid);
+        return`<tr><td>${esc(t?t.name:"?")}</td><td class="small">${esc(p?p.name.slice(0,18):"?")}</td>
+        <td class="num">${r.pct}% ${r.pass?'<span class="tag ok">اجتاز</span>':'<span class="tag no">راسب</span>'}</td>
+        <td class="num small">${new Date(r.ts).toLocaleDateString("ar-SA",{day:"numeric",month:"short"})}</td></tr>`}).join("")||"<tr><td class='muted'>لا نتائج بعد</td></tr>"}
+      </table></div></div>
+    <div class="card"><h3>أكثر الأسئلة خطأً <small>— ركّز عليها في الجلسة القادمة</small></h3>
+      ${topMiss.length?topMiss.map(([q,n])=>`<div class="item-box"><h4>${esc(q)}</h4><span class="tag no">${n} خطأ</span></div>`).join("")
+      :'<p class="muted small">تظهر هنا الأسئلة التي يخطئ فيها المتدربون أكثر — ذخيرتك لتخطيط الجلسات.</p>'}
+    </div>
+  </div>`;
+}
+function progChips(varName,cb){return `<div class="chips">${DB.programs.map(p=>`<button class="chip ${CURP===p.id?"active":""}" onclick="CURP=${p.id};renderTrainer()">${esc(p.name)}</button>`).join("")}</div>`}
+/* — البرامج — */
+function tPrograms(){
+  $("#ttab").innerHTML=`
+  ${DB.programs.map(p=>{const nc=p.units.reduce((s,u)=>s+u.cards.length,0),nq=p.units.reduce((s,u)=>s+u.qs.length,0);
+    return`<div class="card"><h3 style="justify-content:space-between"><span>${esc(p.name)}</span>
+      <span class="tag">${p.units.length} وحدة · ${nc} بطاقة · ${nq} سؤالاً</span></h3>
+    <p class="muted small" style="margin-bottom:12px">${esc(p.desc||"")}</p>
+    <div class="flex">
+      <button class="btn" onclick="CURP=${p.id};TTAB='content';renderTrainer()">فتح المحتوى</button>
+      <button class="btn ghost" onclick="CURP=${p.id};TTAB='dash';renderTrainer()">اللوحة</button>
+      <button class="btn ghost small" onclick="renameProg(${p.id})">إعادة تسمية</button>
+      <button class="btn danger small" onclick="delProg(${p.id})">حذف</button>
+    </div></div>`}).join("")||'<div class="msg info">لا برامج بعد — أنشئ أول برنامج.</div>'}
+  <div class="card"><h3>برنامج جديد</h3>
+    <div class="form-grid">
+      <div class="field"><label>اسم البرنامج (مثال: منتجات الشركة، نظام الحجز، سياسات القسم…)</label><input id="np-name"></div>
+      <div class="field"><label>وصف مختصر — اختياري</label><input id="np-desc"></div>
+    </div>
+    <button class="btn" onclick="addProg()">إنشاء البرنامج</button></div>`;
+}
+function addProg(){const n=$("#np-name").value.trim();if(!n){alert("اكتب اسم البرنامج");return}
+  const p={id:nid("p"),name:n,desc:$("#np-desc").value.trim(),units:[]};
+  DB.programs.push(p);save();CURP=p.id;TTAB="content";renderTrainer();toast("أُنشئ البرنامج — أضف وحداته الآن")}
+function renameProg(id){const p=prog(id);const n=prompt("الاسم الجديد:",p.name);if(n&&n.trim()){p.name=n.trim();save();renderTrainer()}}
+function delProg(id){const p=prog(id);if(!confirm(`حذف برنامج «${p.name}» بكل محتواه ونتائجه؟`))return;
+  DB.programs=DB.programs.filter(x=>x.id!==id);DB.results=DB.results.filter(r=>r.pid!==id);
+  Object.values(DB.progress).forEach(t=>Object.keys(t).forEach(k=>{if(k.startsWith("p"+id+"_"))delete t[k]}));
+  if(CURP===id)CURP=null;save();renderTrainer()}
+/* — المحتوى — */
+let OPENU=null;
+function tContent(){
+  const P=prog(CURP);
+  if(!P){$("#ttab").innerHTML='<div class="msg info">أنشئ برنامجاً أولاً من تبويب «البرامج».</div>';return}
+  $("#ttab").innerHTML=`
+  ${DB.programs.length>1?progChips():""}
+  <div class="msg info">كل وحدة = درس واحد: <b>بطاقات مذاكرة</b> (سؤال/جواب) يذاكرها المتدرب، و<b>أسئلة اختيارات</b> للتدريب بالتصحيح والاختبار. أضف البطاقات دفعة واحدة بسطر لكل بطاقة: <b>السؤال | الجواب</b></div>
+  ${P.units.map(u=>`
+  <div class="card"><h3 style="justify-content:space-between"><span>وحدة: ${esc(u.title)}</span>
+    <span class="flex" style="gap:6px">
+      <span class="tag">${u.cards.length} بطاقة · ${u.qs.length} سؤالاً</span>
+      <button class="btn ghost small" onclick="OPENU=OPENU===${u.id}?null:${u.id};renderTrainer()">${OPENU===u.id?"إغلاق":"تحرير"}</button>
+      <button class="btn danger small" onclick="delUnit(${u.id})">حذف</button>
+    </span></h3>
+  ${OPENU===u.id?`
+    <h3 style="font-size:13px">بطاقات المذاكرة</h3>
+    ${u.cards.map(c=>`<div class="item-box"><div class="flex" style="justify-content:space-between"><h4>${esc(c.q)}</h4>
+      <button class="btn danger small" onclick="delCard(${u.id},${c.id})">حذف</button></div>
+      <div class="small muted">${esc(c.a)}</div></div>`).join("")||'<p class="muted small">لا بطاقات.</p>'}
+    <div class="field" style="margin-top:10px"><label>إضافة بطاقات — سطر لكل بطاقة: السؤال | الجواب</label>
+      <textarea id="bulk-${u.id}" placeholder="ما هي سياسة الاسترجاع؟ | خلال 7 أيام بشرط...&#10;كم مدة الضمان؟ | سنة من تاريخ التسليم"></textarea></div>
+    <button class="btn small" onclick="bulkCards(${u.id})">إضافة البطاقات</button>
+    <h3 style="font-size:13px;margin-top:18px">أسئلة الاختيارات</h3>
+    ${u.qs.map(q=>`<div class="item-box"><div class="flex" style="justify-content:space-between"><h4>${esc(q.q)}</h4>
+      <button class="btn danger small" onclick="delQ(${u.id},${q.id})">حذف</button></div>
+      <div class="small muted">${q.opts.map((o,i)=>(i===q.c?"✓ ":"")+esc(o)).join(" · ")}</div></div>`).join("")||'<p class="muted small">لا أسئلة.</p>'}
+    <div class="field" style="margin-top:10px"><label>سؤال جديد</label><input id="nq-q-${u.id}"></div>
+    <div class="form-grid">${[0,1,2,3].map(i=>`<div class="field"><label>الخيار ${i+1}</label><input id="nq-o${i}-${u.id}"></div>`).join("")}</div>
+    <div class="field"><label>الإجابة الصحيحة</label><select id="nq-c-${u.id}">${[0,1,2,3].map(i=>`<option value="${i}">الخيار ${i+1}</option>`).join("")}</select></div>
+    <button class="btn small" onclick="addQ(${u.id})">إضافة السؤال</button>
+  `:""}</div>`).join("")}
+  <div class="card"><h3>وحدة جديدة</h3>
+    <div class="field"><label>عنوان الوحدة (مثال: المنتج الجديد، إجراءات الاسترجاع…)</label><input id="nu-title"></div>
+    <button class="btn" onclick="addUnit()">إضافة الوحدة</button></div>`;
+}
+function addUnit(){const t=$("#nu-title").value.trim();if(!t){alert("اكتب عنوان الوحدة");return}
+  const u={id:nid("u"),title:t,cards:[],qs:[]};prog(CURP).units.push(u);OPENU=u.id;save();renderTrainer()}
+function delUnit(uid){const P=prog(CURP);const u=P.units.find(x=>x.id===uid);
+  if(!confirm(`حذف وحدة «${u.title}»؟`))return;P.units=P.units.filter(x=>x.id!==uid);save();renderTrainer()}
+function bulkCards(uid){const ta=$("#bulk-"+uid);const lines=ta.value.split("\n").map(l=>l.trim()).filter(Boolean);
+  const u=prog(CURP).units.find(x=>x.id===uid);let n=0;
+  lines.forEach(l=>{const i=l.indexOf("|");if(i<1)return;
+    const q=l.slice(0,i).trim(),a=l.slice(i+1).trim();if(q&&a){u.cards.push({id:nid("c"),q,a});n++}});
+  if(!n){alert("ما لقيت أي سطر بصيغة: السؤال | الجواب");return}
+  save();renderTrainer();toast("أُضيفت "+n+" بطاقة")}
+function delCard(uid,cid){const u=prog(CURP).units.find(x=>x.id===uid);u.cards=u.cards.filter(c=>c.id!==cid);save();renderTrainer()}
+function addQ(uid){const q=$("#nq-q-"+uid).value.trim();const opts=[0,1,2,3].map(i=>$("#nq-o"+i+"-"+uid).value.trim());
+  if(!q||opts.some(o=>!o)){alert("أكمل السؤال والخيارات الأربعة");return}
+  const u=prog(CURP).units.find(x=>x.id===uid);
+  u.qs.push({id:nid("q"),q,opts,c:+$("#nq-c-"+uid).value});save();renderTrainer();toast("أُضيف السؤال")}
+function delQ(uid,qid){const u=prog(CURP).units.find(x=>x.id===uid);u.qs=u.qs.filter(x=>x.id!==qid);save();renderTrainer()}
+/* — المتدربون — */
+function tPeople(){
+  $("#ttab").innerHTML=`
+  <div class="card"><h3>المتدربون <small>— ${DB.trainees.length}</small></h3>
+    ${DB.trainees.map(t=>`<div class="item-box"><div class="flex" style="justify-content:space-between">
+      <h4>${esc(t.name)}</h4>
+      <span class="flex" style="gap:6px">
+        ${DB.programs.map(p=>`<span class="tag ${pct(t.id,p.id)===100?"ok":pct(t.id,p.id)>0?"mid":""}" title="${esc(p.name)}">${pct(t.id,p.id)}%</span>`).join("")}
+        <button class="btn danger small" onclick="delTrainee(${t.id})">حذف</button>
+      </span></div></div>`).join("")||'<p class="muted">لا متدربون بعد.</p>'}
+    <div class="field" style="margin-top:12px"><label>إضافة متدرب — أسماء مفصولة بفواصل أو أسطر</label><textarea id="nt-names" style="min-height:70px" placeholder="سالم، نورة، عبدالله"></textarea></div>
+    <button class="btn" onclick="addTrainees()">إضافة</button></div>`;
+}
+function addTrainees(){const raw=$("#nt-names").value;const names=raw.split(/[,،\n]/).map(s=>s.trim()).filter(Boolean);
+  if(!names.length){alert("اكتب اسماً واحداً على الأقل");return}
+  let n=0;names.forEach(nm=>{if(!DB.trainees.find(t=>t.name===nm)){DB.trainees.push({id:nid("t"),name:nm});n++}});
+  save();renderTrainer();toast("أُضيف "+n+" متدرباً")}
+function delTrainee(id){const t=DB.trainees.find(x=>x.id===id);if(!confirm(`حذف «${t.name}» ونتائجه؟`))return;
+  DB.trainees=DB.trainees.filter(x=>x.id!==id);delete DB.progress["t"+id];DB.results=DB.results.filter(r=>r.tid!==id);save();renderTrainer()}
+/* — نقل ومشاركة — */
+function tTransfer(){
+  $("#ttab").innerHTML=`
+  <div class="msg info">البيانات محفوظة على هذا الجهاز فقط. للمشاركة: <b>صدّر</b> البرنامج ملفاً وأرسله لزملائك، وهم <b>يستوردونه</b> من نفس التبويب على أجهزتهم.</div>
+  <div class="two-col">
+    <div class="card"><h3>تصدير برنامج</h3>
+      <div class="field"><label>اختر البرنامج</label><select id="ex-p">${DB.programs.map(p=>`<option value="${p.id}">${esc(p.name)}</option>`).join("")}</select></div>
+      <div class="flex">
+        <button class="btn" onclick="exportProg(false)">تنزيل ملفاً</button>
+        <button class="btn ghost" onclick="exportProg(true)">نسخ النص</button>
+      </div>
+      <textarea id="ex-out" style="margin-top:12px;display:none" readonly></textarea></div>
+    <div class="card"><h3>استيراد برنامج</h3>
+      <div class="field"><label>الصق نص التصدير أو اختر الملف</label>
+        <textarea id="im-in" placeholder='{"mudarrib":1,...}'></textarea></div>
+      <div class="flex">
+        <button class="btn" onclick="importProg()">استيراد</button>
+        <input type="file" id="im-file" accept=".json,.txt" style="width:auto" onchange="importFile(this)">
+      </div></div>
+  </div>
+  <div class="card"><h3>نسخة احتياطية كاملة</h3>
+    <div class="flex">
+      <button class="btn ghost" onclick="backupAll()">تنزيل نسخة كاملة (برامج + متدربون + نتائج)</button>
+      <button class="btn danger" onclick="wipeAll()">تصفير التطبيق</button>
+    </div></div>`;
+}
+function dl(name,text){const b=new Blob([text],{type:"application/json;charset=utf-8"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),3000)}
+function exportProg(copy){const p=prog(+$("#ex-p").value);if(!p)return;
+  const txt=JSON.stringify({mudarrib:1,program:p});
+  if(copy){const ta=$("#ex-out");ta.style.display="block";ta.value=txt;ta.select();
+    try{document.execCommand("copy");toast("نُسخ — أرسله لزملائك")}catch(e){toast("انسخ النص يدوياً")}}
+  else{dl(p.name.replace(/\s+/g,"-")+".json",txt);toast("نُزّل الملف")}}
+function importProg(){let txt=$("#im-in").value.trim();if(!txt){alert("الصق نص التصدير أولاً");return}
+  try{const o=JSON.parse(txt);if(!o.mudarrib||!o.program)throw 0;
+    const p=o.program;p.id=nid("p");
+    p.units.forEach(u=>{u.id=nid("u");u.cards.forEach(c=>c.id=nid("c"));u.qs.forEach(q=>q.id=nid("q"))});
+    DB.programs.push(p);save();CURP=p.id;TTAB="content";renderTrainer();toast("استُورد: "+p.name);
+  }catch(e){alert("النص غير صالح — تأكد أنه نص تصدير من «المدرب»")}}
+function importFile(inp){const f=inp.files[0];if(!f)return;const r=new FileReader();
+  r.onload=()=>{$("#im-in").value=r.result;importProg()};r.readAsText(f)}
+function backupAll(){dl("mudarrib-backup.json",JSON.stringify({mudarrib:1,full:DB}));toast("نُزّلت النسخة الكاملة")}
+function wipeAll(){if(!confirm("تصفير كل شيء؟ (نزّل نسخة احتياطية أولاً)"))return;
+  localStorage.removeItem(LS);load();if(!DB)seed();CURP=null;render()}
+
+/* ═════════ بوابة المتدرب ═════════ */
+function renderTrainee(){
+  if(TRAINEE&&!DB.trainees.find(t=>t.id===TRAINEE))TRAINEE=null;
+  if(TPROG&&!prog(TPROG))TPROG=null;
+  if(!TPROG&&DB.programs.length)TPROG=DB.programs[0].id;
+  const T=DB.trainees.find(t=>t.id===TRAINEE);
+  const P=prog(TPROG);
+  let html=`<div class="page-head"><h2>بوابة المتدرب</h2><p>اختر اسمك، ذاكر بالبطاقات، تدرّب بالتصحيح الفوري، ثم اختبر نفسك.</p></div>
+  <div class="card"><div class="form-grid">
+    <div class="field"><label>أنا</label><select onchange="TRAINEE=+this.value||null;renderTrainee()">
+      <option value="">— اختر اسمك —</option>
+      ${DB.trainees.map(t=>`<option value="${t.id}" ${TRAINEE===t.id?"selected":""}>${esc(t.name)}</option>`).join("")}
+    </select></div>
+    <div class="field"><label>البرنامج</label><select onchange="TPROG=+this.value;renderTrainee()">
+      ${DB.programs.map(p=>`<option value="${p.id}" ${TPROG===p.id?"selected":""}>${esc(p.name)}</option>`).join("")}
+    </select></div>
+  </div>
+  ${!T?'<div class="msg info">اختر اسمك من القائمة (يضيفك المدرب من لوحته).</div>':""}</div>`;
+  if(T&&P){
+    const pc=pct(T.id,P.id);
+    html+=`<div class="card"><h3>مساري في «${esc(P.name)}»</h3>
+      <div class="flex"><div class="progressbar" style="flex:1"><div style="width:${pc}%"></div></div><b class="num">${pc}%</b></div></div>`;
+    P.units.forEach(u=>{
+      const m=mastered(T.id,P.id,u.id),s=seen(T.id,P.id,u.id);
+      html+=`<div class="card"><h3 style="justify-content:space-between">
+        <span>وحدة: ${esc(u.title)}</span>
+        ${m?'<span class="tag ok">متقنة ✓</span>':s?'<span class="tag mid">قيد التدريب</span>':'<span class="tag">لم تبدأ</span>'}</h3>
+        <div class="muted small" style="margin-bottom:11px">${u.cards.length} بطاقة مذاكرة · ${u.qs.length} سؤال تدريب</div>
+        <div class="flex">
+          <button class="btn ghost" onclick="startCards(${u.id})" ${u.cards.length?"":"disabled"}>ذاكر بالبطاقات</button>
+          <button class="btn" onclick="startPractice(${u.id})" ${u.qs.length?"":"disabled"}>تدرّب بالتصحيح ${u.qs.length?"("+u.qs.length+")":""}</button>
+          ${(!u.qs.length&&!m&&u.cards.length)?`<button class="btn ghost" onclick="markDone(${u.id})">تمّت المذاكرة ✓</button>`:""}
+        </div></div>`;
+    });
+    html+=examCard(T,P);
+  }
+  $("#view-trainee").innerHTML=html;
+  if(EXAM&&!EXAM.done)renderExam();
+}
+function markDone(uid){setProg(TRAINEE,TPROG,uid,{seen:true,mastered:true});renderTrainee();toast("أُتقنت الوحدة ✓")}
+
+/* ——— بطاقات المذاكرة ——— */
+function openModal(html){$("#modal-body").innerHTML=html;$("#modal-back").classList.add("show")}
+function closeModal(){$("#modal-back").classList.remove("show");FCARD=null;PRAC=null}
+function startCards(uid){const u=prog(TPROG).units.find(x=>x.id===uid);if(!u.cards.length)return;
+  setProg(TRAINEE,TPROG,uid,{seen:true});
+  FCARD={uid,label:u.title,cards:[...u.cards],i:0,flip:false};renderFC()}
+function renderFC(){const c=FCARD.cards[FCARD.i];
+  openModal(`
+  <h3><span>مذاكرة — ${esc(FCARD.label)}</span><small class="num">${FCARD.i+1}/${FCARD.cards.length}</small></h3>
+  <div class="progressbar" style="margin-bottom:14px"><div style="width:${100*(FCARD.i+1)/FCARD.cards.length}%"></div></div>
+  <div class="fcard ${FCARD.flip?"flip":""}" onclick="FCARD.flip=!FCARD.flip;renderFC()">
+    <div class="inner">
+      <div class="face front"><div class="k">السؤال — اضغط لقلب البطاقة</div><div class="q">${esc(c.q)}</div></div>
+      <div class="face back"><div class="k">الجواب</div><div class="a">${esc(c.a)}</div></div>
+    </div></div>
+  <div class="flex" style="justify-content:space-between">
+    <button class="btn ghost" onclick="fcNav(-1)" ${FCARD.i?"":"disabled"}>→ السابق</button>
+    <button class="btn ghost small" onclick="closeModal();renderTrainee()">إغلاق</button>
+    ${FCARD.i+1<FCARD.cards.length?`<button class="btn" onclick="fcNav(1)">التالي ←</button>`
+      :`<button class="btn pos" onclick="closeModal();renderTrainee()">تمّت المذاكرة ✓</button>`}
+  </div>`)}
+function fcNav(d){FCARD.i=Math.max(0,Math.min(FCARD.cards.length-1,FCARD.i+d));FCARD.flip=false;renderFC()}
+
+/* ——— التدريب بالتصحيح ——— */
+function startPractice(uid){const u=prog(TPROG).units.find(x=>x.id===uid);if(!u.qs.length)return;
+  setProg(TRAINEE,TPROG,uid,{seen:true});
+  PRAC={uid,label:u.title,qs:[...u.qs].sort(()=>Math.random()-.5),i:0,picked:null,correct:0};renderPR()}
+function renderPR(){const q=PRAC.qs[PRAC.i];const p=PRAC.picked;
+  openModal(`
+  <h3><span>تدريب — ${esc(PRAC.label)}</span><small class="num">${PRAC.i+1}/${PRAC.qs.length}</small></h3>
+  <div class="progressbar" style="margin-bottom:14px"><div style="width:${100*PRAC.i/PRAC.qs.length}%"></div></div>
+  <h4 style="margin-bottom:12px">${esc(q.q)}</h4>
+  ${q.opts.map((o,i)=>{
+    let cls="";if(p!==null){if(i===q.c)cls="correct";else if(i===p)cls="wrong"}
+    return`<div class="qopt ${cls}" onclick="${p===null?`pracPick(${i})`:""}">${esc(o)}
+      ${p!==null&&i===q.c?" ✓":""}${p!==null&&i===p&&p!==q.c?" ✗":""}</div>`}).join("")}
+  ${p!==null?`<div class="msg ${p===q.c?"ok":"warn"}" style="margin-top:6px">
+    ${p===q.c?"إجابة صحيحة ✓":"الإجابة الصحيحة موضحة بالأخضر — راجعها وواصل"}</div>
+    <div class="flex" style="justify-content:flex-end">
+    ${PRAC.i+1<PRAC.qs.length?`<button class="btn" onclick="pracNext()">التالي ←</button>`:`<button class="btn pos" onclick="pracEnd()">إنهاء التدريب</button>`}</div>`
+   :`<div class="flex" style="justify-content:flex-end"><button class="btn ghost small" onclick="closeModal();renderTrainee()">إغلاق</button></div>`}`)}
+function pracPick(i){PRAC.picked=i;if(i===PRAC.qs[PRAC.i].c)PRAC.correct++;renderPR()}
+function pracNext(){PRAC.i++;PRAC.picked=null;renderPR()}
+function pracEnd(){
+  const all=PRAC.correct===PRAC.qs.length;
+  if(all)setProg(TRAINEE,TPROG,PRAC.uid,{mastered:true});
+  const msg=all?"أتقنت الوحدة ✓ — كل الإجابات صحيحة":"أنهيت الجولة ("+PRAC.correct+"/"+PRAC.qs.length+") — أعدها حتى تتقنها كلها";
+  closeModal();renderTrainee();toast(msg)}
+
+/* ——— الاختبار ——— */
+const SEC_PER_Q=45,PASS=80;
+function examCard(T,P){
+  const bank=P.units.flatMap(u=>u.qs);
+  if(EXAM&&EXAM.done)return examResultHTML();
+  if(EXAM)return `<div class="card" id="exam-box"></div>`;
+  const mine=DB.results.filter(r=>r.tid===T.id&&r.pid===P.id).sort((a,b)=>b.ts-a.ts);
+  const ready=P.units.every(u=>mastered(T.id,P.id,u.id));
+  return `<div class="card"><h3>الاختبار <small>— بنك الأسئلة: ${bank.length}</small></h3>
+    ${!ready?'<div class="msg info">نصيحة: أتقن كل الوحدات أولاً لنتيجة أفضل — والاختبار متاح الآن.</div>':'<div class="msg ok">أتقنت كل الوحدات — جاهز للاختبار.</div>'}
+    <div class="form-grid" style="max-width:420px">
+      <div class="field"><label>عدد الأسئلة</label><select id="ex-n">${[5,10,15,20].filter(n=>n<=bank.length).map(n=>`<option value="${n}">${n}</option>`).join("")||`<option value="${bank.length}">${bank.length}</option>`}</select></div>
+      <div class="field"><label>الزمن</label><input value="${SEC_PER_Q} ثانية لكل سؤال" disabled></div>
+    </div>
+    <button class="btn" onclick="startExam()" ${bank.length?"":"disabled"}>ابدأ الاختبار</button>
+    ${mine.length?`<div class="table-wrap" style="margin-top:14px"><table><tr><th>التاريخ</th><th>النتيجة</th><th></th></tr>
+      ${mine.slice(0,5).map(r=>`<tr><td class="num small">${new Date(r.ts).toLocaleDateString("ar-SA")}</td>
+      <td class="num">${r.pct}% ${r.pass?'<span class="tag ok">اجتاز</span>':'<span class="tag no">راسب</span>'}</td>
+      <td>${r.pass?`<button class="btn ghost small" onclick="printCert(${r.id})">الشهادة</button>`:""}</td></tr>`).join("")}</table></div>`:""}
+  </div>`;
+}
+function startExam(){
+  const P=prog(TPROG);const n=+($("#ex-n")||{value:10}).value||10;
+  /* توازن عبر الوحدات */
+  const bags=P.units.filter(u=>u.qs.length).map(u=>({u:u.title,q:[...u.qs].sort(()=>Math.random()-.5)}));
+  const picks=[];let i=0,g=0;
+  while(picks.length<n&&bags.some(b=>b.q.length)&&g++<1000){const b=bags[i%bags.length];if(b.q.length)picks.push(b.q.shift());i++}
+  EXAM={qs:picks.sort(()=>Math.random()-.5),i:0,answers:[],done:false,start:Date.now(),remain:picks.length*SEC_PER_Q,iv:null};
+  renderTrainee();startTimer();
+}
+function startTimer(){if(EXAM.iv)clearInterval(EXAM.iv);
+  EXAM.iv=setInterval(()=>{if(!EXAM||EXAM.done){clearInterval(EXAM&&EXAM.iv);return}
+    EXAM.remain--;
+    const el=$("#exam-timer");
+    if(el){const mm=Math.floor(EXAM.remain/60),ss=EXAM.remain%60;
+      el.textContent=mm+":"+String(ss).padStart(2,"0");el.classList.toggle("low",EXAM.remain<=30)}
+    if(EXAM.remain<=0){clearInterval(EXAM.iv);finishExam()}},1000)}
+function renderExam(){const q=EXAM.qs[EXAM.i];const box=$("#exam-box");if(!box)return;
+  box.innerHTML=`<h3 style="justify-content:space-between"><span>السؤال ${EXAM.i+1} من ${EXAM.qs.length}</span><span class="timer" id="exam-timer">--:--</span></h3>
+  <div class="progressbar" style="margin-bottom:14px"><div style="width:${100*EXAM.i/EXAM.qs.length}%"></div></div>
+  <h4 style="margin-bottom:12px">${esc(q.q)}</h4>
+  ${q.opts.map((o,i)=>`<label class="qopt"><input type="radio" name="exq" value="${i}" style="width:auto">${esc(o)}</label>`).join("")}
+  <button class="btn" onclick="answerExam()">${EXAM.i+1===EXAM.qs.length?"إنهاء الاختبار":"التالي ←"}</button>`}
+function answerExam(){const sel=document.querySelector('input[name="exq"]:checked');
+  if(!sel){alert("اختر إجابة");return}
+  EXAM.answers.push(+sel.value);EXAM.i++;
+  if(EXAM.i>=EXAM.qs.length)finishExam();else renderExam()}
+function finishExam(){
+  if(EXAM.iv)clearInterval(EXAM.iv);
+  while(EXAM.answers.length<EXAM.qs.length)EXAM.answers.push(-1);
+  const score=EXAM.qs.filter((q,i)=>EXAM.answers[i]===q.c).length;
+  const pctv=Math.round(100*score/EXAM.qs.length);
+  const missed=EXAM.qs.filter((q,i)=>EXAM.answers[i]!==q.c).map(q=>q.q);
+  const r={id:nid("r"),tid:TRAINEE,pid:TPROG,ts:Date.now(),score,total:EXAM.qs.length,pct:pctv,pass:pctv>=PASS,
+    dur:Math.round((Date.now()-EXAM.start)/1000),missed};
+  DB.results.push(r);save();
+  EXAM.done=true;EXAM.result=r;
+  renderTrainee();
+}
+function examResultHTML(){
+  const r=EXAM.result;
+  return `<div class="card"><h3>${r.pass?"🎉 ":""}نتيجة الاختبار</h3>
+  <div class="grid-kpi">
+    <div class="kpi"><div class="v num">${r.pct}<small> %</small></div><div class="t">${r.pass?"اجتاز — الحد "+PASS+"%":"راسب — الحد "+PASS+"%"}</div></div>
+    <div class="kpi"><div class="v num">${r.score}/${r.total}</div><div class="t">إجابات صحيحة</div></div>
+    <div class="kpi"><div class="v num">${Math.floor(r.dur/60)}:${String(r.dur%60).padStart(2,"0")}</div><div class="t">الزمن</div></div>
+  </div>
+  ${EXAM.qs.map((q,i)=>{const my=EXAM.answers[i];
+    return`<div class="item-box"><h4>${i+1}. ${esc(q.q)}</h4>
+    ${q.opts.map((o,oi)=>`<div class="qopt ${oi===q.c?"correct":oi===my&&my!==q.c?"wrong":""}" style="cursor:default">${esc(o)}${oi===q.c?" ✓":oi===my?" ✗ (إجابتك)":""}</div>`).join("")}</div>`}).join("")}
+  <div class="flex" style="margin-top:12px">
+    ${r.pass?`<button class="btn pos" onclick="printCert(${r.id})">عرض/طباعة الشهادة</button>`:""}
+    <button class="btn ghost" onclick="EXAM=null;renderTrainee()">عودة</button>
+  </div></div>`;
+}
+function printCert(rid){
+  const r=DB.results.find(x=>x.id===rid);if(!r)return;
+  const t=DB.trainees.find(x=>x.id===r.tid);const p=prog(r.pid);
+  $("#cert").innerHTML=`
+    <div style="font-size:13px;letter-spacing:2px;color:#177B5B;font-weight:800">شهادة اجتياز</div>
+    <div class="big">تشهد إدارة التدريب بأن</div>
+    <div class="name">${esc(t?t.name:"")}</div>
+    <div style="font-size:16px;margin:8px 0">قد اجتاز برنامج «${esc(p?p.name:"")}» بنسبة <b>${r.pct}%</b></div>
+    <div style="font-size:13px;color:#555;margin-top:14px">${new Date(r.ts).toLocaleDateString("ar-SA",{year:"numeric",month:"long",day:"numeric"})}</div>
+    <div style="margin-top:30px;font-size:13px">المدرب: ____________________</div>`;
+  window.print();
+}
+
+/* ——— إقلاع ——— */
+(function boot(){
+  applyTheme(localStorage.getItem(TH)||"light");
+  load();if(!DB)seed();
+  $("#modal-back").addEventListener("click",e=>{if(e.target.id==="modal-back"){closeModal();renderTrainee()}});
+  render();
+})();
+</script>
+</body>
+</html>
