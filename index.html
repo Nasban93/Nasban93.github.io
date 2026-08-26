@@ -3,13 +3,45 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Khalid Bin Nasban — HR & People Operations | MBA, PMP</title>
-<meta property="og:title" content="FO Portal — Hotel Front Office KPI Suite (Live Demo)" />
-<meta property="og:description" content="Six hotel KPI apps + one performance score per employee. Click around the live demo — 100% fictional data." />
-<meta property="og:image" content="https://binnasban.com/og-demo.png" />
-<meta property="og:url" content="https://binnasban.com/" />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary_large_image" />
+  <title>Khalid Bin Nasban · HR &amp; People Operations, Riyadh | MBA, PMP, ECBA</title>
+  <meta name="description" content="HR and People Operations professional based in Riyadh. Performance management, workforce planning, HR analytics and Saudization dashboards, with live demos of systems built end to end. MBA, PMP, ECBA." />
+  <meta name="author" content="Khalid Bin Nasban" />
+  <link rel="canonical" href="https://binnasban.com/" />
+
+  <meta property="og:title" content="Khalid Bin Nasban · HR &amp; People Operations, Riyadh" />
+  <meta property="og:description" content="Performance management, workforce planning and HR analytics. Live demos of the HR systems I designed and built end to end. MBA, PMP, ECBA." />
+  <!-- TODO: replace og-demo.png with an HR-appropriate share image -->
+  <meta property="og:image" content="https://binnasban.com/og-demo.png" />
+  <meta property="og:url" content="https://binnasban.com/" />
+  <meta property="og:type" content="profile" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Khalid Bin Nasban · HR &amp; People Operations, Riyadh" />
+  <meta name="twitter:description" content="Performance management, workforce planning and HR analytics. Live demos of the HR systems I designed and built end to end." />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Khalid Bin Nasban",
+    "alternateName": "خالد بن نصبان",
+    "url": "https://binnasban.com/",
+    "email": "KNasban@gmail.com",
+    "jobTitle": "HR & People Operations",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Riyadh",
+      "addressCountry": "SA"
+    },
+    "knowsLanguage": ["ar", "en"],
+    "sameAs": ["https://www.linkedin.com/in/khalid-nasban"],
+    "hasCredential": [
+      { "@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "PMP" },
+      { "@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "ECBA" },
+      { "@type": "EducationalOccupationalCredential", "credentialCategory": "degree", "name": "MBA" }
+    ],
+    "knowsAbout": ["Performance Management", "Workforce Planning", "HR Analytics", "Learning and Development", "Saudization and Nitaqat", "Employee Onboarding", "Power BI"]
+  }
+  </script>
 
 
   <!-- Google tag (gtag.js) -->
@@ -205,8 +237,26 @@
       font-weight: 400;
     }
 
+    .hero-facts {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem;
+      margin-top: 1.6rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .hero-fact-dot {
+      color: var(--accent);
+      font-size: 0.55rem;
+    }
+
     .hero-cta {
-      margin-top: 3rem;
+      margin-top: 2.4rem;
       display: flex;
       gap: 1.2rem;
       flex-wrap: wrap;
@@ -399,7 +449,8 @@
       font-weight: 400;
       flex: 1;
       display: -webkit-box;
-      -webkit-line-clamp: 2;
+      -webkit-line-clamp: 3;
+      line-clamp: 3;
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
@@ -418,6 +469,80 @@
       text-transform: uppercase;
       color: var(--text-muted);
       font-weight: 700;
+    }
+
+    .project-callout {
+      background: var(--accent-dim);
+      border-left: 2px solid var(--accent);
+      border-radius: 4px;
+      padding: 0.75rem 1rem;
+    }
+
+    .project-callout-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+    }
+
+    .project-callout p {
+      font-size: 0.85rem;
+      color: var(--text-main);
+      line-height: 1.5;
+      font-weight: 400;
+    }
+
+    /* ── LinkedIn Posts ── */
+    .posts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .posts-more { display: none; }
+    .posts-more.open { display: contents; }
+
+    .post-card {
+      width: 100%;
+      max-width: 504px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(26, 26, 26, 0.04);
+      transition: all var(--transition);
+    }
+
+    .post-card:hover {
+      background: var(--card-hover);
+      border-color: rgba(200, 164, 93, 0.4);
+      transform: translateY(-6px);
+      box-shadow: 0 16px 32px rgba(26, 26, 26, 0.08);
+    }
+
+    .post-card iframe {
+      display: block;
+      width: 100%;
+      height: var(--h, 1000px);
+      border: 0;
+    }
+
+    .posts-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .posts-note {
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
     }
 
     /* ── Core Competencies ── */
@@ -681,10 +806,34 @@
       .footer-top { flex-direction: column; gap: 2rem; }
       .footer-bottom { flex-direction: column; text-align: center; }
     }
+    @media (max-width: 560px) {
+      .nav-links {
+        flex-shrink: 1;
+        min-width: 0;
+        gap: 1rem;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 2px;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .nav-links::-webkit-scrollbar { display: none; }
+      .nav-links a { font-size: 0.64rem; letter-spacing: 0.06em; }
+      .hero-cta { flex-direction: column; align-items: stretch; }
+      .hero-cta .btn { width: 100%; justify-content: center; }
+    }
     @media (max-width: 480px) {
-      .nav-links { display: none; }
       .hero h1 { font-size: 2.8rem; }
       .stats-grid { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
     }
   </style>
 </head>
@@ -695,6 +844,7 @@
     <a href="#" class="nav-logo">KN<span>.</span></a>
     <ul class="nav-links">
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#insights">Insights</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -706,16 +856,23 @@
     <div class="hero-inner">
       <div class="hero-eyebrow">
         <div class="hero-eyebrow-line"></div>
-        <span class="hero-eyebrow-text">Available For Hire</span>
+        <span class="hero-eyebrow-text">Open to HR &amp; People Operations roles</span>
       </div>
       <h1>Khalid Bin<br /><em>Nasban</em></h1>
-      <p class="hero-subtitle">HR & People Operations &nbsp;·&nbsp; Performance Analytics &nbsp;·&nbsp; PMP & ECBA &nbsp;·&nbsp; MBA</p>
+      <p class="hero-subtitle">HR & People Operations &nbsp;·&nbsp; Performance Management &nbsp;·&nbsp; HR Analytics &nbsp;·&nbsp; MBA, PMP, ECBA</p>
       <div class="hero-divider"></div>
       <p class="hero-summary">
-        An HR and people-development professional who turns operational complexity into fair, data-driven results. 7+ years leading and developing teams, building performance-management and HR-reporting systems, and delivering KPI-driven projects end-to-end.
+        HR and People Operations professional who came up through the floor. Seven years developing teams, four of them leading an 18-member department: workforce planning, onboarding, training and performance. I turn people data into fair, defensible decisions, and I build the systems that produce it.
       </p>
+      <div class="hero-facts">
+        <span>Saudi national</span>
+        <span class="hero-fact-dot">●</span>
+        <span>Riyadh</span>
+        <span class="hero-fact-dot">●</span>
+        <span>Arabic &amp; English</span>
+      </div>
       <div class="hero-cta">
-        <a href="#projects" class="btn btn-primary">View Projects <span class="btn-arrow">↓</span></a>
+        <a href="#projects" class="btn btn-primary">View HR Projects <span class="btn-arrow">↓</span></a>
         <a href="Khalid_BinNasban_CV.pdf" target="_blank" rel="noopener" class="btn btn-outline">Download CV</a>
         <a href="https://www.linkedin.com/in/khalid-nasban" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn Profile</a>
         <a href="#contact" class="btn btn-outline">Get in Touch</a>
@@ -727,22 +884,22 @@
 
   <!-- ── Impact strip (EDIT NUMBERS HERE) ── -->
   <section class="impact" style="max-width:1080px;margin:0 auto;padding:3.2rem 6vw;">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));text-align:center;">
-      <div style="border-right:1px solid var(--line);padding:0 10px;">
-        <div style="font-family:'Cormorant Garamond',serif;font-size:2.6rem;color:var(--accent);line-height:1.1;">6</div>
-        <div style="font-size:.85rem;color:var(--text-muted);">KPIs, one fair score</div>
-      </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));row-gap:1.8rem;text-align:center;">
       <div style="border-right:1px solid var(--line);padding:0 10px;">
         <div style="font-family:'Cormorant Garamond',serif;font-size:2.6rem;color:var(--accent);line-height:1.1;">18</div>
-        <div style="font-size:.85rem;color:var(--text-muted);">staff scored monthly</div>
+        <div style="font-size:.85rem;color:var(--text-muted);">people led, scheduled and scored monthly</div>
       </div>
       <div style="border-right:1px solid var(--line);padding:0 10px;">
-        <div style="font-family:'Cormorant Garamond',serif;font-size:2.6rem;color:var(--accent);line-height:1.1;">0</div>
-        <div style="font-size:.85rem;color:var(--text-muted);">spreadsheets left</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:2.6rem;color:var(--accent);line-height:1.1;">6</div>
+        <div style="font-size:.85rem;color:var(--text-muted);">KPIs, one fair score per employee</div>
+      </div>
+      <div style="border-right:1px solid var(--line);padding:0 10px;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:2.6rem;color:var(--accent);line-height:1.1;">2 hrs</div>
+        <div style="font-size:.85rem;color:var(--text-muted);">of daily manual reporting removed</div>
       </div>
       <div style="padding:0 10px;">
-        <div style="font-family:'Cormorant Garamond',serif;font-size:2.6rem;color:var(--accent);line-height:1.1;">1</div>
-        <div style="font-size:.85rem;color:var(--text-muted);">person built it, end to end</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:2.6rem;color:var(--accent);line-height:1.1;">7+</div>
+        <div style="font-size:.85rem;color:var(--text-muted);">years leading and developing teams</div>
       </div>
     </div>
   </section>
@@ -755,66 +912,29 @@
       <div class="section-line"></div>
       <span class="section-label">Selected Work</span>
     </div>
-    <h2 class="section-title reveal">Featured <em>Projects</em></h2>
+    <h2 class="section-title reveal">HR Systems I <em>Built</em></h2>
+    <p class="reveal" style="color:var(--text-muted);max-width:620px;margin:.4rem 0 1.6rem;font-size:.95rem;">
+      Most HR portfolios describe what someone did. These are the systems themselves, running, with synthetic data in place of real employees. Click into either one.
+    </p>
 
     <div class="projects-grid">
 
-      <!-- Card 1: FO Portal — Hotel KPI Suite -->
+      <!-- Card 1: HotelPulse -->
       <div class="project-card reveal">
         <div class="project-number">01</div>
-        <span class="project-tag">Operations · Performance Management</span>
-        <h3 class="project-title">FO Portal — Hotel KPI Suite</h3>
-        <p class="project-desc">
-          What if performance reviews wrote themselves? In this portal, every check-in, night audit and upsell an agent handles quietly becomes evidence — six KPIs rolled into one fair score per employee. No forms, no favoritism, no manager's memory. Built single-handedly for a real hotel and used in daily operations. Step inside and click anything: every guest is fictional, everything else is real.
-        </p>
-        <a href="hotel-portal/" style="display:block;position:relative;margin:.9rem 0 .2rem;border:1px solid var(--line);border-radius:6px;overflow:hidden;height:220px;text-decoration:none;">
-          <iframe src="hotel-portal/performance/" loading="lazy" tabindex="-1" title="FO Portal live demo preview" style="width:1300px;height:640px;border:0;transform:scale(.34);transform-origin:0 0;pointer-events:none;"></iframe>
-          <span style="position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;background:linear-gradient(to top,rgba(255,255,255,.92) 0%,rgba(255,255,255,0) 34%);">
-            <span style="margin-bottom:12px;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:500;">Live demo — click to explore →</span>
-          </span>
-        </a>
-        <div class="project-footer">
-          <span class="project-status">Live Demo · No Sign-up</span>
-          <a href="hotel-portal/" class="btn btn-primary">
-            Step Inside <span class="btn-arrow">→</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Card 2: Data Analytics Portfolio -->
-      <div class="project-card reveal reveal-delay-1">
-        <div class="project-number">02</div>
-        <span class="project-tag">Python & Power BI</span>
-        <h3 class="project-title">Data Analytics Portfolio</h3>
-        <p class="project-desc">
-          A growing collection of data visualization and business intelligence projects. Currently featuring the <strong>Ehsan Donor Behavior Analysis</strong>, with more interactive dashboards to come.
-        </p>
-        <a href="ehsan/" style="display:block;position:relative;margin:.9rem 0 .2rem;border:1px solid var(--line);border-radius:6px;overflow:hidden;height:220px;text-decoration:none;">
-          <iframe src="ehsan/" loading="lazy" tabindex="-1" title="Ehsan donor analysis live preview" style="width:1300px;height:640px;border:0;transform:scale(.34);transform-origin:0 0;pointer-events:none;"></iframe>
-          <span style="position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;background:linear-gradient(to top,rgba(255,255,255,.92) 0%,rgba(255,255,255,0) 34%);">
-            <span style="margin-bottom:12px;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:500;">Live preview — click to open →</span>
-          </span>
-        </a>
-        <div class="project-footer">
-          <span class="project-status">Data Analysis</span>
-          <a href="ehsan/" class="btn btn-primary">
-            View Ehsan Project <span class="btn-arrow">→</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Card 3: HotelPulse -->
-      <div class="project-card reveal reveal-delay-2">
-        <div class="project-number">03</div>
         <span class="project-tag">HR Analytics · Workforce Strategy</span>
         <h3 class="project-title">HotelPulse</h3>
         <p class="project-desc">
-          A unified hotel HR platform where operational performance meets workforce strategy: each employee's KPI score sits on the same record as Saudization and Nitaqat tracking, attrition, training hours and representation — one dashboard, two lenses. Live demo with synthetic data for a fictional Riyadh property.
+          An HR platform where workforce strategy and daily performance sit on the same record: Saudization and Nitaqat bands, attrition, training hours and representation, next to every employee's KPI score. One dashboard, two lenses. Live demo with synthetic data for a fictional Riyadh property.
         </p>
+        <div class="project-callout">
+          <div class="project-callout-label">What It Shows an HR Team</div>
+          <p>I can design the metrics, build the reporting, and answer a headcount or Saudization question without waiting on anyone.</p>
+        </div>
         <a href="hr/" style="display:block;position:relative;margin:.9rem 0 .2rem;border:1px solid var(--line);border-radius:6px;overflow:hidden;height:220px;text-decoration:none;">
           <iframe src="hr/" loading="lazy" tabindex="-1" title="HotelPulse live preview" style="width:1300px;height:640px;border:0;transform:scale(.34);transform-origin:0 0;pointer-events:none;"></iframe>
           <span style="position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;background:linear-gradient(to top,rgba(255,255,255,.92) 0%,rgba(255,255,255,0) 34%);">
-            <span style="margin-bottom:12px;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:500;">Live preview — click to open →</span>
+            <span style="margin-bottom:12px;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:500;">Live preview, click to open →</span>
           </span>
         </a>
         <div class="project-footer">
@@ -825,45 +945,80 @@
         </div>
       </div>
 
+      <!-- Card 2: FO Portal · KPI Suite -->
+      <div class="project-card reveal reveal-delay-1">
+        <div class="project-number">02</div>
+        <span class="project-tag">Performance Management</span>
+        <h3 class="project-title">FO Portal · KPI Suite</h3>
+        <p class="project-desc">
+          What if performance reviews wrote themselves? Every check-in, night audit and upsell an employee handles quietly becomes evidence: six KPIs rolled into one fair score. No forms, no favouritism, no manager's memory. Built single-handedly for a real property and used in daily operations. Every guest here is fictional, everything else is real.
+        </p>
+        <div class="project-callout">
+          <div class="project-callout-label">What It Shows an HR Team</div>
+          <p>A working answer to the review problem every HR function has: evidence collected all year, weights published in advance, the same rules for everyone.</p>
+        </div>
+        <a href="hotel-portal/" style="display:block;position:relative;margin:.9rem 0 .2rem;border:1px solid var(--line);border-radius:6px;overflow:hidden;height:220px;text-decoration:none;">
+          <iframe src="hotel-portal/performance/" loading="lazy" tabindex="-1" title="FO Portal live demo preview" style="width:1300px;height:640px;border:0;transform:scale(.34);transform-origin:0 0;pointer-events:none;"></iframe>
+          <span style="position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;background:linear-gradient(to top,rgba(255,255,255,.92) 0%,rgba(255,255,255,0) 34%);">
+            <span style="margin-bottom:12px;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:500;">Live demo, click to explore →</span>
+          </span>
+        </a>
+        <div class="project-footer">
+          <span class="project-status">Live Demo · No Sign-up</span>
+          <a href="hotel-portal/" class="btn btn-primary">
+            Step Inside <span class="btn-arrow">→</span>
+          </a>
+        </div>
+      </div>
+
     </div>
   </section>
 
   <hr class="accent-rule" />
 
-  <!-- ── Video series (REPLACE href PLACEHOLDERS with LinkedIn post URLs) ── -->
-  <section class="series" id="series" style="max-width:1080px;margin:0 auto;padding:3.2rem 6vw;">
+  <!-- ── LinkedIn Insights ── -->
+  <section class="insights" id="insights" style="max-width:1080px;margin:0 auto;padding:3.2rem 6vw;">
     <div class="section-header reveal">
       <div class="section-line"></div>
-      <span class="section-label">Building a Hotel PMS</span>
+      <span class="section-label">Building in Public</span>
     </div>
-    <h2 class="section-title reveal">The <em>Series</em></h2>
+    <h2 class="section-title reveal">From <em>LinkedIn</em></h2>
     <p style="color:var(--text-muted);max-width:620px;margin:.4rem 0 1.6rem;font-size:.95rem;">
-      Short LinkedIn episodes — one KPI at a time, filmed inside the live demo. How routine
-      front-office work quietly becomes a fair performance score.
+      I write about performance management as I build it, one KPI at a time: what makes a score fair, how to measure work that nobody sees, and where the whole thing nearly broke. Posts are in Arabic, with an English version in the first comment.
     </p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1rem;">
-      <a href="https://www.linkedin.com/posts/khalid-nasban_aenaexaepaezaerabraepaesaelaexaepaej-aepaesaetaewaepaezaexabraepaesaeqaecaezaeyaer-ugcPost-7482105871448154112-i1xg/" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:6px;overflow:hidden;display:block;">
-        <div style="background:#14120f;color:#f4efe6;padding:1.5rem 1rem;text-align:center;">
-          <div style="font-size:.7rem;letter-spacing:.18em;color:var(--accent);">EPISODE 1</div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:1.35rem;margin-top:.2rem;">Guest Care</div>
-        </div>
-        <div style="padding:.6rem .9rem;font-size:.82rem;color:var(--text-muted);">▶ Watch on LinkedIn</div>
-      </a>
-      <div style="border:1px dashed var(--card-border);border-radius:6px;overflow:hidden;">
-        <div style="background:var(--card-hover);color:var(--accent);padding:1.5rem 1rem;text-align:center;">
-          <div style="font-size:.7rem;letter-spacing:.18em;">EPISODE 2</div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:1.35rem;margin-top:.2rem;">Attendance</div>
-        </div>
-        <div style="padding:.6rem .9rem;font-size:.82rem;color:var(--text-muted);">Coming soon</div>
+
+    <div class="posts-grid reveal reveal-delay-1">
+      <div class="post-card" style="--h:1155px;">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7482105871448154112" loading="lazy" frameborder="0" allowfullscreen="" title="LinkedIn post by Khalid Bin Nasban, 1 of 6"></iframe>
       </div>
-      <div style="border:1px dashed var(--card-border);border-radius:6px;overflow:hidden;">
-        <div style="background:var(--card-hover);color:var(--accent);padding:1.5rem 1rem;text-align:center;">
-          <div style="font-size:.7rem;letter-spacing:.18em;">EPISODE 3</div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:1.35rem;margin-top:.2rem;">Upselling &amp; Enrollment</div>
+      <div class="post-card" style="--h:1050px;">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7482761440781631488" loading="lazy" frameborder="0" allowfullscreen="" title="LinkedIn post by Khalid Bin Nasban, 2 of 6"></iframe>
+      </div>
+      <div class="post-card" style="--h:1010px;">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7483498715253579776" loading="lazy" frameborder="0" allowfullscreen="" title="LinkedIn post by Khalid Bin Nasban, 3 of 6"></iframe>
+      </div>
+      <div class="posts-more" id="posts-more">
+        <div class="post-card" style="--h:1010px;">
+          <iframe data-src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7484944699724775425" frameborder="0" allowfullscreen="" title="LinkedIn post by Khalid Bin Nasban, 4 of 6"></iframe>
         </div>
-        <div style="padding:.6rem .9rem;font-size:.82rem;color:var(--text-muted);">Coming soon</div>
+        <div class="post-card" style="--h:990px;">
+          <iframe data-src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7484945856874541056" frameborder="0" allowfullscreen="" title="LinkedIn post by Khalid Bin Nasban, 5 of 6"></iframe>
+        </div>
+        <div class="post-card" style="--h:1010px;">
+          <iframe data-src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7487185449942147072" frameborder="0" allowfullscreen="" title="LinkedIn post by Khalid Bin Nasban, 6 of 6"></iframe>
+        </div>
       </div>
     </div>
+
+    <div class="posts-actions">
+      <button type="button" class="btn btn-outline" id="posts-toggle" aria-expanded="false" aria-controls="posts-more">
+        Show 3 more posts <span class="btn-arrow">↓</span>
+      </button>
+      <a href="https://www.linkedin.com/in/khalid-nasban/recent-activity/all/" target="_blank" rel="noopener" class="btn btn-primary">
+        All posts on LinkedIn <span class="btn-arrow">→</span>
+      </a>
+    </div>
+    <p class="posts-note">Posts are loaded from LinkedIn. If your browser blocks embedded content, use the button above.</p>
   </section>
 
   <hr class="accent-rule" />
@@ -874,63 +1029,55 @@
       <div class="section-line"></div>
       <span class="section-label">Core Competencies</span>
     </div>
-    <h2 class="section-title reveal">What I <em>Bring</em></h2>
+    <h2 class="section-title reveal">What I Bring to an <em>HR Team</em></h2>
     <div class="competencies-grid reveal reveal-delay-1">
-
-      <div class="comp-card">
-        <div class="comp-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <h4>People & HR Operations</h4>
-        <p>Performance management, training & onboarding design, workforce planning, and HR coordination — helping teams perform, grow, and do their best work.</p>
-      </div>
 
       <div class="comp-card">
         <div class="comp-icon">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
         </div>
-        <h4>Performance & KPIs</h4>
-        <p>Designing custom KPI frameworks, balanced scorecards, and OKR systems (like the 6-KPI model built for a 5-star Riyadh property) to align team output with strategy.</p>
+        <h4>Performance Management</h4>
+        <p>Weighted scorecards, OKRs and balanced KPI frameworks. Designed a 6-KPI model that scored 18 staff every month from data the business already held, replacing reviews written from memory.</p>
       </div>
 
       <div class="comp-card">
         <div class="comp-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
-        <h4>Project Coordination</h4>
-        <p>Certified PMP expertise in end-to-end delivery: scope definition, risk tracking, and cross-functional coordination from pre-opening setups to launch.</p>
-      </div>
-
-      <div class="comp-card">
-        <div class="comp-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        </div>
-        <h4>Reporting & Dashboards</h4>
-        <p>Utilizing Power BI and Advanced Excel to automate executive reporting, saving daily manual hours and surfacing the right data at the right time.</p>
+        <h4>Workforce Planning & Scheduling</h4>
+        <p>Rosters, coverage and attendance for a department that never closes. Partnered with HR on manpower plans, headcount forecasting and shift fairness across a 24/7 operation.</p>
       </div>
 
       <div class="comp-card">
         <div class="comp-icon">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
-        <h4>Team Leadership & Onboarding</h4>
-        <p>Extensive experience leading and developing frontline teams (15–18 members): scheduling, onboarding, coaching, and conflict resolution.</p>
+        <h4>Onboarding, Training & L&D</h4>
+        <p>Built a department from zero before a hotel opening: SOPs written from scratch, structured onboarding paths, and training plans developed with HR then run with every new hire.</p>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <h4>HR Analytics & Reporting</h4>
+        <p>Power BI and advanced Excel. Automated executive reporting, and built dashboards covering attrition, training hours, Saudization and Nitaqat bands so the answer is ready before the question.</p>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg>
+        </div>
+        <h4>Employee Relations & Coaching</h4>
+        <p>Daily coaching, conflict resolution and difficult conversations across an 18-member team. Fair process first, documented every time, so a decision holds up when someone challenges it.</p>
       </div>
 
       <div class="comp-card">
         <div class="comp-icon">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20M5 20V8l7-5 7 5v12"/><path d="M9 20v-5h6v5"/></svg>
         </div>
-        <h4>Process Improvement</h4>
-        <p>Analyzing operational data to identify bottlenecks, write standard operating procedures (SOPs) from scratch, and scale operational capacity.</p>
-      </div>
-
-      <div class="comp-card">
-        <div class="comp-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-        </div>
-        <h4>Business Analysis</h4>
-        <p>ECBA Certified. Applying analytical frameworks to diagnose business problems, manage budgets, and recommend data-backed decisions.</p>
+        <h4>HR Projects & Process Design</h4>
+        <p>PMP and ECBA certified. Scope, risk and stakeholder management for people projects, plus the SOP and process work that turns a new HR policy into something a team actually follows.</p>
       </div>
 
     </div>
@@ -951,38 +1098,39 @@
         </h2>
         <div class="reveal reveal-delay-1">
           <p>
-            An MBA graduate (Second Degree Honours) focused on people, performance, and operations. I bring the analytical rigor of executive strategy and a genuine instinct for developing teams to every organization I join.
+            An MBA graduate (Second Class Honours) focused on people, performance and operations. My move into HR is not a change of subject: leading and developing an 18-member team for four years is where the interest started, and building the systems behind it is how I proved it.
           </p>
           <p>
             I scope clearly, track relentlessly, and close projects on target.
           </p>
-          
+
           <ul class="cert-list">
-            <li><strong>PMP</strong> — Project Management Professional (PMI)</li>
-            <li><strong>ECBA</strong> — Entry Certificate in Business Analysis (IIBA)</li>
-            <li><strong>Generative AI for Project Managers</strong> — IBM</li>
-            <li><strong>OKR Certification</strong> — Leadership & Goal Setting</li>
-            <li><strong>HR for People Managers</strong> — University of Minnesota</li>
+            <li><strong>PMP</strong> · Project Management Professional (PMI)</li>
+            <li><strong>ECBA</strong> · Entry Certificate in Business Analysis (IIBA)</li>
+            <li><strong>Generative AI for Project Managers</strong> · IBM</li>
+            <li><strong>OKR Certification</strong> · Leadership & Goal Setting</li>
+            <li><strong>HR for People Managers</strong> · University of Minnesota</li>
+            <li><strong>Emerging Leaders Program</strong> · Accor Academy</li>
           </ul>
         </div>
       </div>
 
       <div class="stats-grid reveal reveal-delay-2">
         <div class="stat-item">
+          <div class="stat-value">MBA</div>
+          <div class="stat-label">Second Class Honours, SEU</div>
+        </div>
+        <div class="stat-item">
           <div class="stat-value">PMP®</div>
           <div class="stat-label">Project Management Professional</div>
         </div>
         <div class="stat-item">
-          <div class="stat-value">MBA</div>
-          <div class="stat-label">Second Degree Honours, SEU</div>
+          <div class="stat-value">ECBA</div>
+          <div class="stat-label">Certified Business Analyst (IIBA)</div>
         </div>
         <div class="stat-item">
           <div class="stat-value">7+</div>
           <div class="stat-label">Years of Direct Operations Experience</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-value">ECBA</div>
-          <div class="stat-label">Certified Business Analyst (IIBA)</div>
         </div>
       </div>
     </div>
@@ -1038,16 +1186,40 @@
   <script>
     const revealEls = document.querySelectorAll('.reveal');
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
 
-    revealEls.forEach(el => observer.observe(el));
+      revealEls.forEach(el => observer.observe(el));
+    } else {
+      revealEls.forEach(el => el.classList.add('visible'));
+    }
+  </script>
+
+  <script>
+    const postsToggle = document.getElementById('posts-toggle');
+    const postsMore = document.getElementById('posts-more');
+
+    postsToggle.addEventListener('click', () => {
+      const isOpen = postsMore.classList.toggle('open');
+      postsToggle.setAttribute('aria-expanded', String(isOpen));
+
+      if (isOpen) {
+        postsMore.querySelectorAll('iframe[data-src]').forEach(f => {
+          f.src = f.dataset.src;
+          f.removeAttribute('data-src');
+        });
+        postsToggle.innerHTML = 'Show fewer posts <span class="btn-arrow">↑</span>';
+      } else {
+        postsToggle.innerHTML = 'Show 3 more posts <span class="btn-arrow">↓</span>';
+      }
+    });
   </script>
 
 </body>
