@@ -495,9 +495,14 @@
     }
 
     /* ── LinkedIn Posts ── */
+    .insights-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
     .posts-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
       gap: 1.5rem;
       align-items: start;
     }
@@ -801,7 +806,7 @@
       .nav-links { gap: 1.5rem; }
       .nav-links a { font-size: 0.72rem; letter-spacing: 0.1em; }
       .hero { padding: 8rem 5vw 5rem; }
-      .projects-grid, .competencies-grid { grid-template-columns: 1fr; }
+      .projects-grid, .competencies-grid, .posts-grid { grid-template-columns: 1fr; }
       .about-inner { grid-template-columns: 1fr; gap: 3rem; }
       .footer-top { flex-direction: column; gap: 2rem; }
       .footer-bottom { flex-direction: column; text-align: center; }
@@ -977,7 +982,8 @@
   <hr class="accent-rule" />
 
   <!-- ── LinkedIn Insights ── -->
-  <section class="insights" id="insights" style="max-width:1080px;margin:0 auto;padding:3.2rem 6vw;">
+  <section class="insights" id="insights" style="padding:3.2rem 6vw;">
+   <div class="insights-inner">
     <div class="section-header reveal">
       <div class="section-line"></div>
       <span class="section-label">Building in Public</span>
@@ -1019,6 +1025,7 @@
       </a>
     </div>
     <p class="posts-note">Posts are loaded from LinkedIn. If your browser blocks embedded content, use the button above.</p>
+   </div>
   </section>
 
   <hr class="accent-rule" />
